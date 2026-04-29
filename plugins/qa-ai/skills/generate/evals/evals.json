@@ -1,0 +1,59 @@
+{
+  "skill_name": "generate",
+  "evals": [
+    {
+      "id": 0,
+      "name": "generate-footer-test",
+      "prompt": "write playwright tests from the test plan",
+      "expected_output": "Generates tests/check-all-rights-reserve-in-the-homepage-footer.spec.ts for the footer test case. Skips check-logo-in-homepage.spec.ts because it already exists. Uses playwright-cli to explore the site. Spec uses semantic locators and toHaveText for the copyright text.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "footer-spec-file-generated",
+          "description": "A file named check-all-rights-reserve-in-the-homepage-footer.spec.ts was created in tests/"
+        },
+        {
+          "name": "correct-playwright-imports",
+          "description": "Generated file contains: import { test, expect } from '@playwright/test';"
+        },
+        {
+          "name": "has-test-case-tbd-comment",
+          "description": "Generated file contains a comment starting with // Test Case TBD"
+        },
+        {
+          "name": "navigates-to-correct-url",
+          "description": "Generated file contains page.goto with https://casacolinacare-com.vercel.app"
+        },
+        {
+          "name": "checks-copyright-text",
+          "description": "Generated file uses toHaveText or toBeVisible to assert the copyright text 'Casa Colina Care LLC. All rights reserved.'"
+        },
+        {
+          "name": "uses-semantic-locators",
+          "description": "Generated file uses getByRole, getByText, or similar semantic locators — not raw CSS selectors or XPath"
+        },
+        {
+          "name": "logo-test-skipped",
+          "description": "Skill output indicates check-logo-in-homepage was skipped because file already exists"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "idempotency-check",
+      "prompt": "write playwright tests from the test plan",
+      "expected_output": "Both test cases are skipped because their spec files already exist. No new files created. Skill reports that all tests were already generated.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "no-new-files-created",
+          "description": "No new spec files were written to tests/"
+        },
+        {
+          "name": "both-reported-as-skipped",
+          "description": "Output indicates both check-logo-in-homepage and check-all-rights-reserve-in-the-homepage-footer were skipped"
+        }
+      ]
+    }
+  ]
+}

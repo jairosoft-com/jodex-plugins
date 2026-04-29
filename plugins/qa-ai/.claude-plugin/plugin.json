@@ -1,0 +1,6 @@
+{
+  "name": "qa-ai",
+  "version": "1.0.0",
+  "description": "QA testing pipeline: extract E2E test cases from BRDs, generate Playwright specs, automate browser interactions.",
+  "author": { "name": "Jairosoft", "email": "ramon@jairosoft.com" }
+}
