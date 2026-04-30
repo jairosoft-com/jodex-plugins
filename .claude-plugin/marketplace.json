@@ -1,0 +1,20 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "jairosoft-com-jodex-qa-ai",
+  "description": "Jairosoft QA AI plugins marketplace",
+  "owner": {
+    "name": "Jairosoft",
+    "email": "ramon@jairosoft.com"
+  },
+  "plugins": [
+    {
+      "name": "qa-ai",
+      "description": "QA testing pipeline: extract E2E test cases from BRDs, generate Playwright specs, automate browser interactions.",
+      "author": {
+        "name": "Jairosoft"
+      },
+      "category": "productivity",
+      "source": "./plugins/qa-ai"
+    }
+  ]
+}
