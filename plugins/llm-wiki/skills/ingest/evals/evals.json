@@ -1,0 +1,23 @@
+[
+  {
+    "name": "ingest-markdown-source",
+    "description": "Ingest a markdown source and verify wiki pages created correctly",
+    "input": "Ingest the file wiki/raw/sources/sample-article.md into the wiki",
+    "assertions": [
+      { "type": "file_exists", "path": "wiki/sources/Source - Sample Article.md" },
+      { "type": "file_contains", "path": "wiki/sources/Source - Sample Article.md", "contains": "type: source" },
+      { "type": "file_contains", "path": "wiki/sources/Source - Sample Article.md", "contains": "raw_path:" },
+      { "type": "file_contains", "path": "wiki/_index.md", "contains": "[[Source - Sample Article]]" },
+      { "type": "file_contains", "path": "wiki/_log.md", "contains": "SHA-256:" },
+      { "type": "file_contains", "path": "wiki/_log.md", "contains": "Operation**: ingest" }
+    ]
+  },
+  {
+    "name": "ingest-duplicate-detection",
+    "description": "Re-ingesting the same source should trigger duplicate warning",
+    "input": "Ingest the file wiki/raw/sources/sample-article.md into the wiki again",
+    "assertions": [
+      { "type": "output_contains", "contains": "previously ingested" }
+    ]
+  }
+]

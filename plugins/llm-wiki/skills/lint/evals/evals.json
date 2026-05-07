@@ -1,0 +1,21 @@
+[
+  {
+    "name": "lint-detects-orphans",
+    "description": "Lint correctly identifies orphan pages with zero inbound links",
+    "input": "Lint the wiki at wiki/",
+    "assertions": [
+      { "type": "output_contains", "contains": "Lint Report" },
+      { "type": "output_contains", "contains": "Health score:" },
+      { "type": "file_contains", "path": "wiki/_log.md", "contains": "Operation**: lint" }
+    ]
+  },
+  {
+    "name": "lint-detects-broken-links",
+    "description": "Lint reports broken wikilinks pointing to non-existent pages",
+    "input": "Lint the wiki at wiki/",
+    "assertions": [
+      { "type": "output_contains", "contains": "Errors" },
+      { "type": "output_contains", "contains": "Summary" }
+    ]
+  }
+]
