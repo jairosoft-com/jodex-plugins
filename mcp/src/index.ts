@@ -1,4 +1,4 @@
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { McpServer, ResourceTemplate } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 import * as ExcelJS from "exceljs";
@@ -85,6 +85,84 @@ Arguments Provided:
       }
     }]
   })
+);
+
+// =============================================================================
+// Resources
+// =============================================================================
+
+// ---------------------------------------------------------------------------
+// Resource: generate skill evals (static)
+// ---------------------------------------------------------------------------
+server.resource(
+  "generate-evals",
+  "qa-ai://skills/generate/evals",
+  { description: "Evaluation definitions & assertions for the generate skill", mimeType: "application/json" },
+  async (uri) => {
+    const evalsPath = path.resolve(__dirname, "../../plugins/qa-ai/skills/generate/evals/evals.json");
+    const content = fs.readFileSync(evalsPath, "utf-8");
+    return {
+      contents: [{
+        uri: uri.href,
+        mimeType: "application/json",
+        text: content
+      }]
+    };
+  }
+);
+
+// ---------------------------------------------------------------------------
+// Resource Template: playwright-cli reference docs
+// ---------------------------------------------------------------------------
+const REFERENCE_NAMES = [
+  "element-attributes",
+  "playwright-tests",
+  "request-mocking",
+  "running-code",
+  "session-management",
+  "storage-state",
+  "test-generation",
+  "tracing",
+  "video-recording"
+];
+
+server.resource(
+  "playwright-reference",
+  new ResourceTemplate("qa-ai://skills/playwright-cli/references/{name}", {
+    list: async () => ({
+      resources: REFERENCE_NAMES.map(name => ({
+        uri: `qa-ai://skills/playwright-cli/references/${name}`,
+        name: `playwright-reference-${name}`,
+        description: `Reference: ${name.replace(/-/g, " ")}`,
+        mimeType: "text/markdown" as const
+      }))
+    })
+  }),
+  { description: "Playwright-cli reference documentation by topic", mimeType: "text/markdown" },
+  async (uri, variables) => {
+    const name = variables.name as string;
+    // Security: validate name is in allowlist (prevents path traversal)
+    if (!REFERENCE_NAMES.includes(name)) {
+      throw new Error(`Unknown reference: ${name}. Available: ${REFERENCE_NAMES.join(", ")}`);
+    }
+    const refPath = path.resolve(__dirname, `../../plugins/qa-ai/skills/playwright-cli/references/${name}.md`);
+    // Double-check resolved path stays within references directory
+    const refsDir = path.resolve(__dirname, "../../plugins/qa-ai/skills/playwright-cli/references");
+    if (!refPath.startsWith(refsDir)) {
+      throw new Error("Invalid reference path");
+    }
+    if (!fs.existsSync(refPath)) {
+      throw new Error(`Reference file not found: ${name}.md`);
+    }
+    const content = fs.readFileSync(refPath, "utf-8");
+    return {
+      contents: [{
+        uri: uri.href,
+        mimeType: "text/markdown",
+        text: content
+      }]
+    };
+  }
 );
 
 // =============================================================================

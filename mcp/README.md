@@ -15,6 +15,17 @@ Prompts inject detailed skill instructions into Claude's context when selected.
 | `qa_generate` | Read an xlsx test plan and generate Playwright TypeScript spec files | `test_plan_path` |
 | `qa_browser` | Open a browser for manual exploration and debugging with playwright-cli | `subcommand` |
 
+### Resources (2)
+
+Resources provide read-only reference data that can be fetched on-demand.
+
+| Resource | URI | Description |
+|:---------|:----|:------------|
+| `generate-evals` | `qa-ai://skills/generate/evals` | Evaluation definitions & assertions for the generate skill |
+| `playwright-reference` | `qa-ai://skills/playwright-cli/references/{name}` | Playwright-cli reference documentation by topic (9 docs) |
+
+**Available reference names:** `element-attributes`, `playwright-tests`, `request-mocking`, `running-code`, `session-management`, `storage-state`, `test-generation`, `tracing`, `video-recording`
+
 ### Tools (5)
 
 Tools are executable functions that Claude can call during a conversation.
@@ -42,6 +53,8 @@ Tools are executable functions that Claude can call during a conversation.
 | `xlsx-writer.py verify` | `verify_excel_test_plan` tool |
 | `xlsx-writer.py read` | `read_excel_test_plan` tool |
 | `Bash(playwright-cli:*)` | `run_playwright_command` tool |
+| `generate/evals/evals.json` | `generate-evals` resource |
+| `playwright-cli/references/*.md` | `playwright-reference` resource template |
 
 ## Setup
 
@@ -115,6 +128,7 @@ Config file location: `%APPDATA%\Claude\claude_desktop_config.json`
 After restarting Claude Desktop:
 - The **🔨 hammer icon** should show 5 tools
 - The **📎 attachment icon** (or `/` key) should show 3 prompts: `qa_extract`, `qa_generate`, `qa_browser`
+- Resources (evals + 9 reference docs) are available on-demand via resource URIs
 
 ## Project Structure
 
@@ -123,17 +137,26 @@ mcp/
 ├── package.json              # Project config with build/start scripts
 ├── tsconfig.json             # TypeScript configuration (Node16)
 ├── src/
-│   ├── index.ts              # Server entry point — registers all prompts & tools
+│   ├── index.ts              # Server entry — prompts, resources & tools
 │   └── prompts/
 │       ├── extract.ts        # Full extract skill (BRD → Excel)
 │       ├── generate.ts       # Full generate skill (Excel → Playwright specs)
 │       └── browser.ts        # Full playwright-cli reference manual
 └── build/                    # Compiled JavaScript output (generated)
-    ├── index.js
-    └── prompts/
-        ├── extract.js
-        ├── generate.js
-        └── browser.js
+
+plugins/qa-ai/skills/         # Source data served by MCP resources
+├── generate/evals/
+│   └── evals.json            # Eval definitions (served as resource)
+└── playwright-cli/references/
+    ├── element-attributes.md # ┐
+    ├── playwright-tests.md   # │
+    ├── request-mocking.md    # │
+    ├── running-code.md       # │ 9 reference docs
+    ├── session-management.md # │ (served via resource template)
+    ├── storage-state.md      # │
+    ├── test-generation.md    # │
+    ├── tracing.md            # │
+    └── video-recording.md    # ┘
 ```
 
 ## Security
@@ -143,3 +166,4 @@ This MCP server follows the same **least-privilege security model** as the CLI p
 - **`run_playwright_command`** only allows `playwright-cli` and `npx playwright` — all other commands are rejected
 - **Excel tools** operate on `.xlsx` files only — no arbitrary file system access
 - **`fork_excel_test_plan`** never modifies the original file — always creates a copy
+- **Resource template** validates reference names against an allowlist and checks resolved paths to prevent directory traversal

@@ -121,4 +121,15 @@ test('logo renders in homepage header', async ({ page }) => {
   await expect(logo).toBeVisible();
 });
 \`\`\`
+
+## Evaluation Criteria
+
+After generating specs, evaluate quality against the eval definitions:
+→ resource: qa-ai://skills/generate/evals
+
+The evals JSON contains named assertions (e.g., "footer-spec-file-generated", "correct-playwright-imports", "uses-semantic-locators") that define the expected quality bar for generated test files. Use them as a self-check before reporting completion:
+
+1. Read the evals resource
+2. For each applicable eval, verify the generated output satisfies every assertion
+3. Report which assertions pass/fail in your completion summary
 `;

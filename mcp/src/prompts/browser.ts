@@ -373,4 +373,18 @@ Ask the user to annotate the UI. User can provide contextual tasks or ask contex
 playwright-cli open https://example.com
 playwright-cli show --annotate
 \`\`\`
+
+## Specific Tasks
+
+For detailed guidance on advanced topics, consult these reference resources:
+
+* **Running and Debugging Playwright tests** → resource: qa-ai://skills/playwright-cli/references/playwright-tests
+* **Request mocking** → resource: qa-ai://skills/playwright-cli/references/request-mocking
+* **Running Playwright code** → resource: qa-ai://skills/playwright-cli/references/running-code
+* **Browser session management** → resource: qa-ai://skills/playwright-cli/references/session-management
+* **Storage state (cookies, localStorage)** → resource: qa-ai://skills/playwright-cli/references/storage-state
+* **Test generation** → resource: qa-ai://skills/playwright-cli/references/test-generation
+* **Tracing** → resource: qa-ai://skills/playwright-cli/references/tracing
+* **Video recording** → resource: qa-ai://skills/playwright-cli/references/video-recording
+* **Inspecting element attributes** → resource: qa-ai://skills/playwright-cli/references/element-attributes
 `;
