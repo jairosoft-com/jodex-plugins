@@ -4,7 +4,7 @@ type: entity
 tags: [tool, testing, browser]
 created: 2026-05-07
 updated: 2026-05-07
-source_count: 3
+source_count: 12
 aliases: [playwright, playwright-cli]
 provenance: source-derived
 ---
@@ -27,6 +27,10 @@ Browser automation framework by Microsoft. Used by the [[QA AI]] plugin for E2E 
 ## Key Concepts
 
 - [[Semantic Locator]] — stable element locators discovered via live browser
+- [[Test Code Generation]] — every CLI action generates TypeScript code
+- [[Request Mocking]] — intercept, mock, modify network requests
+- [[Tracing]] — execution traces with DOM snapshots, network, screenshots
+- [[Storage State]] — save/restore cookies, localStorage for auth reuse
 - [[Browser Automation]] — broader topic area
 - [[Idempotent Operation]] — generate skill skips existing specs
 
@@ -34,3 +38,12 @@ Browser automation framework by Microsoft. Used by the [[QA AI]] plugin for E2E 
 - [[Source - QA AI README]]
 - [[Source - Generate SKILL]]
 - [[Source - Playwright CLI SKILL]]
+- [[Source - Element Attributes Reference]]
+- [[Source - Playwright Tests Reference]]
+- [[Source - Request Mocking Reference]]
+- [[Source - Running Code Reference]]
+- [[Source - Session Management Reference]]
+- [[Source - Storage State Reference]]
+- [[Source - Test Generation Reference]]
+- [[Source - Tracing Reference]]
+- [[Source - Video Recording Reference]]

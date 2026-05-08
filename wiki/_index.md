@@ -1,16 +1,16 @@
 ---
 title: Wiki Index
 updated: 2026-05-07
-page_count: 57
+page_count: 70
 ---
 
 # Wiki Index
 
 ## Ideas
 
-- [[Dataview Queries]] — Obsidian plugin for frontmatter queries (#tooling, #obsidian)
-- [[Marp Integration]] — Markdown slide decks from wiki content (#tooling, #presentation)
-- [[Wiki Search Tools]] — qmd and CLI tools for wiki search at scale (#tooling, #search)
+- [[Dataview Queries]] — Obsidian plugin for frontmatter queries (#tooling, #obsidian) [backlogged P3]
+- [[Marp Integration]] — Markdown slide decks from wiki content (#tooling, #presentation) [backlogged P3]
+- [[Wiki Search Tools]] — qmd and CLI tools for wiki search at scale (#tooling, #search) [backlogged P3]
 
 ## Concepts
 
@@ -35,12 +35,16 @@ page_count: 57
 - [[Plugin Architecture]] — .claude-plugin format for Claude Code CLI (#architecture, #plugin)
 - [[Query]] — Search wiki and synthesize answers with citations (#operation, #retrieval)
 - [[Raw Sources]] — Immutable source document layer (#architecture, #provenance)
+- [[Request Mocking]] — Network interception/mocking for testing (#testing, #network)
 - [[Schema]] — Wiki configuration document _schema.md (#architecture, #configuration)
 - [[Semantic Locator]] — Stable element locators via live browser discovery (#testing, #locator)
 - [[SHA-256 Fingerprinting]] — Content-based dedup via hash (#security, #dedup)
 - [[Skill]] — Multi-phase instructional module powering slash commands (#plugin, #implementation)
 - [[Slash Command]] — User-facing command wrapper /plugin:command (#plugin, #user-facing)
+- [[Storage State]] — Browser state persistence for auth reuse (#testing, #persistence)
 - [[Taxonomy Routing]] — Classification rules for routing knowledge to buckets (#classification, #wiki)
+- [[Test Code Generation]] — Auto-generating TypeScript from CLI interactions (#testing, #codegen)
+- [[Tracing]] — Execution trace capture for debugging (#debugging, #observability)
 - [[Triage]] — Classify raw ideas: promote, backlog, or archive (#operation, #classification)
 - [[User Confirmation Gate]] — Security pattern: no writes before explicit approval (#security, #ux)
 
@@ -83,17 +87,26 @@ _No decisions yet._
 
 ## Sources
 
-- [[Source - Claude CLI vs Desktop MCP Guide]] — CLI vs Desktop architecture comparison (#architecture, #migration)
-- [[Source - Claude Desktop WSL Integration]] — WSL integration guide for Desktop on Windows 11 (#wsl, #integration)
-- [[Source - Extract SKILL]] — 6-phase extract skill: BRD → xlsx test plan (#skill, #extract)
-- [[Source - Generate SKILL]] — Generate skill: xlsx → Playwright specs via live browser (#skill, #generate)
-- [[Source - Init SKILL]] — 7-phase init skill for wiki initialization (#skill, #init)
-- [[Source - Ingest SKILL]] — 9-phase ingest skill, core operation (#skill, #ingest)
-- [[Source - Lint SKILL]] — 6-phase lint skill for wiki health-checking (#skill, #lint)
-- [[Source - LLM Wiki]] — LLM Wiki pattern document by Karpathy (#pattern, #architecture)
-- [[Source - LLM Wiki README]] — LLM Wiki plugin README with pipeline, security, commands (#plugin, #documentation)
-- [[Source - Marketplace Config]] — marketplace.json manifest for plugin distribution (#config, #marketplace)
-- [[Source - Playwright CLI SKILL]] — Internal browser automation skill (387 lines) (#skill, #browser)
-- [[Source - QA AI README]] — QA AI plugin README with BRD pipeline and security (#plugin, #documentation)
-- [[Source - Query SKILL]] — 5-phase query skill with link graph traversal (#skill, #query)
-- [[Source - Triage SKILL]] — 6-phase triage skill for idea classification (#skill, #triage)
+- [[Source - Claude CLI vs Desktop MCP Guide]] — CLI vs Desktop architecture comparison (#architecture)
+- [[Source - Claude Desktop WSL Integration]] — WSL integration guide (#wsl)
+- [[Source - Element Attributes Reference]] — DOM attribute inspection via eval (#playwright)
+- [[Source - Extract SKILL]] — BRD → xlsx test plan (#skill)
+- [[Source - Generate SKILL]] — xlsx → Playwright specs via live browser (#skill)
+- [[Source - Init SKILL]] — Wiki initialization (#skill)
+- [[Source - Ingest SKILL]] — Core ingest operation (#skill)
+- [[Source - Lint SKILL]] — Wiki health-checking (#skill)
+- [[Source - LLM Wiki]] — LLM Wiki pattern by Karpathy (#pattern)
+- [[Source - LLM Wiki README]] — LLM Wiki plugin docs (#plugin)
+- [[Source - Marketplace Config]] — marketplace.json manifest (#config)
+- [[Source - Playwright CLI SKILL]] — Browser automation skill (#skill)
+- [[Source - Playwright Tests Reference]] — Running/debugging tests (#playwright)
+- [[Source - QA AI README]] — QA AI plugin docs (#plugin)
+- [[Source - Query SKILL]] — Wiki query with citations (#skill)
+- [[Source - Request Mocking Reference]] — Network interception/mocking (#playwright)
+- [[Source - Running Code Reference]] — run-code for arbitrary Playwright (#playwright)
+- [[Source - Session Management Reference]] — Named browser sessions (#playwright)
+- [[Source - Storage State Reference]] — Cookies, localStorage management (#playwright)
+- [[Source - Test Generation Reference]] — Auto-generating test code (#playwright)
+- [[Source - Tracing Reference]] — Execution trace capture (#playwright)
+- [[Source - Triage SKILL]] — Idea classification (#skill)
+- [[Source - Video Recording Reference]] — WebM capture with overlays (#playwright)

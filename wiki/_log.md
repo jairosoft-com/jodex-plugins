@@ -183,3 +183,20 @@ title: Wiki Log
 - **Auto-fixes applied**: 3 (added inbound links to fix all orphans)
 - **Health score**: 85/100
 - **Outcome**: Report generated, orphans fixed
+
+## 2026-05-07 — Ingest (batch)
+
+- **Operation**: ingest (9 Playwright reference docs)
+- **Sources**:
+  - plugins/qa-ai/skills/playwright-cli/references/element-attributes.md (bf19aa46)
+  - plugins/qa-ai/skills/playwright-cli/references/playwright-tests.md (d770e9eb)
+  - plugins/qa-ai/skills/playwright-cli/references/request-mocking.md (54e801c9)
+  - plugins/qa-ai/skills/playwright-cli/references/running-code.md (d95c539a)
+  - plugins/qa-ai/skills/playwright-cli/references/session-management.md (cd3e261b)
+  - plugins/qa-ai/skills/playwright-cli/references/storage-state.md (1122778c)
+  - plugins/qa-ai/skills/playwright-cli/references/test-generation.md (2a9c4d94)
+  - plugins/qa-ai/skills/playwright-cli/references/tracing.md (792e0ac7)
+  - plugins/qa-ai/skills/playwright-cli/references/video-recording.md (0cea7708)
+- **Pages created**: Request Mocking, Tracing, Storage State, Test Code Generation, 9 source summaries
+- **Pages updated**: Playwright, Browser Automation
+- **Outcome**: Success
