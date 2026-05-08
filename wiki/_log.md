@@ -23,3 +23,16 @@ title: Wiki Log
 - **Conflicts flagged**: 0
 - **Cross-references added**: 28
 - **Outcome**: Success
+
+## 2026-05-07 — Ingest
+
+- **Operation**: ingest
+- **Source**: ai_docs/claude_cli_vs_desktop_mcp_guide.md
+- **Snapshot**: wiki/raw/sources/7b7bcbf6-claude_cli_vs_desktop_mcp_guide.md
+- **SHA-256**: 7b7bcbf6519313d03262c507eb83bfed1b88733cc5a9243bf26db89edb9d2b63
+- **Pages created**: Claude Code CLI, Claude Desktop, MCP Server, MCP Tool, Plugin Architecture, Skill, Slash Command, Hook, Anthropic, Source - Claude CLI vs Desktop MCP Guide
+- **Pages updated**: (none)
+- **Ideas extracted**: 0
+- **Conflicts flagged**: 0
+- **Cross-references added**: 34
+- **Outcome**: Success
