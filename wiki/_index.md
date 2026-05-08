@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-07
-page_count: 33
+page_count: 39
 ---
 
 # Wiki Index
@@ -19,6 +19,7 @@ page_count: 33
 - [[Ingest]] — Core operation: absorb source documents into wiki pages (#operation, #wiki)
 - [[Lint]] — Periodic health-check operation for wiki (#operation, #maintenance)
 - [[Log]] — Append-only chronological record of wiki operations (#architecture, #audit)
+- [[Marketplace]] — Plugin distribution mechanism for Claude Code CLI (#distribution, #plugin)
 - [[MCP Server]] — Model Context Protocol server for Claude Desktop extensibility (#protocol, #mcp)
 - [[MCP Tool]] — Individual capability exposed by MCP Server (#protocol, #tool)
 - [[Path Confinement]] — Security pattern: path safety contract with relative_to() (#security, #validation)
@@ -36,15 +37,18 @@ page_count: 33
 
 - [[Anthropic]] — AI safety company behind Claude (#company, #ai)
 - [[Obsidian]] — Markdown knowledge management app, wiki viewer/IDE (#tool, #editor)
+- [[Playwright]] — Browser automation framework by Microsoft (#tool, #testing)
 - [[Vannevar Bush]] — Memex originator (1945), personal knowledge store vision (#person, #history)
 
 ## Topics
 
 - [[Knowledge Management]] — Capturing, organizing, maintaining, and retrieving knowledge (#knowledge-base, #wiki)
+- [[QA Test Automation]] — Automated test generation from requirements documents (#testing, #qa)
 
 ## Plugins
 
 - [[LLM Wiki]] — LLM-maintained knowledge base plugin for Claude Code (#knowledge-base, #wiki)
+- [[QA AI]] — QA testing pipeline: BRD → xlsx → Playwright specs (#testing, #playwright)
 
 ## Platforms
 
@@ -63,6 +67,7 @@ _No decisions yet._
 ## Code
 
 - [[wiki-tools.py]] — Pinned helper script for LLM Wiki plugin (#script, #python)
+- [[xlsx-writer.py]] — Pinned helper script for QA AI plugin (#script, #python)
 
 ## Sources
 
@@ -70,3 +75,4 @@ _No decisions yet._
 - [[Source - Claude Desktop WSL Integration]] — WSL integration guide for Desktop on Windows 11 (#wsl, #integration)
 - [[Source - LLM Wiki]] — LLM Wiki pattern document by Karpathy (#pattern, #architecture)
 - [[Source - LLM Wiki README]] — LLM Wiki plugin README with pipeline, security, commands (#plugin, #documentation)
+- [[Source - QA AI README]] — QA AI plugin README with BRD pipeline and security (#plugin, #documentation)

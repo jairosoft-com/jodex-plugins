@@ -1,0 +1,35 @@
+---
+title: Marketplace
+type: concept
+tags: [distribution, plugin, registry]
+created: 2026-05-07
+updated: 2026-05-07
+source_count: 1
+aliases: [plugin marketplace]
+provenance: source-derived
+---
+
+# Marketplace
+
+The distribution mechanism for [[Claude Code CLI]] plugins. A marketplace is a GitHub repository containing a `marketplace.json` manifest that references one or more plugins.
+
+## Installation
+
+```bash
+claude /plugin marketplace add <github-repo>
+claude /plugin install <plugin-name>@<marketplace-name>
+```
+
+## Uninstall
+
+```bash
+/plugin uninstall <plugin>@<marketplace>
+/plugin marketplace remove <marketplace>
+```
+
+## Contrast with [[Claude Desktop]]
+
+Desktop has a closed, curated Connectors directory managed by [[Anthropic]]. No open public registry for independent developers.
+
+## Sources
+- [[Source - QA AI README]]

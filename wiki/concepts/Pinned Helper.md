@@ -4,7 +4,7 @@ type: concept
 tags: [security, pattern, execution]
 created: 2026-05-07
 updated: 2026-05-07
-source_count: 1
+source_count: 2
 aliases: [pinned executable, pinned script]
 provenance: source-derived
 ---
@@ -29,3 +29,4 @@ This means the LLM can only run that one script with any arguments — it cannot
 
 ## Sources
 - [[Source - LLM Wiki README]]
+- [[Source - QA AI README]]
