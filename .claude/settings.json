@@ -1,7 +1,6 @@
 {
   "enabledPlugins": {
-    "qa-ai@jairosoft-com-jodex-qa-ai": true,
-    "llm-wiki@jairosoft-com-jodex-qa-ai": true
-  },
-  "plansDirectory": "/Users/jairo/Projects/jodex-qa-ai/.agent/plans"
+    "llm-wiki@jodex-plugins": true,
+    "qa-ai@jodex-plugins": true
+  }
 }

@@ -35,5 +35,6 @@ Insights from discussion are ephemeral unless filed. The [[Filing Workflow]] con
 ## Related
 
 - [[Filing Workflow]] — how to persist insights
+- [[Memory vs Wiki Separation]] — when to use memory vs wiki
 - [[Knowledge Management]] — broader discipline of capturing and organizing knowledge
 - [[Log]] — chronological record of wiki operations

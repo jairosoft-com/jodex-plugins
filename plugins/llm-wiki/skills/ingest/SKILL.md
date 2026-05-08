@@ -29,6 +29,8 @@ Read a source, extract knowledge across all taxonomy types, create/update wiki p
 1. Check wiki exists — look for `_schema.md` at `wiki_path`. If not found: "Wiki not found. Run `/llm-wiki:init` first."
 2. Read `_schema.md` to load wiki configuration and taxonomy rules.
 3. Locate source file. Must be within project root (per path safety contract).
+   - If no `source_path` provided: check `_watchlist.md` for pending files and present them as candidates. The watchlist is **additive only** — the user can always specify any file path, including files not on the watchlist.
+   - If user specifies a path, use it directly regardless of watchlist status.
 4. Run `wiki-tools.py fingerprint <source_path>` to get SHA-256 hash + size.
 5. Read `_log.md` and search for matching SHA-256 hash in prior ingest entries.
    - If match found: warn user. "This source was previously ingested on `<date>`. Re-ingest (updates existing pages) or skip?"
@@ -193,6 +195,13 @@ Read current index. For each new or updated page, ensure it appears in the corre
 - **Cross-references added**: <count>
 - **Outcome**: Success
 ```
+
+## Phase 8b: Update `_watchlist.md` (if exists)
+
+If `_watchlist.md` exists in the wiki directory:
+1. Move the ingested source path from **Pending** to **Already Ingested** section.
+2. If the source path is not on either list (ad-hoc ingest), add it to **Already Ingested**.
+3. This is bookkeeping only — the watchlist never restricts what can be ingested.
 
 ## Phase 9: Report
 

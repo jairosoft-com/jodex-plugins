@@ -30,6 +30,7 @@ Traditional approaches (RAG, ChatGPT file uploads, NotebookLM) retrieve raw chun
 Humans abandon wikis because maintenance burden grows faster than value. LLMs don't get bored, don't forget cross-references, and can touch 15 files in one pass. Maintenance cost drops to near zero.
 
 ## Related Concepts
+- [[Vannevar Bush]] — originator of personal knowledge store vision (Memex, 1945)
 - [[Ingest]] — how knowledge enters the wiki
 - [[Query]] — how knowledge is retrieved
 - [[Triage]] — how knowledge is classified

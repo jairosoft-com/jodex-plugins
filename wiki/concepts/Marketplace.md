@@ -46,6 +46,10 @@ Desktop has a closed, curated Connectors directory managed by [[Anthropic]]. No 
 }
 ```
 
+## Naming Considerations
+
+Renaming a marketplace or plugin cascades through the system. See [[Naming Ripple Effect]].
+
 ## This Repo's Marketplace
 
 - **Name**: jodex-plugins

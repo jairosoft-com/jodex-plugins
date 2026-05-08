@@ -46,3 +46,4 @@ Managed via `notebooklm-py` CLI (`notebooklm` command). Requires Google OAuth au
 - [[Plugin Architecture]] — plugin format documented in these notebooks
 - [[Skill]] — skill authoring covered in Mastering Skill.MD notebook
 - [[Marketplace]] — marketplace architecture in notebook #1
+- [[NotebookLM Research Oracle]] — pattern for querying NotebookLM during wiki work

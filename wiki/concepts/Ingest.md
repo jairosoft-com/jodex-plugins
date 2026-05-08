@@ -3,7 +3,7 @@ title: Ingest
 type: concept
 tags: [operation, wiki, pipeline]
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-08
 source_count: 2
 aliases: [ingestion, ingest operation]
 provenance: source-derived
@@ -29,6 +29,12 @@ Traditional RAG retrieves raw document chunks at query time and generates answer
 - A [[User Confirmation Gate]] pauses before any writes
 - [[Conflict Callout]] blocks added when new info contradicts existing claims
 - Cross-references are added bidirectionally after page creation
+
+## Source Selection
+
+Ingest accepts **any file path** within the project root — not limited to pre-registered locations.
+
+The optional `_watchlist.md` tracks monitored directories and pending files as a convenience (see [[Watchlist Pattern]]). When no source path is provided, ingest checks the watchlist to suggest candidates. The watchlist is additive — it helps surface new/changed files but does not restrict what can be ingested. This is an instance of the [[Ad-hoc vs Manifest-Driven Workflows|hybrid workflow]] approach.
 
 ## Supported Source Types
 

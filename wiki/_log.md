@@ -254,3 +254,66 @@ title: Wiki Log
 - **Pages created**: Request Mocking, Tracing, Storage State, Test Code Generation, 9 source summaries
 - **Pages updated**: Playwright, Browser Automation
 - **Outcome**: Success
+
+## 2026-05-08 — Synthesis Filing
+
+- **Operation**: file insight (query-derived)
+- **Provenance**: synthesis
+- **Pages created**: Local Plugin Development
+- **Pages updated**: Plugin Architecture (added local dev section), Claude Code CLI (added --plugin-dir reference)
+- **Cross-references added**: 6
+- **Outcome**: Success — local plugin development workflow documented from wiki query
+
+## 2026-05-08 — Synthesis Filing
+
+- **Operation**: file insight (user-observed behavior)
+- **Provenance**: synthesis
+- **Pages created**: Claude Code Desktop
+- **Pages updated**: Claude Code CLI (added shared registry section)
+- **Cross-references added**: 8
+- **Outcome**: Success — CLI/Desktop shared plugin registry documented, platform distinction clarified
+
+## 2026-05-08 — Synthesis Filing
+
+- **Operation**: file insight (documentation-derived)
+- **Provenance**: synthesis
+- **Pages created**: (none)
+- **Pages updated**: Plugin Architecture (added Plugin Registry section with file path and JSON schema), Claude Code Desktop (added registry file path)
+- **Cross-references added**: 2
+- **Outcome**: Success — installed_plugins.json registry details documented
+
+## 2026-05-08 — Synthesis Filing
+
+- **Operation**: file correction + new platform (user-corrected)
+- **Provenance**: synthesis
+- **Pages created**: Codex Desktop
+- **Pages updated**: Plugin Architecture (added Compatible Platforms section, expanded registry scope to include Codex Desktop), Claude Code Desktop (added Codex Desktop cross-ref)
+- **Cross-references added**: 8
+- **Outcome**: Success — corrected Plugin Architecture compatibility: works on CLI + Code Desktop + Codex Desktop, only incompatible with Claude Desktop (consumer app)
+
+## 2026-05-08 — Lint
+
+- **Operation**: lint
+- **Errors found**: 3 (duplicate page, missing frontmatter on stub, index page_count drift)
+- **Warnings found**: 5 (orphan pages: Memory vs Wiki Separation, Naming Ripple Effect, NotebookLM Research Oracle, Vannevar Bush, Wiki Query Patterns)
+- **Info found**: 0 (broken wikilinks all cosmetic/example refs)
+- **Auto-fixes applied**: 8 (deleted stub duplicate, added 5 inbound links for orphans, updated page_count 82→85)
+- **Health score**: 92/100
+- **Outcome**: All errors and warnings resolved
+
+## 2026-05-08 — Watchlist Created
+
+- **Operation**: create _watchlist.md
+- **Monitored dirs**: 9 path patterns
+- **Already ingested**: 23 sources
+- **Pending**: 17 files (commands, ABOUT.md stubs, root README)
+- **Outcome**: Success — ingest watchlist established for tracking new/changed content
+
+## 2026-05-08 — Synthesis Filing (batch)
+
+- **Operation**: file insights (conversation-derived, batch)
+- **Provenance**: synthesis
+- **Pages created**: Watchlist Pattern, Three-Surface Plugin Ecosystem, Ad-hoc vs Manifest-Driven Workflows
+- **Pages updated**: Ingest (added cross-refs to new patterns), Plugin Architecture (added ecosystem cross-ref)
+- **Cross-references added**: 14
+- **Outcome**: Success — 3 emergent patterns from session filed as concepts

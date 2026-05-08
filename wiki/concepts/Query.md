@@ -46,6 +46,10 @@ Good answers can be filed back into the wiki as new pages — comparisons, analy
 
 Uses [[Link Graph Traversal]]: keyword match → tag match → one-hop link expansion. Typical queries read 3-8 pages, broad queries up to 15.
 
+## Query Type Patterns
+
+See [[Wiki Query Patterns]] for detailed taxonomy: retrieval, exploratory, generative.
+
 ## Answer Format
 
 Structured markdown with sections: Answer (direct, with citations), Details, Conflicts, Gaps, Pages Consulted.

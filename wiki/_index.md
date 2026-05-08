@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
-updated: 2026-05-07
-page_count: 79
+updated: 2026-05-08
+page_count: 88
 ---
 
 # Wiki Index
@@ -14,6 +14,7 @@ page_count: 79
 
 ## Concepts
 
+- [[Ad-hoc vs Manifest-Driven Workflows]] — Two workflow modes: manual target selection vs manifest-tracked suggestions (#pattern, #workflow)
 - [[Codex Plugin Compatibility]] — Claude Code vs Codex plugin format differences and conversion tools (#plugin, #codex)
 - [[Conflict Callout]] — Pattern for handling contradictions between sources (#wiki, #contradiction)
 - [[Cross-Reference Pass]] — Bidirectional wikilink pass after page creation (#wiki, #linking)
@@ -26,6 +27,7 @@ page_count: 79
 - [[Index]] — Content catalog for wiki navigation via _index.md (#architecture, #wiki)
 - [[Ingest]] — Core operation: absorb source documents into wiki pages (#operation, #wiki)
 - [[Link Graph Traversal]] — Page discovery via wikilink graph during query (#wiki, #navigation)
+- [[Local Plugin Development]] — --plugin-dir workflow for local disk plugin dev (#plugin, #development)
 - [[Lint]] — Periodic health-check operation for wiki (#operation, #maintenance)
 - [[Log]] — Append-only chronological record of wiki operations (#architecture, #audit)
 - [[Marketplace]] — Plugin distribution mechanism for Claude Code CLI (#distribution, #plugin)
@@ -51,10 +53,12 @@ page_count: 79
 - [[Slash Command]] — User-facing command wrapper /plugin:command (#plugin, #user-facing)
 - [[Storage State]] — Browser state persistence for auth reuse (#testing, #persistence)
 - [[Taxonomy Routing]] — Classification rules for routing knowledge to buckets (#classification, #wiki)
+- [[Three-Surface Plugin Ecosystem]] — CLI + Code Desktop + Codex Desktop shared plugin registry (#architecture, #plugin)
 - [[Test Code Generation]] — Auto-generating TypeScript from CLI interactions (#testing, #codegen)
 - [[Tracing]] — Execution trace capture for debugging (#debugging, #observability)
 - [[Triage]] — Classify raw ideas: promote, backlog, or archive (#operation, #classification)
 - [[User Confirmation Gate]] — Security pattern: no writes before explicit approval (#security, #ux)
+- [[Watchlist Pattern]] — Manifest-driven tracking list for scan-based operations (#pattern, #workflow)
 - [[Wiki Query Patterns]] — Query types: retrieval, exploratory, generative (#wiki, #query)
 
 ## Entities
@@ -78,6 +82,8 @@ page_count: 79
 ## Platforms
 
 - [[Claude Code CLI]] — CLI with proprietary plugin architecture (#claude, #cli)
+- [[Claude Code Desktop]] — Desktop app sharing plugin registry with CLI (#claude, #desktop)
+- [[Codex Desktop]] — Codex desktop app sharing plugin registry with CLI (#codex, #desktop)
 - [[Claude Desktop]] — Desktop app with MCP-only extensibility (#claude, #desktop)
 - [[WSL]] — Windows Subsystem for Linux, bridge for CLI-to-Desktop integration (#windows, #linux)
 

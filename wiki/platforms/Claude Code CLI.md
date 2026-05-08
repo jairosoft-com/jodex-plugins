@@ -28,9 +28,15 @@ Plugins installed from GitHub via marketplace command:
 claude /plugin marketplace add <repo>
 ```
 
+For local development without marketplace, use `--plugin-dir`. See [[Local Plugin Development]].
+
+## Shared Registry with [[Claude Code Desktop]]
+
+CLI and [[Claude Code Desktop]] share the same plugin registry. Plugins installed via CLI appear in Desktop automatically.
+
 ## Key Difference from [[Claude Desktop]]
 
-CLI uses the `.claude-plugin` format; Desktop relies exclusively on [[MCP Server]] protocol. These are completely different architectures. Migrating from CLI to Desktop requires converting to an MCP server.
+CLI uses the `.claude-plugin` format; [[Claude Desktop]] (the consumer app) relies exclusively on [[MCP Server]] protocol. These are completely different architectures. Migrating from CLI to Desktop requires converting to an MCP server.
 
 ## Sources
 - [[Source - Claude CLI vs Desktop MCP Guide]]
