@@ -1,6 +1,6 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "jairosoft-com-jodex-qa-ai",
+  "name": "jodex-plugins",
   "description": "Jairosoft QA AI plugins marketplace",
   "owner": {
     "name": "Jairosoft",

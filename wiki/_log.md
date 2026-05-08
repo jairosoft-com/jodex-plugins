@@ -184,6 +184,24 @@ title: Wiki Log
 - **Health score**: 85/100
 - **Outcome**: Report generated, orphans fixed
 
+## 2026-05-07 — Synthesis Filing
+
+- **Operation**: file insights (conversation-derived)
+- **Provenance**: synthesis
+- **Pages created**: Filing Workflow, Session Memory Model, Wiki Query Patterns
+- **Pages updated**: (none)
+- **Cross-references added**: 9
+- **Outcome**: Success — 3 conversation insights filed as concepts
+
+## 2026-05-07 — Synthesis Filing
+
+- **Operation**: file insight (conversation-derived)
+- **Provenance**: synthesis
+- **Pages created**: (none)
+- **Pages updated**: Query (added "When to Use" section with skill selection guide)
+- **Cross-references added**: 4
+- **Outcome**: Success — usage guidance filed to existing Query page
+
 ## 2026-05-07 — Ingest (batch)
 
 - **Operation**: ingest (9 Playwright reference docs)

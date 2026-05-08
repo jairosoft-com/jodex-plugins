@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-07
-page_count: 70
+page_count: 73
 ---
 
 # Wiki Index
@@ -16,6 +16,7 @@ page_count: 70
 
 - [[Conflict Callout]] — Pattern for handling contradictions between sources (#wiki, #contradiction)
 - [[Cross-Reference Pass]] — Bidirectional wikilink pass after page creation (#wiki, #linking)
+- [[Filing Workflow]] — Process for persisting conversation insights back to wiki (#wiki, #workflow)
 - [[E2E Test Case]] — Classification of requirements as E2E-testable or not (#testing, #classification)
 - [[Health Score]] — 0-100 score quantifying wiki quality from lint (#wiki, #metrics)
 - [[Hook]] — Plugin lifecycle event handler (#plugin, #lifecycle)
@@ -37,6 +38,7 @@ page_count: 70
 - [[Raw Sources]] — Immutable source document layer (#architecture, #provenance)
 - [[Request Mocking]] — Network interception/mocking for testing (#testing, #network)
 - [[Schema]] — Wiki configuration document _schema.md (#architecture, #configuration)
+- [[Session Memory Model]] — Agent knowledge retention: in-session vs cross-session persistence (#persistence, #memory)
 - [[Semantic Locator]] — Stable element locators via live browser discovery (#testing, #locator)
 - [[SHA-256 Fingerprinting]] — Content-based dedup via hash (#security, #dedup)
 - [[Skill]] — Multi-phase instructional module powering slash commands (#plugin, #implementation)
@@ -47,6 +49,7 @@ page_count: 70
 - [[Tracing]] — Execution trace capture for debugging (#debugging, #observability)
 - [[Triage]] — Classify raw ideas: promote, backlog, or archive (#operation, #classification)
 - [[User Confirmation Gate]] — Security pattern: no writes before explicit approval (#security, #ux)
+- [[Wiki Query Patterns]] — Query types: retrieval, exploratory, generative (#wiki, #query)
 
 ## Entities
 

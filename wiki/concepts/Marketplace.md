@@ -48,7 +48,7 @@ Desktop has a closed, curated Connectors directory managed by [[Anthropic]]. No 
 
 ## This Repo's Marketplace
 
-- **Name**: jairosoft-com-jodex-qa-ai
+- **Name**: jodex-plugins
 - **Plugins**: [[QA AI]] (category: productivity), [[LLM Wiki]] (category: knowledge)
 - **Owner**: Jairosoft
 

@@ -4,14 +4,32 @@ type: concept
 tags: [operation, wiki, retrieval]
 created: 2026-05-07
 updated: 2026-05-07
-source_count: 2
+source_count: 3
 aliases: [query operation, wiki query]
-provenance: source-derived
+provenance: synthesis
 ---
 
 # Query
 
 The operation of asking questions against the wiki and receiving synthesized answers with citations. The LLM reads the [[Index]] first to find relevant pages, then drills into them to compose an answer.
+
+## When to Use
+
+Use `/llm-wiki:query` for searching wiki and getting synthesized answers with citations:
+- **Lookup** — "What is X?" fact retrieval
+- **How-to** — "How do I do X?" procedural answers
+- **Cross-cutting** — "What patterns exist across Y?" synthesis
+- **Gap detection** — "Any insights worth filing?" meta-review
+- **Comparison** — "A vs B — what's different?" contrast
+
+### Don't Use For
+
+| Need | Skill |
+|------|-------|
+| Add new source docs | [[Ingest]] (`/llm-wiki:ingest`) |
+| Review raw ideas | [[Triage]] (`/llm-wiki:triage`) |
+| Check wiki health | [[Lint]] (`/llm-wiki:lint`) |
+| Create new wiki | `/llm-wiki:init` |
 
 ## How It Works
 
