@@ -317,3 +317,12 @@ title: Wiki Log
 - **Pages updated**: Ingest (added cross-refs to new patterns), Plugin Architecture (added ecosystem cross-ref)
 - **Cross-references added**: 14
 - **Outcome**: Success — 3 emergent patterns from session filed as concepts
+
+## 2026-05-08 — Synthesis Filing (batch)
+
+- **Operation**: file insights (conversation-derived, batch)
+- **Provenance**: synthesis
+- **Pages created**: Jodex Plugin Marketplace, Plugin Metadata Surfaces, ADR-001 Treat Marketplace Metadata As Listing Source, Raw Sources Should Be Excluded From Wiki Graph, Align qa-ai Generate Tool Contract, Plugin Dogfooding Workflow
+- **Pages updated**: _index.md
+- **Cross-references added**: 32
+- **Outcome**: Success — plugin metadata, dogfooding workflow, and two implementation findings filed to wiki

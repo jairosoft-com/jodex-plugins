@@ -1,15 +1,17 @@
 ---
 title: Wiki Index
 updated: 2026-05-08
-page_count: 88
+page_count: 94
 ---
 
 # Wiki Index
 
 ## Ideas
 
+- [[Align qa-ai Generate Tool Contract]] — Bring generate workflow instructions into alignment with allowed tools (#qa-ai, #tooling)
 - [[Dataview Queries]] — Obsidian plugin for frontmatter queries (#tooling, #obsidian) [backlogged P3]
 - [[Marp Integration]] — Markdown slide decks from wiki content (#tooling, #presentation) [backlogged P3]
+- [[Raw Sources Should Be Excluded From Wiki Graph]] — Keep raw snapshots out of page graph and lint checks (#wiki, #lint)
 - [[Wiki Search Tools]] — qmd and CLI tools for wiki search at scale (#tooling, #search) [backlogged P3]
 
 ## Concepts
@@ -41,6 +43,7 @@ page_count: 88
 - [[Path Confinement]] — Security pattern: path safety contract with relative_to() (#security, #validation)
 - [[Pinned Helper]] — Security pattern: restricted script execution (#security, #execution)
 - [[Plugin Architecture]] — .claude-plugin format for Claude Code CLI (#architecture, #plugin)
+- [[Plugin Metadata Surfaces]] — Where plugin descriptions and listing metadata live (#plugin, #metadata)
 - [[Polyglot Dependency Strategy]] — Python + TypeScript dependency management for plugin projects (#architecture, #dependencies)
 - [[Query]] — Search wiki and synthesize answers with citations (#operation, #retrieval)
 - [[Raw Sources]] — Immutable source document layer (#architecture, #provenance)
@@ -72,6 +75,7 @@ page_count: 88
 
 - [[Browser Automation]] — Programmatic browser control for testing and automation (#testing, #playwright)
 - [[Knowledge Management]] — Capturing, organizing, maintaining, and retrieving knowledge (#knowledge-base, #wiki)
+- [[Plugin Dogfooding Workflow]] — Feedback loop between plugin source, wiki, and discussion (#plugin, #workflow)
 - [[QA Test Automation]] — Automated test generation from requirements documents (#testing, #qa)
 
 ## Plugins
@@ -89,11 +93,11 @@ page_count: 88
 
 ## Projects
 
-_No projects yet._
+- [[Jodex Plugin Marketplace]] — Dual-plugin marketplace dogfooding its own wiki workflow (#plugin, #marketplace)
 
 ## Decisions
 
-_No decisions yet._
+- [[ADR-001 Treat Marketplace Metadata As Listing Source]] — Marketplace manifest owns listing text (#plugin, #metadata)
 
 ## Code
 

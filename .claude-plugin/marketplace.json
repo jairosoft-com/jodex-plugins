@@ -18,7 +18,7 @@
     },
     {
       "name": "llm-wiki",
-      "description": "Personal knowledge base: ingest sources, build an LLM-maintained wiki, query with citations, lint for health.",
+      "description": "Knowledge Base: ingest sources, build an LLM-maintained wiki, query with citations, lint for health.",
       "author": {
         "name": "Jairosoft"
       },

@@ -185,6 +185,12 @@
   },
   "active": "33b66454d94eab99",
   "lastOpenFiles": [
+    "wiki/topics/Plugin Dogfooding Workflow.md",
+    "wiki/ideas/Align qa-ai Generate Tool Contract.md",
+    "wiki/ideas/Raw Sources Should Be Excluded From Wiki Graph.md",
+    "wiki/decisions/ADR-001 Treat Marketplace Metadata As Listing Source.md",
+    "wiki/concepts/Plugin Metadata Surfaces.md",
+    "wiki/projects/Jodex Plugin Marketplace.md",
     "wiki/logs/subagent_stop.json",
     "wiki/concepts/Ad-hoc vs Manifest-Driven Workflows.md",
     "wiki/concepts/Three-Surface Plugin Ecosystem.md",
