@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-07
-page_count: 73
+page_count: 79
 ---
 
 # Wiki Index
@@ -14,6 +14,7 @@ page_count: 73
 
 ## Concepts
 
+- [[Codex Plugin Compatibility]] — Claude Code vs Codex plugin format differences and conversion tools (#plugin, #codex)
 - [[Conflict Callout]] — Pattern for handling contradictions between sources (#wiki, #contradiction)
 - [[Cross-Reference Pass]] — Bidirectional wikilink pass after page creation (#wiki, #linking)
 - [[Filing Workflow]] — Process for persisting conversation insights back to wiki (#wiki, #workflow)
@@ -30,10 +31,15 @@ page_count: 73
 - [[Marketplace]] — Plugin distribution mechanism for Claude Code CLI (#distribution, #plugin)
 - [[MCP Server]] — Model Context Protocol server for Claude Desktop extensibility (#protocol, #mcp)
 - [[MCP Tool]] — Individual capability exposed by MCP Server (#protocol, #tool)
+- [[Memory vs Wiki Separation]] — When to use agent memory vs wiki pages (#architecture, #persistence)
 - [[Multi-Phase Skill]] — Structural pattern: numbered phases with gates (#pattern, #architecture)
+- [[Naming Ripple Effect]] — How marketplace/plugin renames cascade through the system (#pattern, #naming)
+- [[NotebookLM Integration]] — Associated NotebookLM notebooks and capabilities (#notebooklm, #tooling)
+- [[NotebookLM Research Oracle]] — Querying NotebookLM as external knowledge source during wiki work (#pattern, #research)
 - [[Path Confinement]] — Security pattern: path safety contract with relative_to() (#security, #validation)
 - [[Pinned Helper]] — Security pattern: restricted script execution (#security, #execution)
 - [[Plugin Architecture]] — .claude-plugin format for Claude Code CLI (#architecture, #plugin)
+- [[Polyglot Dependency Strategy]] — Python + TypeScript dependency management for plugin projects (#architecture, #dependencies)
 - [[Query]] — Search wiki and synthesize answers with citations (#operation, #retrieval)
 - [[Raw Sources]] — Immutable source document layer (#architecture, #provenance)
 - [[Request Mocking]] — Network interception/mocking for testing (#testing, #network)

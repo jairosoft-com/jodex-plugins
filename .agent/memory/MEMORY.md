@@ -6,5 +6,11 @@
   - Provide a clear `--title` (e.g., `feat: ...`, `chore: ...`).
   - Provide a `--body` that includes at minimum a `## Description` and `## Summary`.
 
+## Workflow Rules
+- [Wiki vs code changes](feedback_wiki_vs_code.md) — Wiki filings proceed immediately; code changes require a plan first
+
+## NotebookLM
+- [Associated notebooks](reference_notebooklm.md) — Plugin Marketplace Architecture + Mastering Skill.MD
+
 ## Confidence threshold
 - [Advisor confidence threshold](feedback_advisor_threshold.md) — Call advisor when confidence <=93%

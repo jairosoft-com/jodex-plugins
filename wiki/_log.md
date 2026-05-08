@@ -202,6 +202,42 @@ title: Wiki Log
 - **Cross-references added**: 4
 - **Outcome**: Success — usage guidance filed to existing Query page
 
+## 2026-05-07 — Synthesis Filing
+
+- **Operation**: file insight (conversation-derived)
+- **Provenance**: synthesis
+- **Pages created**: Codex Plugin Compatibility
+- **Pages updated**: (none)
+- **Cross-references added**: 3
+- **Outcome**: Success — Codex vs Claude Code format comparison filed for future reference
+
+## 2026-05-07 — Synthesis Filing
+
+- **Operation**: file insight (conversation-derived)
+- **Provenance**: synthesis
+- **Pages created**: NotebookLM Integration
+- **Pages updated**: (none)
+- **Cross-references added**: 3
+- **Outcome**: Success — associated NotebookLM notebooks and capabilities documented
+
+## 2026-05-08 — Synthesis Filing
+
+- **Operation**: file insight (conversation + NotebookLM-derived)
+- **Provenance**: synthesis
+- **Pages created**: Polyglot Dependency Strategy
+- **Pages updated**: (none)
+- **Cross-references added**: 7
+- **Outcome**: Success — Python/TypeScript dependency strategy documented with NotebookLM input
+
+## 2026-05-08 — Synthesis Filing (batch)
+
+- **Operation**: file insights (conversation-derived, batch)
+- **Provenance**: synthesis
+- **Pages created**: NotebookLM Research Oracle, Memory vs Wiki Separation, Naming Ripple Effect
+- **Pages updated**: (none)
+- **Cross-references added**: 12
+- **Outcome**: Success — 3 emergent patterns from conversation filed as concepts
+
 ## 2026-05-07 — Ingest (batch)
 
 - **Operation**: ingest (9 Playwright reference docs)
