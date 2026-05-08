@@ -36,6 +36,16 @@ Generates a score from 0 to 100. Factors include broken links, orphan pages, mis
 - Ideas stuck in `status: raw` for >14 days are flagged
 - Offers auto-fixes for common structural issues
 
+## [[Multi-Phase Skill]] Structure (6 Phases)
+
+1. Structural checks — orphans, broken links, frontmatter validation, page census
+2. Index drift — pages on disk vs. in index, stale summaries
+3. Content quality — conflicts, stale pages/ideas, missing wikilinks, thin pages, duplicates
+4. Generate [[Health Score]] report
+5. Offer auto-fixes (with [[User Confirmation Gate]])
+6. Append to [[Log]]
+
 ## Sources
 - [[Source - LLM Wiki]]
 - [[Source - LLM Wiki README]]
+- [[Source - Lint SKILL]]

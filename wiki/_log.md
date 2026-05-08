@@ -75,3 +75,53 @@ title: Wiki Log
 - **Conflicts flagged**: 0
 - **Cross-references added**: 18
 - **Outcome**: Success
+
+## 2026-05-07 — Ingest
+
+- **Operation**: ingest
+- **Source**: plugins/llm-wiki/skills/init/SKILL.md
+- **Snapshot**: wiki/raw/sources/a10bb924-SKILL.md
+- **SHA-256**: a10bb924a33d143cce2e7c63f126675cf09e44235b636c801319f4510c034a51
+- **Pages created**: Taxonomy Routing, Source - Init SKILL
+- **Pages updated**: Schema
+- **Outcome**: Success
+
+## 2026-05-07 — Ingest
+
+- **Operation**: ingest
+- **Source**: plugins/llm-wiki/skills/ingest/SKILL.md
+- **Snapshot**: wiki/raw/sources/b40f6734-SKILL.md
+- **SHA-256**: b40f673470fac341bcfcaf4e73f78bb60d3b2bc0139dd6fc3f43c4917e7c2cc2
+- **Pages created**: SHA-256 Fingerprinting, Cross-Reference Pass, Conflict Callout, Multi-Phase Skill, Source - Ingest SKILL
+- **Pages updated**: Ingest, User Confirmation Gate
+- **Outcome**: Success
+
+## 2026-05-07 — Ingest
+
+- **Operation**: ingest
+- **Source**: plugins/llm-wiki/skills/triage/SKILL.md
+- **Snapshot**: wiki/raw/sources/a2ddd347-SKILL.md
+- **SHA-256**: a2ddd3479e51d226804ee03651a3cfa3760492ca158aa684c7ee0edf41ce0d6b
+- **Pages created**: Idea Lifecycle, Source - Triage SKILL
+- **Pages updated**: Triage
+- **Outcome**: Success
+
+## 2026-05-07 — Ingest
+
+- **Operation**: ingest
+- **Source**: plugins/llm-wiki/skills/query/SKILL.md
+- **Snapshot**: wiki/raw/sources/b3205701-SKILL.md
+- **SHA-256**: b3205701b265a4bfb27701c8b1ed09cc2312e9973ef7a2bd44f09a405db611b0
+- **Pages created**: Link Graph Traversal, Source - Query SKILL
+- **Pages updated**: Query
+- **Outcome**: Success
+
+## 2026-05-07 — Ingest
+
+- **Operation**: ingest
+- **Source**: plugins/llm-wiki/skills/lint/SKILL.md
+- **Snapshot**: wiki/raw/sources/81103e08-SKILL.md
+- **SHA-256**: 81103e080d02a34815ae7f243df83b6566e31afc3202d3002d9ebfd56ccc87f0
+- **Pages created**: Health Score, Source - Lint SKILL
+- **Pages updated**: Lint
+- **Outcome**: Success

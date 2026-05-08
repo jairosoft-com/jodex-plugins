@@ -4,7 +4,7 @@ type: concept
 tags: [architecture, wiki, configuration]
 created: 2026-05-07
 updated: 2026-05-07
-source_count: 1
+source_count: 2
 aliases: [wiki schema, _schema.md]
 provenance: source-derived
 ---
@@ -25,5 +25,16 @@ The configuration document (`_schema.md`) that tells the LLM how the wiki is str
 
 The schema is the key configuration file — it transforms the LLM from a generic chatbot into a disciplined wiki maintainer. The user and LLM co-evolve the schema over time as patterns emerge.
 
+## Init Process
+
+Created by `/llm-wiki:init` with user-provided wiki name. Template includes:
+- Complete [[Taxonomy Routing]] definitions for all 10 buckets
+- YAML frontmatter spec (title, type, tags, created, updated, source_count, aliases, provenance)
+- `[[wikilink]]` cross-reference syntax
+- `> [!conflict]` callout pattern for contradictions
+- Tiebreaker rule → route uncertain items to `ideas/`
+- `## Custom Rules` placeholder for domain-specific extensions
+
 ## Sources
 - [[Source - LLM Wiki]]
+- [[Source - Init SKILL]]
