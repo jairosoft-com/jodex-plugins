@@ -36,3 +36,16 @@ title: Wiki Log
 - **Conflicts flagged**: 0
 - **Cross-references added**: 34
 - **Outcome**: Success
+
+## 2026-05-07 — Ingest
+
+- **Operation**: ingest
+- **Source**: ai_docs/claude_desktop_wsl_integration.md
+- **Snapshot**: wiki/raw/sources/71d14613-claude_desktop_wsl_integration.md
+- **SHA-256**: 71d1461389f5ca9ae341e3a5b746ae8f7141102fe19000ce71c9838442f1c8e3
+- **Pages created**: WSL, Source - Claude Desktop WSL Integration
+- **Pages updated**: Claude Desktop, MCP Server, Claude Code CLI
+- **Ideas extracted**: 0
+- **Conflicts flagged**: 1 (WSL config overlap with Source - Claude CLI vs Desktop MCP Guide — no factual conflict)
+- **Cross-references added**: 8
+- **Outcome**: Success

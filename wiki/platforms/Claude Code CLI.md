@@ -4,7 +4,7 @@ type: platform
 tags: [claude, cli, plugin-system]
 created: 2026-05-07
 updated: 2026-05-07
-source_count: 1
+source_count: 2
 aliases: [Claude Code, CLI]
 provenance: source-derived
 ---
@@ -34,3 +34,4 @@ CLI uses the `.claude-plugin` format; Desktop relies exclusively on [[MCP Server
 
 ## Sources
 - [[Source - Claude CLI vs Desktop MCP Guide]]
+- [[Source - Claude Desktop WSL Integration]]

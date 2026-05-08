@@ -4,7 +4,7 @@ type: platform
 tags: [claude, desktop, mcp]
 created: 2026-05-07
 updated: 2026-05-07
-source_count: 1
+source_count: 2
 aliases: [Desktop]
 provenance: source-derived
 ---
@@ -39,5 +39,16 @@ For developers in WSL Ubuntu running Desktop on Windows 11, `wsl.exe` bridges in
 }
 ```
 
+## Migration from CLI Plugins
+
+To use a [[Claude Code CLI]] plugin (e.g., `jodex-qa-ai`) in Desktop:
+1. Wrap plugin logic in an [[MCP Server]] using MCP SDK (TypeScript/Python)
+2. Register CLI [[Skill]]s as [[MCP Tool]]s
+3. Configure Desktop to execute the server inside [[WSL]] via `wsl.exe`
+
+> [!conflict] WSL config example path
+> [[Source - Claude CLI vs Desktop MCP Guide]] and [[Source - Claude Desktop WSL Integration]] both provide the same WSL `wsl.exe` configuration JSON block with identical structure. No factual conflict — both sources agree on the approach.
+
 ## Sources
 - [[Source - Claude CLI vs Desktop MCP Guide]]
+- [[Source - Claude Desktop WSL Integration]]

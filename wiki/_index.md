@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-07
-page_count: 25
+page_count: 27
 ---
 
 # Wiki Index
@@ -47,6 +47,7 @@ _No plugins yet._
 
 - [[Claude Code CLI]] — CLI with proprietary plugin architecture (#claude, #cli)
 - [[Claude Desktop]] — Desktop app with MCP-only extensibility (#claude, #desktop)
+- [[WSL]] — Windows Subsystem for Linux, bridge for CLI-to-Desktop integration (#windows, #linux)
 
 ## Projects
 
@@ -63,4 +64,5 @@ _No code pages yet._
 ## Sources
 
 - [[Source - Claude CLI vs Desktop MCP Guide]] — CLI vs Desktop architecture comparison (#architecture, #migration)
+- [[Source - Claude Desktop WSL Integration]] — WSL integration guide for Desktop on Windows 11 (#wsl, #integration)
 - [[Source - LLM Wiki]] — LLM Wiki pattern document by Karpathy (#pattern, #architecture)
