@@ -163,3 +163,23 @@ title: Wiki Log
 - **Pages created**: Source - Marketplace Config
 - **Pages updated**: Marketplace
 - **Outcome**: Success
+
+## 2026-05-07 — Triage
+
+- **Operation**: triage
+- **Ideas reviewed**: 3
+- **Promoted**: 0
+- **Backlogged**: 3 (Wiki Search Tools P3, Marp Integration P3, Dataview Queries P3)
+- **Archived**: 0
+- **Skipped**: 0
+- **Outcome**: Success
+
+## 2026-05-07 — Lint
+
+- **Operation**: lint
+- **Errors found**: 0
+- **Warnings found**: 3 (orphan pages: Conflict Callout, Knowledge Management, QA Test Automation)
+- **Info found**: 0
+- **Auto-fixes applied**: 3 (added inbound links to fix all orphans)
+- **Health score**: 85/100
+- **Outcome**: Report generated, orphans fixed

@@ -27,6 +27,7 @@ Traditional RAG retrieves raw document chunks at query time and generates answer
 - A snapshot is copied to [[Raw Sources]] for provenance
 - [[SHA-256 Fingerprinting]] prevents duplicate ingestion
 - A [[User Confirmation Gate]] pauses before any writes
+- [[Conflict Callout]] blocks added when new info contradicts existing claims
 - Cross-references are added bidirectionally after page creation
 
 ## Supported Source Types

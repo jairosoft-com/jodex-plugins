@@ -42,6 +42,11 @@ BRD/PRD markdown → /qa-ai:extract → xlsx test plan → /qa-ai:generate → P
 - All user inputs passed as quoted argv, never shell-interpolated
 - Helper script validates paths, rejects metacharacters
 
+## Related Topics
+
+- [[QA Test Automation]] — broader subject area
+- [[Browser Automation]] — Playwright ecosystem
+
 ## Key Concepts
 
 - [[E2E Test Case]] — classification of requirements as E2E-testable or not
