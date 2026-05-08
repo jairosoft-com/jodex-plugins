@@ -2,7 +2,7 @@
 name: generate
 user-invocable: true
 description: Reads an xlsx test plan and generates Playwright TypeScript spec files by live-exploring the site with playwright-cli. Use this skill whenever the user wants to generate, create, or write Playwright tests from a test plan, spreadsheet, or structured test cases — even if they just say "write the tests" or "generate the specs" without mentioning the xlsx. Also triggers on /qa-ai:generate, "write playwright tests", "generate tests from test plan", "generate playwright tests from test cases", or any request to automate test case generation from a plan file.
-allowed-tools: Bash(playwright-cli:*) Bash(npx playwright test:*) Bash(ls:*) Read Write
+allowed-tools: Bash(playwright-cli:*) Bash(npx playwright test:*) Bash(python3 "${CLAUDE_PLUGIN_ROOT}/scripts/xlsx-writer.py":*) Bash(ls:*) Read Write
 ---
 
 # Write Playwright Tests from Test Cases
@@ -20,7 +20,7 @@ First, find the xlsx file using a two-stage approach:
 
 **Stage A — glob:**
 ```bash
-ls raw/data/*.xlsx 2>/dev/null
+ls test-plans/*.xlsx 2>/dev/null
 ```
 - 0 results → go to Stage B
 - 1 result → use that file
@@ -29,18 +29,17 @@ ls raw/data/*.xlsx 2>/dev/null
 **Stage B — parse from user's message:**
 - Look for a `.xlsx` filename in what the user typed
 - If found → use it
-- If not found → stop and tell the user: "No xlsx found in raw/data/ and none mentioned in your request. Please specify the test plan file."
+- If not found → stop and tell the user: "No xlsx found in test-plans/ and none mentioned in your request. Please specify the test plan file."
 
 Once you have the xlsx path, parse it:
 
 ```bash
-npx -p xlsx node -e "
-const XLSX = require('xlsx');
-const wb = XLSX.readFile('<path-to-xlsx>');
-const ws = wb.Sheets[wb.SheetNames[0]];
-console.log(JSON.stringify(XLSX.utils.sheet_to_json(ws)));
-"
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/xlsx-writer.py" read <path-to-xlsx>
 ```
+
+Output is a JSON array of arrays. First element is the header row (column names),
+remaining elements are data rows. Map each data row to an object using headers
+as keys to reconstruct `{Title, "Test Step", "Step Action", "Step Expected", ...}`.
 
 The xlsx uses a hierarchical row structure:
 - **Parent row**: has a `Title` value (e.g., `"Check Logo in Homepage"`) — this is a test case header

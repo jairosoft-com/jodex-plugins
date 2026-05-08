@@ -25,7 +25,7 @@ Extract E2E test cases from a BRD/PRD markdown document into an xlsx test plan.
 
 ```
 /qa-ai:extract raw/articles/BRD_PRD.md
-/qa-ai:extract raw/articles/BRD_PRD.md raw/data/test-plan.xlsx
+/qa-ai:extract raw/articles/BRD_PRD.md test-plans/test-plan.xlsx
 ```
 
 **What it does:**
@@ -43,7 +43,7 @@ Generate Playwright TypeScript spec files from an xlsx test plan.
 
 ```
 /qa-ai:generate
-/qa-ai:generate raw/data/test-plan.xlsx
+/qa-ai:generate test-plans/test-plan.xlsx
 ```
 
 **What it does:**

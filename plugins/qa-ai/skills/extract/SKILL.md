@@ -23,7 +23,7 @@ Gather these before starting:
 | Input | Required | Source |
 |-------|----------|--------|
 | BRD/PRD markdown path | Yes | User provides or references `raw/articles/` |
-| Existing xlsx test plan | Yes if appending, No if creating new | User provides or found in `raw/data/` |
+| Existing xlsx test plan | Yes if appending, No if creating new | User provides or found in `test-plans/` |
 | Mapping JSON | No — infer column structure from xlsx row 1 if absent | `raw/data/*-mapping-*.json` |
 
 If no xlsx exists and no mapping JSON, use the default 9-column Azure DevOps format:
@@ -34,13 +34,15 @@ If no xlsx exists and no mapping JSON, use the default 9-column Azure DevOps for
 | Argument | Required | Example | Notes |
 |----------|----------|---------|-------|
 | `brd_path` | Yes | `raw/articles/BRD_PRD.md` | Path to BRD/PRD markdown file |
-| `xlsx_path` | No | `raw/data/casacolina-test-plan-2026-04-28.xlsx` | Existing test plan to fork. Omit to create new |
+| `xlsx_path` | No | `test-plans/casacolina-test-plan-2026-04-28.xlsx` | Existing test plan to fork. Omit to create new |
 | `mapping_path` | No | `raw/data/casacolina-test-plan-mapping-2026-04-28.json` | Column mapping JSON. Inferred from xlsx if absent |
 | `area_path` | No | `CasaColinaCare.com` | Override Area Path. Default: from existing xlsx |
 | `assigned_to` | No | `RAMON ASENIERO JR <ramon@jairosoft.com>` | Override Assigned To. Default: from existing xlsx |
 
 **Example invocation:**
-> Extract E2E test cases from raw/articles/BRD_PRD.md and add to raw/data/casacolina-test-plan-2026-04-28.xlsx
+> Extract E2E test cases from raw/articles/BRD_PRD.md and add to test-plans/casacolina-test-plan-2026-04-28.xlsx
+
+Default xlsx discovery (when not provided): `ls test-plans/*.xlsx`. If 0 results, ask user. If 1, use it. If 2+, ask which.
 
 ## Phase 1: Extract Requirements
 
