@@ -4,7 +4,7 @@ type: concept
 tags: [operation, wiki, maintenance]
 created: 2026-05-07
 updated: 2026-05-07
-source_count: 1
+source_count: 2
 aliases: [lint operation, wiki lint, health check]
 provenance: source-derived
 ---
@@ -27,5 +27,15 @@ Periodic health-check operation for the wiki. The LLM audits the wiki for struct
 
 The LLM suggests new questions to investigate and new sources to look for. Lint keeps the wiki healthy as it grows — preventing the entropy that causes human-maintained wikis to decay.
 
+## Health Score
+
+Generates a score from 0 to 100. Factors include broken links, orphan pages, missing frontmatter, index drift, and unresolved conflicts.
+
+## Additional Checks
+
+- Ideas stuck in `status: raw` for >14 days are flagged
+- Offers auto-fixes for common structural issues
+
 ## Sources
 - [[Source - LLM Wiki]]
+- [[Source - LLM Wiki README]]

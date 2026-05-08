@@ -4,7 +4,7 @@ type: entity
 tags: [tool, editor, markdown]
 created: 2026-05-07
 updated: 2026-05-07
-source_count: 1
+source_count: 2
 aliases: [Obsidian.md]
 provenance: source-derived
 ---
@@ -26,5 +26,14 @@ A markdown-based knowledge management application that serves as the primary vie
 
 User has Obsidian open on one side and the LLM agent on the other. The LLM makes edits, and the user browses results in real time — following links, checking graph view, reading updated pages.
 
+## [[LLM Wiki]] Plugin Compatibility
+
+- `[[wikilinks]]` resolve natively in Obsidian
+- YAML frontmatter compatible with [[Dataview Queries|Dataview]] plugin
+- `> [!conflict]` callouts render as styled callout blocks
+- Graph view shows full wiki knowledge graph
+- Aliases in frontmatter enable alternate page name resolution
+
 ## Sources
 - [[Source - LLM Wiki]]
+- [[Source - LLM Wiki README]]

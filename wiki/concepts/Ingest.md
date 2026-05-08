@@ -4,7 +4,7 @@ type: concept
 tags: [operation, wiki, pipeline]
 created: 2026-05-07
 updated: 2026-05-07
-source_count: 1
+source_count: 2
 aliases: [ingestion, ingest operation]
 provenance: source-derived
 ---
@@ -29,5 +29,13 @@ Traditional RAG retrieves raw document chunks at query time and generates answer
 - A [[User Confirmation Gate]] pauses before any writes
 - Cross-references are added bidirectionally after page creation
 
+## Supported Source Types
+
+- **Markdown / Plain Text** (`.md`, `.txt`, `.text`) — full content extraction
+- **Source Code** (`.py`, `.ts`, `.js`, `.sh`, `.go`, `.rs`, `.java`, etc.) — module purpose, exports, patterns, API surface
+
+Unsupported formats (PDF, DOCX, images, HTML) require conversion to markdown first.
+
 ## Sources
 - [[Source - LLM Wiki]]
+- [[Source - LLM Wiki README]]

@@ -49,3 +49,16 @@ title: Wiki Log
 - **Conflicts flagged**: 1 (WSL config overlap with Source - Claude CLI vs Desktop MCP Guide — no factual conflict)
 - **Cross-references added**: 8
 - **Outcome**: Success
+
+## 2026-05-07 — Ingest
+
+- **Operation**: ingest
+- **Source**: plugins/llm-wiki/README.md
+- **Snapshot**: wiki/raw/sources/662adc30-README.md
+- **SHA-256**: 662adc301b6d7d09a4039fef383846b39bcdf4b1f095f7b5ed60c9762c5b286c
+- **Pages created**: LLM Wiki, Pinned Helper, Path Confinement, User Confirmation Gate, wiki-tools.py, Source - LLM Wiki README
+- **Pages updated**: Ingest, Lint, Obsidian
+- **Ideas extracted**: 0
+- **Conflicts flagged**: 0
+- **Cross-references added**: 22
+- **Outcome**: Success

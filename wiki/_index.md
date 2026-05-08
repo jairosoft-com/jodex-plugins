@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-07
-page_count: 27
+page_count: 33
 ---
 
 # Wiki Index
@@ -21,6 +21,8 @@ page_count: 27
 - [[Log]] — Append-only chronological record of wiki operations (#architecture, #audit)
 - [[MCP Server]] — Model Context Protocol server for Claude Desktop extensibility (#protocol, #mcp)
 - [[MCP Tool]] — Individual capability exposed by MCP Server (#protocol, #tool)
+- [[Path Confinement]] — Security pattern: path safety contract with relative_to() (#security, #validation)
+- [[Pinned Helper]] — Security pattern: restricted script execution (#security, #execution)
 - [[Plugin Architecture]] — .claude-plugin format for Claude Code CLI (#architecture, #plugin)
 - [[Query]] — Search wiki and synthesize answers with citations (#operation, #retrieval)
 - [[Raw Sources]] — Immutable source document layer (#architecture, #provenance)
@@ -28,6 +30,7 @@ page_count: 27
 - [[Skill]] — Multi-phase instructional module powering slash commands (#plugin, #implementation)
 - [[Slash Command]] — User-facing command wrapper /plugin:command (#plugin, #user-facing)
 - [[Triage]] — Classify raw ideas: promote, backlog, or archive (#operation, #classification)
+- [[User Confirmation Gate]] — Security pattern: no writes before explicit approval (#security, #ux)
 
 ## Entities
 
@@ -41,7 +44,7 @@ page_count: 27
 
 ## Plugins
 
-_No plugins yet._
+- [[LLM Wiki]] — LLM-maintained knowledge base plugin for Claude Code (#knowledge-base, #wiki)
 
 ## Platforms
 
@@ -59,10 +62,11 @@ _No decisions yet._
 
 ## Code
 
-_No code pages yet._
+- [[wiki-tools.py]] — Pinned helper script for LLM Wiki plugin (#script, #python)
 
 ## Sources
 
 - [[Source - Claude CLI vs Desktop MCP Guide]] — CLI vs Desktop architecture comparison (#architecture, #migration)
 - [[Source - Claude Desktop WSL Integration]] — WSL integration guide for Desktop on Windows 11 (#wsl, #integration)
 - [[Source - LLM Wiki]] — LLM Wiki pattern document by Karpathy (#pattern, #architecture)
+- [[Source - LLM Wiki README]] — LLM Wiki plugin README with pipeline, security, commands (#plugin, #documentation)
