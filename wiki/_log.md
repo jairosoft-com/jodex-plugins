@@ -125,3 +125,41 @@ title: Wiki Log
 - **Pages created**: Health Score, Source - Lint SKILL
 - **Pages updated**: Lint
 - **Outcome**: Success
+
+## 2026-05-07 — Ingest
+
+- **Operation**: ingest
+- **Source**: plugins/qa-ai/skills/extract/SKILL.md
+- **Snapshot**: wiki/raw/sources/87ab5412-SKILL.md
+- **SHA-256**: 87ab54120ca7a20c7820e3446256fa5b16631c83cd155def6d0a215224764815
+- **Pages created**: E2E Test Case, Source - Extract SKILL
+- **Outcome**: Success
+
+## 2026-05-07 — Ingest
+
+- **Operation**: ingest
+- **Source**: plugins/qa-ai/skills/generate/SKILL.md
+- **Snapshot**: wiki/raw/sources/c9e18203-SKILL.md
+- **SHA-256**: c9e1820309da47a1491ce07799de9a48ab73ee063f4f8bec8f99943d5c1fae59
+- **Pages created**: Semantic Locator, Idempotent Operation, Source - Generate SKILL
+- **Outcome**: Success
+
+## 2026-05-07 — Ingest
+
+- **Operation**: ingest
+- **Source**: plugins/qa-ai/skills/playwright-cli/SKILL.md
+- **Snapshot**: wiki/raw/sources/18c7536c-SKILL.md
+- **SHA-256**: 18c7536c0c6e0ab26d7cc72d1fefd90472ca6e31769cc7172df79a4e2a330f40
+- **Pages created**: Browser Automation, Source - Playwright CLI SKILL
+- **Pages updated**: Playwright, QA AI
+- **Outcome**: Success
+
+## 2026-05-07 — Ingest
+
+- **Operation**: ingest
+- **Source**: .claude-plugin/marketplace.json
+- **Snapshot**: wiki/raw/sources/a2efd6d7-marketplace.json
+- **SHA-256**: a2efd6d7cbf52524a53d21d7c6fdfe75d1e2e71d3e71da501e4b39a5fa321ccf
+- **Pages created**: Source - Marketplace Config
+- **Pages updated**: Marketplace
+- **Outcome**: Success

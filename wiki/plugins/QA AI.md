@@ -4,7 +4,7 @@ type: plugin
 tags: [testing, playwright, qa]
 created: 2026-05-07
 updated: 2026-05-07
-source_count: 1
+source_count: 4
 aliases: [qa-ai, qa-ai plugin]
 provenance: source-derived
 ---
@@ -42,5 +42,15 @@ BRD/PRD markdown → /qa-ai:extract → xlsx test plan → /qa-ai:generate → P
 - All user inputs passed as quoted argv, never shell-interpolated
 - Helper script validates paths, rejects metacharacters
 
+## Key Concepts
+
+- [[E2E Test Case]] — classification of requirements as E2E-testable or not
+- [[Semantic Locator]] — stable locators via live browser discovery
+- [[Idempotent Operation]] — safe re-runs (skips existing specs)
+- [[Multi-Phase Skill]] — all skills follow numbered-phase pattern
+
 ## Sources
 - [[Source - QA AI README]]
+- [[Source - Extract SKILL]]
+- [[Source - Generate SKILL]]
+- [[Source - Playwright CLI SKILL]]

@@ -4,7 +4,7 @@ type: entity
 tags: [tool, testing, browser]
 created: 2026-05-07
 updated: 2026-05-07
-source_count: 1
+source_count: 3
 aliases: [playwright, playwright-cli]
 provenance: source-derived
 ---
@@ -24,5 +24,13 @@ Browser automation framework by Microsoft. Used by the [[QA AI]] plugin for E2E 
 
 `npx` narrowed to `npx playwright test` only — prevents use as a general package runner.
 
+## Key Concepts
+
+- [[Semantic Locator]] — stable element locators discovered via live browser
+- [[Browser Automation]] — broader topic area
+- [[Idempotent Operation]] — generate skill skips existing specs
+
 ## Sources
 - [[Source - QA AI README]]
+- [[Source - Generate SKILL]]
+- [[Source - Playwright CLI SKILL]]

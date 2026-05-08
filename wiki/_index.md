@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-07
-page_count: 49
+page_count: 57
 ---
 
 # Wiki Index
@@ -16,9 +16,11 @@ page_count: 49
 
 - [[Conflict Callout]] — Pattern for handling contradictions between sources (#wiki, #contradiction)
 - [[Cross-Reference Pass]] — Bidirectional wikilink pass after page creation (#wiki, #linking)
+- [[E2E Test Case]] — Classification of requirements as E2E-testable or not (#testing, #classification)
 - [[Health Score]] — 0-100 score quantifying wiki quality from lint (#wiki, #metrics)
 - [[Hook]] — Plugin lifecycle event handler (#plugin, #lifecycle)
 - [[Idea Lifecycle]] — Progression: raw → promoted/backlogged/archived (#wiki, #workflow)
+- [[Idempotent Operation]] — Safe re-run pattern, skips existing work (#pattern, #safety)
 - [[Index]] — Content catalog for wiki navigation via _index.md (#architecture, #wiki)
 - [[Ingest]] — Core operation: absorb source documents into wiki pages (#operation, #wiki)
 - [[Link Graph Traversal]] — Page discovery via wikilink graph during query (#wiki, #navigation)
@@ -34,6 +36,7 @@ page_count: 49
 - [[Query]] — Search wiki and synthesize answers with citations (#operation, #retrieval)
 - [[Raw Sources]] — Immutable source document layer (#architecture, #provenance)
 - [[Schema]] — Wiki configuration document _schema.md (#architecture, #configuration)
+- [[Semantic Locator]] — Stable element locators via live browser discovery (#testing, #locator)
 - [[SHA-256 Fingerprinting]] — Content-based dedup via hash (#security, #dedup)
 - [[Skill]] — Multi-phase instructional module powering slash commands (#plugin, #implementation)
 - [[Slash Command]] — User-facing command wrapper /plugin:command (#plugin, #user-facing)
@@ -50,6 +53,7 @@ page_count: 49
 
 ## Topics
 
+- [[Browser Automation]] — Programmatic browser control for testing and automation (#testing, #playwright)
 - [[Knowledge Management]] — Capturing, organizing, maintaining, and retrieving knowledge (#knowledge-base, #wiki)
 - [[QA Test Automation]] — Automated test generation from requirements documents (#testing, #qa)
 
@@ -81,11 +85,15 @@ _No decisions yet._
 
 - [[Source - Claude CLI vs Desktop MCP Guide]] — CLI vs Desktop architecture comparison (#architecture, #migration)
 - [[Source - Claude Desktop WSL Integration]] — WSL integration guide for Desktop on Windows 11 (#wsl, #integration)
+- [[Source - Extract SKILL]] — 6-phase extract skill: BRD → xlsx test plan (#skill, #extract)
+- [[Source - Generate SKILL]] — Generate skill: xlsx → Playwright specs via live browser (#skill, #generate)
 - [[Source - Init SKILL]] — 7-phase init skill for wiki initialization (#skill, #init)
 - [[Source - Ingest SKILL]] — 9-phase ingest skill, core operation (#skill, #ingest)
 - [[Source - Lint SKILL]] — 6-phase lint skill for wiki health-checking (#skill, #lint)
 - [[Source - LLM Wiki]] — LLM Wiki pattern document by Karpathy (#pattern, #architecture)
 - [[Source - LLM Wiki README]] — LLM Wiki plugin README with pipeline, security, commands (#plugin, #documentation)
+- [[Source - Marketplace Config]] — marketplace.json manifest for plugin distribution (#config, #marketplace)
+- [[Source - Playwright CLI SKILL]] — Internal browser automation skill (387 lines) (#skill, #browser)
 - [[Source - QA AI README]] — QA AI plugin README with BRD pipeline and security (#plugin, #documentation)
 - [[Source - Query SKILL]] — 5-phase query skill with link graph traversal (#skill, #query)
 - [[Source - Triage SKILL]] — 6-phase triage skill for idea classification (#skill, #triage)
