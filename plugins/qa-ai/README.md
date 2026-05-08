@@ -1,4 +1,4 @@
-# qa-ai — QA Testing Plugin for Claude Code
+      # qa-ai — QA Testing Plugin for Claude Code
 
 A QA testing pipeline that extracts E2E test cases from BRD/PRD documents, generates Playwright specs, and provides browser automation.
 

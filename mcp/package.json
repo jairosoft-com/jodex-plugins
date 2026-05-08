@@ -1,0 +1,24 @@
+{
+  "name": "qa-ai-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for the qa-ai QA testing pipeline — extract E2E test cases from BRDs, generate Playwright specs, automate browser interactions.",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node build/index.js",
+    "dev": "tsc && node build/index.js"
+  },
+  "keywords": ["mcp", "qa", "playwright", "testing", "e2e"],
+  "author": "Jairosoft <ramon@jairosoft.com>",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "exceljs": "^4.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  }
+}

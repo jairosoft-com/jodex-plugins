@@ -28,7 +28,7 @@ You can configure Claude Desktop on your Windows host to execute your MCP server
       "args": [
         "-d", "Ubuntu", 
         "--",
-        "bash", "-c", "cd /home/sante8wsl/projects/jairosoft/ai-plugins/jodex-qa-ai && npm run start-mcp"
+        "bash", "-c", "cd /home/sante8wsl/projects/jairosoft/ai-plugins/jodex-qa-ai/mcp && npm run start"
       ]
     }
   }

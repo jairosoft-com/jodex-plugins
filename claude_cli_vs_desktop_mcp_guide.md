@@ -44,7 +44,7 @@ If you are developing your MCP server in WSL Ubuntu but running Claude Desktop o
       "args": [
         "-d", "Ubuntu", 
         "--",
-        "bash", "-c", "cd /home/sante8wsl/projects/jairosoft/ai-plugins/jodex-qa-ai && npm run start-mcp"
+        "bash", "-c", "cd /home/sante8wsl/projects/jairosoft/ai-plugins/jodex-qa-ai/mcp && npm run start"
       ]
     }
   }
