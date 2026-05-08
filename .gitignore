@@ -10,7 +10,6 @@ Desktop.ini
 # --- Claude / Cursor local state (not plugin source) ---
 logs/
 .claude/data/
-.agent/
 
 # --- Node / TypeScript (Playwright, tooling, generated projects) ---
 node_modules/
@@ -71,6 +70,9 @@ target/
 **/*.rs.bk
 # Keep Cargo.lock for apps/binaries; uncomment next line for library-only crates:
 # Cargo.lock
+
+# --- Wiki raw source snapshots (originals already in repo) ---
+wiki/raw/
 
 # --- Misc build / debug ---
 *.tmp

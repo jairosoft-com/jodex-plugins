@@ -1,0 +1,30 @@
+---
+title: Obsidian
+type: entity
+tags: [tool, editor, markdown]
+created: 2026-05-07
+updated: 2026-05-07
+source_count: 1
+aliases: [Obsidian.md]
+provenance: source-derived
+---
+
+# Obsidian
+
+A markdown-based knowledge management application that serves as the primary viewer/IDE for LLM wikis. In the wiki workflow, Obsidian is the IDE, the LLM is the programmer, and the wiki is the codebase.
+
+## Key Features for Wiki Use
+
+- **Graph view** — visualizes wiki page connections; best way to see wiki shape, hubs, and orphans
+- **Wikilinks** — resolves `[[Page Name]]` to `Page Name.md` natively
+- **Web Clipper** — browser extension that converts web articles to markdown for the [[Raw Sources]] collection
+- **Download attachments** — hotkey to download all images in a clipped article to local disk
+- **[[Marp Integration|Marp]] plugin** — renders markdown slide decks
+- **[[Dataview Queries|Dataview]] plugin** — runs queries over page YAML frontmatter
+
+## Integration Pattern
+
+User has Obsidian open on one side and the LLM agent on the other. The LLM makes edits, and the user browses results in real time — following links, checking graph view, reading updated pages.
+
+## Sources
+- [[Source - LLM Wiki]]
