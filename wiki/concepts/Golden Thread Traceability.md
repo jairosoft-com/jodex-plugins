@@ -4,7 +4,7 @@ type: concept
 tags: [pattern, requirements, traceability, product-management]
 created: 2026-05-09
 updated: 2026-05-09
-source_count: 0
+source_count: 3
 aliases: [golden thread, requirements traceability, traceability chain]
 provenance: synthesis
 ---
@@ -41,3 +41,6 @@ The [[Product Management Skills Plugin]] enforces this chain across its pipeline
 - [[Product Management Skills Plugin]] — plugin implementing this pattern
 
 ## Sources
+- [[Source - PRD Generator SKILL]]
+- [[Source - Tech Spec Generator SKILL]]
+- [[Source - Task JSON Converter SKILL]]

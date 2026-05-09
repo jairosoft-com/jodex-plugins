@@ -4,7 +4,7 @@ type: concept
 tags: [operation, wiki, pipeline]
 created: 2026-05-07
 updated: 2026-05-08
-source_count: 2
+source_count: 3
 aliases: [ingestion, ingest operation]
 provenance: source-derived
 ---
@@ -46,3 +46,4 @@ Unsupported formats (PDF, DOCX, images, HTML) require conversion to markdown fir
 ## Sources
 - [[Source - LLM Wiki]]
 - [[Source - LLM Wiki README]]
+- [[Source - llm-wiki Ingest Command]]

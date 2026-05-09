@@ -4,7 +4,7 @@ type: concept
 tags: [pattern, skill, architecture]
 created: 2026-05-07
 updated: 2026-05-08
-source_count: 2
+source_count: 6
 aliases: [phased skill, phase-based skill]
 provenance: source-derived
 ---
@@ -106,3 +106,7 @@ sequenceDiagram
 ## Sources
 - [[Source - Ingest SKILL]]
 - [[Source - Extract SKILL]]
+- [[Source - PRD Generator SKILL]]
+- [[Source - Tech Spec Generator SKILL]]
+- [[Source - Task JSON Converter SKILL]]
+- [[Source - Azure Boards Sync SKILL]]

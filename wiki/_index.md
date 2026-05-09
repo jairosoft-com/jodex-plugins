@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-09
-page_count: 106
+page_count: 159
 ---
 
 # Wiki Index
@@ -18,7 +18,8 @@ page_count: 106
 ## Concepts
 
 - [[Ad-hoc vs Manifest-Driven Workflows]] — Two workflow modes: manual target selection vs manifest-tracked suggestions (#pattern, #workflow)
-- [[Codex Plugin Compatibility]] — Claude Code vs Codex plugin format differences and conversion tools (#plugin, #codex)
+- [[Codex Plugin Compatibility]]
+- [[Configurable Default Chain]] — CLI flag → env var → hardcoded default resolution order (#pattern, #configuration) — Claude Code vs Codex plugin format differences and conversion tools (#plugin, #codex)
 - [[Conflict Callout]] — Pattern for handling contradictions between sources (#wiki, #contradiction)
 - [[Cross-Reference Pass]] — Bidirectional wikilink pass after page creation (#wiki, #linking)
 - [[Directory-Source Marketplace]] — Local directory as marketplace source instead of GitHub (#plugin, #marketplace)
@@ -31,6 +32,7 @@ page_count: 106
 - [[Idea Lifecycle]] — Progression: raw → promoted/backlogged/archived (#wiki, #workflow)
 - [[Idempotent Operation]] — Safe re-run pattern, skips existing work (#pattern, #safety)
 - [[Index]] — Content catalog for wiki navigation via _index.md (#architecture, #wiki)
+- [[Iterative Adversarial Review]] — Multi-pass design hardening: review, resolve, re-submit until clean (#pattern, #quality)
 - [[Ingest]] — Core operation: absorb source documents into wiki pages (#operation, #wiki)
 - [[Link Graph Traversal]] — Page discovery via wikilink graph during query (#wiki, #navigation)
 - [[Local Plugin Development]] — --plugin-dir workflow for local disk plugin dev (#plugin, #development)
@@ -39,7 +41,8 @@ page_count: 106
 - [[Marketplace]] — Plugin distribution mechanism for Claude Code CLI (#distribution, #plugin)
 - [[MCP Server]] — Model Context Protocol server for Claude Desktop extensibility (#protocol, #mcp)
 - [[MCP Tool]] — Individual capability exposed by MCP Server (#protocol, #tool)
-- [[Memory vs Wiki Separation]] — When to use agent memory vs wiki pages (#architecture, #persistence)
+- [[Memory vs Wiki Separation]]
+- [[Mode Flag Pattern]] — Merge N similar skills into 1 with --mode flag when 80%+ structure shared (#pattern, #plugin) — When to use agent memory vs wiki pages (#architecture, #persistence)
 - [[Multi-Phase Skill]] — Structural pattern: numbered phases with gates (#pattern, #architecture)
 - [[Naming Ripple Effect]] — How marketplace/plugin renames cascade through the system (#pattern, #naming)
 - [[Requirement ID System]] — {TYPE}-{feature_number}-{seq} format with global AC counter (#pattern, #requirements)
@@ -58,12 +61,15 @@ page_count: 106
 - [[Session Memory Model]] — Agent knowledge retention: in-session vs cross-session persistence (#persistence, #memory)
 - [[Semantic Locator]] — Stable element locators via live browser discovery (#testing, #locator)
 - [[Skill Chaining]] — Inter-skill output→input pipeline via --chain flag (#pattern, #plugin)
+- [[Skill Generalization]] — Process of porting project-specific skills to generic reusable plugins (#pattern, #porting)
+- [[Shared Reference Extraction]] — Extract repeated skill logic into _shared/ files, reference by path (#pattern, #DRY)
 - [[Settings Portability]] — settings.json (committed) vs settings.local.json (gitignored) split pattern (#pattern, #configuration)
 - [[SHA-256 Fingerprinting]] — Content-based dedup via hash (#security, #dedup)
 - [[Skill]] — Multi-phase instructional module powering slash commands (#plugin, #implementation)
 - [[Slash Command]] — User-facing command wrapper /plugin:command (#plugin, #user-facing)
 - [[Storage State]] — Browser state persistence for auth reuse (#testing, #persistence)
 - [[Tombstone Pattern]] — Mark synced items as removed instead of deleting; preserve external bindings (#pattern, #sync)
+- [[Template-as-Reference Pattern]] — Store templates in references/ subdir, keep SKILL.md behavior-only (#pattern, #organization)
 - [[Taxonomy Routing]] — Classification rules for routing knowledge to buckets (#classification, #wiki)
 - [[Three-Surface Plugin Ecosystem]] — CLI + Code Desktop + Codex Desktop shared plugin registry (#architecture, #plugin)
 - [[Test Code Generation]] — Auto-generating TypeScript from CLI interactions (#testing, #codegen)
@@ -72,6 +78,12 @@ page_count: 106
 - [[User Confirmation Gate]] — Security pattern: no writes before explicit approval (#security, #ux)
 - [[Watchlist Pattern]] — Manifest-driven tracking list for scan-based operations (#pattern, #workflow)
 - [[Wiki Query Patterns]] — Query types: retrieval, exploratory, generative (#wiki, #query)
+- [[ADO State Sync Model]] — Bottom-up state transition model for Azure Boards sync (#jx-pm, #ado, #state-machine)
+- [[Agent Definition]] — Custom AI subagent definition format for plugins (#plugin, #subagent, #orchestration)
+- [[Measurability Mandate]] — Every requirement must be testable with concrete metrics (#pattern, #requirements)
+- [[Mermaid Diagram Patterns]] — Reference library of 7 diagram types for architecture visualization (#jx-pm, #techspec, #mermaid)
+- [[Socratic Interview]] — 3-7 architectural questions tied to specific design decisions (#pattern, #architecture)
+- [[Tenant Binding]] — File-authoritative binding to external system tenant (#pattern, #safety)
 
 ## Entities
 
@@ -102,7 +114,7 @@ page_count: 106
 
 ## Projects
 
-- [[Jodex Plugin Marketplace]] — Dual-plugin marketplace dogfooding its own wiki workflow (#plugin, #marketplace)
+- [[Jodex Plugin Marketplace]] — Tri-plugin marketplace dogfooding its own wiki workflow (#plugin, #marketplace)
 - [[Product Management Skills Plugin]] — jx-pm: 5 skills (prd, techspec, task, ado, pipeline) for PM/PO workflows (#plugin, #product-management) [active]
 
 ## Decisions
@@ -141,3 +153,44 @@ page_count: 106
 - [[Source - Tracing Reference]] — Execution trace capture (#playwright)
 - [[Source - Triage SKILL]] — Idea classification (#skill)
 - [[Source - Video Recording Reference]] — WebM capture with overlays (#playwright)
+- [[Source - ADO Command]] — /jx-pm:ado command definition and tool permissions (#jx-pm, #command)
+- [[Source - ADO Sync States Reference]] — Azure Boards state transition rules for sync (#jx-pm, #ado)
+- [[Source - Azure Boards Sync SKILL]] — task.json to Azure Boards hierarchy with state sync (#skill, #jx-pm, #ado)
+- [[Source - Browser Command]] — /qa-ai:browser slash command definition (#qa-ai, #command, #playwright)
+- [[Source - Docs Root Config]] — Shared docs-root resolution: flag → env → default (#skill, #jx-pm, #config)
+- [[Source - Extract Command]] — /qa-ai:extract slash command definition (#qa-ai, #command)
+- [[Source - Generate Command]] — /qa-ai:generate slash command definition (#qa-ai, #command)
+- [[Source - ID Rules]] — Shared folder validation and requirement ID generation rules (#skill, #jx-pm, #id-system)
+- [[Source - jx-pm Agents Stub]] — Placeholder for future jx-pm agent configurations (#jx-pm, #stub)
+- [[Source - jx-pm Hooks Stub]] — Placeholder for future jx-pm lifecycle hooks (#jx-pm, #stub)
+- [[Source - jx-pm Plugin README]] — Plugin overview: 5 skills, pipeline chain, output structure (#jx-pm, #plugin)
+- [[Source - jx-pm PRD Command]] — jx-pm PRD generation command with mode flags and skill chaining (#jx-pm, #command)
+- [[Source - jx-pm Prompts Stub]] — Placeholder for future jx-pm prompt fragments (#jx-pm, #stub)
+- [[Source - jx-pm Task Command]] — jx-pm task.json generation command from PRD + TECH_SPEC (#jx-pm, #command)
+- [[Source - jx-pm Techspec Command]] — jx-pm tech spec generation command from PRD (#jx-pm, #command)
+- [[Source - LLM Wiki Prompts Directory]] — Prompt fragment directory for llm-wiki plugin (#llm-wiki, #prompts)
+- [[Source - LLM Wiki Schemas Directory]] — JSON Schema directory for llm-wiki plugin (#llm-wiki, #schemas)
+- [[Source - llm-wiki Agents Guide]] — llm-wiki agent definition format and use cases (#llm-wiki, #agents)
+- [[Source - llm-wiki Hooks Guide]] — llm-wiki hooks format and lifecycle events (#llm-wiki, #hooks)
+- [[Source - llm-wiki Ingest Command]] — llm-wiki ingest slash command definition (#llm-wiki, #command)
+- [[Source - llm-wiki Init Command]] — llm-wiki init slash command definition (#llm-wiki, #command)
+- [[Source - llm-wiki Lint Command]] — llm-wiki lint/health-check slash command definition (#llm-wiki, #command)
+- [[Source - llm-wiki Query Command]] — llm-wiki query slash command definition (#llm-wiki, #command)
+- [[Source - llm-wiki Triage Command]] — llm-wiki triage slash command definition (#llm-wiki, #command)
+- [[Source - Mermaid Diagram Patterns]] — 7 Mermaid diagram types for tech spec generation (#jx-pm, #techspec)
+- [[Source - Pipeline Command]] — /jx-pm:pipeline command definition and flags (#jx-pm, #command)
+- [[Source - Pipeline SKILL]] — Convenience wrapper running full PM pipeline (#skill, #jx-pm, #pipeline)
+- [[Source - PRD Example Lite]] — Complete lite-mode PRD example (one-click checkout) (#jx-pm, #prd)
+- [[Source - PRD Generator SKILL]] — PRD generation skill with 3 modes, golden thread, INVEST stories (#skill, #jx-pm, #prd)
+- [[Source - PRD Lite Template]] — Minimal viable PRD template with placeholders (#jx-pm, #prd)
+- [[Source - PRD Standard Template]] — Mid-weight PRD template with design/tech sections (#jx-pm, #prd)
+- [[Source - QA AI Agents Directory]] — Agent definition directory for qa-ai plugin (#qa-ai, #agents)
+- [[Source - QA AI Hooks Directory]] — Hooks lifecycle directory for qa-ai plugin (#qa-ai, #hooks)
+- [[Source - QA AI Prompts Directory]] — Prompt fragment directory for qa-ai plugin (#qa-ai, #prompts)
+- [[Source - QA AI Schemas Directory]] — JSON Schema directory for qa-ai plugin (#qa-ai, #schemas)
+- [[Source - Root README]] — Root project README with installation and usage docs (#marketplace, #readme)
+- [[Source - Task JSON Converter SKILL]] — PRD/tech spec to canonical task.json with estimates (#skill, #jx-pm, #task)
+- [[Source - Task JSON Schema]] — Canonical JSON schema for task.json structure (#skill, #jx-pm, #schema)
+- [[Source - Tech Spec Generator SKILL]] — Tech spec from PRD with Mermaid, JSON Schema, OpenAPI, ADRs (#skill, #jx-pm, #techspec)
+- [[Source - Tech Spec Template]] — 8-section TECH_SPEC.md template with EARS syntax (#jx-pm, #techspec)
+- [[Source - Unified BRD-PRD Template]] — Combined BRD+PRD template with strategic + tactical sections (#jx-pm, #prd)

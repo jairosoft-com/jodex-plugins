@@ -4,7 +4,7 @@ type: concept
 tags: [plugin, component, lifecycle]
 created: 2026-05-07
 updated: 2026-05-07
-source_count: 1
+source_count: 3
 aliases: [hooks, lifecycle hook]
 provenance: source-derived
 ---
@@ -19,3 +19,5 @@ Hooks live in the `hooks/` directory of a plugin. They provide automation around
 
 ## Sources
 - [[Source - Claude CLI vs Desktop MCP Guide]]
+- [[Source - QA AI Hooks Directory]]
+- [[Source - llm-wiki Hooks Guide]]

@@ -4,7 +4,7 @@ type: concept
 tags: [operation, wiki, retrieval]
 created: 2026-05-07
 updated: 2026-05-07
-source_count: 3
+source_count: 4
 aliases: [query operation, wiki query]
 provenance: synthesis
 ---
@@ -34,7 +34,7 @@ Use `/llm-wiki:query` for searching wiki and getting synthesized answers with ci
 ## How It Works
 
 1. Read [[Index]] to identify relevant pages
-2. Read those pages and follow [[Cross-References|cross-references]]
+2. Read those pages and follow [[Cross-Reference Pass|cross-references]]
 3. Synthesize an answer with `[[citations]]` to wiki pages
 4. Optionally produce different output formats: markdown page, comparison table, slide deck ([[Marp Integration|Marp]]), chart, canvas
 
@@ -64,3 +64,4 @@ When filing an answer back as a wiki page:
 ## Sources
 - [[Source - LLM Wiki]]
 - [[Source - Query SKILL]]
+- [[Source - llm-wiki Query Command]]

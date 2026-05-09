@@ -4,7 +4,7 @@ type: concept
 tags: [pattern, plugin, workflow, pipeline]
 created: 2026-05-09
 updated: 2026-05-09
-source_count: 0
+source_count: 9
 aliases: [skill pipeline, chain flag, inter-skill chaining]
 provenance: synthesis
 ---
@@ -43,3 +43,12 @@ Each arrow represents a file handoff:
 - [[Plugin Architecture]] — .claude-plugin format
 
 ## Sources
+- [[Source - jx-pm Plugin README]]
+- [[Source - Pipeline Command]]
+- [[Source - jx-pm PRD Command]]
+- [[Source - jx-pm Task Command]]
+- [[Source - jx-pm Techspec Command]]
+- [[Source - PRD Generator SKILL]]
+- [[Source - Tech Spec Generator SKILL]]
+- [[Source - Task JSON Converter SKILL]]
+- [[Source - Pipeline SKILL]]

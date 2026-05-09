@@ -4,7 +4,7 @@ type: concept
 tags: [operation, wiki, maintenance]
 created: 2026-05-07
 updated: 2026-05-07
-source_count: 2
+source_count: 3
 aliases: [lint operation, wiki lint, health check]
 provenance: source-derived
 ---
@@ -49,3 +49,4 @@ Generates a score from 0 to 100. Factors include broken links, orphan pages, mis
 - [[Source - LLM Wiki]]
 - [[Source - LLM Wiki README]]
 - [[Source - Lint SKILL]]
+- [[Source - llm-wiki Lint Command]]

@@ -4,6 +4,53 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-09 — Parallel 41-Source Ingest (wiki-ingest team)
+
+- **Operation**: agent team ingest (4 parallel agents: ingest-skills, ingest-refs, ingest-llmwiki, ingest-qaai)
+- **Source pages created**: 41 new source pages in wiki/sources/
+  - 8 jx-pm SKILL files (prd, techspec, task, ado, pipeline, docs-root, id-rules, task-json-schema)
+  - 10 jx-pm reference + command files (templates, sync-states, diagram-patterns, README, commands)
+  - 13 llm-wiki + jx-pm stub files (commands, agents, hooks, prompts)
+  - 10 qa-ai + llm-wiki rest + root README
+- **Concept pages created**: 6 — [[ADO State Sync Model]], [[Mermaid Diagram Patterns]], [[Agent Definition]], [[Measurability Mandate]], [[Socratic Interview]], [[Tenant Binding]]
+- **Concept pages updated**: 17 existing pages received new source references
+- **Index**: updated, page_count 112 → 159
+- **Outcome**: All 41 watchlist pending items ingested. Wiki source coverage now includes all 3 plugins fully.
+
+## 2026-05-09 — Multi-Agent Repository Analysis
+
+- **Operation**: agent team analysis (4 parallel agents: structure, wiki, plugin, git)
+- **Pages updated**: [[Jodex Plugin Marketplace]] (projects/) — dual→tri-plugin, added jx-pm
+- **Wiki health baseline**:
+  - 139 total pages across 10 taxonomy categories
+  - 112/112 indexed pages — 100% coverage, 0 orphans
+  - 1,335 wikilinks (~9.6 links/page avg density)
+  - Category distribution: concepts 61, sources 24, ideas 6, platforms 5, entities 4, topics 4, code 3, plugins 2, projects 2, decisions 1
+  - 6 backlog items, 16 pending watchlist ingests
+- **Repo metrics**: 470 files (376 md, 84 json, 4 py), 33 commits, 3 plugins with consistent structure
+- **Outcome**: Project page updated to reflect 3-plugin reality. Wiki in production-ready state.
+
+## 2026-05-09 — Implementation Phase Patterns Filing
+
+- **Operation**: manual filing
+- **Pages created**: [[Shared Reference Extraction]] (concepts/), [[Template-as-Reference Pattern]] (concepts/), [[Configurable Default Chain]] (concepts/)
+- **Outcome**: Filed 3 structural patterns from implementation phase. Shared Reference = _shared/ for cross-skill DRY. Template-as-Reference = references/ subdir keeps SKILL.md lean. Configurable Default Chain = flag→env→default resolution.
+- **Index**: updated, page_count 109 → 112
+
+## 2026-05-09 — Planning Phase Patterns Filing
+
+- **Operation**: manual filing
+- **Pages created**: [[Skill Generalization]] (concepts/), [[Mode Flag Pattern]] (concepts/)
+- **Outcome**: Filed 2 design patterns from ideation/planning phase. Skill Generalization = process of porting project-specific skills to generic plugins (6→5, ~76% reduction). Mode Flag Pattern = merge N similar skills into 1 with --mode when 80%+ structure shared.
+- **Index**: updated, page_count 107 → 109
+
+## 2026-05-09 — Iterative Adversarial Review Pattern Filing
+
+- **Operation**: manual filing
+- **Pages created**: [[Iterative Adversarial Review]] (concepts/)
+- **Outcome**: Filed meta-pattern discovered through 5 rounds of Codex adversarial review on jx-pm. Documents the review loop, observed progression, and how it surfaced Per-Item Write-Back, Tombstone Pattern, and Fail-Closed Lookup.
+- **Index**: updated, page_count 106 → 107
+
 ## 2026-05-09 — Adversarial Review Patterns Filing
 
 - **Operation**: manual filing

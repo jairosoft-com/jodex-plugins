@@ -8,6 +8,8 @@
 
 ## Workflow Rules
 - [Wiki vs code changes](feedback_wiki_vs_code.md) — Wiki filings proceed immediately; code changes require a plan first
+- [Adversarial review workflow](feedback_adversarial_review_workflow.md) — Run iteratively, expect multiple rounds until clean
+- [Discuss findings individually](feedback_discuss_findings.md) — Present findings one-by-one, not batch multi-select
 
 ## NotebookLM
 - [Associated notebooks](reference_notebooklm.md) — Plugin Marketplace Architecture + Mastering Skill.MD
@@ -15,5 +17,9 @@
 ## Confidence threshold
 - [Advisor confidence threshold](feedback_advisor_threshold.md) — Call advisor when confidence <=93%
 
-## Planned Improvements
+## Projects
+- [jx-pm plugin](project_jx_pm_plugin.md) — Built, committed, ready for dogfooding. 5 skills at plugins/jx-pm/
 - [Extract skill BRD path](project_extract_brd_path.md) — Remove hardcoded path; prompt user or pull from memory
+
+## References
+- [CasaColina source skills](reference_casacolina_source_skills.md) — Original cc-gen-* skills that jx-pm was ported from

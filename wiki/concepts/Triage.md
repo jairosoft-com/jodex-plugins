@@ -4,7 +4,7 @@ type: concept
 tags: [operation, wiki, classification]
 created: 2026-05-07
 updated: 2026-05-07
-source_count: 2
+source_count: 3
 aliases: [triage operation, idea triage]
 provenance: source-derived
 ---
@@ -37,3 +37,4 @@ See [[Idea Lifecycle]] for full state machine.
 ## Sources
 - [[Source - LLM Wiki]]
 - [[Source - Triage SKILL]]
+- [[Source - llm-wiki Triage Command]]

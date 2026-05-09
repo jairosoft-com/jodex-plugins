@@ -4,7 +4,7 @@ type: concept
 tags: [security, pattern, ux]
 created: 2026-05-07
 updated: 2026-05-07
-source_count: 1
+source_count: 2
 aliases: [confirmation gate, approval checkpoint]
 provenance: source-derived
 ---
@@ -33,3 +33,4 @@ The user can add, remove, or modify entries before approving.
 
 ## Sources
 - [[Source - LLM Wiki README]]
+- [[Source - Azure Boards Sync SKILL]]

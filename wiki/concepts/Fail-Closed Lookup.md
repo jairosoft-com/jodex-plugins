@@ -4,7 +4,7 @@ type: concept
 tags: [pattern, safety, sync, external-system]
 created: 2026-05-09
 updated: 2026-05-09
-source_count: 0
+source_count: 1
 aliases: [fail-closed search, exact-match-or-halt]
 provenance: synthesis
 ---
@@ -51,3 +51,4 @@ Used by `/jx-pm:ado` crash recovery — when task.json lacks an `azureWorkItemId
 - [[Product Management Skills Plugin]] — plugin using this pattern
 
 ## Sources
+- [[Source - Azure Boards Sync SKILL]]

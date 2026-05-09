@@ -32,3 +32,6 @@ The [[Claude Desktop]] equivalent is an [[MCP Tool]] — a named capability expo
 
 ## Sources
 - [[Source - Claude CLI vs Desktop MCP Guide]]
+- [[Source - Browser Command]]
+- [[Source - Extract Command]]
+- [[Source - Generate Command]]

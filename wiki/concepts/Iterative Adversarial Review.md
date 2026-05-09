@@ -1,0 +1,69 @@
+---
+title: Iterative Adversarial Review
+type: concept
+tags: [pattern, quality, design, review]
+created: 2026-05-09
+updated: 2026-05-09
+source_count: 0
+aliases: [adversarial review loop, multi-pass review, design hardening]
+provenance: synthesis
+---
+
+# Iterative Adversarial Review
+
+A design-hardening pattern: submit a spec to adversarial review, resolve findings, update the spec, re-submit — repeat until no blocking findings remain.
+
+## Why Single-Pass Fails
+
+- Each fix can introduce new edge cases
+- Reviewer sees different context after fixes (new attack surface)
+- Cascading issues only surface after earlier issues are resolved
+- First-pass findings tend to be structural; later passes find semantic/contract issues
+
+## The Loop
+
+```
+1. Write/update design spec
+2. Submit to adversarial reviewer (Codex, peer, security)
+3. Reviewer returns findings (verdict: approve | needs-attention)
+4. Discuss each finding individually — don't batch-resolve
+5. Decide resolution per finding (fix, accept risk, defer)
+6. Update spec with resolutions
+7. Re-submit → goto 3
+8. Exit when verdict = approve or findings are acceptable
+```
+
+## Observed Progression (jx-pm case study)
+
+| Round | Focus | Findings |
+|-------|-------|----------|
+| 1 | Working tree noise | .claude/worktrees leak, ADO idempotency gap, index corruption |
+| 2 | ADO safety basics | Crash recovery, tenant guard, chain contract gap |
+| 3 | Contract consistency | Merge vs tombstone contradiction, confirmation gates, tenant binding mismatch |
+| 4 | Edge cases | Feature lookup, hierarchy reconciliation, force-overwrite backup safety |
+| 5 | Clean | Approve (no material findings after all resolutions applied) |
+
+## Key Patterns Discovered Through This Loop
+
+Each round surfaced patterns that became wiki concepts:
+- [[Per-Item Write-Back]] — round 2 (crash safety)
+- [[Tombstone Pattern]] — round 3 (orphan prevention)
+- [[Fail-Closed Lookup]] — round 3 (ambiguous match safety)
+
+## When to Use
+
+- Before implementing any system that writes to external state (APIs, databases, cloud services)
+- When a design has safety/idempotency requirements
+- When porting existing code to new context (assumptions from source may not hold)
+- After significant design changes within a session
+
+## Related
+
+- [[User Confirmation Gate]] — confirmation gates emerged from this pattern
+- [[Idempotent Operation]] — idempotency contracts hardened through review
+- [[Per-Item Write-Back]] — discovered through adversarial review
+- [[Tombstone Pattern]] — discovered through adversarial review
+- [[Fail-Closed Lookup]] — discovered through adversarial review
+- [[Product Management Skills Plugin]] — case study for this pattern
+
+## Sources

@@ -4,7 +4,7 @@ type: concept
 tags: [pattern, requirements, id-system, traceability]
 created: 2026-05-09
 updated: 2026-05-09
-source_count: 0
+source_count: 6
 aliases: [folder-based IDs, requirement IDs, feature number IDs]
 provenance: synthesis
 ---
@@ -65,3 +65,9 @@ Feature number derives from folder name pattern `{NNN}_{feature_name}`:
 - [[Product Management Skills Plugin]] — plugin using this system
 
 ## Sources
+- [[Source - PRD Example Lite]]
+- [[Source - PRD Lite Template]]
+- [[Source - PRD Standard Template]]
+- [[Source - Unified BRD-PRD Template]]
+- [[Source - Tech Spec Template]]
+- [[Source - ID Rules]]

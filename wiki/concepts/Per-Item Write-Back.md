@@ -4,7 +4,7 @@ type: concept
 tags: [pattern, safety, crash-recovery, sync]
 created: 2026-05-09
 updated: 2026-05-09
-source_count: 0
+source_count: 1
 aliases: [per-item writeback, immediate writeback, atomic item sync]
 provenance: synthesis
 ---
@@ -56,3 +56,4 @@ Used by `/jx-pm:ado` — writes `azureWorkItemId` to task.json after each Azure 
 - [[Product Management Skills Plugin]] — plugin using this pattern
 
 ## Sources
+- [[Source - Azure Boards Sync SKILL]]

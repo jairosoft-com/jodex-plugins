@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "wiki/code/Creating a Skill.md",
+                "file": "wiki/projects/Product Management Skills Plugin.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Creating a Skill"
+              "title": "Product Management Skills Plugin"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "2d6b18453d1ccdc6",
@@ -94,8 +94,8 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "wiki/code/Creating a Skill.md",
-                "collapseAll": false,
+                "file": "wiki/projects/Product Management Skills Plugin.md",
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Creating a Skill"
+              "title": "Backlinks for Product Management Skills Plugin"
             }
           },
           {
@@ -156,21 +156,21 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "wiki/code/Creating a Skill.md",
+                "file": "wiki/projects/Product Management Skills Plugin.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Creating a Skill"
+              "title": "Outline of Product Management Skills Plugin"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -185,40 +185,41 @@
   },
   "active": "33b66454d94eab99",
   "lastOpenFiles": [
-    "plugins/qa-ai/commands/test.md",
-    "plugins/qa-ai/skills/test/evals/evals.json",
-    "plugins/qa-ai/skills/test/evals",
-    "plugins/qa-ai/skills/test/SKILL.md",
-    "plugins/qa-ai/skills/test",
-    "plugins/qa-ai/skills/extract/SEQUENCE.md",
-    "wiki/code/Creating a Skill.md",
-    "wiki/raw/sources/e20fe7d0-README.md",
-    "wiki/raw/sources/76a32c9d-SKILL.md",
-    "wiki/raw/sources/0a57b19a-SKILL.md",
-    "wiki/raw/sources/0896fa53-marketplace.json",
-    "wiki/raw/sources/598dfe86-SKILL.md",
-    "wiki/concepts/Directory-Source Marketplace.md",
-    "wiki/concepts/Settings Portability.md",
-    "wiki/sources/Source - Extract SKILL Sequence.md",
-    "wiki/raw/sources/a720ef67-SEQUENCE.md",
-    "wiki/platforms/WSL.md",
-    "plugins/qa-ai/skills/extract/evals/evals.json",
-    "plugins/qa-ai/skills/extract/evals",
-    "wiki/topics/Plugin Dogfooding Workflow.md",
-    "wiki/ideas/Align qa-ai Generate Tool Contract.md",
-    "wiki/ideas/Raw Sources Should Be Excluded From Wiki Graph.md",
-    "wiki/decisions/ADR-001 Treat Marketplace Metadata As Listing Source.md",
-    "wiki/concepts/Plugin Metadata Surfaces.md",
-    "wiki/projects/Jodex Plugin Marketplace.md",
-    "wiki/logs/subagent_stop.json",
-    "wiki/concepts/Ad-hoc vs Manifest-Driven Workflows.md",
-    "wiki/concepts/Three-Surface Plugin Ecosystem.md",
-    "wiki/concepts/Watchlist Pattern.md",
-    "wiki/_watchlist.md",
-    "wiki/logs/user_prompt_submit.json",
-    "wiki/logs/chat.json",
-    "wiki/logs/stop.json",
-    "wiki/platforms/Plugin Architecture.md",
-    "wiki/platforms/Codex Desktop.md"
+    "wiki/concepts/Tenant Binding.md",
+    "wiki/concepts/Socratic Interview.md",
+    "wiki/concepts/Measurability Mandate.md",
+    "wiki/concepts/Agent Definition.md",
+    "wiki/sources/Source - llm-wiki Hooks Guide.md",
+    "wiki/sources/Source - llm-wiki Agents Guide.md",
+    "wiki/sources/Source - Task JSON Schema.md",
+    "wiki/sources/Source - llm-wiki Triage Command.md",
+    "wiki/sources/Source - llm-wiki Query Command.md",
+    "wiki/sources/Source - ID Rules.md",
+    "wiki/sources/Source - llm-wiki Lint Command.md",
+    "wiki/sources/Source - llm-wiki Init Command.md",
+    "wiki/concepts/Mermaid Diagram Patterns.md",
+    "wiki/sources/Source - llm-wiki Ingest Command.md",
+    "wiki/concepts/ADO State Sync Model.md",
+    "wiki/sources/Source - Root README.md",
+    "wiki/sources/Source - Docs Root Config.md",
+    "wiki/sources/Source - jx-pm Prompts Stub.md",
+    "wiki/sources/Source - jx-pm Hooks Stub.md",
+    "wiki/sources/Source - QA AI Schemas Directory.md",
+    "wiki/sources/Source - jx-pm Agents Stub.md",
+    "wiki/sources/Source - Pipeline SKILL.md",
+    "wiki/sources/Source - QA AI Prompts Directory.md",
+    "wiki/sources/Source - jx-pm Techspec Command.md",
+    "wiki/sources/Source - Pipeline Command.md",
+    "wiki/sources/Source - QA AI Hooks Directory.md",
+    "plugins/jx-pm/skills/ado/references",
+    "plugins/jx-pm/skills/techspec/references",
+    "plugins/jx-pm/skills/prd/references",
+    "plugins/jx-pm/skills/techspec",
+    "plugins/jx-pm/skills/task",
+    "plugins/jx-pm/skills/prd",
+    "plugins/jx-pm/skills/pipeline",
+    "plugins/jx-pm/skills/ado",
+    "plugins/jx-pm/skills/_shared",
+    "plugins/jx-pm/skills"
   ]
 }
