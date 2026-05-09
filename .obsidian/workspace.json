@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "plugins/qa-ai/skills/extract/SEQUENCE.md",
+                "file": "wiki/code/Creating a Skill.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SEQUENCE"
+              "title": "Creating a Skill"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "plugins/qa-ai/skills/extract/SEQUENCE.md",
+                "file": "wiki/code/Creating a Skill.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for SEQUENCE"
+              "title": "Backlinks for Creating a Skill"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "plugins/qa-ai/skills/extract/SEQUENCE.md",
+                "file": "wiki/code/Creating a Skill.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from SEQUENCE"
+              "title": "Outgoing links from Creating a Skill"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "plugins/qa-ai/skills/extract/SEQUENCE.md",
+                "file": "wiki/code/Creating a Skill.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of SEQUENCE"
+              "title": "Outline of Creating a Skill"
             }
           }
         ]
@@ -185,6 +185,12 @@
   },
   "active": "33b66454d94eab99",
   "lastOpenFiles": [
+    "plugins/qa-ai/commands/test.md",
+    "plugins/qa-ai/skills/test/evals/evals.json",
+    "plugins/qa-ai/skills/test/evals",
+    "plugins/qa-ai/skills/test/SKILL.md",
+    "plugins/qa-ai/skills/test",
+    "plugins/qa-ai/skills/extract/SEQUENCE.md",
     "wiki/code/Creating a Skill.md",
     "wiki/raw/sources/e20fe7d0-README.md",
     "wiki/raw/sources/76a32c9d-SKILL.md",
@@ -196,7 +202,6 @@
     "wiki/sources/Source - Extract SKILL Sequence.md",
     "wiki/raw/sources/a720ef67-SEQUENCE.md",
     "wiki/platforms/WSL.md",
-    "plugins/qa-ai/skills/extract/SEQUENCE.md",
     "plugins/qa-ai/skills/extract/evals/evals.json",
     "plugins/qa-ai/skills/extract/evals",
     "wiki/topics/Plugin Dogfooding Workflow.md",
@@ -213,9 +218,6 @@
     "wiki/logs/user_prompt_submit.json",
     "wiki/logs/chat.json",
     "wiki/logs/stop.json",
-    "wiki/logs/notification.json",
-    "wiki/logs/pre_tool_use.json",
-    "wiki/logs/status_line.json",
     "wiki/platforms/Plugin Architecture.md",
     "wiki/platforms/Codex Desktop.md"
   ]
