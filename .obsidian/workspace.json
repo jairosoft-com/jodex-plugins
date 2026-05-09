@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "wiki/platforms/WSL.md",
+                "file": "plugins/qa-ai/skills/extract/SEQUENCE.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "WSL"
+              "title": "SEQUENCE"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "wiki/platforms/WSL.md",
+                "file": "plugins/qa-ai/skills/extract/SEQUENCE.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for WSL"
+              "title": "Backlinks for SEQUENCE"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "wiki/platforms/WSL.md",
+                "file": "plugins/qa-ai/skills/extract/SEQUENCE.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from WSL"
+              "title": "Outgoing links from SEQUENCE"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "wiki/platforms/WSL.md",
+                "file": "plugins/qa-ai/skills/extract/SEQUENCE.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of WSL"
+              "title": "Outline of SEQUENCE"
             }
           }
         ]
@@ -185,6 +185,12 @@
   },
   "active": "33b66454d94eab99",
   "lastOpenFiles": [
+    "wiki/sources/Source - Extract SKILL Sequence.md",
+    "wiki/raw/sources/a720ef67-SEQUENCE.md",
+    "wiki/platforms/WSL.md",
+    "plugins/qa-ai/skills/extract/SEQUENCE.md",
+    "plugins/qa-ai/skills/extract/evals/evals.json",
+    "plugins/qa-ai/skills/extract/evals",
     "wiki/topics/Plugin Dogfooding Workflow.md",
     "wiki/ideas/Align qa-ai Generate Tool Contract.md",
     "wiki/ideas/Raw Sources Should Be Excluded From Wiki Graph.md",
@@ -203,7 +209,6 @@
     "wiki/logs/pre_tool_use.json",
     "wiki/logs/status_line.json",
     "wiki/logs/post_tool_use.json",
-    "wiki/logs",
     "wiki/platforms/Plugin Architecture.md",
     "wiki/platforms/Codex Desktop.md"
   ]

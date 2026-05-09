@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-08
-page_count: 94
+page_count: 95
 ---
 
 # Wiki Index
@@ -110,6 +110,7 @@ page_count: 94
 - [[Source - Claude Desktop WSL Integration]] — WSL integration guide (#wsl)
 - [[Source - Element Attributes Reference]] — DOM attribute inspection via eval (#playwright)
 - [[Source - Extract SKILL]] — BRD → xlsx test plan (#skill)
+- [[Source - Extract SKILL Sequence]] — Mermaid sequence diagram for extract 6-phase flow (#skill, #sequence-diagram)
 - [[Source - Generate SKILL]] — xlsx → Playwright specs via live browser (#skill)
 - [[Source - Init SKILL]] — Wiki initialization (#skill)
 - [[Source - Ingest SKILL]] — Core ingest operation (#skill)

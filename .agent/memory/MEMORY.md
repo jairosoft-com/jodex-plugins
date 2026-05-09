@@ -14,3 +14,6 @@
 
 ## Confidence threshold
 - [Advisor confidence threshold](feedback_advisor_threshold.md) — Call advisor when confidence <=93%
+
+## Planned Improvements
+- [Extract skill BRD path](project_extract_brd_path.md) — Remove hardcoded path; prompt user or pull from memory

@@ -326,3 +326,14 @@ title: Wiki Log
 - **Pages updated**: _index.md
 - **Cross-references added**: 32
 - **Outcome**: Success — plugin metadata, dogfooding workflow, and two implementation findings filed to wiki
+
+## 2026-05-08 — Ingest
+
+- **Operation**: ingest
+- **Source**: plugins/qa-ai/skills/extract/SEQUENCE.md
+- **Snapshot**: wiki/raw/sources/a720ef67-SEQUENCE.md
+- **SHA-256**: a720ef6721402f1c5161554e746ddd19f0a7ccaeb7ae31010c5c320f8457af9d
+- **Pages created**: Source - Extract SKILL Sequence
+- **Pages updated**: Multi-Phase Skill (added Extract 6-phase example with sequence diagram)
+- **Cross-references added**: 6
+- **Outcome**: Success
