@@ -8,7 +8,7 @@
   },
   "plugins": [
     {
-      "name": "Qa-Ai",
+      "name": "qa-ai",
       "description": "Qa.Ai Harness: extract E2E test cases from BRDs, generate Playwright specs, automate browser interactions.",
       "author": {
         "name": "Jairosoft"
@@ -17,7 +17,7 @@
       "source": "./plugins/qa-ai"
     },
     {
-      "name": "LLM-Wiki",
+      "name": "llm-wiki",
       "description": "Knowledge Base: ingest sources, build an LLM-maintained wiki, query with citations, lint for health.",
       "author": {
         "name": "Jairosoft"
