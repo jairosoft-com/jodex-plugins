@@ -3,7 +3,7 @@ title: Naming Ripple Effect
 type: concept
 tags: [pattern, naming, plugin, maintenance]
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-05-09
 source_count: 0
 aliases: [rename cascade, naming dependencies]
 provenance: synthesis
@@ -35,6 +35,21 @@ When renaming a plugin (e.g., `qa-ai` → `new-name`):
 | Directory name | `plugins/<name>/` | directory |
 | Slash commands | User-facing | `/old-name:skill` → `/new-name:skill` |
 | Codex equivalent | `.codex-plugin/plugin.json` | `name` (if dual support) |
+
+## Case Sensitivity
+
+Plugin names are **case-sensitive**. `qa-ai` and `Qa-Ai` are different names. A case mismatch between any of the three required locations causes:
+
+```
+Plugin "qa-ai" not found in marketplace "jodex-plugins"
+```
+
+All three must match exactly:
+1. Directory name: `plugins/qa-ai/`
+2. Plugin manifest: `plugins/qa-ai/.claude-plugin/plugin.json` → `"name": "qa-ai"`
+3. Marketplace entry: `.claude-plugin/marketplace.json` → `plugins[].name: "qa-ai"`
+
+Convention: always use **lowercase with hyphens** (e.g., `qa-ai`, not `Qa-Ai` or `QA_AI`).
 
 ## Key Risk
 

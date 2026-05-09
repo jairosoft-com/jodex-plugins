@@ -4,6 +4,12 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-09 — Update
+
+- **Operation**: manual update
+- **Pages updated**: [[Naming Ripple Effect]] (concepts/)
+- **Outcome**: Added case-sensitivity section — plugin names are case-sensitive, must use lowercase-with-hyphens consistently across directory, plugin.json, and marketplace.json
+
 ## 2026-05-08 — Filing
 
 - **Operation**: manual filing
