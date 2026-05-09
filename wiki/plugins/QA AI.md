@@ -3,7 +3,7 @@ title: QA AI
 type: plugin
 tags: [testing, playwright, qa]
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-08
 source_count: 4
 aliases: [qa-ai, qa-ai plugin]
 provenance: source-derived
@@ -28,6 +28,10 @@ BRD/PRD markdown → /qa-ai:extract → xlsx test plan → /qa-ai:generate → P
 | `/qa-ai:extract` | extract | BRD → xlsx test plan |
 | `/qa-ai:generate` | generate | xlsx → [[Playwright]] .spec.ts files |
 | `/qa-ai:browser` | playwright-cli | Browser automation (internal) |
+
+## Test Plan Directory
+
+Test plans stored in `test-plans/` (changed from `raw/data/`). Both extract and generate skills auto-discover xlsx files in this directory.
 
 ## Requirements
 

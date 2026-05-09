@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-08
-page_count: 97
+page_count: 98
 ---
 
 # Wiki Index
@@ -103,6 +103,7 @@ page_count: 97
 
 ## Code
 
+- [[Creating a Skill]] — Step-by-step guide for adding a new skill to a Claude Code plugin (#skill, #how-to)
 - [[wiki-tools.py]] — Pinned helper script for LLM Wiki plugin (#script, #python)
 - [[xlsx-writer.py]] — Pinned helper script for QA AI plugin (#script, #python)
 

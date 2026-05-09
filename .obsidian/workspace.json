@@ -185,6 +185,12 @@
   },
   "active": "33b66454d94eab99",
   "lastOpenFiles": [
+    "wiki/code/Creating a Skill.md",
+    "wiki/raw/sources/e20fe7d0-README.md",
+    "wiki/raw/sources/76a32c9d-SKILL.md",
+    "wiki/raw/sources/0a57b19a-SKILL.md",
+    "wiki/raw/sources/0896fa53-marketplace.json",
+    "wiki/raw/sources/598dfe86-SKILL.md",
     "wiki/concepts/Directory-Source Marketplace.md",
     "wiki/concepts/Settings Portability.md",
     "wiki/sources/Source - Extract SKILL Sequence.md",
@@ -210,7 +216,6 @@
     "wiki/logs/notification.json",
     "wiki/logs/pre_tool_use.json",
     "wiki/logs/status_line.json",
-    "wiki/logs/post_tool_use.json",
     "wiki/platforms/Plugin Architecture.md",
     "wiki/platforms/Codex Desktop.md"
   ]

@@ -3,8 +3,8 @@ title: Source - Marketplace Config
 type: source
 tags: [config, marketplace, json]
 created: 2026-05-07
-updated: 2026-05-07
-raw_path: wiki/raw/sources/a2efd6d7-marketplace.json
+updated: 2026-05-08
+raw_path: wiki/raw/sources/0896fa53-marketplace.json
 provenance: source-derived
 ---
 
@@ -12,12 +12,12 @@ provenance: source-derived
 
 ## Metadata
 - **Original path**: .claude-plugin/marketplace.json
-- **SHA-256**: a2efd6d7cbf52524a53d21d7c6fdfe75d1e2e71d3e71da501e4b39a5fa321ccf
-- **Size**: 861 bytes
+- **SHA-256**: 0896fa53d2c5bbb71153d02fb6f807f5cc81b633c63364ac845ee46d005da000
+- **Size**: 833 bytes
 
 ## Summary
 
-JSON manifest for the jodex-qa-ai plugin marketplace. Defines marketplace name, owner (Jairosoft), and two plugins: qa-ai (productivity) and llm-wiki (knowledge). References [[Marketplace]] schema at anthropic.com.
+JSON manifest for the jodex-plugins marketplace (renamed from jairosoft-com-jodex-qa-ai). Defines marketplace name, owner (Jairosoft), and two plugins: qa-ai ("Qa.Ai Harness", productivity) and llm-wiki ("Knowledge Base", knowledge). References [[Marketplace]] schema at anthropic.com.
 
 ## Pages Updated
 - Marketplace (added manifest structure, this repo's catalog)

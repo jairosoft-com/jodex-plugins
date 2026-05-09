@@ -4,6 +4,13 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-08 — Filing
+
+- **Operation**: manual filing
+- **Pages created**: [[Creating a Skill]] (code/)
+- **Outcome**: Added step-by-step skill creation guide derived from repo inspection
+- **Index**: updated, page_count 97 → 98
+
 ## 2026-05-07 — Init
 
 - **Operation**: init
@@ -346,3 +353,16 @@ title: Wiki Log
 - **Pages updated**: Marketplace (added directory-source mention), Local Plugin Development (added directory-source alternative + settings portability cross-ref)
 - **Cross-references added**: 10
 - **Outcome**: Success — settings split pattern and local marketplace mechanism documented
+
+## 2026-05-08 — Re-ingest (batch, 5 changed sources)
+
+- **Operation**: re-ingest (5 sources with changed SHA-256)
+- **Sources re-ingested**:
+  - plugins/llm-wiki/skills/ingest/SKILL.md (598dfe86, was b40f6734) — watchlist integration
+  - .claude-plugin/marketplace.json (0896fa53, was a2efd6d7) — name + description changes
+  - plugins/qa-ai/skills/extract/SKILL.md (0a57b19a, was 87ab5412) — test-plans/ path, xlsx discovery
+  - plugins/qa-ai/skills/generate/SKILL.md (76a32c9d, was c9e18203) — xlsx-writer.py reader, test-plans/ path
+  - plugins/qa-ai/README.md (e20fe7d0, was 9b33051a) — test-plans/ path references
+- **Pages updated**: Source - Ingest SKILL, Source - Marketplace Config, Source - Extract SKILL, Source - Generate SKILL, Source - QA AI README, QA AI (added test plan directory), xlsx-writer.py (expanded usage to both extract + generate)
+- **Pages created**: (none)
+- **Outcome**: Success — all 5 source pages updated with new hashes and change summaries

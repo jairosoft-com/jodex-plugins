@@ -3,7 +3,7 @@ title: xlsx-writer.py
 type: code
 tags: [script, python, helper]
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-08
 source_count: 1
 aliases: [xlsx-writer]
 provenance: source-derived
@@ -19,7 +19,7 @@ provenance: source-derived
 
 ## Purpose
 
-Reads and writes xlsx test plan files in Azure DevOps format. Used by the `/qa-ai:extract` command to output structured test cases from BRD/PRD analysis.
+Reads and writes xlsx test plan files in Azure DevOps format. Used by both `/qa-ai:extract` (writes test cases) and `/qa-ai:generate` (reads test cases for Playwright spec generation). Replaced `npx xlsx` as the xlsx parser in the generate skill.
 
 ## Security
 
