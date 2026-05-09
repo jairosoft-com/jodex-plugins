@@ -24,6 +24,15 @@
       },
       "category": "knowledge",
       "source": "./plugins/llm-wiki"
+    },
+    {
+      "name": "jx-pm",
+      "description": "Product Management: generate PRDs, tech specs, task breakdowns, and sync to Azure Boards.",
+      "author": {
+        "name": "Jairosoft"
+      },
+      "category": "productivity",
+      "source": "./plugins/jx-pm"
     }
   ]
 }

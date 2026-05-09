@@ -10,6 +10,7 @@ Desktop.ini
 # --- Claude / Cursor local state (not plugin source) ---
 logs/
 **/.claude/data/
+.claude/worktrees/
 
 # --- Node / TypeScript (Playwright, tooling, generated projects) ---
 node_modules/

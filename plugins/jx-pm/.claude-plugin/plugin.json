@@ -1,0 +1,6 @@
+{
+  "name": "jx-pm",
+  "version": "1.0.0",
+  "description": "Product Management: generate PRDs, tech specs, task breakdowns, and sync to Azure Boards.",
+  "author": { "name": "Jairosoft", "email": "ramon@jairosoft.com" }
+}

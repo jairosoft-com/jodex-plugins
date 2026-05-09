@@ -7,7 +7,7 @@ updated: 2026-05-08
 source_count: 0
 aliases: [qa-ai generate allowed tools mismatch]
 provenance: synthesis
-status: raw
+status: backlogged
 ---
 
 # Align qa-ai Generate Tool Contract

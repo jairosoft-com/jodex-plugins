@@ -4,6 +4,37 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-09 — Adversarial Review Patterns Filing
+
+- **Operation**: manual filing
+- **Pages created**: [[Per-Item Write-Back]] (concepts/), [[Tombstone Pattern]] (concepts/), [[Fail-Closed Lookup]] (concepts/)
+- **Outcome**: Filed 3 safety patterns discovered through iterative Codex adversarial review of jx-pm ADO sync design. Per-item write-back = crash-safe external ID persistence. Tombstone = preserve bindings for removed synced items. Fail-closed lookup = halt on ambiguous external matches.
+- **Index**: updated, page_count 103 → 106
+
+## 2026-05-09 — Triage
+
+- **Operation**: triage
+- **Ideas triaged**: 4 raw → 3 backlogged P2 + 1 promoted to project
+- **Promoted**: [[Product Management Skills Plugin]] → projects/ (status: active)
+- **Backlogged P2**: [[Align qa-ai Generate Tool Contract]], [[Raw Sources Should Be Excluded From Wiki Graph]], [[Rebrand Skills to jx Namespace]]
+- **Backlog**: updated with 3 new P2 items
+- **Index**: moved jx-pm from Ideas to Projects section
+
+## 2026-05-09 — Session Insights Filing
+
+- **Operation**: manual filing
+- **Pages created**: [[Golden Thread Traceability]] (concepts/), [[Requirement ID System]] (concepts/), [[Skill Chaining]] (concepts/)
+- **Pages updated**: [[Product Management Skills Plugin]] (ideas/) — expanded from 3 to 5 skills after analyzing 6 source skills from casacolinacare.com
+- **Outcome**: Filed 3 new concepts extracted from jx-pm skill design session. Golden thread = OBJ→US→AC→FR→TC→TEST traceability chain. Requirement ID system = {TYPE}-{NNN}-{seq} with global AC counter. Skill chaining = inter-skill output→input pipeline pattern.
+- **Index**: updated, page_count 99 → 102
+
+## 2026-05-09 — Filing
+
+- **Operation**: manual filing
+- **Pages created**: [[Product Management Skills Plugin]] (ideas/)
+- **Outcome**: New idea — PM/PO plugin with 3 proposed skills: BRD/PRD generator, tech spec generator, user stories → ADO work items
+- **Index**: updated, page_count 98 → 99
+
 ## 2026-05-09 — Update
 
 - **Operation**: manual update

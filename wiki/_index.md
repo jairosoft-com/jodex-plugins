@@ -1,17 +1,18 @@
 ---
 title: Wiki Index
-updated: 2026-05-08
-page_count: 98
+updated: 2026-05-09
+page_count: 106
 ---
 
 # Wiki Index
 
 ## Ideas
 
-- [[Align qa-ai Generate Tool Contract]] — Bring generate workflow instructions into alignment with allowed tools (#qa-ai, #tooling)
 - [[Dataview Queries]] — Obsidian plugin for frontmatter queries (#tooling, #obsidian) [backlogged P3]
 - [[Marp Integration]] — Markdown slide decks from wiki content (#tooling, #presentation) [backlogged P3]
-- [[Raw Sources Should Be Excluded From Wiki Graph]] — Keep raw snapshots out of page graph and lint checks (#wiki, #lint)
+- [[Align qa-ai Generate Tool Contract]] — Bring generate workflow instructions into alignment with allowed tools (#qa-ai, #tooling) [backlogged P2]
+- [[Raw Sources Should Be Excluded From Wiki Graph]] — Keep raw snapshots out of page graph and lint checks (#wiki, #lint) [backlogged P2]
+- [[Rebrand Skills to jx Namespace]] — Unify all plugins under jx-* naming: jx-brpd, jx-gen, jx-pw, jx-pm (#plugin, #naming) [backlogged P2]
 - [[Wiki Search Tools]] — qmd and CLI tools for wiki search at scale (#tooling, #search) [backlogged P3]
 
 ## Concepts
@@ -22,6 +23,8 @@ page_count: 98
 - [[Cross-Reference Pass]] — Bidirectional wikilink pass after page creation (#wiki, #linking)
 - [[Directory-Source Marketplace]] — Local directory as marketplace source instead of GitHub (#plugin, #marketplace)
 - [[Filing Workflow]] — Process for persisting conversation insights back to wiki (#wiki, #workflow)
+- [[Golden Thread Traceability]] — Unbroken chain from business objective to test case via requirement IDs (#pattern, #requirements)
+- [[Fail-Closed Lookup]] — Require exactly 1 match from external system; halt on 0 or 2+ (#pattern, #safety)
 - [[E2E Test Case]] — Classification of requirements as E2E-testable or not (#testing, #classification)
 - [[Health Score]] — 0-100 score quantifying wiki quality from lint (#wiki, #metrics)
 - [[Hook]] — Plugin lifecycle event handler (#plugin, #lifecycle)
@@ -39,8 +42,10 @@ page_count: 98
 - [[Memory vs Wiki Separation]] — When to use agent memory vs wiki pages (#architecture, #persistence)
 - [[Multi-Phase Skill]] — Structural pattern: numbered phases with gates (#pattern, #architecture)
 - [[Naming Ripple Effect]] — How marketplace/plugin renames cascade through the system (#pattern, #naming)
+- [[Requirement ID System]] — {TYPE}-{feature_number}-{seq} format with global AC counter (#pattern, #requirements)
 - [[NotebookLM Integration]] — Associated NotebookLM notebooks and capabilities (#notebooklm, #tooling)
 - [[NotebookLM Research Oracle]] — Querying NotebookLM as external knowledge source during wiki work (#pattern, #research)
+- [[Per-Item Write-Back]] — Persist external IDs to disk after each individual operation, not batch (#pattern, #crash-recovery)
 - [[Path Confinement]] — Security pattern: path safety contract with relative_to() (#security, #validation)
 - [[Pinned Helper]] — Security pattern: restricted script execution (#security, #execution)
 - [[Plugin Architecture]] — .claude-plugin format for Claude Code CLI (#architecture, #plugin)
@@ -52,11 +57,13 @@ page_count: 98
 - [[Schema]] — Wiki configuration document _schema.md (#architecture, #configuration)
 - [[Session Memory Model]] — Agent knowledge retention: in-session vs cross-session persistence (#persistence, #memory)
 - [[Semantic Locator]] — Stable element locators via live browser discovery (#testing, #locator)
+- [[Skill Chaining]] — Inter-skill output→input pipeline via --chain flag (#pattern, #plugin)
 - [[Settings Portability]] — settings.json (committed) vs settings.local.json (gitignored) split pattern (#pattern, #configuration)
 - [[SHA-256 Fingerprinting]] — Content-based dedup via hash (#security, #dedup)
 - [[Skill]] — Multi-phase instructional module powering slash commands (#plugin, #implementation)
 - [[Slash Command]] — User-facing command wrapper /plugin:command (#plugin, #user-facing)
 - [[Storage State]] — Browser state persistence for auth reuse (#testing, #persistence)
+- [[Tombstone Pattern]] — Mark synced items as removed instead of deleting; preserve external bindings (#pattern, #sync)
 - [[Taxonomy Routing]] — Classification rules for routing knowledge to buckets (#classification, #wiki)
 - [[Three-Surface Plugin Ecosystem]] — CLI + Code Desktop + Codex Desktop shared plugin registry (#architecture, #plugin)
 - [[Test Code Generation]] — Auto-generating TypeScript from CLI interactions (#testing, #codegen)
@@ -96,6 +103,7 @@ page_count: 98
 ## Projects
 
 - [[Jodex Plugin Marketplace]] — Dual-plugin marketplace dogfooding its own wiki workflow (#plugin, #marketplace)
+- [[Product Management Skills Plugin]] — jx-pm: 5 skills (prd, techspec, task, ado, pipeline) for PM/PO workflows (#plugin, #product-management) [active]
 
 ## Decisions
 
