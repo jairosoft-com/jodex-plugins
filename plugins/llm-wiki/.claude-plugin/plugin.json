@@ -1,5 +1,5 @@
 {
-  "name": "llm-wiki",
+  "name": "LLM-Wiki",
   "version": "1.0.0",
   "description": "Knowledge Base: ingest sources, build an LLM-maintained wiki, query with citations, lint for health.",
   "author": { "name": "Jairosoft", "email": "ramon@jairosoft.com" }
