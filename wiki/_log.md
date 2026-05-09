@@ -337,3 +337,12 @@ title: Wiki Log
 - **Pages updated**: Multi-Phase Skill (added Extract 6-phase example with sequence diagram)
 - **Cross-references added**: 6
 - **Outcome**: Success
+
+## 2026-05-08 — Synthesis Filing (batch)
+
+- **Operation**: file insights (conversation-derived, batch)
+- **Provenance**: synthesis
+- **Pages created**: Settings Portability, Directory-Source Marketplace
+- **Pages updated**: Marketplace (added directory-source mention), Local Plugin Development (added directory-source alternative + settings portability cross-ref)
+- **Cross-references added**: 10
+- **Outcome**: Success — settings split pattern and local marketplace mechanism documented

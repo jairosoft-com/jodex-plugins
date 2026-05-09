@@ -11,7 +11,7 @@ provenance: source-derived
 
 # Marketplace
 
-The distribution mechanism for [[Claude Code CLI]] plugins. A marketplace is a GitHub repository containing a `marketplace.json` manifest that references one or more plugins.
+The distribution mechanism for [[Claude Code CLI]] plugins. A marketplace is typically a GitHub repository containing a `marketplace.json` manifest that references one or more plugins. For local development, a [[Directory-Source Marketplace]] can point to a local directory instead.
 
 ## Installation
 

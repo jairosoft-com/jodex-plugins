@@ -45,7 +45,11 @@ Picks up changes without restarting [[Claude Code CLI]].
 
 Same as [[Plugin Architecture#Plugin Structure]] — must have `.claude-plugin/plugin.json` manifest. Component directories (`skills/`, `agents/`, `hooks/`) live at plugin root, not inside `.claude-plugin/`.
 
-## Transition to Marketplace
+## Alternative: Directory-Source Marketplace
+
+For persistent local marketplace access without `--plugin-dir` flags each session, use a [[Directory-Source Marketplace]] in `settings.local.json`. See [[Settings Portability]] for why this must be in the `.local` file.
+
+## Transition to GitHub Marketplace
 
 When ready for distribution, wrap in a GitHub repo with `marketplace.json` per [[Marketplace#Manifest Structure]].
 

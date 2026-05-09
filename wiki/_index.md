@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-08
-page_count: 95
+page_count: 97
 ---
 
 # Wiki Index
@@ -20,6 +20,7 @@ page_count: 95
 - [[Codex Plugin Compatibility]] — Claude Code vs Codex plugin format differences and conversion tools (#plugin, #codex)
 - [[Conflict Callout]] — Pattern for handling contradictions between sources (#wiki, #contradiction)
 - [[Cross-Reference Pass]] — Bidirectional wikilink pass after page creation (#wiki, #linking)
+- [[Directory-Source Marketplace]] — Local directory as marketplace source instead of GitHub (#plugin, #marketplace)
 - [[Filing Workflow]] — Process for persisting conversation insights back to wiki (#wiki, #workflow)
 - [[E2E Test Case]] — Classification of requirements as E2E-testable or not (#testing, #classification)
 - [[Health Score]] — 0-100 score quantifying wiki quality from lint (#wiki, #metrics)
@@ -51,6 +52,7 @@ page_count: 95
 - [[Schema]] — Wiki configuration document _schema.md (#architecture, #configuration)
 - [[Session Memory Model]] — Agent knowledge retention: in-session vs cross-session persistence (#persistence, #memory)
 - [[Semantic Locator]] — Stable element locators via live browser discovery (#testing, #locator)
+- [[Settings Portability]] — settings.json (committed) vs settings.local.json (gitignored) split pattern (#pattern, #configuration)
 - [[SHA-256 Fingerprinting]] — Content-based dedup via hash (#security, #dedup)
 - [[Skill]] — Multi-phase instructional module powering slash commands (#plugin, #implementation)
 - [[Slash Command]] — User-facing command wrapper /plugin:command (#plugin, #user-facing)
