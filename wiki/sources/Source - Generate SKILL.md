@@ -11,7 +11,7 @@ provenance: source-derived
 # Source - Generate SKILL
 
 ## Metadata
-- **Original path**: plugins/qa-ai/skills/generate/SKILL.md
+- **Original path**: plugins/jx-qa/skills/generate/SKILL.md
 - **SHA-256**: 76a32c9d3bb71e4a753b4c26ff41542dca39ee014d0206a03541b0b5865b8e26
 - **Size**: 5,990 bytes
 

@@ -19,7 +19,7 @@ User specifies target each time. No persistent tracking.
 
 - **Pros**: Zero setup, maximum flexibility
 - **Cons**: Easy to forget files, no change detection, no progress tracking
-- **Example**: `/llm-wiki:ingest path/to/file.md` with manual file selection
+- **Example**: `/jx-kb:ingest path/to/file.md` with manual file selection
 
 ## Manifest-Driven
 

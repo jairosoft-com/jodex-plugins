@@ -11,7 +11,7 @@ provenance: source-derived
 # Source - Test Generation Reference
 
 ## Metadata
-- **Original path**: plugins/qa-ai/skills/playwright-cli/references/test-generation.md
+- **Original path**: plugins/jx-qa/skills/playwright-cli/references/test-generation.md
 - **SHA-256**: 2a9c4d94effa31b05cf367dfa8bbace8874a3bc9799987ad2b03269af224d299
 - **Size**: 4,585 bytes
 

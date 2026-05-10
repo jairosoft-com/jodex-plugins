@@ -10,9 +10,9 @@ page_count: 159
 
 - [[Dataview Queries]] — Obsidian plugin for frontmatter queries (#tooling, #obsidian) [backlogged P3]
 - [[Marp Integration]] — Markdown slide decks from wiki content (#tooling, #presentation) [backlogged P3]
-- [[Align qa-ai Generate Tool Contract]] — Bring generate workflow instructions into alignment with allowed tools (#qa-ai, #tooling) [backlogged P2]
+- [[Align jx-qa Generate Tool Contract]] — Bring generate workflow instructions into alignment with allowed tools (#jx-qa, #tooling) [backlogged P2]
 - [[Raw Sources Should Be Excluded From Wiki Graph]] — Keep raw snapshots out of page graph and lint checks (#wiki, #lint) [backlogged P2]
-- [[Rebrand Skills to jx Namespace]] — Unify all plugins under jx-* naming: jx-brpd, jx-gen, jx-pw, jx-pm (#plugin, #naming) [backlogged P2]
+- [[Rebrand Skills to jx Namespace]] — Unify all plugins under jx-* naming: jx-qa, jx-kb, jx-pm (#plugin, #naming) [completed]
 - [[Wiki Search Tools]] — qmd and CLI tools for wiki search at scale (#tooling, #search) [backlogged P3]
 
 ## Concepts
@@ -101,8 +101,8 @@ page_count: 159
 
 ## Plugins
 
-- [[LLM Wiki]] — LLM-maintained knowledge base plugin for Claude Code (#knowledge-base, #wiki)
-- [[QA AI]] — QA testing pipeline: BRD → xlsx → Playwright specs (#testing, #playwright)
+- [[Knowledge Base Plugin|jx-kb]] — LLM-maintained knowledge base plugin for Claude Code (#knowledge-base, #wiki)
+- [[QA Testing Plugin|jx-qa]] — QA testing pipeline: BRD → xlsx → Playwright specs (#testing, #playwright)
 
 ## Platforms
 
@@ -124,8 +124,8 @@ page_count: 159
 ## Code
 
 - [[Creating a Skill]] — Step-by-step guide for adding a new skill to a Claude Code plugin (#skill, #how-to)
-- [[wiki-tools.py]] — Pinned helper script for LLM Wiki plugin (#script, #python)
-- [[xlsx-writer.py]] — Pinned helper script for QA AI plugin (#script, #python)
+- [[wiki-tools.py]] — Pinned helper script for jx-kb plugin (#script, #python)
+- [[xlsx-writer.py]] — Pinned helper script for jx-qa plugin (#script, #python)
 
 ## Sources
 
@@ -139,11 +139,11 @@ page_count: 159
 - [[Source - Ingest SKILL]] — Core ingest operation (#skill)
 - [[Source - Lint SKILL]] — Wiki health-checking (#skill)
 - [[Source - LLM Wiki]] — LLM Wiki pattern by Karpathy (#pattern)
-- [[Source - LLM Wiki README]] — LLM Wiki plugin docs (#plugin)
+- [[Source - JX KB README]] — LLM Wiki plugin docs (#plugin)
 - [[Source - Marketplace Config]] — marketplace.json manifest (#config)
 - [[Source - Playwright CLI SKILL]] — Browser automation skill (#skill)
 - [[Source - Playwright Tests Reference]] — Running/debugging tests (#playwright)
-- [[Source - QA AI README]] — QA AI plugin docs (#plugin)
+- [[Source - JX QA README]] — QA AI plugin docs (#plugin)
 - [[Source - Query SKILL]] — Wiki query with citations (#skill)
 - [[Source - Request Mocking Reference]] — Network interception/mocking (#playwright)
 - [[Source - Running Code Reference]] — run-code for arbitrary Playwright (#playwright)
@@ -156,10 +156,10 @@ page_count: 159
 - [[Source - ADO Command]] — /jx-pm:ado command definition and tool permissions (#jx-pm, #command)
 - [[Source - ADO Sync States Reference]] — Azure Boards state transition rules for sync (#jx-pm, #ado)
 - [[Source - Azure Boards Sync SKILL]] — task.json to Azure Boards hierarchy with state sync (#skill, #jx-pm, #ado)
-- [[Source - Browser Command]] — /qa-ai:browser slash command definition (#qa-ai, #command, #playwright)
+- [[Source - Browser Command]] — /jx-qa:browser slash command definition (#jx-qa, #command, #playwright)
 - [[Source - Docs Root Config]] — Shared docs-root resolution: flag → env → default (#skill, #jx-pm, #config)
-- [[Source - Extract Command]] — /qa-ai:extract slash command definition (#qa-ai, #command)
-- [[Source - Generate Command]] — /qa-ai:generate slash command definition (#qa-ai, #command)
+- [[Source - Extract Command]] — /jx-qa:extract slash command definition (#jx-qa, #command)
+- [[Source - Generate Command]] — /jx-qa:generate slash command definition (#jx-qa, #command)
 - [[Source - ID Rules]] — Shared folder validation and requirement ID generation rules (#skill, #jx-pm, #id-system)
 - [[Source - jx-pm Agents Stub]] — Placeholder for future jx-pm agent configurations (#jx-pm, #stub)
 - [[Source - jx-pm Hooks Stub]] — Placeholder for future jx-pm lifecycle hooks (#jx-pm, #stub)
@@ -168,15 +168,15 @@ page_count: 159
 - [[Source - jx-pm Prompts Stub]] — Placeholder for future jx-pm prompt fragments (#jx-pm, #stub)
 - [[Source - jx-pm Task Command]] — jx-pm task.json generation command from PRD + TECH_SPEC (#jx-pm, #command)
 - [[Source - jx-pm Techspec Command]] — jx-pm tech spec generation command from PRD (#jx-pm, #command)
-- [[Source - LLM Wiki Prompts Directory]] — Prompt fragment directory for llm-wiki plugin (#llm-wiki, #prompts)
-- [[Source - LLM Wiki Schemas Directory]] — JSON Schema directory for llm-wiki plugin (#llm-wiki, #schemas)
-- [[Source - llm-wiki Agents Guide]] — llm-wiki agent definition format and use cases (#llm-wiki, #agents)
-- [[Source - llm-wiki Hooks Guide]] — llm-wiki hooks format and lifecycle events (#llm-wiki, #hooks)
-- [[Source - llm-wiki Ingest Command]] — llm-wiki ingest slash command definition (#llm-wiki, #command)
-- [[Source - llm-wiki Init Command]] — llm-wiki init slash command definition (#llm-wiki, #command)
-- [[Source - llm-wiki Lint Command]] — llm-wiki lint/health-check slash command definition (#llm-wiki, #command)
-- [[Source - llm-wiki Query Command]] — llm-wiki query slash command definition (#llm-wiki, #command)
-- [[Source - llm-wiki Triage Command]] — llm-wiki triage slash command definition (#llm-wiki, #command)
+- [[Source - JX KB Prompts Directory]] — Prompt fragment directory for jx-kb plugin (#jx-kb, #prompts)
+- [[Source - JX KB Schemas Directory]] — JSON Schema directory for jx-kb plugin (#jx-kb, #schemas)
+- [[Source - jx-kb Agents Guide]] — llm-wiki agent definition format and use cases (#jx-kb, #agents)
+- [[Source - jx-kb Hooks Guide]] — llm-wiki hooks format and lifecycle events (#jx-kb, #hooks)
+- [[Source - jx-kb Ingest Command]] — llm-wiki ingest slash command definition (#jx-kb, #command)
+- [[Source - jx-kb Init Command]] — llm-wiki init slash command definition (#jx-kb, #command)
+- [[Source - jx-kb Lint Command]] — llm-wiki lint/health-check slash command definition (#jx-kb, #command)
+- [[Source - jx-kb Query Command]] — llm-wiki query slash command definition (#jx-kb, #command)
+- [[Source - jx-kb Triage Command]] — llm-wiki triage slash command definition (#jx-kb, #command)
 - [[Source - Mermaid Diagram Patterns]] — 7 Mermaid diagram types for tech spec generation (#jx-pm, #techspec)
 - [[Source - Pipeline Command]] — /jx-pm:pipeline command definition and flags (#jx-pm, #command)
 - [[Source - Pipeline SKILL]] — Convenience wrapper running full PM pipeline (#skill, #jx-pm, #pipeline)
@@ -184,10 +184,10 @@ page_count: 159
 - [[Source - PRD Generator SKILL]] — PRD generation skill with 3 modes, golden thread, INVEST stories (#skill, #jx-pm, #prd)
 - [[Source - PRD Lite Template]] — Minimal viable PRD template with placeholders (#jx-pm, #prd)
 - [[Source - PRD Standard Template]] — Mid-weight PRD template with design/tech sections (#jx-pm, #prd)
-- [[Source - QA AI Agents Directory]] — Agent definition directory for qa-ai plugin (#qa-ai, #agents)
-- [[Source - QA AI Hooks Directory]] — Hooks lifecycle directory for qa-ai plugin (#qa-ai, #hooks)
-- [[Source - QA AI Prompts Directory]] — Prompt fragment directory for qa-ai plugin (#qa-ai, #prompts)
-- [[Source - QA AI Schemas Directory]] — JSON Schema directory for qa-ai plugin (#qa-ai, #schemas)
+- [[Source - JX QA Agents Directory]] — Agent definition directory for jx-qa plugin (#jx-qa, #agents)
+- [[Source - JX QA Hooks Directory]] — Hooks lifecycle directory for jx-qa plugin (#jx-qa, #hooks)
+- [[Source - JX QA Prompts Directory]] — Prompt fragment directory for jx-qa plugin (#jx-qa, #prompts)
+- [[Source - JX QA Schemas Directory]] — JSON Schema directory for jx-qa plugin (#jx-qa, #schemas)
 - [[Source - Root README]] — Root project README with installation and usage docs (#marketplace, #readme)
 - [[Source - Task JSON Converter SKILL]] — PRD/tech spec to canonical task.json with estimates (#skill, #jx-pm, #task)
 - [[Source - Task JSON Schema]] — Canonical JSON schema for task.json structure (#skill, #jx-pm, #schema)

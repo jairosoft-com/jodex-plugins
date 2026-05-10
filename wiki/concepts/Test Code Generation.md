@@ -30,7 +30,7 @@ playwright-cli fill e1 "user@example.com"
 
 ## Connection to [[Semantic Locator]]
 
-Generated code uses role-based locators (`getByRole`) when possible — more resilient than CSS selectors. This is the mechanism by which the [[QA AI]] plugin's `/qa-ai:generate` command discovers stable locators.
+Generated code uses role-based locators (`getByRole`) when possible — more resilient than CSS selectors. This is the mechanism by which the [[QA Testing Plugin|jx-qa]] plugin's `/jx-qa:generate` command discovers stable locators.
 
 ## Assertion Helpers
 

@@ -11,7 +11,7 @@ provenance: source-derived
 # Source - Element Attributes Reference
 
 ## Metadata
-- **Original path**: plugins/qa-ai/skills/playwright-cli/references/element-attributes.md
+- **Original path**: plugins/jx-qa/skills/playwright-cli/references/element-attributes.md
 - **SHA-256**: bf19aa4671e0a50a0fefa9c790f39124e803060eefe395042b723c29fcb7faa2
 - **Size**: 665 bytes
 

@@ -5,7 +5,7 @@ updated: 2026-05-09
 
 # Ingest Watchlist
 
-Monitored paths for new or changed content. Run `/llm-wiki:ingest` against pending items.
+Monitored paths for new or changed content. Run `/jx-kb:ingest` against pending items.
 
 ## Monitored Directories
 
@@ -52,41 +52,41 @@ Monitored paths for new or changed content. Run `/llm-wiki:ingest` against pendi
 - `plugins/jx-pm/skills/techspec/SKILL.md`
 - `plugins/jx-pm/skills/techspec/references/diagram-patterns.md`
 - `plugins/jx-pm/skills/techspec/references/template.md`
-- `plugins/llm-wiki/README.md`
-- `plugins/llm-wiki/agents/ABOUT.md`
-- `plugins/llm-wiki/commands/ingest.md`
-- `plugins/llm-wiki/commands/init.md`
-- `plugins/llm-wiki/commands/lint.md`
-- `plugins/llm-wiki/commands/query.md`
-- `plugins/llm-wiki/commands/triage.md`
-- `plugins/llm-wiki/hooks/ABOUT.md`
-- `plugins/llm-wiki/prompts/ABOUT.md`
-- `plugins/llm-wiki/schemas/ABOUT.md`
-- `plugins/llm-wiki/skills/init/SKILL.md`
-- `plugins/llm-wiki/skills/ingest/SKILL.md`
-- `plugins/llm-wiki/skills/lint/SKILL.md`
-- `plugins/llm-wiki/skills/query/SKILL.md`
-- `plugins/llm-wiki/skills/triage/SKILL.md`
-- `plugins/qa-ai/README.md`
-- `plugins/qa-ai/agents/ABOUT.md`
-- `plugins/qa-ai/commands/browser.md`
-- `plugins/qa-ai/commands/extract.md`
-- `plugins/qa-ai/commands/generate.md`
-- `plugins/qa-ai/hooks/ABOUT.md`
-- `plugins/qa-ai/prompts/ABOUT.md`
-- `plugins/qa-ai/schemas/ABOUT.md`
-- `plugins/qa-ai/skills/extract/SKILL.md`
-- `plugins/qa-ai/skills/generate/SKILL.md`
-- `plugins/qa-ai/skills/playwright-cli/SKILL.md`
-- `plugins/qa-ai/skills/playwright-cli/references/element-attributes.md`
-- `plugins/qa-ai/skills/playwright-cli/references/playwright-tests.md`
-- `plugins/qa-ai/skills/playwright-cli/references/request-mocking.md`
-- `plugins/qa-ai/skills/playwright-cli/references/running-code.md`
-- `plugins/qa-ai/skills/playwright-cli/references/session-management.md`
-- `plugins/qa-ai/skills/playwright-cli/references/storage-state.md`
-- `plugins/qa-ai/skills/playwright-cli/references/test-generation.md`
-- `plugins/qa-ai/skills/playwright-cli/references/tracing.md`
-- `plugins/qa-ai/skills/playwright-cli/references/video-recording.md`
+- `plugins/jx-kb/README.md`
+- `plugins/jx-kb/agents/ABOUT.md`
+- `plugins/jx-kb/commands/ingest.md`
+- `plugins/jx-kb/commands/init.md`
+- `plugins/jx-kb/commands/lint.md`
+- `plugins/jx-kb/commands/query.md`
+- `plugins/jx-kb/commands/triage.md`
+- `plugins/jx-kb/hooks/ABOUT.md`
+- `plugins/jx-kb/prompts/ABOUT.md`
+- `plugins/jx-kb/schemas/ABOUT.md`
+- `plugins/jx-kb/skills/init/SKILL.md`
+- `plugins/jx-kb/skills/ingest/SKILL.md`
+- `plugins/jx-kb/skills/lint/SKILL.md`
+- `plugins/jx-kb/skills/query/SKILL.md`
+- `plugins/jx-kb/skills/triage/SKILL.md`
+- `plugins/jx-qa/README.md`
+- `plugins/jx-qa/agents/ABOUT.md`
+- `plugins/jx-qa/commands/browser.md`
+- `plugins/jx-qa/commands/extract.md`
+- `plugins/jx-qa/commands/generate.md`
+- `plugins/jx-qa/hooks/ABOUT.md`
+- `plugins/jx-qa/prompts/ABOUT.md`
+- `plugins/jx-qa/schemas/ABOUT.md`
+- `plugins/jx-qa/skills/extract/SKILL.md`
+- `plugins/jx-qa/skills/generate/SKILL.md`
+- `plugins/jx-qa/skills/playwright-cli/SKILL.md`
+- `plugins/jx-qa/skills/playwright-cli/references/element-attributes.md`
+- `plugins/jx-qa/skills/playwright-cli/references/playwright-tests.md`
+- `plugins/jx-qa/skills/playwright-cli/references/request-mocking.md`
+- `plugins/jx-qa/skills/playwright-cli/references/running-code.md`
+- `plugins/jx-qa/skills/playwright-cli/references/session-management.md`
+- `plugins/jx-qa/skills/playwright-cli/references/storage-state.md`
+- `plugins/jx-qa/skills/playwright-cli/references/test-generation.md`
+- `plugins/jx-qa/skills/playwright-cli/references/tracing.md`
+- `plugins/jx-qa/skills/playwright-cli/references/video-recording.md`
 
 ## Pending (not yet ingested)
 

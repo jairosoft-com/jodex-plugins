@@ -11,14 +11,14 @@ provenance: source-derived
 
 # Browser Automation
 
-Broader subject area covering programmatic control of web browsers for testing, scraping, and automation. In this repo, implemented through [[Playwright]] and the [[QA AI]] plugin.
+Broader subject area covering programmatic control of web browsers for testing, scraping, and automation. In this repo, implemented through [[Playwright]] and the [[QA Testing Plugin|jx-qa]] plugin.
 
 ## Capabilities in This Repo
 
-- **Test generation** — `/qa-ai:generate` opens live browser, discovers [[Semantic Locator]]s
-- **Manual exploration** — `/qa-ai:browser open <url>` for debugging
+- **Test generation** — `/jx-qa:generate` opens live browser, discovers [[Semantic Locator]]s
+- **Manual exploration** — `/jx-qa:browser open <url>` for debugging
 - **Test execution** — `npx playwright test` runs generated `.spec.ts` files
-- **Snapshots** — `/qa-ai:browser snapshot` captures current page state
+- **Snapshots** — `/jx-qa:browser snapshot` captures current page state
 
 ## Security Scoping
 

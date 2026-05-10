@@ -4,6 +4,14 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-09 — Rebrand Plugins to jx Namespace
+
+- **Operation**: rename
+- **Changes**: `qa-ai` → `jx-qa`, `llm-wiki` → `jx-kb`
+- **Scope**: 2 plugin directories, 4 manifests/settings, 18 wiki file renames, ~60 wiki content updates, 36 source page path updates, 2 top-level files
+- **Preserved**: `Source - LLM Wiki.md` (Karpathy concept), `ai_docs/llm-wiki.md` (pattern doc), `jodex-qa-ai` repo name
+- **Outcome**: Success — per [[Rebrand Skills to jx Namespace]]
+
 ## 2026-05-09 — Parallel 41-Source Ingest (wiki-ingest team)
 
 - **Operation**: agent team ingest (4 parallel agents: ingest-skills, ingest-refs, ingest-llmwiki, ingest-qaai)

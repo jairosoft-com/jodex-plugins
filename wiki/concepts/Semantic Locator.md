@@ -11,7 +11,7 @@ provenance: source-derived
 
 # Semantic Locator
 
-A [[Playwright]] element locator discovered by live browser exploration rather than hardcoded CSS selectors. The [[QA AI]] plugin's generate skill opens a real browser and captures stable locators during test generation.
+A [[Playwright]] element locator discovered by live browser exploration rather than hardcoded CSS selectors. The [[QA Testing Plugin|jx-qa]] plugin's generate skill opens a real browser and captures stable locators during test generation.
 
 ## Why Live Discovery
 
@@ -21,7 +21,7 @@ A [[Playwright]] element locator discovered by live browser exploration rather t
 
 ## How It Works
 
-1. `/qa-ai:generate` reads test steps from xlsx
+1. `/jx-qa:generate` reads test steps from xlsx
 2. Opens live browser via playwright-cli
 3. Follows each test step, captures locators for target elements
 4. Writes `.spec.ts` with discovered locators

@@ -11,7 +11,7 @@ provenance: source-derived
 # Source - Video Recording Reference
 
 ## Metadata
-- **Original path**: plugins/qa-ai/skills/playwright-cli/references/video-recording.md
+- **Original path**: plugins/jx-qa/skills/playwright-cli/references/video-recording.md
 - **SHA-256**: 0cea7708999aa663701917615889a84cbc05200718bb161de9a5366a826c2b4d
 - **Size**: 5,385 bytes
 

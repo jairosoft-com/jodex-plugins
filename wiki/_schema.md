@@ -98,7 +98,7 @@ Every wiki page ends with:
 Route as `concepts/`: Skill, Slash Command, Hook, Agent, Prompt, Plugin Manifest, Marketplace, MCP Server, MCP Tool
 
 ### Concrete Plugin Routing
-Each plugin gets own page in `plugins/`: qa-ai, llm-wiki
+Each plugin gets own page in `plugins/`: jx-qa, jx-kb, jx-pm
 
 ### Platform Routing
 Each platform gets page in `platforms/`: Claude Code CLI, Claude Desktop, Obsidian, WSL
@@ -118,4 +118,4 @@ Add `provenance` to required frontmatter fields. Values:
 - `synthesis` — human-approved model analysis filed back into wiki
 - `model-derived` — model-generated content not yet reviewed
 
-Pages created by `/llm-wiki:ingest` default to `source-derived`. Query results filed back require explicit human action to set `synthesis`. No page may be set to `source-derived` without a corresponding source in `## Sources`.
+Pages created by `/jx-kb:ingest` default to `source-derived`. Query results filed back require explicit human action to set `synthesis`. No page may be set to `source-derived` without a corresponding source in `## Sources`.

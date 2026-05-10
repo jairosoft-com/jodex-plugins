@@ -15,7 +15,7 @@ A design pattern where re-running an operation produces the same result as runni
 
 ## Examples
 
-- `/qa-ai:generate` skips test cases that already have `.spec.ts` files — re-running is safe
+- `/jx-qa:generate` skips test cases that already have `.spec.ts` files — re-running is safe
 - [[SHA-256 Fingerprinting]] detects already-ingested sources and warns before re-processing
 
 ## Why It Matters

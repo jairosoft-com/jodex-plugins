@@ -1,6 +1,6 @@
 {
   "enabledPlugins": {
-    "llm-wiki@jodex-plugins": true,
-    "qa-ai@jodex-plugins": true
+    "jx-kb@jodex-plugins": true,
+    "jx-qa@jodex-plugins": true
   }
 }

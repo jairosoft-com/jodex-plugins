@@ -23,8 +23,8 @@ Every skill lives inside a **plugin** under `plugins/<plugin-name>/`. Two requir
 ## Step 1: Pick Your Plugin
 
 Skill goes inside existing plugin or new one. Existing plugins:
-- `plugins/qa-ai/` — QA automation ([[QA AI]])
-- `plugins/llm-wiki/` — knowledge base operations
+- `plugins/jx-qa/` — QA automation ([[QA Testing Plugin|jx-qa]])
+- `plugins/jx-kb/` — knowledge base operations
 
 New plugin? Create:
 
@@ -165,7 +165,7 @@ File: `plugins/<plugin>/skills/<skill-name>/evals/evals.json`
 
 ## Step 6: (Optional) SEQUENCE.md
 
-Mermaid sequence diagram showing data flow between actor, skill, and external systems. Helps Claude (and humans) understand interaction pattern. See `plugins/qa-ai/skills/extract/SEQUENCE.md` for example.
+Mermaid sequence diagram showing data flow between actor, skill, and external systems. Helps Claude (and humans) understand interaction pattern. See `plugins/jx-qa/skills/extract/SEQUENCE.md` for example.
 
 ## Key Patterns
 
@@ -181,7 +181,7 @@ Mermaid sequence diagram showing data flow between actor, skill, and external sy
 Skill called `audit` in `qa-ai` plugin:
 
 ```
-plugins/qa-ai/skills/audit/
+plugins/jx-qa/skills/audit/
 └── SKILL.md
 ```
 
@@ -193,7 +193,7 @@ argument-hint: "[target_path]"
 description: >
   Audit test coverage gaps in a test plan xlsx.
   Triggers on: "audit test plan", "find coverage gaps",
-  "check test coverage", /qa-ai:audit.
+  "check test coverage", /jx-qa:audit.
   Do not trigger for generating tests or extracting requirements.
 ---
 
@@ -217,8 +217,8 @@ Compare test cases against BRD requirements.
 Print gap analysis table.
 ```
 
-Available as `/qa-ai:audit` after next session start.
+Available as `/jx-qa:audit` after next session start.
 
 ## Sources
 
-- Derived from inspection of existing skills in `plugins/qa-ai/` and `plugins/llm-wiki/`
+- Derived from inspection of existing skills in `plugins/jx-qa/` and `plugins/jx-kb/`

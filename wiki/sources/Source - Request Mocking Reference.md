@@ -11,7 +11,7 @@ provenance: source-derived
 # Source - Request Mocking Reference
 
 ## Metadata
-- **Original path**: plugins/qa-ai/skills/playwright-cli/references/request-mocking.md
+- **Original path**: plugins/jx-qa/skills/playwright-cli/references/request-mocking.md
 - **SHA-256**: 54e801c9663fc2b6d68ceb058cb1c360724c2499f42acc7852a68e83e5b5f37c
 - **Size**: 2,182 bytes
 

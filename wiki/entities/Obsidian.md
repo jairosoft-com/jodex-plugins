@@ -26,7 +26,7 @@ A markdown-based knowledge management application that serves as the primary vie
 
 User has Obsidian open on one side and the LLM agent on the other. The LLM makes edits, and the user browses results in real time — following links, checking graph view, reading updated pages.
 
-## [[LLM Wiki]] Plugin Compatibility
+## [[Knowledge Base Plugin|jx-kb]] Plugin Compatibility
 
 - `[[wikilinks]]` resolve natively in Obsidian
 - YAML frontmatter compatible with [[Dataview Queries|Dataview]] plugin

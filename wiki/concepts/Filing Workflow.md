@@ -21,7 +21,7 @@ Example: *"File that pattern as a concept"* → agent creates page in `concepts/
 
 ## Method 2: Source Ingestion
 
-Use `/llm-wiki:ingest` to process a document in `wiki/raw/`. The agent extracts entities, concepts, and patterns automatically.
+Use `/jx-kb:ingest` to process a document in `wiki/raw/`. The agent extracts entities, concepts, and patterns automatically.
 
 ## Provenance Rules
 

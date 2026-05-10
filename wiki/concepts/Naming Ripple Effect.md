@@ -26,7 +26,7 @@ When renaming a marketplace (e.g., `jairosoft-com-jodex-qa-ai` → `jodex-plugin
 
 ## Plugin Rename Touch Points
 
-When renaming a plugin (e.g., `qa-ai` → `new-name`):
+When renaming a plugin (e.g., `jx-qa` → `new-name`):
 
 | What | File | Field |
 |------|------|-------|
@@ -38,18 +38,18 @@ When renaming a plugin (e.g., `qa-ai` → `new-name`):
 
 ## Case Sensitivity
 
-Plugin names are **case-sensitive**. `qa-ai` and `Qa-Ai` are different names. A case mismatch between any of the three required locations causes:
+Plugin names are **case-sensitive**. `jx-qa` and `Jx-Qa` are different names. A case mismatch between any of the three required locations causes:
 
 ```
-Plugin "qa-ai" not found in marketplace "jodex-plugins"
+Plugin "jx-qa" not found in marketplace "jodex-plugins"
 ```
 
 All three must match exactly:
-1. Directory name: `plugins/qa-ai/`
-2. Plugin manifest: `plugins/qa-ai/.claude-plugin/plugin.json` → `"name": "qa-ai"`
-3. Marketplace entry: `.claude-plugin/marketplace.json` → `plugins[].name: "qa-ai"`
+1. Directory name: `plugins/jx-qa/`
+2. Plugin manifest: `plugins/jx-qa/.claude-plugin/plugin.json` → `"name": "jx-qa"`
+3. Marketplace entry: `.claude-plugin/marketplace.json` → `plugins[].name: "jx-qa"`
 
-Convention: always use **lowercase with hyphens** (e.g., `qa-ai`, not `Qa-Ai` or `QA_AI`).
+Convention: always use **lowercase with hyphens** (e.g., `jx-qa`, not `Jx-Qa` or `JX_QA`).
 
 ## Key Risk
 

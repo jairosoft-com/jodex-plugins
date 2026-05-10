@@ -11,7 +11,7 @@ provenance: source-derived
 # Source - Tracing Reference
 
 ## Metadata
-- **Original path**: plugins/qa-ai/skills/playwright-cli/references/tracing.md
+- **Original path**: plugins/jx-qa/skills/playwright-cli/references/tracing.md
 - **SHA-256**: 792e0ac7705e56ac48df84c0f5400221ce86107897c671590a64a4ea6a82508e
 - **Size**: 3,440 bytes
 

@@ -11,7 +11,7 @@ provenance: source-derived
 # Source - Running Code Reference
 
 ## Metadata
-- **Original path**: plugins/qa-ai/skills/playwright-cli/references/running-code.md
+- **Original path**: plugins/jx-qa/skills/playwright-cli/references/running-code.md
 - **SHA-256**: d95c539a5990b71d02d8bdf1d9414df16191eb6cff95b0063820518b7a13dcb2
 - **Size**: 5,642 bytes
 

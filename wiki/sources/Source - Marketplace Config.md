@@ -17,7 +17,7 @@ provenance: source-derived
 
 ## Summary
 
-JSON manifest for the jodex-plugins marketplace (renamed from jairosoft-com-jodex-qa-ai). Defines marketplace name, owner (Jairosoft), and two plugins: qa-ai ("Qa.Ai Harness", productivity) and llm-wiki ("Knowledge Base", knowledge). References [[Marketplace]] schema at anthropic.com.
+JSON manifest for the jodex-plugins marketplace (renamed from jairosoft-com-jodex-qa-ai). Defines marketplace name, owner (Jairosoft), and two plugins: qa-ai ("QA Harness", productivity) and llm-wiki ("Knowledge Base", knowledge). References [[Marketplace]] schema at anthropic.com.
 
 ## Pages Updated
 - Marketplace (added manifest structure, this repo's catalog)

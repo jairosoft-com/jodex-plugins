@@ -17,8 +17,8 @@ Strategy for managing Python and TypeScript/Node dependencies in a plugin-based 
 
 | Script | Plugin | External Deps |
 |--------|--------|---------------|
-| `xlsx-writer.py` | [[QA AI]] | None (stdlib only) |
-| `wiki-tools.py` | [[LLM Wiki]] | None (stdlib only) |
+| `xlsx-writer.py` | [[QA Testing Plugin|jx-qa]] | None (stdlib only) |
+| `wiki-tools.py` | [[Knowledge Base Plugin|jx-kb]] | None (stdlib only) |
 | TypeScript files | — | None exist yet |
 
 No `pyproject.toml`, `requirements.txt`, or `package.json` exist in the project.
@@ -30,12 +30,12 @@ No `pyproject.toml`, `requirements.txt`, or `package.json` exist in the project.
 Each plugin manages its own deps independently:
 
 ```
-plugins/qa-ai/
+plugins/jx-qa/
 ├── pyproject.toml          # Python deps (e.g., openpyxl)
 ├── package.json            # Node deps (e.g., playwright)
 └── scripts/xlsx-writer.py
 
-plugins/llm-wiki/
+plugins/jx-kb/
 ├── pyproject.toml          # Python deps (if needed)
 └── scripts/wiki-tools.py
 ```
@@ -48,11 +48,11 @@ Single entry point for all setup across languages:
 setup-all: setup-py setup-node
 
 setup-py:
-    cd plugins/qa-ai && uv venv && uv pip install -r pyproject.toml
-    cd plugins/llm-wiki && uv venv && uv pip install -r pyproject.toml
+    cd plugins/jx-qa && uv venv && uv pip install -r pyproject.toml
+    cd plugins/jx-kb && uv venv && uv pip install -r pyproject.toml
 
 setup-node:
-    cd plugins/qa-ai && npm install
+    cd plugins/jx-qa && npm install
 ```
 
 ### Python Tooling

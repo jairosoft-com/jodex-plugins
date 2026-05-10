@@ -126,7 +126,7 @@ None — all design questions resolved. Ready for implementation.
 
 ## Related
 
-- [[QA AI]] — similar multi-phase skill pattern (BRD → xlsx → Playwright)
+- [[QA Testing Plugin|jx-qa]] — similar multi-phase skill pattern (BRD → xlsx → Playwright)
 - [[Multi-Phase Skill]] — structural pattern these skills would follow
 - [[Plugin Architecture]] — .claude-plugin format
 - [[Creating a Skill]] — how to build skills

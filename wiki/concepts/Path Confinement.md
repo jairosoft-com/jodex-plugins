@@ -23,7 +23,7 @@ A security pattern ensuring all file operations stay within the project root dir
 ## Used By
 
 - [[wiki-tools.py]] — validates all paths before file operations
-- [[LLM Wiki]] plugin — all source paths checked during [[Ingest]]
+- [[Knowledge Base Plugin|jx-kb]] plugin — all source paths checked during [[Ingest]]
 
 ## Sources
 - [[Source - LLM Wiki README]]

@@ -7,7 +7,7 @@ To use your `jodex-qa-ai` plugin from WSL Ubuntu inside Claude Desktop on Window
 Here is the step-by-step approach:
 
 ## Step 1: Wrap Your Plugin Logic in an MCP Server
-Since Claude Desktop only understands MCP, you must create a small MCP server (using TypeScript or Python) that exposes your `qa-ai` skills (like extracting BRDs or generating Playwright specs) as **MCP Tools**.
+Since Claude Desktop only understands MCP, you must create a small MCP server (using TypeScript or Python) that exposes your `jx-qa` skills (like extracting BRDs or generating Playwright specs) as **MCP Tools**.
 
 For example, if your CLI skills are bash scripts or Node scripts, your MCP server will register those as tools and spawn the processes when Claude Desktop calls them.
 

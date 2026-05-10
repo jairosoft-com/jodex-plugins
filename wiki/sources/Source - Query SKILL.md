@@ -11,7 +11,7 @@ provenance: source-derived
 # Source - Query SKILL
 
 ## Metadata
-- **Original path**: plugins/llm-wiki/skills/query/SKILL.md
+- **Original path**: plugins/jx-kb/skills/query/SKILL.md
 - **SHA-256**: b3205701b265a4bfb27701c8b1ed09cc2312e9973ef7a2bd44f09a405db611b0
 - **Size**: 3,929 bytes
 

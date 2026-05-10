@@ -29,7 +29,7 @@ The user can add, remove, or modify entries before approving.
 
 - [[Ingest]] — Phase 3 (plan wiki updates)
 - [[Triage]] — each idea requires explicit classification
-- [[LLM Wiki]] plugin — all mutation operations
+- [[Knowledge Base Plugin|jx-kb]] plugin — all mutation operations
 
 ## Sources
 - [[Source - LLM Wiki README]]

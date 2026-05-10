@@ -11,9 +11,8 @@ updated: 2026-05-09
 
 ## P2 — Medium
 
-- [[Align qa-ai Generate Tool Contract]] — Fix xlsx parsing tool mismatch in generate skill (#qa-ai, #security)
+- [[Align jx-qa Generate Tool Contract]] — Fix xlsx parsing tool mismatch in generate skill (#jx-qa, #security)
 - [[Raw Sources Should Be Excluded From Wiki Graph]] — Exclude raw/ from wiki-tools.py page graph (#wiki, #lint)
-- [[Rebrand Skills to jx Namespace]] — Unify all plugins under jx-* naming (#plugin, #naming)
 
 ## P3 — Low
 

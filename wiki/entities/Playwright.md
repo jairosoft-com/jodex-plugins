@@ -11,12 +11,12 @@ provenance: source-derived
 
 # Playwright
 
-Browser automation framework by Microsoft. Used by the [[QA AI]] plugin for E2E test generation and execution.
+Browser automation framework by Microsoft. Used by the [[QA Testing Plugin|jx-qa]] plugin for E2E test generation and execution.
 
 ## Usage in This Repo
 
-- `/qa-ai:generate` opens live browser, follows test steps, captures semantic locators
-- `/qa-ai:browser` provides manual browser exploration and debugging
+- `/jx-qa:generate` opens live browser, follows test steps, captures semantic locators
+- `/jx-qa:browser` provides manual browser exploration and debugging
 - `npx playwright test` runs generated `.spec.ts` files
 - `npx playwright install` sets up browser binaries
 

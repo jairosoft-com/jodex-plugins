@@ -53,7 +53,7 @@ Renaming a marketplace or plugin cascades through the system. See [[Naming Rippl
 ## This Repo's Marketplace
 
 - **Name**: jodex-plugins
-- **Plugins**: [[QA AI]] (category: productivity), [[LLM Wiki]] (category: knowledge)
+- **Plugins**: [[QA Testing Plugin|jx-qa]] (category: productivity), [[Knowledge Base Plugin|jx-kb]] (category: knowledge)
 - **Owner**: Jairosoft
 
 ## Sources

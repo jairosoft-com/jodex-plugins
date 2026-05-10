@@ -11,14 +11,14 @@ provenance: synthesis
 
 # Jodex Plugin Marketplace
 
-This repo is a tri-plugin [[Marketplace]] for [[Claude Code CLI]], [[Claude Code Desktop]], and [[Codex Desktop]]. It distributes [[QA AI]], [[LLM Wiki]], and [[Product Management Skills Plugin|jx-pm]] from one marketplace manifest.
+This repo is a tri-plugin [[Marketplace]] for [[Claude Code CLI]], [[Claude Code Desktop]], and [[Codex Desktop]]. It distributes [[QA Testing Plugin|jx-qa]], [[Knowledge Base Plugin|jx-kb]], and [[Product Management Skills Plugin|jx-pm]] from one marketplace manifest.
 
 ## Current Shape
 
-- [[QA AI]] provides the BRD/PRD to xlsx to [[Playwright]] spec pipeline.
-- [[LLM Wiki]] provides project-local wiki operations: [[Ingest]], [[Triage]], [[Query]], and [[Lint]].
+- [[QA Testing Plugin|jx-qa]] provides the BRD/PRD to xlsx to [[Playwright]] spec pipeline.
+- [[Knowledge Base Plugin|jx-kb]] provides project-local wiki operations: [[Ingest]], [[Triage]], [[Query]], and [[Lint]].
 - [[Product Management Skills Plugin|jx-pm]] provides PM/PO workflows: PRD generation, tech specs, task conversion, and Azure DevOps sync (5 skills).
-- The repo dogfoods [[LLM Wiki]] by maintaining this wiki as the project knowledge layer.
+- The repo dogfoods [[Knowledge Base Plugin|jx-kb]] by maintaining this wiki as the project knowledge layer.
 
 ## Operating Model
 
@@ -43,8 +43,8 @@ Conversation findings and design summaries are filed through [[Filing Workflow]]
 
 ## Derived From
 - [[Marketplace]]
-- [[QA AI]]
-- [[LLM Wiki]]
+- [[QA Testing Plugin|jx-qa]]
+- [[Knowledge Base Plugin|jx-kb]]
 - [[Product Management Skills Plugin]]
 - [[Three-Surface Plugin Ecosystem]]
 - [[Filing Workflow]]

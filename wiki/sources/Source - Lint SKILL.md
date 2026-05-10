@@ -11,7 +11,7 @@ provenance: source-derived
 # Source - Lint SKILL
 
 ## Metadata
-- **Original path**: plugins/llm-wiki/skills/lint/SKILL.md
+- **Original path**: plugins/jx-kb/skills/lint/SKILL.md
 - **SHA-256**: 81103e080d02a34815ae7f243df83b6566e31afc3202d3002d9ebfd56ccc87f0
 - **Size**: 4,811 bytes
 

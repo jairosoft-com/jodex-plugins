@@ -16,7 +16,7 @@ This repo uses a dogfood loop: plugin source produces or improves the wiki tooli
 ## Loop
 
 1. Source changes land under `plugins/`.
-2. [[LLM Wiki]] ingests or synthesizes knowledge from the source and conversation.
+2. [[Knowledge Base Plugin|jx-kb]] ingests or synthesizes knowledge from the source and conversation.
 3. The wiki updates [[Index]], [[Log]], and topic/concept pages.
 4. Discussion surfaces gaps such as [[Raw Sources Should Be Excluded From Wiki Graph]] or [[Align qa-ai Generate Tool Contract]].
 5. Those gaps become raw ideas, implementation plans, or future plugin changes.
@@ -40,7 +40,7 @@ The loop can blur source truth and synthesis. Use frontmatter provenance consist
 - [[Three-Surface Plugin Ecosystem]]
 
 ## Derived From
-- [[LLM Wiki]]
+- [[Knowledge Base Plugin|jx-kb]]
 - [[Filing Workflow]]
 - [[Ingest]]
 - [[Jodex Plugin Marketplace]]

@@ -24,8 +24,8 @@ This means the LLM can only run that one script with any arguments — it cannot
 
 ## Examples in This Repo
 
-- [[wiki-tools.py]] — stdlib-only Python helper for the [[LLM Wiki]] plugin
-- `xlsx-writer.py` — openpyxl helper for the [[QA AI]] plugin
+- [[wiki-tools.py]] — stdlib-only Python helper for the [[Knowledge Base Plugin|jx-kb]] plugin
+- `xlsx-writer.py` — openpyxl helper for the [[QA Testing Plugin|jx-qa]] plugin
 
 ## Sources
 - [[Source - LLM Wiki README]]

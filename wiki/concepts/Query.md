@@ -15,7 +15,7 @@ The operation of asking questions against the wiki and receiving synthesized ans
 
 ## When to Use
 
-Use `/llm-wiki:query` for searching wiki and getting synthesized answers with citations:
+Use `/jx-kb:query` for searching wiki and getting synthesized answers with citations:
 - **Lookup** — "What is X?" fact retrieval
 - **How-to** — "How do I do X?" procedural answers
 - **Cross-cutting** — "What patterns exist across Y?" synthesis
@@ -26,10 +26,10 @@ Use `/llm-wiki:query` for searching wiki and getting synthesized answers with ci
 
 | Need | Skill |
 |------|-------|
-| Add new source docs | [[Ingest]] (`/llm-wiki:ingest`) |
-| Review raw ideas | [[Triage]] (`/llm-wiki:triage`) |
-| Check wiki health | [[Lint]] (`/llm-wiki:lint`) |
-| Create new wiki | `/llm-wiki:init` |
+| Add new source docs | [[Ingest]] (`/jx-kb:ingest`) |
+| Review raw ideas | [[Triage]] (`/jx-kb:triage`) |
+| Check wiki health | [[Lint]] (`/jx-kb:lint`) |
+| Create new wiki | `/jx-kb:init` |
 
 ## How It Works
 

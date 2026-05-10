@@ -29,10 +29,10 @@ This is the specific convention captured by [[ADR-001 Treat Marketplace Metadata
 
 ## Example
 
-For [[QA AI]], the short display description should be updated in both:
+For [[QA Testing Plugin|jx-qa]], the short display description should be updated in both:
 
 - `.claude-plugin/marketplace.json`
-- `plugins/qa-ai/.claude-plugin/plugin.json`
+- `plugins/jx-qa/.claude-plugin/plugin.json`
 
 The README should then use the same product language where it describes what users get.
 
@@ -46,5 +46,5 @@ The README should then use the same product language where it describes what use
 - [[Marketplace]]
 - [[Naming Ripple Effect]]
 - [[Plugin Architecture]]
-- [[QA AI]]
-- [[LLM Wiki]]
+- [[QA Testing Plugin|jx-qa]]
+- [[Knowledge Base Plugin|jx-kb]]

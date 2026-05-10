@@ -8,22 +8,22 @@
   },
   "plugins": [
     {
-      "name": "qa-ai",
-      "description": "Qa.Ai Harness: extract E2E test cases from BRDs, generate Playwright specs, automate browser interactions.",
+      "name": "jx-qa",
+      "description": "QA Harness: extract E2E test cases from BRDs, generate Playwright specs, automate browser interactions.",
       "author": {
         "name": "Jairosoft"
       },
       "category": "productivity",
-      "source": "./plugins/qa-ai"
+      "source": "./plugins/jx-qa"
     },
     {
-      "name": "llm-wiki",
+      "name": "jx-kb",
       "description": "Knowledge Base: ingest sources, build an LLM-maintained wiki, query with citations, lint for health.",
       "author": {
         "name": "Jairosoft"
       },
       "category": "knowledge",
-      "source": "./plugins/llm-wiki"
+      "source": "./plugins/jx-kb"
     },
     {
       "name": "jx-pm",

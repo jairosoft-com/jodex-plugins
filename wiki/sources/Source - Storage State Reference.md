@@ -11,7 +11,7 @@ provenance: source-derived
 # Source - Storage State Reference
 
 ## Metadata
-- **Original path**: plugins/qa-ai/skills/playwright-cli/references/storage-state.md
+- **Original path**: plugins/jx-qa/skills/playwright-cli/references/storage-state.md
 - **SHA-256**: 1122778c9b13b44bddebb4476a7f99d918afd31757be8b4fade3cb09c3d48c99
 - **Size**: 5,198 bytes
 

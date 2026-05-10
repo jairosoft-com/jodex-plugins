@@ -11,7 +11,7 @@ provenance: source-derived
 # Source - Extract SKILL
 
 ## Metadata
-- **Original path**: plugins/qa-ai/skills/extract/SKILL.md
+- **Original path**: plugins/jx-qa/skills/extract/SKILL.md
 - **SHA-256**: 0a57b19a6eb5c7fcc6765546d2f27c91103efa59cfd29a36a0b5b489e48dbb66
 - **Size**: 9,527 bytes
 

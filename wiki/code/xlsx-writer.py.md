@@ -11,15 +11,15 @@ provenance: source-derived
 
 # xlsx-writer.py
 
-[[Pinned Helper]] script for the [[QA AI]] plugin. Python 3 with `openpyxl` dependency.
+[[Pinned Helper]] script for the [[QA Testing Plugin|jx-qa]] plugin. Python 3 with `openpyxl` dependency.
 
 ## Location
 
-`plugins/qa-ai/scripts/xlsx-writer.py`
+`plugins/jx-qa/scripts/xlsx-writer.py`
 
 ## Purpose
 
-Reads and writes xlsx test plan files in Azure DevOps format. Used by both `/qa-ai:extract` (writes test cases) and `/qa-ai:generate` (reads test cases for Playwright spec generation). Replaced `npx xlsx` as the xlsx parser in the generate skill.
+Reads and writes xlsx test plan files in Azure DevOps format. Used by both `/jx-qa:extract` (writes test cases) and `/jx-qa:generate` (reads test cases for Playwright spec generation). Replaced `npx xlsx` as the xlsx parser in the generate skill.
 
 ## Security
 

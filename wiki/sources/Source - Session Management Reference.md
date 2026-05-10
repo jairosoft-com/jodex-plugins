@@ -11,7 +11,7 @@ provenance: source-derived
 # Source - Session Management Reference
 
 ## Metadata
-- **Original path**: plugins/qa-ai/skills/playwright-cli/references/session-management.md
+- **Original path**: plugins/jx-qa/skills/playwright-cli/references/session-management.md
 - **SHA-256**: cd3e261b8763bf952f1e371b876cb78d054379afec85482f9250633e1b7e6c44
 - **Size**: 5,671 bytes
 

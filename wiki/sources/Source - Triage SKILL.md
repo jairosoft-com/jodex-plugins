@@ -11,7 +11,7 @@ provenance: source-derived
 # Source - Triage SKILL
 
 ## Metadata
-- **Original path**: plugins/llm-wiki/skills/triage/SKILL.md
+- **Original path**: plugins/jx-kb/skills/triage/SKILL.md
 - **SHA-256**: a2ddd3479e51d226804ee03651a3cfa3760492ca158aa684c7ee0edf41ce0d6b
 - **Size**: 4,774 bytes
 

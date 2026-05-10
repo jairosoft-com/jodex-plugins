@@ -11,7 +11,7 @@ provenance: source-derived
 # Source - Init SKILL
 
 ## Metadata
-- **Original path**: plugins/llm-wiki/skills/init/SKILL.md
+- **Original path**: plugins/jx-kb/skills/init/SKILL.md
 - **SHA-256**: a10bb924a33d143cce2e7c63f126675cf09e44235b636c801319f4510c034a51
 - **Size**: 5,762 bytes
 

@@ -27,7 +27,7 @@ The schema is the key configuration file — it transforms the LLM from a generi
 
 ## Init Process
 
-Created by `/llm-wiki:init` with user-provided wiki name. Template includes:
+Created by `/jx-kb:init` with user-provided wiki name. Template includes:
 - Complete [[Taxonomy Routing]] definitions for all 10 buckets
 - YAML frontmatter spec (title, type, tags, created, updated, source_count, aliases, provenance)
 - `[[wikilink]]` cross-reference syntax

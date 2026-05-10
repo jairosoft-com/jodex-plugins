@@ -11,11 +11,11 @@ provenance: source-derived
 
 # wiki-tools.py
 
-[[Pinned Helper]] script for the [[LLM Wiki]] plugin. Python 3, stdlib-only (no external dependencies).
+[[Pinned Helper]] script for the [[Knowledge Base Plugin|jx-kb]] plugin. Python 3, stdlib-only (no external dependencies).
 
 ## Location
 
-`plugins/llm-wiki/scripts/wiki-tools.py`
+`plugins/jx-kb/scripts/wiki-tools.py`
 
 ## Commands
 

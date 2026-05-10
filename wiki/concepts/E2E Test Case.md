@@ -11,7 +11,7 @@ provenance: source-derived
 
 # E2E Test Case
 
-A test case that exercises a system through its user interface, covering browser/UI assertions, navigation flows, and cross-system interactions. The [[QA AI]] plugin's extract skill classifies requirements as E2E-testable or not.
+A test case that exercises a system through its user interface, covering browser/UI assertions, navigation flows, and cross-system interactions. The [[QA Testing Plugin|jx-qa]] plugin's extract skill classifies requirements as E2E-testable or not.
 
 ## E2E-Testable
 
