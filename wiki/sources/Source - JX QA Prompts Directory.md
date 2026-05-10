@@ -1,5 +1,5 @@
 ---
-title: "Source - QA AI Prompts Directory"
+title: "Source - JX QA Prompts Directory"
 type: source
 tags: [jx-qa, prompts, plugin-structure]
 created: 2026-05-09
@@ -8,7 +8,7 @@ raw_path: plugins/jx-qa/prompts/ABOUT.md
 provenance: source-derived
 ---
 
-# Source - QA AI Prompts Directory
+# Source - JX QA Prompts Directory
 
 ## Metadata
 - **Original path**: plugins/jx-qa/prompts/ABOUT.md

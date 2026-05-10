@@ -45,5 +45,5 @@ Unsupported formats (PDF, DOCX, images, HTML) require conversion to markdown fir
 
 ## Sources
 - [[Source - LLM Wiki]]
-- [[Source - LLM Wiki README]]
-- [[Source - llm-wiki Ingest Command]]
+- [[Source - JX KB README]]
+- [[Source - jx-kb Ingest Command]]

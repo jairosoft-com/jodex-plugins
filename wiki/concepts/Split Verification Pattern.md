@@ -43,7 +43,7 @@ grep -rn 'Old Name' ... | grep -v '\[\[Old Name\]\]'
 ## Example from This Project
 
 `LLM Wiki` was both a plugin name and Karpathy's upstream pattern name:
-- **Tier 1**: Zero-hit for `[[LLM Wiki]]` wikilinks, `/llm-wiki:` commands, `plugins/llm-wiki/` paths
+- **Tier 1**: Zero-hit for `[[Knowledge Base Plugin|jx-kb]]` wikilinks, `/llm-wiki:` commands, `plugins/llm-wiki/` paths
 - **Tier 2**: Audit remaining "LLM Wiki" prose — all should reference the pattern concept, not the plugin
 
 ## Related

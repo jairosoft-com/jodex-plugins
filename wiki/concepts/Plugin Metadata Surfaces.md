@@ -40,7 +40,7 @@ The README should then use the same product language where it describes what use
 
 - [[Naming Ripple Effect]]
 - [[Jodex Plugin Marketplace]]
-- [[Align qa-ai Generate Tool Contract]]
+- [[Align jx-qa Generate Tool Contract]]
 
 ## Derived From
 - [[Marketplace]]

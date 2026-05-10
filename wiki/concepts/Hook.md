@@ -19,5 +19,5 @@ Hooks live in the `hooks/` directory of a plugin. They provide automation around
 
 ## Sources
 - [[Source - Claude CLI vs Desktop MCP Guide]]
-- [[Source - QA AI Hooks Directory]]
-- [[Source - llm-wiki Hooks Guide]]
+- [[Source - JX QA Hooks Directory]]
+- [[Source - jx-kb Hooks Guide]]

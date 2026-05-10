@@ -1,5 +1,5 @@
 ---
-title: "Source - llm-wiki Agents Guide"
+title: "Source - jx-kb Agents Guide"
 type: source
 tags: [jx-kb, agents, subagent, plugin-architecture]
 created: 2026-05-09
@@ -8,7 +8,7 @@ raw_path: plugins/jx-kb/agents/ABOUT.md
 provenance: source-derived
 ---
 
-# Source - llm-wiki Agents Guide
+# Source - jx-kb Agents Guide
 
 ## Metadata
 - **Original path**: plugins/jx-kb/agents/ABOUT.md

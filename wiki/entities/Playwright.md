@@ -35,7 +35,7 @@ Browser automation framework by Microsoft. Used by the [[QA Testing Plugin|jx-qa
 - [[Idempotent Operation]] — generate skill skips existing specs
 
 ## Sources
-- [[Source - QA AI README]]
+- [[Source - JX QA README]]
 - [[Source - Generate SKILL]]
 - [[Source - Playwright CLI SKILL]]
 - [[Source - Element Attributes Reference]]

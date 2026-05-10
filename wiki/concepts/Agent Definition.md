@@ -46,4 +46,4 @@ Agents live in the `agents/` directory alongside `commands/`, `skills/`, `hooks/
 Agents can reference multiple skills, enabling [[Skill Chaining]] within a single subagent context rather than through sequential [[Slash Command]] invocations.
 
 ## Sources
-- [[Source - QA AI Agents Directory]]
+- [[Source - JX QA Agents Directory]]

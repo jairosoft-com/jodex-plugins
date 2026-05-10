@@ -1,5 +1,5 @@
 ---
-title: "Source - llm-wiki Hooks Guide"
+title: "Source - jx-kb Hooks Guide"
 type: source
 tags: [jx-kb, hooks, lifecycle, plugin-architecture]
 created: 2026-05-09
@@ -8,7 +8,7 @@ raw_path: plugins/jx-kb/hooks/ABOUT.md
 provenance: source-derived
 ---
 
-# Source - llm-wiki Hooks Guide
+# Source - jx-kb Hooks Guide
 
 ## Metadata
 - **Original path**: plugins/jx-kb/hooks/ABOUT.md

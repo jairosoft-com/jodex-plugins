@@ -78,7 +78,7 @@ title: Wiki Log
 - **Operation**: triage
 - **Ideas triaged**: 4 raw → 3 backlogged P2 + 1 promoted to project
 - **Promoted**: [[Product Management Skills Plugin]] → projects/ (status: active)
-- **Backlogged P2**: [[Align qa-ai Generate Tool Contract]], [[Raw Sources Should Be Excluded From Wiki Graph]], [[Rebrand Skills to jx Namespace]]
+- **Backlogged P2**: [[Align jx-qa Generate Tool Contract]], [[Raw Sources Should Be Excluded From Wiki Graph]], [[Rebrand Skills to jx Namespace]]
 - **Backlog**: updated with 3 new P2 items
 - **Index**: moved jx-pm from Ideas to Projects section
 
@@ -175,7 +175,7 @@ title: Wiki Log
 - **Source**: plugins/qa-ai/README.md
 - **Snapshot**: wiki/raw/sources/9b33051a-README.md
 - **SHA-256**: 9b33051aef99b58cbbba0b73490e2fcaaf5cfabfda7a9a1907892323662a780b
-- **Pages created**: QA AI, xlsx-writer.py, Marketplace, QA Test Automation, Playwright, Source - QA AI README
+- **Pages created**: QA AI, xlsx-writer.py, Marketplace, QA Test Automation, Playwright, Source - JX QA README
 - **Pages updated**: Pinned Helper
 - **Ideas extracted**: 0
 - **Conflicts flagged**: 0
@@ -428,7 +428,7 @@ title: Wiki Log
 
 - **Operation**: file insights (conversation-derived, batch)
 - **Provenance**: synthesis
-- **Pages created**: Jodex Plugin Marketplace, Plugin Metadata Surfaces, ADR-001 Treat Marketplace Metadata As Listing Source, Raw Sources Should Be Excluded From Wiki Graph, Align qa-ai Generate Tool Contract, Plugin Dogfooding Workflow
+- **Pages created**: Jodex Plugin Marketplace, Plugin Metadata Surfaces, ADR-001 Treat Marketplace Metadata As Listing Source, Raw Sources Should Be Excluded From Wiki Graph, Align jx-qa Generate Tool Contract, Plugin Dogfooding Workflow
 - **Pages updated**: _index.md
 - **Cross-references added**: 32
 - **Outcome**: Success — plugin metadata, dogfooding workflow, and two implementation findings filed to wiki
@@ -462,6 +462,6 @@ title: Wiki Log
   - plugins/qa-ai/skills/extract/SKILL.md (0a57b19a, was 87ab5412) — test-plans/ path, xlsx discovery
   - plugins/qa-ai/skills/generate/SKILL.md (76a32c9d, was c9e18203) — xlsx-writer.py reader, test-plans/ path
   - plugins/qa-ai/README.md (e20fe7d0, was 9b33051a) — test-plans/ path references
-- **Pages updated**: Source - Ingest SKILL, Source - Marketplace Config, Source - Extract SKILL, Source - Generate SKILL, Source - QA AI README, QA AI (added test plan directory), xlsx-writer.py (expanded usage to both extract + generate)
+- **Pages updated**: Source - Ingest SKILL, Source - Marketplace Config, Source - Extract SKILL, Source - Generate SKILL, Source - JX QA README, QA AI (added test plan directory), xlsx-writer.py (expanded usage to both extract + generate)
 - **Pages created**: (none)
 - **Outcome**: Success — all 5 source pages updated with new hashes and change summaries

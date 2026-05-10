@@ -34,4 +34,4 @@ provenance: source-derived
 - Output as JSON for reliable parsing
 
 ## Sources
-- [[Source - LLM Wiki README]]
+- [[Source - JX KB README]]

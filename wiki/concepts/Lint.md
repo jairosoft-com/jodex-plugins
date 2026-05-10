@@ -47,6 +47,6 @@ Generates a score from 0 to 100. Factors include broken links, orphan pages, mis
 
 ## Sources
 - [[Source - LLM Wiki]]
-- [[Source - LLM Wiki README]]
+- [[Source - JX KB README]]
 - [[Source - Lint SKILL]]
-- [[Source - llm-wiki Lint Command]]
+- [[Source - jx-kb Lint Command]]

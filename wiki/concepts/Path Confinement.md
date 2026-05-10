@@ -26,4 +26,4 @@ A security pattern ensuring all file operations stay within the project root dir
 - [[Knowledge Base Plugin|jx-kb]] plugin — all source paths checked during [[Ingest]]
 
 ## Sources
-- [[Source - LLM Wiki README]]
+- [[Source - JX KB README]]

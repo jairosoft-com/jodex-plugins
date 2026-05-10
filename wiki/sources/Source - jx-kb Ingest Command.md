@@ -1,5 +1,5 @@
 ---
-title: "Source - llm-wiki Ingest Command"
+title: "Source - jx-kb Ingest Command"
 type: source
 tags: [jx-kb, command, ingest]
 created: 2026-05-09
@@ -8,7 +8,7 @@ raw_path: plugins/jx-kb/commands/ingest.md
 provenance: source-derived
 ---
 
-# Source - llm-wiki Ingest Command
+# Source - jx-kb Ingest Command
 
 ## Metadata
 - **Original path**: plugins/jx-kb/commands/ingest.md

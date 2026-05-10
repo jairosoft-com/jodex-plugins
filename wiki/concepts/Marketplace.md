@@ -57,5 +57,5 @@ Renaming a marketplace or plugin cascades through the system. See [[Naming Rippl
 - **Owner**: Jairosoft
 
 ## Sources
-- [[Source - QA AI README]]
+- [[Source - JX QA README]]
 - [[Source - Marketplace Config]]

@@ -1,5 +1,5 @@
 ---
-title: "Source - QA AI Hooks Directory"
+title: "Source - JX QA Hooks Directory"
 type: source
 tags: [jx-qa, hooks, lifecycle, plugin-structure]
 created: 2026-05-09
@@ -8,7 +8,7 @@ raw_path: plugins/jx-qa/hooks/ABOUT.md
 provenance: source-derived
 ---
 
-# Source - QA AI Hooks Directory
+# Source - JX QA Hooks Directory
 
 ## Metadata
 - **Original path**: plugins/jx-qa/hooks/ABOUT.md

@@ -1,5 +1,5 @@
 ---
-title: "Source - llm-wiki Lint Command"
+title: "Source - jx-kb Lint Command"
 type: source
 tags: [jx-kb, command, lint, health-check]
 created: 2026-05-09
@@ -8,7 +8,7 @@ raw_path: plugins/jx-kb/commands/lint.md
 provenance: source-derived
 ---
 
-# Source - llm-wiki Lint Command
+# Source - jx-kb Lint Command
 
 ## Metadata
 - **Original path**: plugins/jx-kb/commands/lint.md

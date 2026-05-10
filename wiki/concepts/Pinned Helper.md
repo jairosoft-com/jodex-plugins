@@ -28,5 +28,5 @@ This means the LLM can only run that one script with any arguments — it cannot
 - `xlsx-writer.py` — openpyxl helper for the [[QA Testing Plugin|jx-qa]] plugin
 
 ## Sources
-- [[Source - LLM Wiki README]]
-- [[Source - QA AI README]]
+- [[Source - JX KB README]]
+- [[Source - JX QA README]]

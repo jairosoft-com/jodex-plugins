@@ -37,4 +37,4 @@ See [[Idea Lifecycle]] for full state machine.
 ## Sources
 - [[Source - LLM Wiki]]
 - [[Source - Triage SKILL]]
-- [[Source - llm-wiki Triage Command]]
+- [[Source - jx-kb Triage Command]]

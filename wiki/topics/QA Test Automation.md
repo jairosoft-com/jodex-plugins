@@ -27,4 +27,4 @@ The [[QA Testing Plugin|jx-qa]] plugin implements a BRD-to-test pipeline:
 - **Azure DevOps format** — xlsx output compatible with Azure DevOps test plans
 
 ## Sources
-- [[Source - QA AI README]]
+- [[Source - JX QA README]]

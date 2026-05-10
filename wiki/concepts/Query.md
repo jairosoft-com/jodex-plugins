@@ -64,4 +64,4 @@ When filing an answer back as a wiki page:
 ## Sources
 - [[Source - LLM Wiki]]
 - [[Source - Query SKILL]]
-- [[Source - llm-wiki Query Command]]
+- [[Source - jx-kb Query Command]]

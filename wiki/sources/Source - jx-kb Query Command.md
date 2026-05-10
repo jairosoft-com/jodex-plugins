@@ -1,5 +1,5 @@
 ---
-title: "Source - llm-wiki Query Command"
+title: "Source - jx-kb Query Command"
 type: source
 tags: [jx-kb, command, query]
 created: 2026-05-09
@@ -8,7 +8,7 @@ raw_path: plugins/jx-kb/commands/query.md
 provenance: source-derived
 ---
 
-# Source - llm-wiki Query Command
+# Source - jx-kb Query Command
 
 ## Metadata
 - **Original path**: plugins/jx-kb/commands/query.md

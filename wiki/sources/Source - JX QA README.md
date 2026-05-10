@@ -8,7 +8,7 @@ raw_path: wiki/raw/sources/e20fe7d0-README.md
 provenance: source-derived
 ---
 
-# Source - QA AI README
+# Source - JX QA README
 
 ## Metadata
 - **Original path**: plugins/jx-qa/README.md

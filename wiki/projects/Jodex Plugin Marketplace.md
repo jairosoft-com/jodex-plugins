@@ -33,7 +33,7 @@ Conversation findings and design summaries are filed through [[Filing Workflow]]
 
 - [[Plugin Metadata Surfaces]] need to stay aligned when descriptions or names change.
 - [[Raw Sources Should Be Excluded From Wiki Graph]] should be resolved so lint and link-graph checks do not treat source snapshots as wiki pages.
-- [[Align qa-ai Generate Tool Contract]] should be resolved so documented generation steps match allowed tools.
+- [[Align jx-qa Generate Tool Contract]] should be resolved so documented generation steps match allowed tools.
 
 ## Related
 

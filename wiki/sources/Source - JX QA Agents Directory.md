@@ -1,5 +1,5 @@
 ---
-title: "Source - QA AI Agents Directory"
+title: "Source - JX QA Agents Directory"
 type: source
 tags: [jx-qa, agents, subagent, plugin-structure]
 created: 2026-05-09
@@ -8,7 +8,7 @@ raw_path: plugins/jx-qa/agents/ABOUT.md
 provenance: source-derived
 ---
 
-# Source - QA AI Agents Directory
+# Source - JX QA Agents Directory
 
 ## Metadata
 - **Original path**: plugins/jx-qa/agents/ABOUT.md

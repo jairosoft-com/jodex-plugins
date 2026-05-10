@@ -1,5 +1,5 @@
 ---
-title: "Source - QA AI Schemas Directory"
+title: "Source - JX QA Schemas Directory"
 type: source
 tags: [jx-qa, schemas, json-schema, plugin-structure]
 created: 2026-05-09
@@ -8,7 +8,7 @@ raw_path: plugins/jx-qa/schemas/ABOUT.md
 provenance: source-derived
 ---
 
-# Source - QA AI Schemas Directory
+# Source - JX QA Schemas Directory
 
 ## Metadata
 - **Original path**: plugins/jx-qa/schemas/ABOUT.md

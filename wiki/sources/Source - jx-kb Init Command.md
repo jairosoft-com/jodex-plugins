@@ -1,5 +1,5 @@
 ---
-title: "Source - llm-wiki Init Command"
+title: "Source - jx-kb Init Command"
 type: source
 tags: [jx-kb, command, init]
 created: 2026-05-09
@@ -8,7 +8,7 @@ raw_path: plugins/jx-kb/commands/init.md
 provenance: source-derived
 ---
 
-# Source - llm-wiki Init Command
+# Source - jx-kb Init Command
 
 ## Metadata
 - **Original path**: plugins/jx-kb/commands/init.md

@@ -24,7 +24,7 @@ A plan that says "update 16 source pages" assumes a static count derived during 
 
 ```bash
 # Wrong: hardcoded list
-FILES="Source - QA AI README.md Source - QA AI Agents.md ..."
+FILES="Source - JX QA README.md Source - JX QA Agents.md ..."
 
 # Right: dynamic worklist
 FILES=$(rg -l 'raw_path: plugins/(qa-ai|llm-wiki)' wiki/sources/)

@@ -32,5 +32,5 @@ The user can add, remove, or modify entries before approving.
 - [[Knowledge Base Plugin|jx-kb]] plugin — all mutation operations
 
 ## Sources
-- [[Source - LLM Wiki README]]
+- [[Source - JX KB README]]
 - [[Source - Azure Boards Sync SKILL]]

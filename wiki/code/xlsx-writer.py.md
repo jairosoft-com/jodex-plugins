@@ -27,4 +27,4 @@ Reads and writes xlsx test plan files in Azure DevOps format. Used by both `/jx-
 - Path validation and metacharacter rejection on inputs
 
 ## Sources
-- [[Source - QA AI README]]
+- [[Source - JX QA README]]

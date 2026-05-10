@@ -36,4 +36,4 @@ User has Obsidian open on one side and the LLM agent on the other. The LLM makes
 
 ## Sources
 - [[Source - LLM Wiki]]
-- [[Source - LLM Wiki README]]
+- [[Source - JX KB README]]

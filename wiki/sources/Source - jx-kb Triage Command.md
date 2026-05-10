@@ -1,5 +1,5 @@
 ---
-title: "Source - llm-wiki Triage Command"
+title: "Source - jx-kb Triage Command"
 type: source
 tags: [jx-kb, command, triage, idea-lifecycle]
 created: 2026-05-09
@@ -8,7 +8,7 @@ raw_path: plugins/jx-kb/commands/triage.md
 provenance: source-derived
 ---
 
-# Source - llm-wiki Triage Command
+# Source - jx-kb Triage Command
 
 ## Metadata
 - **Original path**: plugins/jx-kb/commands/triage.md
