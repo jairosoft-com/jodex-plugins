@@ -43,6 +43,7 @@ Each agent prompt must be self-contained:
 - What has ALREADY been done (prior phases)
 - Exact operations to perform
 - Safety rules and exclusions
+- **Permission mode:** Agents that need bash access must be spawned with `mode: "auto"` — default mode blocks bash in subagents, causing silent failures
 - Log file path with start/end markers
 
 ## Tmux Setup
@@ -136,8 +137,10 @@ Separate instances are heavier but avoid context window pressure and provide tru
 - File conflicts when agents edit overlapping files — assign non-overlapping scopes
 - Foundation phase incomplete before parallel launch — always verify Phase 1 before spawning
 - **Race condition** — parallel agents reading/deleting same files; enforce ordering via signal files
-- **Tmux attach fails from Claude Code** — `open terminal failed: not a terminal`; use `capture-pane`/`send-keys` instead for programmatic interaction
+- **Tmux attach fails from Claude Code** — `open terminal failed: not a terminal`; use `capture-pane`/`send-keys` instead for programmatic interaction. Workaround: `script -q /dev/null tmux attach -t session` allocates pseudo-TTY and attaches, but output is raw ANSI escape codes — not useful for reading
 - **Pane index mismatch** — tmux `base-index`/`pane-base-index` config causes `:0.0` targeting to fail; always query actual indices first
+- **Agent permission failure** — subagents spawned without `mode: "auto"` get blocked on bash permissions and fail silently. Always set `mode: "auto"` when agents need shell access
+- **capture-pane ANSI artifacts** — `capture-pane -p` output may contain minor escape sequences (`^[[I`, `^[[O`). Content is readable but not perfectly clean; filter with `grep -v` or `sed` if piping to other tools
 
 ## Examples from This Project
 
