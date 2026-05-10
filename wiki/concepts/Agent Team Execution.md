@@ -69,26 +69,40 @@ Claude Code can create, manage, and interact with tmux sessions — but cannot a
 
 `capture-pane` + `send-keys` means Claude Code can orchestrate AND monitor tmux panes without attaching. Terminal.app only needed for visual observation, not for programmatic interaction.
 
-### Pane Index Gotcha
+### Pane Index Gotchas
 
-Pane/window indices depend on user tmux config. If `base-index` or `pane-base-index` is set to 1, targeting `:0.0` will fail. Always query actual indices before splitting.
+**Config-dependent start index:** Pane/window indices depend on user tmux config. If `base-index` or `pane-base-index` is set to 1, targeting `:0.0` will fail. Always query actual indices before splitting.
+
+**Index shift on split:** Each `split-window` creates a new pane that takes the next index, bumping existing panes. Must re-query or track indices after each split to target the correct pane.
+
+### Correct 4-Pane (2x2 Grid) Recipe
 
 ```bash
-# Step 1: Create session
+# Step 1: Create session (assumes base-index=1; query first if unsure)
 tmux new-session -d -s team "tail -f /tmp/agents/phase1.log"
 
-# Step 2: Query indices (may be 0 or 1 depending on config)
-tmux list-windows -t team          # check window index
-tmux list-panes -t team:1          # check pane index
-
-# Step 3: Split using actual indices
+# Step 2: Horizontal split → left(1) | right(2)
 tmux split-window -h -t team:1 "tail -f /tmp/agents/phase2.log"
-tmux split-window -v -t team:1.1 "tail -f /tmp/agents/phase3.log"
-tmux split-window -v -t team:1.2 "tail -f /tmp/agents/phase4.log"
 
-# Step 4: Monitor programmatically (no attach needed)
-tmux capture-pane -t team:1.1 -p   # read pane 1 output
-tmux capture-pane -t team:1.3 -p   # read pane 3 output
+# Step 3: Split LEFT vertically → TL(1) | BL(2) | right bumps to (3)
+tmux split-window -v -t team:1.1 "tail -f /tmp/agents/phase3.log"
+
+# Step 4: Split RIGHT (now index 3) vertically → TR(3) | BR(4)
+tmux split-window -v -t team:1.3 "tail -f /tmp/agents/phase4.log"
+
+# Result:  TL(1) | TR(3)
+#          BL(2) | BR(4)
+```
+
+### Monitoring Panes Programmatically
+
+```bash
+# Read pane output (no attach needed)
+tmux capture-pane -t team:1.1 -p   # top-left
+tmux capture-pane -t team:1.3 -p   # top-right
+
+# Send command to a pane
+tmux send-keys -t team:1.2 "echo hello" Enter
 ```
 
 User can optionally run `tmux attach -t team` from Terminal.app for visual monitoring.
