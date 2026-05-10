@@ -6,6 +6,7 @@ Desktop.ini
 *.swo
 *~
 .idea/
+.obsidian/
 
 # --- Claude / Cursor local state (not plugin source) ---
 logs/

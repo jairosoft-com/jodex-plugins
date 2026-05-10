@@ -20,6 +20,7 @@
 ## Projects
 - [jx-pm plugin](project_jx_pm_plugin.md) — Built, committed, ready for dogfooding. 5 skills at plugins/jx-pm/
 - [Extract skill BRD path](project_extract_brd_path.md) — Remove hardcoded path; prompt user or pull from memory
+- [Wiki lint fixes pending](project_wiki_lint_fixes.md) — Post-plugin-split lint score 78/100, 5 errors + 5 warnings
 
 ## References
 - [CasaColina source skills](reference_casacolina_source_skills.md) — Original cc-gen-* skills that jx-pm was ported from
