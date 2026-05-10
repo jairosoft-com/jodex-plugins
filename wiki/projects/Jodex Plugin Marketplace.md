@@ -29,6 +29,38 @@ The repo has two durable surfaces:
 
 Conversation findings and design summaries are filed through [[Filing Workflow]] using `provenance: synthesis`. Source ingests remain `source-derived`.
 
+## Repository Metrics (2026-05-09)
+
+| Metric | Value |
+|--------|-------|
+| Total files | 627 |
+| Disk size | 23M |
+| Plugins | 3 (jx-qa, jx-kb, jx-pm) |
+| Skills | 14 |
+| Commands | 14 |
+| Wiki pages | 191 (164 maintained, 27 raw) |
+| Wikilinks | 1,095 (6.2/page avg) |
+| Wiki health | 87/100 |
+| Commits | 38 over 11 days |
+| Architecture | Pure declarative (md + json + py, no build tooling) |
+
+### Plugin Maturity
+
+| Plugin | Skills | Evals | README | Status |
+|--------|--------|-------|--------|--------|
+| [[Knowledge Base Plugin\|jx-kb]] | 5 | 4/5 | Complete | Most mature |
+| [[QA Testing Plugin\|jx-qa]] | 4 | 3/4 | Mostly complete | Medium |
+| [[Product Management Skills Plugin\|jx-pm]] | 5 | 0/5 | Sparse | Newest, needs work |
+
+### Known Issues
+
+- jx-pm not enabled in settings.json
+- jx-pm has zero evals across all skills
+- jx-pm README missing install, requirements, ADO dependency docs
+- jx-pm branding inconsistency ("Pm.Ai Harness" vs "Product Management")
+- 17 orphan wiki pages need cross-references
+- 1 stale worktree (3.5M)
+
 ## Discussion Watchpoints
 
 - [[Plugin Metadata Surfaces]] need to stay aligned when descriptions or names change.

@@ -4,6 +4,24 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-09 — Repository Analysis (4-Agent Team)
+
+- **Operation**: agent team analysis (4 parallel agents: structure, wiki-health, plugin-audit, git-history)
+- **Findings**:
+  - 627 files, 23M disk, 3 plugins (jx-qa, jx-kb, jx-pm), 14 skills, 14 commands
+  - Wiki health score: 87/100, 191 pages, 1,095 wikilinks, 164/164 index coverage
+  - 38 commits over 11 days, 65.8% conventional commits, working tree clean
+  - jx-kb most mature plugin, jx-pm least documented (zero evals, sparse README)
+- **Issues identified**:
+  - jx-pm not enabled in settings.json
+  - jx-pm has zero evals across all 5 skills
+  - jx-pm README missing install, requirements, ADO dependency docs
+  - jx-pm branding inconsistency (Pm.Ai Harness vs Product Management)
+  - 17 orphan pages need cross-references
+  - _index.md page_count stale (159 vs actual 164)
+  - 1 stale worktree (3.5M), 8 stale plan files
+- **Outcome**: Analysis complete — per [[Jodex Plugin Marketplace]] project page
+
 ## 2026-05-09 — File Session Insights from jx Rebrand
 
 - **Operation**: synthesis filing
