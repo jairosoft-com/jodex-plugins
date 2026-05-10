@@ -4,7 +4,7 @@ type: concept
 tags: [pattern, plugin, workflow, pipeline]
 created: 2026-05-09
 updated: 2026-05-09
-source_count: 9
+source_count: 10
 aliases: [skill pipeline, chain flag, inter-skill chaining]
 provenance: synthesis
 ---
@@ -36,11 +36,16 @@ Each arrow represents a file handoff:
 - Partial chains allowed (e.g., bprd→techspec only)
 - Future: `/jx-pm:pipeline` convenience skill runs full chain
 
+## Cross-Plugin Chaining (Deferred)
+
+When jx-pm was split into jx-dev + jx-pm, all `--chain` and `--chain-all` flags were removed from moved skills. Cross-plugin chaining (e.g., `/jx-pm:prd` → `/jx-dev:spec` → `/jx-dev:task` → `/jx-pm:ado`) is logged as future work. `/jx-pm:pipeline` reduced to prd-only delegation until chaining across plugin boundaries is designed. See [[Cross-Plugin Shared Convention Layer]].
+
 ## Related
 
 - [[Multi-Phase Skill]] — intra-skill phasing (different pattern)
 - [[Product Management Skills Plugin]] — first plugin using chaining
 - [[Plugin Architecture]] — .claude-plugin format
+- [[Cross-Plugin Shared Convention Layer]] — deferred cross-plugin chaining
 
 ## Sources
 - [[Source - jx-pm Plugin README]]
@@ -52,3 +57,4 @@ Each arrow represents a file handoff:
 - [[Source - Tech Spec Generator SKILL]]
 - [[Source - Task JSON Converter SKILL]]
 - [[Source - Pipeline SKILL]]
+- [[Source - Split Tech Spec Idea]]

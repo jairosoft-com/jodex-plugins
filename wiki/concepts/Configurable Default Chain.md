@@ -4,7 +4,7 @@ type: concept
 tags: [pattern, configuration, plugin, portability]
 created: 2026-05-09
 updated: 2026-05-09
-source_count: 2
+source_count: 3
 aliases: [config resolution order, flag-env-default, three-level config]
 provenance: synthesis
 ---
@@ -37,6 +37,16 @@ A three-level resolution order for any configurable value: CLI flag (highest) �
 3. (neither set)                  → uses docs/
 ```
 
+## Env Var Migration Precedence
+
+When extracting shared conventions across plugins (see [[Cross-Plugin Shared Convention Layer]]), env vars need a precedence chain for backward compatibility — not a simple rename:
+
+```
+$JX_DOCS_ROOT > $JX_PM_DOCS_ROOT (backward compat fallback) > default docs/
+```
+
+The old plugin-specific var becomes an explicit backward-compat exception, not a "hardcoded reference" to remove.
+
 ## Design Rules
 
 - Default must be sensible for 80% of projects (don't force config)
@@ -64,3 +74,4 @@ Used by all jx-pm skills for `docs-root` resolution. Could apply to any configur
 ## Sources
 - [[Source - Docs Root Config]]
 - [[Source - PRD Generator SKILL]]
+- [[Source - Split Tech Spec Idea]]

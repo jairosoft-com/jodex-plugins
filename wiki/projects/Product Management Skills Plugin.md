@@ -4,7 +4,7 @@ type: project
 tags: [plugin, product-management, brd, prd, tech-spec, ado, jx-pm]
 created: 2026-05-09
 updated: 2026-05-09
-source_count: 0
+source_count: 1
 aliases: [PM plugin, PO plugin, product owner skills, jx-pm]
 provenance: synthesis
 status: active
@@ -109,9 +109,23 @@ Optional convenience skill running all 4 in sequence: bprd → techspec → prd-
 | Chain behavior | `--chain` = next skill only, `--chain-all` = full pipeline. Partial chains allowed |
 | task.json schema | Core fields required (project, featureName, featureId, userStories). Jodex fields (branchName, technicalSpecSection, passes) optional |
 
+## Plugin Split: jx-pm → jx-dev + jx-core
+
+Developer-facing skills (techspec, task) extracted to `jx-dev`. Shared conventions extracted to `jx-core` (reference-only plugin). See [[Cross-Plugin Shared Convention Layer]].
+
+| Skill | Before | After |
+|-------|--------|-------|
+| prd | `/jx-pm:prd` | `/jx-pm:prd` (stays) |
+| techspec | `/jx-pm:techspec` | `/jx-dev:spec` (moved) |
+| task | `/jx-pm:task` | `/jx-dev:task` (moved) |
+| ado | `/jx-pm:ado` | `/jx-pm:ado` (stays) |
+| pipeline | `/jx-pm:pipeline` | `/jx-pm:pipeline` (reduced to prd-only) |
+
+Cross-plugin chaining deferred — see [[Skill Chaining#Cross-Plugin Chaining (Deferred)]].
+
 ## Open Questions (Remaining)
 
-None — all design questions resolved. Ready for implementation.
+None — all design questions resolved. Implementation in progress.
 
 ## Source Skill Mapping
 
@@ -131,5 +145,13 @@ None — all design questions resolved. Ready for implementation.
 - [[Plugin Architecture]] — .claude-plugin format
 - [[Creating a Skill]] — how to build skills
 - [[Naming Ripple Effect]] — plugin rename cascade considerations
+- [[Cross-Plugin Shared Convention Layer]] — shared convention pattern from jx-pm split
+- [[Shared Reference Extraction]] — intra-plugin `_shared/` pattern
 
 ## Sources
+- [[Source - Split Tech Spec Idea]]
+- [[Source - Plugin Split Implementation Plan]]
+- [[Source - ADO Command]]
+- [[Source - jx-pm Agents Stub]]
+- [[Source - jx-pm Hooks Stub]]
+- [[Source - jx-pm Prompts Stub]]

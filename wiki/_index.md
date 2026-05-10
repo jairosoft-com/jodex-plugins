@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-09
-page_count: 164
+page_count: 175
 ---
 
 # Wiki Index
@@ -12,7 +12,9 @@ page_count: 164
 - [[Marp Integration]] — Markdown slide decks from wiki content (#tooling, #presentation) [backlogged P3]
 - [[Align jx-qa Generate Tool Contract]] — Bring generate workflow instructions into alignment with allowed tools (#jx-qa, #tooling) [backlogged P2]
 - [[Raw Sources Should Be Excluded From Wiki Graph]] — Keep raw snapshots out of page graph and lint checks (#wiki, #lint) [backlogged P2]
+- [[Cross-Plugin Shared Convention Layer (Promoted)]] — Shared convention plugin pattern from jx-pm split (#plugin-architecture, #pattern) [promoted]
 - [[Rebrand Skills to jx Namespace]] — Unify all plugins under jx-* naming: jx-qa, jx-kb, jx-pm (#plugin, #naming) [completed]
+- [[Split Tech Spec Into jx-dev Plugin]] — Extract dev skills to jx-dev, shared conventions to jx-core (#plugin-architecture, #refactor) [archived: implemented]
 - [[Wiki Search Tools]] — qmd and CLI tools for wiki search at scale (#tooling, #search) [backlogged P3]
 
 ## Concepts
@@ -20,8 +22,9 @@ page_count: 164
 - [[Ad-hoc vs Manifest-Driven Workflows]] — Two workflow modes: manual target selection vs manifest-tracked suggestions (#pattern, #workflow)
 - [[Agent Team Execution]] — Parallel agent orchestration with sequential foundation and tmux visibility (#pattern, #agent, #orchestration)
 - [[Atomic Rename Boundary]] — Runtime-critical rename changes must land in one commit (#pattern, #naming, #git)
-- [[Codex Plugin Compatibility]]
-- [[Configurable Default Chain]] — CLI flag → env var → hardcoded default resolution order (#pattern, #configuration) — Claude Code vs Codex plugin format differences and conversion tools (#plugin, #codex)
+- [[Codex Plugin Compatibility]] — Claude Code vs Codex plugin format differences and conversion tools (#plugin, #codex)
+- [[Configurable Default Chain]] — CLI flag → env var → hardcoded default resolution order (#pattern, #configuration)
+- [[Cross-Plugin Shared Convention Layer]] — Reference-only plugin pattern for shared conventions across plugins (#pattern, #plugin-architecture, #DRY)
 - [[Conflict Callout]] — Pattern for handling contradictions between sources (#wiki, #contradiction)
 - [[Cross-Reference Pass]] — Bidirectional wikilink pass after page creation (#wiki, #linking)
 - [[Directory-Source Marketplace]] — Local directory as marketplace source instead of GitHub (#plugin, #marketplace)
@@ -30,6 +33,7 @@ page_count: 164
 - [[Golden Thread Traceability]] — Unbroken chain from business objective to test case via requirement IDs (#pattern, #requirements)
 - [[Fail-Closed Lookup]] — Require exactly 1 match from external system; halt on 0 or 2+ (#pattern, #safety)
 - [[E2E Test Case]] — Classification of requirements as E2E-testable or not (#testing, #classification)
+- [[Emergent Design from Constraint]] — Best patterns emerge from hitting limits, not upfront design (#pattern, #meta, #emergence)
 - [[Health Score]] — 0-100 score quantifying wiki quality from lint (#wiki, #metrics)
 - [[Hook]] — Plugin lifecycle event handler (#plugin, #lifecycle)
 - [[Idea Lifecycle]] — Progression: raw → promoted/backlogged/archived (#wiki, #workflow)
@@ -37,6 +41,7 @@ page_count: 164
 - [[Index]] — Content catalog for wiki navigation via _index.md (#architecture, #wiki)
 - [[Iterative Adversarial Review]] — Multi-pass design hardening: review, resolve, re-submit until clean (#pattern, #quality)
 - [[Ingest]] — Core operation: absorb source documents into wiki pages (#operation, #wiki)
+- [[Knowledge Flywheel]] — Self-reinforcing loop: build → review → execute → capture → enrich → lint (#pattern, #workflow, #meta)
 - [[Link Graph Traversal]] — Page discovery via wikilink graph during query (#wiki, #navigation)
 - [[Local Plugin Development]] — --plugin-dir workflow for local disk plugin dev (#plugin, #development)
 - [[Lint]] — Periodic health-check operation for wiki (#operation, #maintenance)
@@ -44,8 +49,8 @@ page_count: 164
 - [[Marketplace]] — Plugin distribution mechanism for Claude Code CLI (#distribution, #plugin)
 - [[MCP Server]] — Model Context Protocol server for Claude Desktop extensibility (#protocol, #mcp)
 - [[MCP Tool]] — Individual capability exposed by MCP Server (#protocol, #tool)
-- [[Memory vs Wiki Separation]]
-- [[Mode Flag Pattern]] — Merge N similar skills into 1 with --mode flag when 80%+ structure shared (#pattern, #plugin) — When to use agent memory vs wiki pages (#architecture, #persistence)
+- [[Memory vs Wiki Separation]] — When to use agent memory vs wiki pages (#architecture, #persistence)
+- [[Mode Flag Pattern]] — Merge N similar skills into 1 with --mode flag when 80%+ structure shared (#pattern, #plugin)
 - [[Multi-Phase Skill]] — Structural pattern: numbered phases with gates (#pattern, #architecture)
 - [[Naming Ripple Effect]] — How marketplace/plugin renames cascade through the system (#pattern, #naming)
 - [[Requirement ID System]] — {TYPE}-{feature_number}-{seq} format with global AC counter (#pattern, #requirements)
@@ -55,6 +60,7 @@ page_count: 164
 - [[Path Confinement]] — Security pattern: path safety contract with relative_to() (#security, #validation)
 - [[Pinned Helper]] — Security pattern: restricted script execution (#security, #execution)
 - [[Plugin Architecture]] — .claude-plugin format for Claude Code CLI (#architecture, #plugin)
+- [[Plugin Dependency Declaration]] — Inter-plugin dependency convention via plugin.json dependencies field (#plugin, #convention, #dependency)
 - [[Plugin Metadata Surfaces]] — Where plugin descriptions and listing metadata live (#plugin, #metadata)
 - [[Polyglot Dependency Strategy]] — Python + TypeScript dependency management for plugin projects (#architecture, #dependencies)
 - [[Query]] — Search wiki and synthesize answers with citations (#operation, #retrieval)
@@ -135,6 +141,10 @@ page_count: 164
 ## Sources
 
 - [[Source - Claude CLI vs Desktop MCP Guide]] — CLI vs Desktop architecture comparison (#architecture)
+- [[Source - Cross-Plugin Convention Layer]] — Shared convention layer insight from jx-pm split (#plugin-architecture, #pattern)
+- [[Source - Plugin Split Dream]] — Post-session reflection: emergent design, accidental elegance, what the wiki learned (#meta, #reflection)
+- [[Source - Plugin Split Session Correlation]] — End-of-session synthesis: flywheel pattern, resolution-induced regression (#meta-pattern, #session-learning)
+- [[Source - Plugin Split Implementation Plan]] — 4-track implementation plan for jx-pm split with tmux execution (#plugin-architecture, #implementation)
 - [[Source - Claude Desktop WSL Integration]] — WSL integration guide (#wsl)
 - [[Source - Element Attributes Reference]] — DOM attribute inspection via eval (#playwright)
 - [[Source - Extract SKILL]] — BRD → xlsx test plan (#skill)
@@ -194,6 +204,7 @@ page_count: 164
 - [[Source - JX QA Prompts Directory]] — Prompt fragment directory for jx-qa plugin (#jx-qa, #prompts)
 - [[Source - JX QA Schemas Directory]] — JSON Schema directory for jx-qa plugin (#jx-qa, #schemas)
 - [[Source - Root README]] — Root project README with installation and usage docs (#marketplace, #readme)
+- [[Source - Split Tech Spec Idea]] — Completed idea for splitting jx-pm into jx-dev + jx-core (#plugin-architecture, #refactor)
 - [[Source - Task JSON Converter SKILL]] — PRD/tech spec to canonical task.json with estimates (#skill, #jx-pm, #task)
 - [[Source - Task JSON Schema]] — Canonical JSON schema for task.json structure (#skill, #jx-pm, #schema)
 - [[Source - Tech Spec Generator SKILL]] — Tech spec from PRD with Mermaid, JSON Schema, OpenAPI, ADRs (#skill, #jx-pm, #techspec)

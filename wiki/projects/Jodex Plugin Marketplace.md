@@ -48,9 +48,9 @@ Conversation findings and design summaries are filed through [[Filing Workflow]]
 
 | Plugin | Skills | Evals | README | Status |
 |--------|--------|-------|--------|--------|
-| [[Knowledge Base Plugin\|jx-kb]] | 5 | 4/5 | Complete | Most mature |
-| [[QA Testing Plugin\|jx-qa]] | 4 | 3/4 | Mostly complete | Medium |
-| [[Product Management Skills Plugin\|jx-pm]] | 5 | 0/5 | Sparse | Newest, needs work |
+| [[Knowledge Base Plugin|jx-kb]] | 5 | 4/5 | Complete | Most mature |
+| [[QA Testing Plugin|jx-qa]] | 4 | 3/4 | Mostly complete | Medium |
+| [[Product Management Skills Plugin|jx-pm]] | 3 | 0/3 | Updated | Split: spec+task moved to jx-dev |
 
 ### Known Issues
 
@@ -72,6 +72,9 @@ Conversation findings and design summaries are filed through [[Filing Workflow]]
 - [[Plugin Dogfooding Workflow]]
 - [[Three-Surface Plugin Ecosystem]]
 - [[ADR-001 Treat Marketplace Metadata As Listing Source]]
+
+## Sources
+- [[Source - Root README]]
 
 ## Derived From
 - [[Marketplace]]

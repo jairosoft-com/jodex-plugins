@@ -61,5 +61,8 @@ Test plans stored in `test-plans/` (changed from `raw/data/`). Both extract and 
 ## Sources
 - [[Source - JX QA README]]
 - [[Source - Extract SKILL]]
+- [[Source - Extract SKILL Sequence]]
 - [[Source - Generate SKILL]]
 - [[Source - Playwright CLI SKILL]]
+- [[Source - JX QA Prompts Directory]]
+- [[Source - JX QA Schemas Directory]]

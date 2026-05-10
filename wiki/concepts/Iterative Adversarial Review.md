@@ -4,7 +4,7 @@ type: concept
 tags: [pattern, quality, design, review]
 created: 2026-05-09
 updated: 2026-05-09
-source_count: 0
+source_count: 1
 aliases: [adversarial review loop, multi-pass review, design hardening]
 provenance: synthesis
 ---
@@ -33,7 +33,7 @@ A design-hardening pattern: submit a spec to adversarial review, resolve finding
 8. Exit when verdict = approve or findings are acceptable
 ```
 
-## Observed Progression (jx-pm case study)
+## Observed Progression (jx-pm skill authoring)
 
 | Round | Focus | Findings |
 |-------|-------|----------|
@@ -42,6 +42,40 @@ A design-hardening pattern: submit a spec to adversarial review, resolve finding
 | 3 | Contract consistency | Merge vs tombstone contradiction, confirmation gates, tenant binding mismatch |
 | 4 | Edge cases | Feature lookup, hierarchy reconciliation, force-overwrite backup safety |
 | 5 | Clean | Approve (no material findings after all resolutions applied) |
+
+## Observed Progression (jx-pm plugin split — idea grooming)
+
+| Round | Focus | Findings |
+|-------|-------|----------|
+| 1 | Structural gaps | 3 critical, 4 major — missing manifests, undefined reference mechanism, pipeline contradiction |
+| 2 | Resolution-induced regressions | 1 blocker, 3 high — pipeline lost task.json producer, no migration path, undefined path resolution |
+| 3 | Remaining precision | 1 blocker, 3 major — wrong relative path depth, stale-reference grep incomplete, dependency shape unspecified |
+
+## Observed Progression (jx-pm plugin split — implementation plan)
+
+| Round | Focus | Findings |
+|-------|-------|----------|
+| 1 | Execution safety | 1 critical (race condition), 4 major — missing marketplace update, broken verification checks |
+| 2 | Polish | 0 blockers — README env var, smoke test gaps, git-empty-dir |
+
+## Resolution-Induced Regression
+
+Key anti-pattern: fixing a round-1 finding creates a new bug visible only in round 2.
+
+Examples:
+- Deferring pipeline created a blocker: pipeline's task.json producer moved away
+- Extracting shared files to jx-core introduced undefined path resolution
+- Making tracks parallel created a race condition (B copies files C deletes)
+
+This is why multi-round review matters — single-pass misses cascading effects of its own fixes.
+
+## Diminishing Returns Signal
+
+Stop when:
+- Verdict is "CLEAN — no blockers"
+- Findings drop to minor/cosmetic only
+- Advisor confirms further rounds polish spec without code to validate against
+- Implementation will surface remaining issues more efficiently
 
 ## Key Patterns Discovered Through This Loop
 
@@ -65,5 +99,9 @@ Each round surfaced patterns that became wiki concepts:
 - [[Tombstone Pattern]] — discovered through adversarial review
 - [[Fail-Closed Lookup]] — discovered through adversarial review
 - [[Product Management Skills Plugin]] — case study for this pattern
+- [[Cross-Plugin Shared Convention Layer]] — adversarial review caught resolution-induced regressions during split
+- [[Split Verification Pattern]] — dual-tier verification emerged from review findings
+- [[Knowledge Flywheel]] — review is one phase of the self-reinforcing knowledge loop
 
 ## Sources
+- [[Source - Plugin Split Implementation Plan]]

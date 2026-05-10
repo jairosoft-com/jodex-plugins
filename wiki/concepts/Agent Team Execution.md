@@ -4,7 +4,7 @@ type: concept
 tags: [pattern, agent, orchestration, parallel]
 created: 2026-05-09
 updated: 2026-05-09
-source_count: 0
+source_count: 1
 aliases: [agent team, parallel agent execution]
 provenance: synthesis
 ---
@@ -55,23 +55,61 @@ tmux split-window -v -t team:0.1
 # Each pane: tail -f /tmp/agents/phaseN.log
 ```
 
+## Coordination: Signal Files
+
+When using separate Claude instances (not subagents), coordinate via filesystem signals:
+
+```bash
+# Agent B creates on completion:
+touch /tmp/jx-split-track-b-done
+
+# Agent C waits before starting:
+until [ -f /tmp/jx-split-track-b-done ]; do sleep 5; done
+```
+
+This enforces ordering (e.g., B copies files before C deletes them) without inter-process communication.
+
+## Two Execution Models
+
+| Model | How | When |
+|-------|-----|------|
+| **Subagent** | `Agent()` tool with `run_in_background` | Work fits in one session, needs result back |
+| **Separate instances** | `claude -p "..."` in tmux panes | Independent tracks, heavier isolation, visual monitoring |
+
+Separate instances are heavier but avoid context window pressure and provide true parallel visibility.
+
 ## Failure Modes
 
 - Agents that plan instead of executing (mode must be `auto` not `plan`)
 - File conflicts when agents edit overlapping files — assign non-overlapping scopes
 - Foundation phase incomplete before parallel launch — always verify Phase 1 before spawning
+- **Race condition** — parallel agents reading/deleting same files; enforce ordering via signal files
+- **Tmux attach fails from Claude Code** — `not a terminal` error; must use real Terminal.app
 
-## Example from This Project
+## Examples from This Project
 
-The jx namespace rebrand used 4 parallel agents:
-- Phase 2: Wiki file renames (18 `git mv` operations)
+### [[Rebrand Skills to jx Namespace]] (subagent model)
+4 parallel subagents with sequential Phase 1:
+- Phase 2: Wiki file renames (18 `git mv`)
 - Phase 3: Plugin content updates (22 files)
 - Phase 4: Wiki content updates (60+ files)
-- Phase 5: Top-level file updates (2 files)
+- Phase 5: Top-level files (2 files)
 
-Phase 1 (directory renames + manifests) ran sequentially first.
+### jx-pm plugin split (separate instance model)
+4 Claude instances in tmux with signal file coordination:
+- Track A: Build jx-core (parallel with B)
+- Track B: Build jx-dev (parallel with A, signals C)
+- Track C: Modify jx-pm (waits for B's signal)
+- Track D: Verification (waits for A+B+C signals)
 
 ## Related
 
 - [[Multi-Phase Skill]] — single-agent phased execution
 - [[Plugin Dogfooding Workflow]] — broader operational context
+- [[Cross-Plugin Shared Convention Layer]] — split that used this pattern
+- [[Atomic Rename Boundary]] — why foundation phase must be atomic before parallel launch
+- [[Dynamic Worklist Generation]] — generate file lists at execution time, not in plan
+- [[Knowledge Flywheel]] — execution is one phase of the self-reinforcing knowledge loop
+
+## Sources
+- [[Source - Plugin Split Implementation Plan]]

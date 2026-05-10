@@ -61,3 +61,7 @@ raw source → /jx-kb:ingest → wiki pages
 
 ## Sources
 - [[Source - JX KB README]]
+- [[Source - jx-kb Agents Guide]]
+- [[Source - jx-kb Init Command]]
+- [[Source - JX KB Prompts Directory]]
+- [[Source - JX KB Schemas Directory]]

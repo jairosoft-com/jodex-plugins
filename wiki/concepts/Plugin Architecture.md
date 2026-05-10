@@ -3,8 +3,8 @@ title: Plugin Architecture
 type: concept
 tags: [architecture, plugin, claude-code]
 created: 2026-05-07
-updated: 2026-05-08
-source_count: 1
+updated: 2026-05-09
+source_count: 3
 aliases: [.claude-plugin format, plugin format]
 provenance: source-derived
 ---
@@ -70,9 +70,33 @@ Part of the [[Three-Surface Plugin Ecosystem]]:
 - [[Claude Code Desktop]] — shared registry, plugins installed in CLI appear automatically
 - [[Codex Desktop]] — shared registry, same mechanism
 
+## Plugin Dependencies
+
+Plugins can declare dependencies on other plugins via a `dependencies` field in `plugin.json`:
+
+```json
+{
+  "name": "jx-dev",
+  "version": "1.0.0",
+  "dependencies": ["jx-core"]
+}
+```
+
+Sibling layout assumed — all plugins under `plugins/`. See [[Cross-Plugin Shared Convention Layer]] for the reference-only plugin pattern that motivated this convention.
+
+## Reference-Only Plugins
+
+A plugin with no user-invocable skills or commands — only shared convention files consumed by other plugins via relative paths. Exempt from `commands/` directory requirement. Contains `plugin.json`, README, and `_shared/` convention files only. See [[Cross-Plugin Shared Convention Layer]].
+
+## Dependencies
+
+See [[Plugin Dependency Declaration]] for the `dependencies` array field convention in `plugin.json`.
+
 ## Not Compatible with [[Claude Desktop]]
 
 [[Claude Desktop]] (consumer app) uses [[MCP Server]] protocol exclusively. Migration requires rewriting as MCP server.
 
 ## Sources
 - [[Source - Claude CLI vs Desktop MCP Guide]]
+- [[Source - Split Tech Spec Idea]]
+- [[Source - Cross-Plugin Convention Layer]]

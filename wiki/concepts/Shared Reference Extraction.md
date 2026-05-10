@@ -4,7 +4,7 @@ type: concept
 tags: [pattern, plugin, skill, DRY]
 created: 2026-05-09
 updated: 2026-05-09
-source_count: 2
+source_count: 3
 aliases: [shared patterns, _shared directory, reference inclusion]
 provenance: synthesis
 ---
@@ -60,12 +60,18 @@ plugins/{plugin}/skills/
 - Name by what it specifies, not which skills use it
 - Keep each file focused on one cohesive concern
 
+## Cross-Plugin Extraction
+
+When shared references need to be consumed by multiple plugins (not just skills within one plugin), extract to a dedicated reference-only plugin. See [[Cross-Plugin Shared Convention Layer]] for the pattern where `_shared/` moves from `plugins/jx-pm/skills/_shared/` to `plugins/jx-core/_shared/`.
+
 ## Related
 
 - [[Skill Generalization]] — extraction is part of the generalization process
 - [[Plugin Architecture]] — directory structure conventions
 - [[Product Management Skills Plugin]] — uses `_shared/id-rules.md` and `_shared/docs-root.md`
+- [[Cross-Plugin Shared Convention Layer]] — cross-plugin version of this pattern
 
 ## Sources
 - [[Source - Docs Root Config]]
 - [[Source - ID Rules]]
+- [[Source - Cross-Plugin Convention Layer]]

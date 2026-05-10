@@ -4,6 +4,67 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-09 — Dream filing
+
+- **Operation**: end-of-session dream reflection filed to wiki
+- **Pages created**: 2 — [[Emergent Design from Constraint]] (concept), [[Source - Plugin Split Dream]] (source)
+- **Pages updated**: 1 — [[Knowledge Flywheel]] (added emergent design link + dream source)
+- **Index**: updated, page_count 173 → 175
+- **Cross-references added**: 4
+- **Outcome**: Success — meta-insight captured: best patterns emerge from constraints, not upfront design
+
+## 2026-05-09 — Session correlation filing + dream
+
+- **Operation**: end-of-session synthesis and knowledge filing
+- **Pages created**: 2 — [[Knowledge Flywheel]] (concept), [[Source - Plugin Split Session Correlation]] (source)
+- **Pages updated**: 2 — [[Iterative Adversarial Review]] (added flywheel link), [[Agent Team Execution]] (added flywheel link)
+- **Index**: updated, page_count 171 → 173
+- **Cross-references added**: 6
+- **Outcome**: Success — session meta-pattern captured as reusable concept
+
+## 2026-05-09 — Ingest (implementation plan + 3 updated concepts)
+
+- **Operation**: ingest (1 plan + 3 concept pages as sources)
+- **Sources**:
+  - .agent/plans/sparkling-squishing-boole.md (cc7896ff)
+  - wiki/concepts/Plugin Dependency Declaration.md (already in wiki)
+  - wiki/concepts/Agent Team Execution.md (already in wiki)
+  - wiki/concepts/Iterative Adversarial Review.md (already in wiki)
+- **Snapshots**: 1 — wiki/raw/sources/cc7896ff-sparkling-squishing-boole.md
+- **Pages created**: 1 — [[Source - Plugin Split Implementation Plan]]
+- **Pages updated**: 3 — [[Plugin Dependency Declaration]] (added provenance + source ref), [[Agent Team Execution]] (source_count 0→1, added source ref), [[Iterative Adversarial Review]] (source_count 0→1, added source ref)
+- **Index**: updated, page_count 170 → 171
+- **Cross-references added**: 4
+- **Outcome**: Success — plan ingested as source, concept pages linked to source
+
+## 2026-05-09 — Post-split insight filing
+
+- **Operation**: manual insight filing after plugin split implementation
+- **Pages created**: 1 — [[Plugin Dependency Declaration]] (new concept)
+- **Pages updated**: 3 — [[Agent Team Execution]] (added signal file coordination, separate instance model, jx-pm split example), [[Iterative Adversarial Review]] (added plugin split case studies, resolution-induced regression pattern, diminishing returns signal), [[Plugin Architecture]] (added dependency section link)
+- **Index**: updated, page_count 169 → 170
+- **Cross-references added**: 5
+- **Outcome**: Success — session insights captured as wiki enrichments
+
+## 2026-05-09 — Ingest (2 idea sources)
+
+- **Operation**: ingest (2 internal idea pages)
+- **Sources**:
+  - wiki/ideas/Split Tech Spec Into jx-dev Plugin.md (a916add6)
+  - wiki/ideas/Cross-Plugin Shared Convention Layer.md (2ba0965d)
+- **Snapshots**:
+  - wiki/raw/sources/a916add6-Split Tech Spec Into jx-dev Plugin.md
+  - wiki/raw/sources/2ba0965d-Cross-Plugin Shared Convention Layer.md
+- **Pages created**: 3 — [[Source - Split Tech Spec Idea]], [[Source - Cross-Plugin Convention Layer]], [[Cross-Plugin Shared Convention Layer]] (concept, promoted from idea)
+- **Pages updated**: 6 — [[Plugin Architecture]] (added dependencies + reference-only plugin sections), [[Skill Chaining]] (added deferred cross-plugin chaining), [[Shared Reference Extraction]] (added cross-plugin extraction section), [[Configurable Default Chain]] (added env var migration precedence), [[Product Management Skills Plugin]] (added plugin split table), [[Iterative Adversarial Review]] (added cross-ref)
+- **Idea status changes**: 2 — Split Tech Spec → archived (implemented), Cross-Plugin Convention Layer → promoted
+- **Backlog**: removed Split Tech Spec from P1 (implemented)
+- **Ideas extracted**: 0
+- **Conflicts flagged**: 0
+- **Cross-references added**: 18
+- **Index**: updated, page_count 164 → 169 (164 was undercounted by 2 unindexed idea pages + 3 new pages)
+- **Outcome**: Success — both idea sources ingested, convention layer pattern promoted to concept
+
 ## 2026-05-09 — Repository Analysis (4-Agent Team)
 
 - **Operation**: agent team analysis (4 parallel agents: structure, wiki-health, plugin-audit, git-history)
