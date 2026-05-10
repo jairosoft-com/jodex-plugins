@@ -47,13 +47,25 @@ Each agent prompt must be self-contained:
 
 ## Tmux Setup
 
+Claude Code can create and manage tmux sessions but cannot attach to them (`open terminal failed: not a terminal`). Create detached, monitor from Terminal.app.
+
+**Important:** Pane/window indices depend on user tmux config. If `base-index` or `pane-base-index` is set to 1, targeting `:0.0` will fail silently. Always check with `tmux list-windows` and `tmux list-panes` before splitting.
+
 ```bash
+# Works from Claude Code:
 tmux new-session -d -s team
-tmux split-window -h -t team
-tmux split-window -v -t team:0.0
-tmux split-window -v -t team:0.1
+tmux list-windows -t team          # check window index (0 or 1)
+tmux list-panes -t team:1          # check pane index (0 or 1)
+tmux split-window -h -t team:1     # use actual indices from list
+tmux split-window -v -t team:1.1
+tmux split-window -v -t team:1.2
 # Each pane: tail -f /tmp/agents/phaseN.log
+
+# Does NOT work from Claude Code:
+tmux attach -t team                # "open terminal failed: not a terminal"
 ```
+
+User must run `tmux attach -t team` from real Terminal.app to observe.
 
 ## Coordination: Signal Files
 
@@ -84,7 +96,8 @@ Separate instances are heavier but avoid context window pressure and provide tru
 - File conflicts when agents edit overlapping files — assign non-overlapping scopes
 - Foundation phase incomplete before parallel launch — always verify Phase 1 before spawning
 - **Race condition** — parallel agents reading/deleting same files; enforce ordering via signal files
-- **Tmux attach fails from Claude Code** — `not a terminal` error; must use real Terminal.app
+- **Tmux attach fails from Claude Code** — `open terminal failed: not a terminal`; create detached, user monitors in Terminal.app
+- **Pane index mismatch** — tmux `base-index`/`pane-base-index` config causes `:0.0` targeting to fail; always query actual indices first
 
 ## Examples from This Project
 

@@ -20,6 +20,7 @@ The best patterns in this project emerged from hitting limits, not from upfront 
 | Context window too small for 4 tracks | Separate Claude instances in tmux | True isolation, visual monitoring |
 | No inter-process communication | Signal files (`touch /tmp/done`) | Simplest possible coordination |
 | Can't attach tmux from Claude Code | User monitors in Terminal.app | Clean separation of orchestration and observation |
+| Tmux pane indices vary per user config | Query indices before splitting (`list-windows`, `list-panes`) | Never assume 0-based; works across configs |
 | Plugin grows too large | Reference-only plugin (jx-core) | No commands, no skills, just shared contracts |
 | Env var rename breaks backward compat | Precedence chain fallback | Both old and new work simultaneously |
 
