@@ -26,13 +26,31 @@
       "source": "./plugins/jx-kb"
     },
     {
+      "name": "jx-core",
+      "description": "Shared conventions: ID rules, docs-root resolution, task JSON schema.",
+      "author": {
+        "name": "Jairosoft"
+      },
+      "category": "core",
+      "source": "./plugins/jx-core"
+    },
+    {
       "name": "jx-pm",
-      "description": "Pm.Ai Harness: generate PRDs, tech specs, task breakdowns, and sync to Azure Boards.",
+      "description": "Pm.Ai Harness: generate PRDs and sync to Azure Boards.",
       "author": {
         "name": "Jairosoft"
       },
       "category": "productivity",
       "source": "./plugins/jx-pm"
+    },
+    {
+      "name": "jx-dev",
+      "description": "Developer skills: generate technical specifications and task breakdowns from PRDs.",
+      "author": {
+        "name": "Jairosoft"
+      },
+      "category": "productivity",
+      "source": "./plugins/jx-dev"
     }
   ]
 }

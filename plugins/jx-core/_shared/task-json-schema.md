@@ -1,6 +1,6 @@
 # task.json Schema
 
-Canonical JSON format for jx-pm task breakdown. Consumed by `/jx-pm:ado` for Azure Boards sync and optionally by Jodex for autonomous execution.
+Canonical JSON format for task breakdowns. Produced by the task skill and consumed by the ado skill for Azure Boards sync and optionally by Jodex for autonomous execution.
 
 ## Required Fields
 
@@ -66,7 +66,7 @@ Canonical JSON format for jx-pm task breakdown. Consumed by `/jx-pm:ado` for Azu
 }
 ```
 
-Items with `removed: true` are inert — not synced, not created. Preserved for `--prune` reconciliation.
+Items with `removed: true` are inert -- not synced, not created. Preserved for `--prune` reconciliation.
 
 ## Optional Jodex Block
 
@@ -92,11 +92,11 @@ Items with `removed: true` are inert — not synced, not created. Preserved for 
 
 | Points | Signals |
 |--------|---------|
-| 1 | 1-2 ACs, single file, ≤0.75h |
-| 2 | 2-3 ACs, 1-2 files, ≤1.5h |
-| 3 | 3-5 ACs, 2-4 files, ≤3h |
-| 5 | 5-7 ACs, 4-6 files, ≤5h |
-| 8 | 7+ ACs, 6+ files — consider splitting |
+| 1 | 1-2 ACs, single file, <=0.75h |
+| 2 | 2-3 ACs, 1-2 files, <=1.5h |
+| 3 | 3-5 ACs, 2-4 files, <=3h |
+| 5 | 5-7 ACs, 4-6 files, <=5h |
+| 8 | 7+ ACs, 6+ files -- consider splitting |
 
 ## Story Sizing Rule
 

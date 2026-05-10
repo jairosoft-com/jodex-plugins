@@ -1,0 +1,6 @@
+{
+  "name": "jx-core",
+  "version": "1.0.0",
+  "description": "Shared conventions: ID rules, docs-root resolution, task JSON schema. Reference-only — no commands or skills.",
+  "author": { "name": "Jairosoft", "email": "ramon@jairosoft.com" }
+}

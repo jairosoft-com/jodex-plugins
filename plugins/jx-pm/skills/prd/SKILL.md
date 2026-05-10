@@ -1,7 +1,7 @@
 ---
 name: prd
 user-invocable: true
-argument-hint: "[--mode lite|prd|unified] [--docs-root <path>] [--chain] [--chain-all]"
+argument-hint: "[--mode lite|prd|unified] [--docs-root <path>]"
 description: >
   Generate structured Product Requirements Documents with built-in traceability.
   Supports three modes: lite (single feature, 3-5 stories), prd (complex multi-system),
@@ -20,9 +20,7 @@ Generate structured requirements documents with golden thread traceability from 
 | Argument | Required | Default | Notes |
 |----------|----------|---------|-------|
 | `--mode` | No | `prd` | `lite` \| `prd` \| `unified` |
-| `--docs-root` | No | `docs/` or `$JX_PM_DOCS_ROOT` | Output directory root |
-| `--chain` | No | — | After save, invoke `/jx-pm:techspec` with same folder |
-| `--chain-all` | No | — | After save, invoke `/jx-pm:pipeline` for remaining skills |
+| `--docs-root` | No | `docs/` or `$JX_DOCS_ROOT` | Output directory root |
 
 ## Mode Selection Guide
 
@@ -38,14 +36,14 @@ Generate structured requirements documents with golden thread traceability from 
 
 Parse arguments from invocation:
 - Extract `--mode` (default: `prd`)
-- Resolve docs root per `_shared/docs-root.md`
-- Note `--chain` or `--chain-all` for Phase 6
+- Resolve docs root per `../../../jx-core/_shared/docs-root.md`
+- Resolve `$JX_DOCS_ROOT` for output path
 
 ---
 
 ## Phase 2: Folder Path & Validation
 
-Apply rules from `_shared/id-rules.md`:
+Apply rules from `../../../jx-core/_shared/id-rules.md`:
 
 1. Prompt: `Where should this document be saved? (e.g., {docs_root}006_payment_gateway/)`
 2. Validate folder name pattern: `{NNN}_{feature_name}`
@@ -180,12 +178,10 @@ Generate using the appropriate template:
 
 ---
 
-## Phase 6: Save & Chain
+## Phase 6: Save
 
 1. Save to `{docs_root}/{folder_name}/PRD.md` (or `BRD_PRD.md` for unified mode)
 2. Display save confirmation with path
-3. If `--chain`: invoke `/jx-pm:techspec` with same folder path
-4. If `--chain-all`: invoke `/jx-pm:pipeline` with remaining skills
 
 ---
 

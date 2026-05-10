@@ -19,7 +19,7 @@ Synchronize task.json to Azure Boards via MCP tools. Creates work item hierarchy
 |----------|----------|---------|-------|
 | `--dry-run` | No | — | Show planned operations without executing |
 | `--tenant` | No | — | Explicit `<org>/<project>` override |
-| `--docs-root` | No | `docs/` or `$JX_PM_DOCS_ROOT` | Output directory root |
+| `--docs-root` | No | `docs/` or `$JX_DOCS_ROOT` | Output directory root |
 | `--prune` | No | — | Close tombstoned Azure work items (destructive, requires confirmation) |
 | `--new-tenant` | No | — | Strip existing Azure IDs and re-sync to different tenant (destructive) |
 
@@ -37,10 +37,10 @@ Synchronize task.json to Azure Boards via MCP tools. Creates work item hierarchy
 
 ## Phase 1: Validate Inputs
 
-1. Resolve folder path per `_shared/docs-root.md`
-2. Validate folder name per `_shared/id-rules.md`
+1. Resolve folder path per `../../../jx-core/_shared/docs-root.md`
+2. Validate folder name per `../../../jx-core/_shared/id-rules.md`
 3. Require `task.json` in folder (halt if missing)
-4. Validate JSON structure: require `project`, `featureName`, `featureId`, `userStories`
+4. Validate JSON structure per `../../../jx-core/_shared/task-json-schema.md`: require `project`, `featureName`, `featureId`, `userStories`
 5. Validate `featureId` matches folder feature number
 6. Verify Azure DevOps MCP tools are available
 

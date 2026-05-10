@@ -1,7 +1,7 @@
 ---
-name: techspec
+name: spec
 user-invocable: true
-argument-hint: "[--docs-root <path>] [--chain] [--chain-all]"
+argument-hint: "[--docs-root <path>]"
 description: >
   Transform a PRD or BRD_PRD into a framework-agnostic TECH_SPEC.md with Mermaid diagrams,
   JSON Schema data models, OpenAPI contracts, and Architecture Decision Records.
@@ -17,17 +17,15 @@ Transform a PRD into a complete, machine-readable technical specification focuse
 
 | Argument | Required | Default | Notes |
 |----------|----------|---------|-------|
-| `--docs-root` | No | `docs/` or `$JX_PM_DOCS_ROOT` | Output directory root |
-| `--chain` | No | — | After save, invoke `/jx-pm:task` with same folder |
-| `--chain-all` | No | — | After save, invoke `/jx-pm:pipeline` for remaining skills |
+| `--docs-root` | No | `docs/` or `$JX_DOCS_ROOT` | Output directory root |
 
 ---
 
 ## Phase 1: Folder Path & ID Extraction
 
-Apply rules from `_shared/id-rules.md` and `_shared/docs-root.md`:
+Apply rules from `../../../jx-core/_shared/id-rules.md` and `../../../jx-core/_shared/docs-root.md`:
 
-1. Prompt for folder path (or receive from `--chain`)
+1. Prompt for folder path
 2. Validate folder name pattern
 3. Extract feature number
 
@@ -177,8 +175,6 @@ For each major decision:
 
 ### Save
 - Save to `{docs_root}/{folder_name}/TECH_SPEC.md`
-- If `--chain`: invoke `/jx-pm:task` with same folder path
-- If `--chain-all`: invoke `/jx-pm:pipeline` with remaining skills
 
 ---
 

@@ -1,6 +1,6 @@
 # Shared ID Rules
 
-All jx-pm skills reference this file for folder validation, feature-number extraction, and ID generation.
+All jx skills reference this file for folder validation, feature-number extraction, and ID generation.
 
 ## Folder Path Validation
 
@@ -51,28 +51,28 @@ All requirement IDs: `{TYPE}-{feature_number}-{seq}`
 
 | Type | Created By | Counter |
 |------|-----------|---------|
-| OBJ | prd | Independent |
-| GOAL | prd (unified mode) | Independent |
-| US | prd | Independent |
-| AC | prd | **GLOBAL across all US** |
-| FR | prd | Independent |
-| NFR | prd | Independent |
-| RISK | prd (unified mode) | Independent |
-| TC | techspec | Independent |
-| TEST | techspec | Independent |
+| OBJ | prd skill | Independent |
+| GOAL | prd skill (unified mode) | Independent |
+| US | prd skill | Independent |
+| AC | prd skill | **GLOBAL across all US** |
+| FR | prd skill | Independent |
+| NFR | prd skill | Independent |
+| RISK | prd skill (unified mode) | Independent |
+| TC | spec skill | Independent |
+| TEST | spec skill | Independent |
 
 ## Global AC Counter (Critical)
 
 AC IDs do NOT reset per user story. They increment globally:
 
 ```
-US-006-01 → AC-006-01, AC-006-02
-US-006-02 → AC-006-03, AC-006-04  (continues, not reset)
+US-006-01 -> AC-006-01, AC-006-02
+US-006-02 -> AC-006-03, AC-006-04  (continues, not reset)
 ```
 
 ## Cross-Document Rules
 
-- `techspec` references PRD IDs (US, AC, FR, NFR) — NEVER creates new ones
-- `techspec` creates only TC and TEST IDs
-- `task` preserves all IDs exactly in task.json
-- `ado` maps each ID to an Azure work item
+- The spec skill references PRD IDs (US, AC, FR, NFR) -- NEVER creates new ones
+- The spec skill creates only TC and TEST IDs
+- The task skill preserves all IDs exactly in task.json
+- The ado skill maps each ID to an Azure work item

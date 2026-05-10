@@ -1,7 +1,7 @@
 ---
 name: task
 user-invocable: true
-argument-hint: "[--docs-root <path>] [--chain] [--chain-all] [--force-overwrite]"
+argument-hint: "[--docs-root <path>] [--force-overwrite]"
 description: >
   Convert a PRD.md or BRD_PRD.md (and optionally TECH_SPEC.md) into canonical task.json
   for execution and Azure Boards sync. Preserves all requirement IDs, adds hour estimates
@@ -17,23 +17,20 @@ Convert requirements documents into canonical `task.json` for execution tracking
 
 | Argument | Required | Default | Notes |
 |----------|----------|---------|-------|
-| `--docs-root` | No | `docs/` or `$JX_PM_DOCS_ROOT` | Output directory root |
-| `--chain` | No | — | After save, invoke `/jx-pm:ado` with same folder |
-| `--chain-all` | No | — | After save, invoke `/jx-pm:pipeline` for remaining skills |
+| `--docs-root` | No | `docs/` or `$JX_DOCS_ROOT` | Output directory root |
 | `--force-overwrite` | No | — | Skip merge, regenerate fresh (creates timestamped backup) |
 
 ---
 
 ## Phase 1: Folder Path & Source Detection
 
-Apply rules from `_shared/id-rules.md` and `_shared/docs-root.md`:
+Apply rules from `../../../jx-core/_shared/id-rules.md` and `../../../jx-core/_shared/docs-root.md`:
 
-1. Prompt for folder path (or receive from `--chain`)
+1. Prompt for folder path
 2. Validate folder name, extract feature number
 3. Detect source documents in folder:
    - **Required:** `PRD.md` or `BRD_PRD.md` (halt if neither exists)
    - **Optional:** `TECH_SPEC.md` (include TC/TEST IDs if present)
-4. If chained from `/jx-pm:techspec` and TECH_SPEC not found: HALT with validation error
 
 ---
 
@@ -96,7 +93,7 @@ Merge by matching requirement IDs:
 
 ## Phase 4: Generate task.json
 
-Build the canonical JSON structure per `schemas/task-json-schema.md`.
+Build the canonical JSON structure per `../../../jx-core/_shared/task-json-schema.md`.
 
 ### Story Sizing
 
@@ -197,12 +194,10 @@ Only include if project uses Jodex autonomous execution.
 
 ---
 
-## Phase 5: Save & Chain
+## Phase 5: Save
 
 1. Write via temp file + rename (atomic)
 2. Display summary: story count, total hours, total points
-3. If `--chain`: invoke `/jx-pm:ado` with same folder path
-4. If `--chain-all`: invoke `/jx-pm:pipeline` with remaining skills
 
 ---
 

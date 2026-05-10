@@ -1,0 +1,7 @@
+{
+  "name": "jx-dev",
+  "version": "1.0.0",
+  "description": "Developer skills: generate technical specifications and task breakdowns from PRDs.",
+  "author": { "name": "Jairosoft", "email": "ramon@jairosoft.com" },
+  "dependencies": ["jx-core"]
+}

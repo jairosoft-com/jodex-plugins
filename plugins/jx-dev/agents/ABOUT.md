@@ -22,8 +22,9 @@ System prompt for the agent goes here.
 
 ## When to use
 
-- Generating BRD/PRD
+- Generating Tech Spec
+- Generating Task Breakdown
 
 ## Reference
 
-See jx-pm plugin's `agents/ABOUT.md` for format details.
+See jx-dev plugin's `agents/ABOUT.md` for format details.

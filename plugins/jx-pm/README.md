@@ -1,37 +1,42 @@
 # jx-pm — Product Management Skills Plugin
 
-Generate PRDs, tech specs, task breakdowns, and sync to Azure Boards.
+Generate PRDs and sync to Azure Boards.
+
+## Dependencies
+
+- **jx-core** — shared conventions (ID rules, docs-root resolution, task JSON schema)
 
 ## Skills
 
 | Skill | Command | Description |
 |-------|---------|-------------|
 | prd | `/jx-pm:prd` | Generate BRD/PRD documents (modes: lite, prd, unified) |
-| techspec | `/jx-pm:techspec` | Transform PRD into framework-agnostic technical specification |
-| task | `/jx-pm:task` | Convert PRD + TECH_SPEC into task.json for execution |
 | ado | `/jx-pm:ado` | Sync task.json to Azure Boards (Feature → Stories → Tasks) |
-| pipeline | `/jx-pm:pipeline` | Run full chain: prd → techspec → task → ado |
+| pipeline | `/jx-pm:pipeline` | Run PRD generation (reduced — see full workflow below) |
 
-## Pipeline
+## Full Workflow
+
+The complete pipeline spans two plugins. Run each skill in order:
 
 ```
-/jx-pm:prd → /jx-pm:techspec → /jx-pm:task → /jx-pm:ado
+/jx-pm:prd        → PRD.md
+/jx-dev:spec      → TECH_SPEC.md
+/jx-dev:task      → task.json
+/jx-pm:ado        → Azure work items
 ```
-
-Each skill can run standalone or chain to the next via `--chain` (next skill) or `--chain-all` (full pipeline).
 
 ## Output Files
 
 ```
 docs/{NNN}_{feature_name}/
 ├── PRD.md (or BRD_PRD.md)   ← prd skill
-├── TECH_SPEC.md              ← techspec skill
-└── task.json                 ← task skill (enriched by ado skill)
+├── TECH_SPEC.md              ← jx-dev:spec
+├── task.json                 ← jx-dev:task (enriched by ado skill)
 ```
 
 ## Configuration
 
-- **Docs root:** Default `docs/`. Override via `--docs-root <path>` or env `JX_PM_DOCS_ROOT`.
+- **Docs root:** Default `docs/`. Override via `--docs-root <path>` or env `$JX_DOCS_ROOT`. Backward-compatible fallback: `$JX_PM_DOCS_ROOT`.
 - **ADO tenant:** Bound to task.json on first sync. Memory stores suggestion only.
 
 ## Installation
