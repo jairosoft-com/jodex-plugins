@@ -18,11 +18,14 @@ page_count: 159
 ## Concepts
 
 - [[Ad-hoc vs Manifest-Driven Workflows]] — Two workflow modes: manual target selection vs manifest-tracked suggestions (#pattern, #workflow)
+- [[Agent Team Execution]] — Parallel agent orchestration with sequential foundation and tmux visibility (#pattern, #agent, #orchestration)
+- [[Atomic Rename Boundary]] — Runtime-critical rename changes must land in one commit (#pattern, #naming, #git)
 - [[Codex Plugin Compatibility]]
 - [[Configurable Default Chain]] — CLI flag → env var → hardcoded default resolution order (#pattern, #configuration) — Claude Code vs Codex plugin format differences and conversion tools (#plugin, #codex)
 - [[Conflict Callout]] — Pattern for handling contradictions between sources (#wiki, #contradiction)
 - [[Cross-Reference Pass]] — Bidirectional wikilink pass after page creation (#wiki, #linking)
 - [[Directory-Source Marketplace]] — Local directory as marketplace source instead of GitHub (#plugin, #marketplace)
+- [[Dynamic Worklist Generation]] — Generate file lists from grep/rg at execution time, never hardcode (#pattern, #refactoring)
 - [[Filing Workflow]] — Process for persisting conversation insights back to wiki (#wiki, #workflow)
 - [[Golden Thread Traceability]] — Unbroken chain from business objective to test case via requirement IDs (#pattern, #requirements)
 - [[Fail-Closed Lookup]] — Require exactly 1 match from external system; halt on 0 or 2+ (#pattern, #safety)
@@ -57,11 +60,13 @@ page_count: 159
 - [[Query]] — Search wiki and synthesize answers with citations (#operation, #retrieval)
 - [[Raw Sources]] — Immutable source document layer (#architecture, #provenance)
 - [[Request Mocking]] — Network interception/mocking for testing (#testing, #network)
+- [[Scoped Replacement Pattern]] — Safe bulk rename with substring hazard avoidance and corruption checks (#pattern, #naming, #safety)
 - [[Schema]] — Wiki configuration document _schema.md (#architecture, #configuration)
 - [[Session Memory Model]] — Agent knowledge retention: in-session vs cross-session persistence (#persistence, #memory)
 - [[Semantic Locator]] — Stable element locators via live browser discovery (#testing, #locator)
 - [[Skill Chaining]] — Inter-skill output→input pipeline via --chain flag (#pattern, #plugin)
 - [[Skill Generalization]] — Process of porting project-specific skills to generic reusable plugins (#pattern, #porting)
+- [[Split Verification Pattern]] — Dual-tier checks for renames with preserved concept references (#pattern, #verification, #safety)
 - [[Shared Reference Extraction]] — Extract repeated skill logic into _shared/ files, reference by path (#pattern, #DRY)
 - [[Settings Portability]] — settings.json (committed) vs settings.local.json (gitignored) split pattern (#pattern, #configuration)
 - [[SHA-256 Fingerprinting]] — Content-based dedup via hash (#security, #dedup)
