@@ -47,25 +47,51 @@ Each agent prompt must be self-contained:
 
 ## Tmux Setup
 
-Claude Code can create and manage tmux sessions but cannot attach to them (`open terminal failed: not a terminal`). Create detached, monitor from Terminal.app.
+Claude Code can create, manage, and interact with tmux sessions — but cannot attach to them (`open terminal failed: not a terminal`).
 
-**Important:** Pane/window indices depend on user tmux config. If `base-index` or `pane-base-index` is set to 1, targeting `:0.0` will fail silently. Always check with `tmux list-windows` and `tmux list-panes` before splitting.
+### What Works from Claude Code
+
+| Command | Purpose |
+|---------|---------|
+| `tmux new-session -d -s team` | Create detached session |
+| `tmux split-window -h -t team:W` | Split panes |
+| `tmux list-windows -t team` | Query window indices |
+| `tmux list-panes -t team:W` | Query pane indices |
+| `tmux capture-pane -t team:W.P -p` | **Read pane output** |
+| `tmux send-keys -t team:W.P "cmd" Enter` | **Send commands to pane** |
+| `tmux kill-session -t team` | Destroy session |
+
+### What Fails
+
+| Command | Error |
+|---------|-------|
+| `tmux attach -t team` | `open terminal failed: not a terminal` |
+
+`capture-pane` + `send-keys` means Claude Code can orchestrate AND monitor tmux panes without attaching. Terminal.app only needed for visual observation, not for programmatic interaction.
+
+### Pane Index Gotcha
+
+Pane/window indices depend on user tmux config. If `base-index` or `pane-base-index` is set to 1, targeting `:0.0` will fail. Always query actual indices before splitting.
 
 ```bash
-# Works from Claude Code:
-tmux new-session -d -s team
-tmux list-windows -t team          # check window index (0 or 1)
-tmux list-panes -t team:1          # check pane index (0 or 1)
-tmux split-window -h -t team:1     # use actual indices from list
-tmux split-window -v -t team:1.1
-tmux split-window -v -t team:1.2
-# Each pane: tail -f /tmp/agents/phaseN.log
+# Step 1: Create session
+tmux new-session -d -s team "tail -f /tmp/agents/phase1.log"
 
-# Does NOT work from Claude Code:
-tmux attach -t team                # "open terminal failed: not a terminal"
+# Step 2: Query indices (may be 0 or 1 depending on config)
+tmux list-windows -t team          # check window index
+tmux list-panes -t team:1          # check pane index
+
+# Step 3: Split using actual indices
+tmux split-window -h -t team:1 "tail -f /tmp/agents/phase2.log"
+tmux split-window -v -t team:1.1 "tail -f /tmp/agents/phase3.log"
+tmux split-window -v -t team:1.2 "tail -f /tmp/agents/phase4.log"
+
+# Step 4: Monitor programmatically (no attach needed)
+tmux capture-pane -t team:1.1 -p   # read pane 1 output
+tmux capture-pane -t team:1.3 -p   # read pane 3 output
 ```
 
-User must run `tmux attach -t team` from real Terminal.app to observe.
+User can optionally run `tmux attach -t team` from Terminal.app for visual monitoring.
 
 ## Coordination: Signal Files
 
@@ -96,7 +122,7 @@ Separate instances are heavier but avoid context window pressure and provide tru
 - File conflicts when agents edit overlapping files — assign non-overlapping scopes
 - Foundation phase incomplete before parallel launch — always verify Phase 1 before spawning
 - **Race condition** — parallel agents reading/deleting same files; enforce ordering via signal files
-- **Tmux attach fails from Claude Code** — `open terminal failed: not a terminal`; create detached, user monitors in Terminal.app
+- **Tmux attach fails from Claude Code** — `open terminal failed: not a terminal`; use `capture-pane`/`send-keys` instead for programmatic interaction
 - **Pane index mismatch** — tmux `base-index`/`pane-base-index` config causes `:0.0` targeting to fail; always query actual indices first
 
 ## Examples from This Project
