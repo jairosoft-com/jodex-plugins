@@ -3,8 +3,8 @@ title: Memory vs Wiki Separation
 type: concept
 tags: [architecture, persistence, memory, wiki]
 created: 2026-05-08
-updated: 2026-05-08
-source_count: 0
+updated: 2026-05-11
+source_count: 1
 aliases: [persistence separation, memory wiki boundary]
 provenance: synthesis
 ---
@@ -31,6 +31,8 @@ Clear boundary between agent memory files and wiki pages — two persistence mec
 - **Memory** = how the agent should behave (preferences, workflow rules, thresholds)
 - **Wiki** = what the agent should know (domain knowledge, patterns, architecture)
 
+[[Source - Agent Instructions]] qualifies repo-local memory writes: write memory only when explicitly requested or when a reusable project decision or preference emerges, then update `.agent/memory/MEMORY.md`.
+
 ## Examples from This Project
 
 | Item | Saved To | Why |
@@ -50,3 +52,8 @@ Memory can point to wiki pages, but wiki should not reference memory files. Memo
 - [[Session Memory Model]] — broader persistence architecture
 - [[Filing Workflow]] — how conversation insights reach wiki
 - [[Knowledge Management]] — discipline of organizing knowledge
+- [[Source - Agent Instructions]]
+
+## Sources
+
+- [[Source - Agent Instructions]]

@@ -10,6 +10,7 @@
 - [Wiki vs code changes](feedback_wiki_vs_code.md) — Wiki filings proceed immediately; code changes require a plan first
 - [Adversarial review workflow](feedback_adversarial_review_workflow.md) — Run iteratively, expect multiple rounds until clean
 - [Discuss findings individually](feedback_discuss_findings.md) — Present findings one-by-one, not batch multi-select
+- [Repo-local memory preference](feedback_repo_local_memory.md) — Save reusable project memory in `.agent/memory/` as repo-local artifacts
 
 ## NotebookLM
 - [Associated notebooks](reference_notebooklm.md) — Plugin Marketplace Architecture + Mastering Skill.MD

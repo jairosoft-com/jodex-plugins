@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
-updated: 2026-05-09
-page_count: 200
+updated: 2026-05-11
+page_count: 205
 ---
 
 # Wiki Index
@@ -13,7 +13,7 @@ page_count: 200
 - [[Align jx-qa Generate Tool Contract]] — Bring generate workflow instructions into alignment with allowed tools (#jx-qa, #tooling) [backlogged P2]
 - [[Raw Sources Should Be Excluded From Wiki Graph]] — Keep raw snapshots out of page graph and lint checks (#wiki, #lint) [backlogged P2]
 - [[Cross-Plugin Shared Convention Layer (Promoted)]] — Shared convention plugin pattern from jx-pm split (#plugin-architecture, #pattern) [promoted]
-- [[Rebrand Skills to jx Namespace]] — Unify all plugins under jx-* naming: jx-qa, jx-kb, jx-pm (#plugin, #naming) [completed]
+- [[Rebrand Skills to jx Namespace]] — Unify all plugins under jx-* naming: jx-qa, jx-kb, jx-pm, jx-dev, jx-core (#plugin, #naming) [completed]
 - [[Split Tech Spec Into jx-dev Plugin]] — Extract dev skills to jx-dev, shared conventions to jx-core (#plugin-architecture, #refactor) [archived: implemented]
 - [[Distilled Local Model for Test Script Generation]] — Use distilled local model to generate test scripts offline (#jx-qa, #local-llm, #distillation)
 - [[Scaffold QA Project From Skill]] — Skill to scaffold full QA project structure from one command (#jx-qa, #scaffolding, #developer-experience)
@@ -26,6 +26,7 @@ page_count: 200
 - [[Ad-hoc vs Manifest-Driven Workflows]] — Two workflow modes: manual target selection vs manifest-tracked suggestions (#pattern, #workflow)
 - [[Agent Team Execution]] — Parallel agent orchestration with sequential foundation and tmux visibility (#pattern, #agent, #orchestration)
 - [[Atomic Rename Boundary]] — Runtime-critical rename changes must land in one commit (#pattern, #naming, #git)
+- [[Canonical Agent Instruction with Compatibility Shims]] — One canonical agent instruction file with thin discovery shims (#agent, #instructions, #compatibility)
 - [[Codex Plugin Compatibility]] — Claude Code vs Codex plugin format differences and conversion tools (#plugin, #codex)
 - [[Configurable Default Chain]] — CLI flag → env var → hardcoded default resolution order (#pattern, #configuration)
 - [[Cross-Plugin Shared Convention Layer]] — Reference-only plugin pattern for shared conventions across plugins (#pattern, #plugin-architecture, #DRY)
@@ -70,6 +71,7 @@ page_count: 200
 - [[Query]] — Search wiki and synthesize answers with citations (#operation, #retrieval)
 - [[Raw Sources]] — Immutable source document layer (#architecture, #provenance)
 - [[Request Mocking]] — Network interception/mocking for testing (#testing, #network)
+- [[Repository Source of Truth Precedence]] — Live repo authority order when wiki/source snapshots drift (#source-of-truth, #repository, #agent)
 - [[Scoped Replacement Pattern]] — Safe bulk rename with substring hazard avoidance and corruption checks (#pattern, #naming, #safety)
 - [[Schema]] — Wiki configuration document _schema.md (#architecture, #configuration)
 - [[Session Memory Model]] — Agent knowledge retention: in-session vs cross-session persistence (#persistence, #memory)
@@ -120,7 +122,10 @@ page_count: 200
 
 ## Plugins
 
+- [[Core Shared Conventions Plugin|jx-core]] — Reference-only shared conventions for PM and developer plugins (#plugin, #shared-conventions)
+- [[Developer Skills Plugin|jx-dev]] — Technical specification and task breakdown workflows (#plugin, #developer)
 - [[Knowledge Base Plugin|jx-kb]] — LLM-maintained knowledge base plugin for Claude Code (#knowledge-base, #wiki)
+- [[Product Management Skills Plugin|jx-pm]] — PRD generation, pipeline orchestration, and Azure Boards sync (#plugin, #product-management) [active]
 - [[QA Testing Plugin|jx-qa]] — QA testing pipeline: BRD → xlsx → Playwright specs (#testing, #playwright)
 
 ## Platforms
@@ -133,8 +138,7 @@ page_count: 200
 
 ## Projects
 
-- [[Jodex Plugin Marketplace]] — Tri-plugin marketplace dogfooding its own wiki workflow (#plugin, #marketplace)
-- [[Product Management Skills Plugin]] — jx-pm: 5 skills (prd, techspec, task, ado, pipeline) for PM/PO workflows (#plugin, #product-management) [active]
+- [[Jodex Plugin Marketplace]] — Five-plugin marketplace dogfooding its own wiki workflow (#plugin, #marketplace)
 
 ## Decisions
 
@@ -149,6 +153,7 @@ page_count: 200
 
 ## Sources
 
+- [[Source - Agent Instructions]] — Root canonical agent instruction file (#agent, #instructions)
 - [[Source - Claude CLI vs Desktop MCP Guide]] — CLI vs Desktop architecture comparison (#architecture)
 - [[Source - Cross-Plugin Convention Layer]] — Shared convention layer insight from jx-pm split (#plugin-architecture, #pattern)
 - [[Source - Plugin Split Dream]] — Post-session reflection: emergent design, accidental elegance, what the wiki learned (#meta, #reflection)

@@ -4,6 +4,35 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-11 — Ingest (AGENTS.md)
+
+- **Operation**: ingest
+- **Source**: AGENTS.md
+- **Snapshot**: wiki/raw/sources/c0c6f100-AGENTS.md
+- **SHA-256**: c0c6f100d1c77b40830a40b70041c070c0058c81dd39a5c253fcd992646b4f0c
+- **Pages created**: [[Source - Agent Instructions]], [[Repository Source of Truth Precedence]]
+- **Pages updated**: [[Canonical Agent Instruction with Compatibility Shims]], [[Codex Plugin Compatibility]], [[Session Memory Model]], [[Memory vs Wiki Separation]], [[Jodex Plugin Marketplace]], [[Wiki Index]], [[Ingest Watchlist]]
+- **Ideas extracted**: 0
+- **Conflicts flagged**: 0
+- **Cross-references added**: 0
+- **Outcome**: Success
+
+## 2026-05-11 — Filing (agent instruction compatibility insight)
+
+- **Operation**: direct synthesis filing
+- **Pages created**: 1 — [[Canonical Agent Instruction with Compatibility Shims]]
+- **Pages updated**: 3 — [[Wiki Index]], [[Codex Plugin Compatibility]], [[Session Memory Model]]
+- **Index**: updated, page_count 202 → 203
+- **Outcome**: Captured the reusable AGENTS.md + CLAUDE.md shim pattern and clarified that cross-agent instruction discovery is separate from native Codex plugin packaging.
+
+## 2026-05-11 — Maintenance (agent guidance + plugin inventory reconciliation)
+
+- **Operation**: manual documentation maintenance
+- **Pages created**: 2 — [[Developer Skills Plugin]], [[Core Shared Conventions Plugin]]
+- **Pages updated**: 5 — [[Wiki Schema]], [[Wiki Index]], [[Jodex Plugin Marketplace]], [[Product Management Skills Plugin]], [[Ramon Aseniero]]
+- **Index**: updated, page_count 200 → 202
+- **Outcome**: Root agent guidance and maintained wiki inventory now align on the five-plugin marketplace: jx-qa, jx-kb, jx-pm, jx-dev, jx-core.
+
 ## 2026-05-11 — Ingest (jx-core + jx-dev, 2-agent parallel)
 
 - **Operation**: agent team ingest (2 parallel agents: ingest-core, ingest-dev)

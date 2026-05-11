@@ -21,9 +21,10 @@ Monitored paths for new or changed content. Run `/jx-kb:ingest` against pending 
 | `.claude-plugin/marketplace.json` | exact | Marketplace manifest |
 | `README.md` | exact | Project root README |
 
-## Already Ingested (80 sources)
+## Already Ingested (81 sources)
 
 - `.claude-plugin/marketplace.json`
+- `AGENTS.md`
 - `README.md`
 - `ai_docs/claude_cli_vs_desktop_mcp_guide.md`
 - `ai_docs/claude_desktop_wsl_integration.md`

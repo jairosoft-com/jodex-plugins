@@ -98,7 +98,7 @@ Every wiki page ends with:
 Route as `concepts/`: Skill, Slash Command, Hook, Agent, Prompt, Plugin Manifest, Marketplace, MCP Server, MCP Tool
 
 ### Concrete Plugin Routing
-Each plugin gets own page in `plugins/`: jx-qa, jx-kb, jx-pm
+Maintain one current page per plugin. Prefer new plugin pages in `plugins/`. Current concrete plugin inventory: jx-qa, jx-kb, jx-pm, jx-dev, jx-core
 
 ### Platform Routing
 Each platform gets page in `platforms/`: Claude Code CLI, Claude Desktop, Obsidian, WSL

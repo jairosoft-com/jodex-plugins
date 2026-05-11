@@ -3,21 +3,23 @@ title: Jodex Plugin Marketplace
 type: project
 tags: [plugin, marketplace, dogfood]
 created: 2026-05-08
-updated: 2026-05-10
-source_count: 0
+updated: 2026-05-11
+source_count: 4
 aliases: [jodex-plugins, jodex-qa-ai]
 provenance: synthesis
 ---
 
 # Jodex Plugin Marketplace
 
-This repo is a tri-plugin [[Marketplace]] for [[Claude Code CLI]], [[Claude Code Desktop]], and [[Codex Desktop]]. It distributes [[QA Testing Plugin|jx-qa]], [[Knowledge Base Plugin|jx-kb]], and [[Product Management Skills Plugin|jx-pm]] from one marketplace manifest.
+This repo is a five-plugin [[Marketplace]] for [[Claude Code CLI]], [[Claude Code Desktop]], and [[Codex Desktop]]. It distributes [[QA Testing Plugin|jx-qa]], [[Knowledge Base Plugin|jx-kb]], [[Product Management Skills Plugin|jx-pm]], [[Developer Skills Plugin|jx-dev]], and [[Core Shared Conventions Plugin|jx-core]] from one marketplace manifest.
 
 ## Current Shape
 
 - [[QA Testing Plugin|jx-qa]] provides the BRD/PRD to xlsx to [[Playwright]] spec pipeline.
 - [[Knowledge Base Plugin|jx-kb]] provides project-local wiki operations: [[Ingest]], [[Triage]], [[Query]], and [[Lint]].
-- [[Product Management Skills Plugin|jx-pm]] provides PM/PO workflows: PRD generation, tech specs, task conversion, and Azure DevOps sync (5 skills).
+- [[Product Management Skills Plugin|jx-pm]] provides PM/PO workflows: PRD generation, pipeline orchestration, and Azure DevOps sync.
+- [[Developer Skills Plugin|jx-dev]] provides technical specification and task breakdown workflows.
+- [[Core Shared Conventions Plugin|jx-core]] provides shared conventions for docs-root resolution, ID rules, and task JSON schema.
 - The repo dogfoods [[Knowledge Base Plugin|jx-kb]] by maintaining this wiki as the project knowledge layer.
 
 ## Operating Model
@@ -29,34 +31,30 @@ The repo has two durable surfaces:
 
 Conversation findings and design summaries are filed through [[Filing Workflow]] using `provenance: synthesis`. Source ingests remain `source-derived`.
 
-## Repository Metrics (2026-05-09)
+For agent orientation, [[Source - Agent Instructions]] defines live repo files as authoritative over stale wiki/source snapshots when plugin inventory drifts. See [[Repository Source of Truth Precedence]].
+
+## Repository Inventory (2026-05-11)
 
 | Metric | Value |
 |--------|-------|
-| Total files | 627 |
-| Disk size | 23M |
-| Plugins | 3 (jx-qa, jx-kb, jx-pm) |
+| Plugins | 5 (jx-qa, jx-kb, jx-pm, jx-dev, jx-core) |
 | Skills | 14 |
 | Commands | 14 |
-| Wiki pages | 191 (164 maintained, 27 raw) |
-| Wikilinks | 1,095 (6.2/page avg) |
-| Wiki health | 87/100 |
-| Commits | 38 over 11 days |
 | Architecture | Pure declarative (md + json + py, no build tooling) |
 
 ### Plugin Maturity
 
-| Plugin | Skills | Evals | README | Status |
-|--------|--------|-------|--------|--------|
-| [[Knowledge Base Plugin|jx-kb]] | 5 | 4/5 | Complete | Most mature |
-| [[QA Testing Plugin|jx-qa]] | 4 | 3/4 | Mostly complete | Medium |
-| [[Product Management Skills Plugin|jx-pm]] | 3 | 0/3 | Updated | Split: spec+task moved to jx-dev |
+| Plugin | Commands | README | Status |
+|--------|----------|--------|--------|
+| [[Knowledge Base Plugin|jx-kb]] | 5 | Complete | Wiki operations |
+| [[QA Testing Plugin|jx-qa]] | 4 | Complete | QA automation |
+| [[Product Management Skills Plugin|jx-pm]] | 3 | Current | PRD and ADO workflows |
+| [[Developer Skills Plugin|jx-dev]] | 2 | Current | Spec and task workflows |
+| [[Core Shared Conventions Plugin|jx-core]] | 0 | Current | Reference-only shared conventions |
 
 ### Known Issues
 
-- jx-pm not enabled in settings.json
-- jx-pm has zero evals across all skills
-- jx-pm README missing install, requirements, ADO dependency docs
+- Only jx-qa and jx-kb are enabled in `.claude/settings.json`; install or enable other plugins deliberately when dogfooding.
 - jx-pm branding inconsistency ("Pm.Ai Harness" vs "Product Management")
 - 17 orphan wiki pages need cross-references
 - 1 stale worktree (3.5M)
@@ -84,11 +82,17 @@ Both under **Jairosoft** organization.
 
 ## Sources
 - [[Source - Root README]]
+- [[Source - Agent Instructions]]
+- [[Source - jx-dev Plugin README]]
+- [[Source - jx-core Plugin README]]
 
 ## Derived From
 - [[Marketplace]]
 - [[QA Testing Plugin|jx-qa]]
 - [[Knowledge Base Plugin|jx-kb]]
 - [[Product Management Skills Plugin]]
+- [[Developer Skills Plugin|jx-dev]]
+- [[Core Shared Conventions Plugin|jx-core]]
 - [[Three-Surface Plugin Ecosystem]]
 - [[Filing Workflow]]
+- [[Repository Source of Truth Precedence]]
