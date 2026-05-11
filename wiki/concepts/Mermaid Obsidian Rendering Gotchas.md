@@ -3,6 +3,7 @@ title: Mermaid Obsidian Rendering Gotchas
 type: concept
 tags: [mermaid, obsidian, rendering, diagrams, troubleshooting]
 created: 2026-05-10
+updated: 2026-05-11
 source_count: 0
 aliases: [Mermaid Rendering Issues, Mermaid Syntax Pitfalls]
 provenance: session-derived

@@ -19,8 +19,8 @@ During [[Ingest]], Phase 3 presents a table of planned page creates/updates:
 ```
 | Action | Page | Type | Directory | Reason |
 |--------|------|------|-----------|--------|
-| CREATE | [[Page]] | concept | concepts/ | New concept extracted |
-| UPDATE | [[Other]] | entity | entities/ | New claims from source |
+| CREATE | Page | concept | concepts/ | New concept extracted |
+| UPDATE | Other | entity | entities/ | New claims from source |
 ```
 
 The user can add, remove, or modify entries before approving.

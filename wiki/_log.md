@@ -4,6 +4,24 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-11 — Maintenance (wiki lint cleanup planning)
+
+- **Operation**: manual wiki maintenance
+- **Pages created**: [[Triage Wiki Lint Editorial Warnings]]
+- **Pages updated**: [[Raw Sources Should Be Excluded From Wiki Graph]], [[Mermaid Obsidian Rendering Gotchas]], [[Schema Sources Rule Exception for Source Pages]], [[Repository Source of Truth Precedence]], [[Agent Team Execution]], [[Knowledge Base Plugin]], [[Obsidian]], [[Schema]], [[User Confirmation Gate]], [[Index]], [[Cross-Reference Pass]], [[Link Graph Traversal]], [[Health Score]], [[Query]], `_schema.md`, `_index.md`, `_backlog.md`, `_log.md`
+- **Index**: updated, page_count 205 → 206
+- **Outcome**: Fixed maintained-page lint errors and recorded raw-folder lint exclusion plus editorial warning triage as backlog work.
+
+## 2026-05-11 — Lint
+
+- **Operation**: lint
+- **Errors found**: 33
+- **Warnings found**: 20
+- **Info found**: 4
+- **Auto-fixes applied**: 0
+- **Health score**: 0/100
+- **Outcome**: Report generated; strict score is dominated by raw-snapshot/example-link noise and unresolved maintained-page cleanup.
+
 ## 2026-05-11 — Ingest (AGENTS.md)
 
 - **Operation**: ingest
@@ -11,7 +29,7 @@ title: Wiki Log
 - **Snapshot**: wiki/raw/sources/c0c6f100-AGENTS.md
 - **SHA-256**: c0c6f100d1c77b40830a40b70041c070c0058c81dd39a5c253fcd992646b4f0c
 - **Pages created**: [[Source - Agent Instructions]], [[Repository Source of Truth Precedence]]
-- **Pages updated**: [[Canonical Agent Instruction with Compatibility Shims]], [[Codex Plugin Compatibility]], [[Session Memory Model]], [[Memory vs Wiki Separation]], [[Jodex Plugin Marketplace]], [[Wiki Index]], [[Ingest Watchlist]]
+- **Pages updated**: [[Canonical Agent Instruction with Compatibility Shims]], [[Codex Plugin Compatibility]], [[Session Memory Model]], [[Memory vs Wiki Separation]], [[Jodex Plugin Marketplace]], `_index.md`, `_watchlist.md`
 - **Ideas extracted**: 0
 - **Conflicts flagged**: 0
 - **Cross-references added**: 0
@@ -21,7 +39,7 @@ title: Wiki Log
 
 - **Operation**: direct synthesis filing
 - **Pages created**: 1 — [[Canonical Agent Instruction with Compatibility Shims]]
-- **Pages updated**: 3 — [[Wiki Index]], [[Codex Plugin Compatibility]], [[Session Memory Model]]
+- **Pages updated**: 3 — `_index.md`, [[Codex Plugin Compatibility]], [[Session Memory Model]]
 - **Index**: updated, page_count 202 → 203
 - **Outcome**: Captured the reusable AGENTS.md + CLAUDE.md shim pattern and clarified that cross-agent instruction discovery is separate from native Codex plugin packaging.
 
@@ -29,7 +47,7 @@ title: Wiki Log
 
 - **Operation**: manual documentation maintenance
 - **Pages created**: 2 — [[Developer Skills Plugin]], [[Core Shared Conventions Plugin]]
-- **Pages updated**: 5 — [[Wiki Schema]], [[Wiki Index]], [[Jodex Plugin Marketplace]], [[Product Management Skills Plugin]], [[Ramon Aseniero]]
+- **Pages updated**: 5 — `_schema.md`, `_index.md`, [[Jodex Plugin Marketplace]], [[Product Management Skills Plugin]], [[Ramon Aseniero]]
 - **Index**: updated, page_count 200 → 202
 - **Outcome**: Root agent guidance and maintained wiki inventory now align on the five-plugin marketplace: jx-qa, jx-kb, jx-pm, jx-dev, jx-core.
 

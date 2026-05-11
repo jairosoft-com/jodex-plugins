@@ -3,7 +3,7 @@ title: Raw Sources Should Be Excluded From Wiki Graph
 type: idea
 tags: [wiki, lint, graph]
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-05-11
 source_count: 0
 aliases: [exclude raw sources from graph]
 provenance: synthesis
@@ -21,6 +21,12 @@ status: backlogged
 ## Why It Matters
 
 Raw snapshots may contain example wiki-link syntax, incomplete frontmatter, or content that should not be maintained as wiki pages. Including them pollutes [[Lint]] output and weakens trust in [[Health Score]].
+
+## 2026-05-11 Lint Evidence
+
+A lint pass reported 33 errors, 20 warnings, and a 0/100 health score, with much of the strict score dominated by `wiki/raw/` snapshots and example-link noise. The raw snapshots are intentionally ignored by git and should remain provenance inputs, not maintained wiki pages.
+
+An implementation plan exists at `.agent/plans/fix-wiki-lint-raw-exclusion.md`.
 
 ## Potential Fix
 

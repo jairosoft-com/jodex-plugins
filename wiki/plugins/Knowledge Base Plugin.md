@@ -20,7 +20,7 @@ raw source → /jx-kb:ingest → wiki pages
                                     ↓
                               /jx-kb:triage → promote / backlog / archive
                                     ↓
-                              /jx-kb:query → synthesized answers with [[citations]]
+                              /jx-kb:query → synthesized answers with citations
                                     ↓
                               /jx-kb:lint → health report + auto-fixes
 ```
@@ -49,7 +49,7 @@ raw source → /jx-kb:ingest → wiki pages
 
 ## [[Obsidian]] Compatibility
 
-- `[[wikilinks]]` resolve natively
+- Wikilinks resolve natively
 - YAML frontmatter compatible with [[Dataview Queries|Dataview]]
 - `> [!conflict]` renders as callout blocks
 - Graph view shows full knowledge graph

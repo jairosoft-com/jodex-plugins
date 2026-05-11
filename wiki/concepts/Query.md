@@ -35,7 +35,7 @@ Use `/jx-kb:query` for searching wiki and getting synthesized answers with citat
 
 1. Read [[Index]] to identify relevant pages
 2. Read those pages and follow [[Cross-Reference Pass|cross-references]]
-3. Synthesize an answer with `[[citations]]` to wiki pages
+3. Synthesize an answer with citations to wiki pages
 4. Optionally produce different output formats: markdown page, comparison table, slide deck ([[Marp Integration|Marp]]), chart, canvas
 
 ## Compounding Value

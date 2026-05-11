@@ -16,7 +16,7 @@ The configuration document (`_schema.md`) that tells the LLM how the wiki is str
 ## Contents
 
 - **Taxonomy** — defines the directory buckets (ideas, concepts, entities, topics, plugins, platforms, projects, decisions, code, sources)
-- **Page Conventions** — naming (Title Case), required YAML frontmatter, cross-reference syntax (`[[wikilinks]]`)
+- **Page Conventions** — naming (Title Case), required YAML frontmatter, and wikilink cross-reference syntax
 - **Contradiction Handling** — `> [!conflict]` callout blocks
 - **Tiebreaker Rule** — uncertain classification routes to `ideas/` with `status: raw`
 - **Custom Rules** — domain-specific routing and classification added after initialization
@@ -30,7 +30,7 @@ The schema is the key configuration file — it transforms the LLM from a generi
 Created by `/jx-kb:init` with user-provided wiki name. Template includes:
 - Complete [[Taxonomy Routing]] definitions for all 10 buckets
 - YAML frontmatter spec (title, type, tags, created, updated, source_count, aliases, provenance)
-- `[[wikilink]]` cross-reference syntax
+- Wikilink cross-reference syntax
 - `> [!conflict]` callout pattern for contradictions
 - Tiebreaker rule → route uncertain items to `ideas/`
 - `## Custom Rules` placeholder for domain-specific extensions

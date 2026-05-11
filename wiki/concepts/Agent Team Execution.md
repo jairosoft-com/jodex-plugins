@@ -140,7 +140,7 @@ Separate instances are heavier but avoid context window pressure and provide tru
 - **Tmux attach fails from Claude Code** — `open terminal failed: not a terminal`; use `capture-pane`/`send-keys` instead for programmatic interaction. Workaround: `script -q /dev/null tmux attach -t session` allocates pseudo-TTY and attaches, but output is raw ANSI escape codes — not useful for reading
 - **Pane index mismatch** — tmux `base-index`/`pane-base-index` config causes `:0.0` targeting to fail; always query actual indices first
 - **Agent permission failure** — subagents spawned without `mode: "auto"` get blocked on bash permissions and fail silently. Always set `mode: "auto"` when agents need shell access
-- **capture-pane ANSI artifacts** — `capture-pane -p` output may contain minor escape sequences (`^[[I`, `^[[O`). Content is readable but not perfectly clean; filter with `grep -v` or `sed` if piping to other tools
+- **capture-pane ANSI artifacts** — `capture-pane -p` output may contain minor escape sequences (`ESC[I`, `ESC[O`). Content is readable but not perfectly clean; filter with `grep -v` or `sed` if piping to other tools
 
 ## Examples from This Project
 

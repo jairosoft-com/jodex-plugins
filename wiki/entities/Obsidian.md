@@ -16,7 +16,7 @@ A markdown-based knowledge management application that serves as the primary vie
 ## Key Features for Wiki Use
 
 - **Graph view** — visualizes wiki page connections; best way to see wiki shape, hubs, and orphans
-- **Wikilinks** — resolves `[[Page Name]]` to `Page Name.md` natively
+- **Wikilinks** — resolves double-bracket page links to matching `.md` files natively
 - **Web Clipper** — browser extension that converts web articles to markdown for the [[Raw Sources]] collection
 - **Download attachments** — hotkey to download all images in a clipped article to local disk
 - **[[Marp Integration|Marp]] plugin** — renders markdown slide decks
@@ -28,7 +28,7 @@ User has Obsidian open on one side and the LLM agent on the other. The LLM makes
 
 ## [[Knowledge Base Plugin|jx-kb]] Plugin Compatibility
 
-- `[[wikilinks]]` resolve natively in Obsidian
+- Wikilinks resolve natively in Obsidian
 - YAML frontmatter compatible with [[Dataview Queries|Dataview]] plugin
 - `> [!conflict]` callouts render as styled callout blocks
 - Graph view shows full wiki knowledge graph

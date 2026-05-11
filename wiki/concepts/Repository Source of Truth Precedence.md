@@ -34,7 +34,7 @@ Maintained wiki pages should be reconciled when they drift. Raw sources and olde
 - Treat stale wiki/source snapshots as evidence of history, not current plugin truth.
 - Update maintained wiki/schema/index pages when current repo inventory changes.
 - Add conflict or staleness notes when a retained historical claim must remain visible.
-- Use [[Wiki Schema]] for wiki maintenance rules and [[Filing Workflow]] for direct synthesis filings.
+- Use [[Schema]] for wiki maintenance rules and [[Filing Workflow]] for direct synthesis filings.
 
 ## Related
 

@@ -53,7 +53,7 @@ Directory: `sources/`
 ### Naming
 - Title Case With Spaces (e.g., `Machine Learning.md`)
 - Sanitize only filesystem-illegal characters: / \ : * ? " < > |
-- Obsidian resolves `[[Machine Learning]]` to `Machine Learning.md`
+- Obsidian resolves double-bracket page links to matching `.md` filenames, for example `Machine Learning` to `Machine Learning.md`
 
 ### Required Frontmatter
 title: Page Title
@@ -70,16 +70,16 @@ Additional fields by type:
 - Decisions: status (proposed | accepted | deprecated | superseded)
 
 ### Cross-References
-- `[[Page Name]]` for page links
-- `[[Page Name#Section]]` for heading links
-- `[[Page Name|Display Text]]` for aliased display text
+- Use double-bracket page links for page references
+- Use heading anchors for section references
+- Use aliases for alternate display text
 - Every page should have at least one inbound and one outbound link
 
 ### Contradiction Handling
 When new info contradicts existing claims, add a conflict callout:
 > [!conflict] <topic>
-> [[Source A]] claims X.
-> [[Source B]] claims Y.
+> Source A claims X.
+> Source B claims Y.
 > Needs resolution.
 
 Never silently overwrite existing claims.
@@ -90,7 +90,7 @@ When uncertain which taxonomy bucket a piece of knowledge belongs in, route to `
 ### Sources Section
 Every wiki page ends with:
 ## Sources
-- [[Source - Document Title]]
+- Source page links, for example Source - Document Title
 
 ## Custom Rules
 

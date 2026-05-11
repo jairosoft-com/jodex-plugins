@@ -24,7 +24,7 @@ The content catalog (`_index.md`) listing every page in the wiki with a link, on
 
 Each taxonomy section lists pages alphabetically:
 ```
-- [[Page Name]] — One-line summary (#tag1, #tag2)
+- Page Name — One-line summary (#tag1, #tag2)
 ```
 
 Frontmatter tracks `page_count` and `updated` date.
