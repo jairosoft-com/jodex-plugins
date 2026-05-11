@@ -6,6 +6,7 @@ updated: 2026-05-09
 promoted_to: concepts/Cross-Plugin Shared Convention Layer.md
 created: 2026-05-09
 source: jx-pm split implementation
+provenance: source-derived
 tags:
   - plugin-architecture
   - jx-core

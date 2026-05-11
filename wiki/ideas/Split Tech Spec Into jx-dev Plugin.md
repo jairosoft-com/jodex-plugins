@@ -9,6 +9,7 @@ groomed: 2026-05-09
 reviewed: 2026-05-09
 review-rounds: 3
 source: user request
+provenance: source-derived
 tags:
   - plugin-architecture
   - jx-dev

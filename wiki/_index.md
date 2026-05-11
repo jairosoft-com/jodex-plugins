@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-09
-page_count: 175
+page_count: 181
 ---
 
 # Wiki Index
@@ -15,6 +15,10 @@ page_count: 175
 - [[Cross-Plugin Shared Convention Layer (Promoted)]] — Shared convention plugin pattern from jx-pm split (#plugin-architecture, #pattern) [promoted]
 - [[Rebrand Skills to jx Namespace]] — Unify all plugins under jx-* naming: jx-qa, jx-kb, jx-pm (#plugin, #naming) [completed]
 - [[Split Tech Spec Into jx-dev Plugin]] — Extract dev skills to jx-dev, shared conventions to jx-core (#plugin-architecture, #refactor) [archived: implemented]
+- [[Distilled Local Model for Test Script Generation]] — Use distilled local model to generate test scripts offline (#jx-qa, #local-llm, #distillation)
+- [[Scaffold QA Project From Skill]] — Skill to scaffold full QA project structure from one command (#jx-qa, #scaffolding, #developer-experience)
+- [[Gemma 4 for Playwright Script Generation]] — Use Gemma 4 to generate .spec.ts / Playwright scripts in jx-qa pipeline (#jx-qa, #gemma, #local-llm)
+- [[Schema Sources Rule Exception for Source Pages]] — Source pages self-referentially violate ## Sources requirement; 65 lint warnings (#wiki, #schema, #lint) [raw]
 - [[Wiki Search Tools]] — qmd and CLI tools for wiki search at scale (#tooling, #search) [backlogged P3]
 
 ## Concepts
@@ -70,6 +74,7 @@ page_count: 175
 - [[Schema]] — Wiki configuration document _schema.md (#architecture, #configuration)
 - [[Session Memory Model]] — Agent knowledge retention: in-session vs cross-session persistence (#persistence, #memory)
 - [[Semantic Locator]] — Stable element locators via live browser discovery (#testing, #locator)
+- [[Plugin Pipeline Sequence]] — Full system sequence diagrams: dependency graph, PM→Dev, QA, KB pipelines (#architecture, #sequence-diagram, #plugin)
 - [[Skill Chaining]] — Inter-skill output→input pipeline via --chain flag (#pattern, #plugin)
 - [[Skill Generalization]] — Process of porting project-specific skills to generic reusable plugins (#pattern, #porting)
 - [[Split Verification Pattern]] — Dual-tier checks for renames with preserved concept references (#pattern, #verification, #safety)
@@ -93,6 +98,7 @@ page_count: 175
 - [[Agent Definition]] — Custom AI subagent definition format for plugins (#plugin, #subagent, #orchestration)
 - [[Measurability Mandate]] — Every requirement must be testable with concrete metrics (#pattern, #requirements)
 - [[Mermaid Diagram Patterns]] — Reference library of 7 diagram types for architecture visualization (#jx-pm, #techspec, #mermaid)
+- [[Mermaid Obsidian Rendering Gotchas]] — Characters and patterns that silently break Mermaid in Obsidian (#mermaid, #obsidian, #troubleshooting)
 - [[Socratic Interview]] — 3-7 architectural questions tied to specific design decisions (#pattern, #architecture)
 - [[Tenant Binding]] — File-authoritative binding to external system tenant (#pattern, #safety)
 

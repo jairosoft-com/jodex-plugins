@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "wiki/projects/Product Management Skills Plugin.md",
+                "file": "wiki/concepts/Plugin Pipeline Sequence.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Product Management Skills Plugin"
+              "title": "Plugin Pipeline Sequence"
             }
           }
         ]
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "wiki/projects/Product Management Skills Plugin.md",
+                "file": "wiki/concepts/Plugin Pipeline Sequence.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Product Management Skills Plugin"
+              "title": "Outline of Plugin Pipeline Sequence"
             }
           }
         ],
@@ -170,7 +170,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -185,41 +185,41 @@
   },
   "active": "33b66454d94eab99",
   "lastOpenFiles": [
-    "wiki/sources/Source - jx-kb Triage Command.md",
-    "wiki/sources/Source - jx-kb Query Command.md",
-    "wiki/sources/Source - jx-kb Lint Command.md",
-    "wiki/sources/Source - jx-kb Init Command.md",
-    "wiki/sources/Source - jx-kb Ingest Command.md",
-    "wiki/sources/Source - jx-kb Hooks Guide.md",
-    "wiki/sources/Source - jx-kb Agents Guide.md",
-    "wiki/sources/Source - JX KB Schemas Directory.md",
-    "wiki/sources/Source - JX KB Prompts Directory.md",
-    "wiki/sources/Source - JX KB README.md",
-    "wiki/sources/Source - JX QA Schemas Directory.md",
-    "wiki/sources/Source - JX QA Prompts Directory.md",
-    "wiki/sources/Source - JX QA Hooks Directory.md",
-    "wiki/sources/Source - JX QA Agents Directory.md",
-    "wiki/sources/Source - JX QA README.md",
-    "wiki/ideas/Align jx-qa Generate Tool Contract.md",
-    "wiki/plugins/Knowledge Base Plugin.md",
-    "wiki/plugins/QA Testing Plugin.md",
-    "plugins/jx-kb/skills/triage/evals/evals.json",
-    "plugins/jx-kb/skills/query/evals/evals.json",
-    "plugins/jx-kb/skills/lint/evals/evals.json",
-    "plugins/jx-kb/skills/ingest/evals/evals.json",
-    "plugins/jx-kb/skills/triage/evals",
-    "plugins/jx-kb/skills/triage/SKILL.md",
-    "plugins/jx-kb/skills/query/evals",
-    "plugins/jx-kb/skills/query/SKILL.md",
-    "plugins/jx-kb/skills/lint/evals",
-    "plugins/jx-kb/skills/lint/SKILL.md",
-    "plugins/jx-kb/skills/init/SKILL.md",
-    "plugins/jx-kb/skills/ingest/evals",
-    "plugins/jx-kb/skills/ingest/SKILL.md",
-    "plugins/jx-kb/skills/triage",
-    "plugins/jx-kb/skills/query",
-    "plugins/jx-kb/schemas/ABOUT.md",
-    "plugins/jx-kb/prompts/ABOUT.md",
-    "plugins/jx-kb/hooks/ABOUT.md"
+    "wiki/ideas/Schema Sources Rule Exception for Source Pages.md",
+    "wiki/concepts/Mermaid Obsidian Rendering Gotchas.md",
+    "wiki/concepts/Plugin Architecture.md",
+    "wiki/concepts/Plugin Pipeline Sequence.md",
+    "wiki/_index.md",
+    "wiki/ideas/Cross-Plugin Shared Convention Layer (Promoted).md",
+    "wiki/projects/Product Management Skills Plugin.md",
+    "wiki/concepts/Emergent Design from Constraint.md",
+    "wiki/sources/Source - Plugin Split Dream.md",
+    "wiki/concepts/Knowledge Flywheel.md",
+    "wiki/sources/Source - Plugin Split Session Correlation.md",
+    "wiki/sources/Source - Plugin Split Implementation Plan.md",
+    "wiki/raw/sources/cc7896ff-sparkling-squishing-boole.md",
+    "wiki/concepts/Plugin Dependency Declaration.md",
+    "wiki/concepts/Cross-Plugin Shared Convention Layer.md",
+    "wiki/sources/Source - Cross-Plugin Convention Layer.md",
+    "wiki/sources/Source - Split Tech Spec Idea.md",
+    "wiki/raw/sources/2ba0965d-Cross-Plugin Shared Convention Layer.md",
+    "wiki/raw/sources/a916add6-Split Tech Spec Into jx-dev Plugin.md",
+    "wiki/ideas/Cross-Plugin Shared Convention Layer.md",
+    "plugins/jx-dev/scripts/ABOUT.md",
+    "plugins/jx-dev/schemas/ABOUT.md",
+    "plugins/jx-dev/prompts/ABOUT.md",
+    "plugins/jx-dev/hooks/ABOUT.md",
+    "plugins/jx-dev/agents/ABOUT.md",
+    "plugins/jx-dev/skills/spec/references/diagram-patterns.md",
+    "plugins/jx-dev/skills/spec/references",
+    "plugins/jx-dev/skills/task",
+    "plugins/jx-dev/skills/spec",
+    "plugins/jx-dev/skills",
+    "plugins/jx-dev/scripts",
+    "plugins/jx-dev/schemas",
+    "plugins/jx-dev/prompts",
+    "plugins/jx-dev/hooks",
+    "plugins/jx-dev/commands",
+    "plugins/jx-dev/agents"
   ]
 }

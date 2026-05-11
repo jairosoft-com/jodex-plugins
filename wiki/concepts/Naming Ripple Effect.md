@@ -55,6 +55,10 @@ Convention: always use **lowercase with hyphens** (e.g., `jx-qa`, not `Jx-Qa` or
 
 Plugin name = slash command prefix. Renaming breaks existing user installations. Users must uninstall old name and reinstall new name.
 
+## Non-Code Stale References
+
+Renames cascade into non-code artifacts that grep-based verification misses: plans, docs, agent configs. Example (2026-05-10): a plan targeting `plugins/qa-ai/...` survived the rename to `plugins/jx-qa/...` undetected until [[Iterative Adversarial Review]] flagged the mismatch. Plans authored pre-rename are invisible to code-level rename verification.
+
 ## Example from This Project
 
 Marketplace renamed from `jairosoft-com-jodex-qa-ai` to `jodex-plugins`:
@@ -68,3 +72,4 @@ Marketplace renamed from `jairosoft-com-jodex-qa-ai` to `jodex-plugins`:
 - [[Marketplace]] — distribution mechanism
 - [[Plugin Architecture]] — plugin format and naming
 - [[Codex Plugin Compatibility]] — naming differences across platforms
+- [[Iterative Adversarial Review]] — catches stale paths in plans post-rename

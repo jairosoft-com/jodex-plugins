@@ -17,6 +17,7 @@ A reference library of seven Mermaid diagram types used by the jx-pm techspec sk
 
 - [[Template-as-Reference Pattern]]
 - [[Skill Chaining]]
+- [[Mermaid Obsidian Rendering Gotchas]]
 
 ## Sources
 - [[Source - Mermaid Diagram Patterns]]

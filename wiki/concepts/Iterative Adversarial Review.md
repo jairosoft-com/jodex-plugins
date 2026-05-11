@@ -84,12 +84,19 @@ Each round surfaced patterns that became wiki concepts:
 - [[Tombstone Pattern]] — round 3 (orphan prevention)
 - [[Fail-Closed Lookup]] — round 3 (ambiguous match safety)
 
+## Stale Path Detection Post-Rename
+
+Adversarial review catches stale references in non-code artifacts (plans, docs) after plugin renames. Example from jx-qa test skill plan (2026-05-10): plan authored pre-rename targeted `plugins/qa-ai/...` paths, but live code had moved to `plugins/jx-qa/...`. Codex flagged the mismatch as high-severity — executing the plan would have created dead duplicate paths or left the real skill untouched.
+
+This failure mode is invisible to grep-based verification (which checks code, not plans) and only surfaces when adversarial review reads both the plan and the filesystem.
+
 ## When to Use
 
 - Before implementing any system that writes to external state (APIs, databases, cloud services)
 - When a design has safety/idempotency requirements
 - When porting existing code to new context (assumptions from source may not hold)
 - After significant design changes within a session
+- After plugin or namespace renames — plans and docs authored pre-rename carry stale paths
 
 ## Related
 
@@ -102,6 +109,7 @@ Each round surfaced patterns that became wiki concepts:
 - [[Cross-Plugin Shared Convention Layer]] — adversarial review caught resolution-induced regressions during split
 - [[Split Verification Pattern]] — dual-tier verification emerged from review findings
 - [[Knowledge Flywheel]] — review is one phase of the self-reinforcing knowledge loop
+- [[Naming Ripple Effect]] — stale paths in plans are a rename cascade the code-level grep misses
 
 ## Sources
 - [[Source - Plugin Split Implementation Plan]]
