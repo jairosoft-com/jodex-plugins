@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "wiki/concepts/Plugin Pipeline Sequence.md",
+                "file": "wiki/entities/Vannevar Bush.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Plugin Pipeline Sequence"
+              "title": "Vannevar Bush"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 227.5
   },
   "right": {
     "id": "2d6b18453d1ccdc6",
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "wiki/concepts/Plugin Pipeline Sequence.md",
+                "file": "wiki/entities/Vannevar Bush.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Plugin Pipeline Sequence"
+              "title": "Outline of Vannevar Bush"
             }
           }
         ],
@@ -183,34 +183,34 @@
       "bases:Create new base": false
     }
   },
-  "active": "33b66454d94eab99",
+  "active": "93444fd1d7825e2e",
   "lastOpenFiles": [
-    "wiki/ideas/Schema Sources Rule Exception for Source Pages.md",
-    "wiki/concepts/Mermaid Obsidian Rendering Gotchas.md",
-    "wiki/concepts/Plugin Architecture.md",
-    "wiki/concepts/Plugin Pipeline Sequence.md",
-    "wiki/_index.md",
-    "wiki/ideas/Cross-Plugin Shared Convention Layer (Promoted).md",
-    "wiki/projects/Product Management Skills Plugin.md",
-    "wiki/concepts/Emergent Design from Constraint.md",
-    "wiki/sources/Source - Plugin Split Dream.md",
-    "wiki/concepts/Knowledge Flywheel.md",
-    "wiki/sources/Source - Plugin Split Session Correlation.md",
-    "wiki/sources/Source - Plugin Split Implementation Plan.md",
-    "wiki/raw/sources/cc7896ff-sparkling-squishing-boole.md",
-    "wiki/concepts/Plugin Dependency Declaration.md",
-    "wiki/concepts/Cross-Plugin Shared Convention Layer.md",
-    "wiki/sources/Source - Cross-Plugin Convention Layer.md",
-    "wiki/sources/Source - Split Tech Spec Idea.md",
-    "wiki/raw/sources/2ba0965d-Cross-Plugin Shared Convention Layer.md",
-    "wiki/raw/sources/a916add6-Split Tech Spec Into jx-dev Plugin.md",
-    "wiki/ideas/Cross-Plugin Shared Convention Layer.md",
-    "plugins/jx-dev/scripts/ABOUT.md",
-    "plugins/jx-dev/schemas/ABOUT.md",
-    "plugins/jx-dev/prompts/ABOUT.md",
-    "plugins/jx-dev/hooks/ABOUT.md",
-    "plugins/jx-dev/agents/ABOUT.md",
-    "plugins/jx-dev/skills/spec/references/diagram-patterns.md",
+    "wiki/sources/Source - jx-dev Scripts Stub.md",
+    "wiki/sources/Source - jx-dev Schemas Stub.md",
+    "wiki/sources/Source - jx-dev Prompts Stub.md",
+    "wiki/sources/Source - jx-dev Hooks Stub.md",
+    "wiki/sources/Source - jx-dev Agents Guide.md",
+    "wiki/sources/Source - jx-dev Task SKILL.md",
+    "wiki/sources/Source - jx-dev Tech Spec Template.md",
+    "wiki/sources/Source - jx-dev Diagram Patterns.md",
+    "wiki/sources/Source - jx-dev Spec SKILL.md",
+    "wiki/sources/Source - jx-dev Task Command.md",
+    "wiki/sources/Source - jx-dev Spec Command.md",
+    "wiki/sources/Source - jx-dev Plugin README.md",
+    "wiki/raw/sources/8dc4fa65-ABOUT.md",
+    "wiki/raw/sources/4e141de4-ABOUT.md",
+    "wiki/raw/sources/a466970b-ABOUT.md",
+    "wiki/raw/sources/d6730581-ABOUT.md",
+    "wiki/raw/sources/6ee67c6c-ABOUT.md",
+    "wiki/raw/sources/1c361ad3-SKILL.md",
+    "wiki/raw/sources/c2560933-template.md",
+    "wiki/raw/sources/b9bb5497-diagram-patterns.md",
+    "wiki/raw/sources/deadd00f-SKILL.md",
+    "wiki/raw/sources/425c0de4-task.md",
+    "wiki/raw/sources/70a8d851-spec.md",
+    "wiki/raw/sources/dfb72ba2-README.md",
+    "wiki/sources/Source - jx-core Task JSON Schema.md",
+    "wiki/sources/Source - jx-core ID Rules.md",
     "plugins/jx-dev/skills/spec/references",
     "plugins/jx-dev/skills/task",
     "plugins/jx-dev/skills/spec",

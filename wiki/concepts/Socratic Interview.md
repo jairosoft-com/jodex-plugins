@@ -4,7 +4,7 @@ type: concept
 tags: [pattern, architecture, requirements, discovery]
 created: 2026-05-09
 updated: 2026-05-09
-source_count: 1
+source_count: 2
 aliases: [socratic questioning, architectural interview, guided discovery]
 provenance: source-derived
 ---
@@ -38,3 +38,4 @@ The PRD skill asks clarifying questions (Phase 3) to understand scope and intent
 
 ## Sources
 - [[Source - Tech Spec Generator SKILL]]
+- [[Source - jx-dev Spec SKILL]]

@@ -3,7 +3,7 @@ title: Jodex Plugin Marketplace
 type: project
 tags: [plugin, marketplace, dogfood]
 created: 2026-05-08
-updated: 2026-05-09
+updated: 2026-05-10
 source_count: 0
 aliases: [jodex-plugins, jodex-qa-ai]
 provenance: synthesis
@@ -60,6 +60,15 @@ Conversation findings and design summaries are filed through [[Filing Workflow]]
 - jx-pm branding inconsistency ("Pm.Ai Harness" vs "Product Management")
 - 17 orphan wiki pages need cross-references
 - 1 stale worktree (3.5M)
+
+## Contributors
+
+| Name | Email | Role | Focus Areas |
+|------|-------|------|-------------|
+| Ramon Aseniero | ramon@jairosoft.com | Primary developer | All plugins, wiki, marketplace, skill architecture |
+| Vicsante Aseniero | vaseniero@jairosoft.com | Contributor | MCP server, Claude Desktop integration, WSL docs (US-203436) |
+
+Both under **Jairosoft** organization.
 
 ## Discussion Watchpoints
 

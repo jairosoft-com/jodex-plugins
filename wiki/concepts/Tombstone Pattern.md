@@ -4,7 +4,7 @@ type: concept
 tags: [pattern, safety, sync, audit]
 created: 2026-05-09
 updated: 2026-05-09
-source_count: 3
+source_count: 5
 aliases: [soft delete, tombstoning, tombstone]
 provenance: synthesis
 ---
@@ -56,3 +56,5 @@ Instead of deleting synced items, mark them as tombstones:
 - [[Source - Task JSON Converter SKILL]]
 - [[Source - Azure Boards Sync SKILL]]
 - [[Source - Task JSON Schema]]
+- [[Source - jx-core Task JSON Schema]]
+- [[Source - jx-dev Task SKILL]]

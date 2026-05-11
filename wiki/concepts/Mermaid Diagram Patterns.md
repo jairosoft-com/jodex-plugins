@@ -4,7 +4,7 @@ type: concept
 tags: [jx-pm, techspec, mermaid, diagrams, visualization]
 created: 2026-05-09
 updated: 2026-05-09
-source_count: 1
+source_count: 2
 aliases: [Diagram Patterns, Mermaid Reference]
 provenance: source-derived
 ---
@@ -21,3 +21,4 @@ A reference library of seven Mermaid diagram types used by the jx-pm techspec sk
 
 ## Sources
 - [[Source - Mermaid Diagram Patterns]]
+- [[Source - jx-dev Diagram Patterns]]

@@ -3,6 +3,8 @@ title: Plugin Pipeline Sequence
 type: concept
 tags: [architecture, plugins, pipeline, sequence-diagram]
 created: 2026-05-10
+updated: 2026-05-10
+source_count: 1
 provenance: session-derived
 ---
 
@@ -212,6 +214,9 @@ sequenceDiagram
 | 5 | `/jx-qa:extract` | BRD/PRD markdown | `test-plan.xlsx` |
 | 6 | `/jx-qa:generate` | `test-plan.xlsx` | `.spec.ts` files |
 | 7 | `/jx-qa:test` | `.spec.ts` files | Test report |
+
+## Sources
+- [[Source - jx-core Plugin README]]
 
 ## See Also
 

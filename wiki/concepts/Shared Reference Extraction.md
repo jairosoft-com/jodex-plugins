@@ -4,7 +4,7 @@ type: concept
 tags: [pattern, plugin, skill, DRY]
 created: 2026-05-09
 updated: 2026-05-09
-source_count: 3
+source_count: 5
 aliases: [shared patterns, _shared directory, reference inclusion]
 provenance: synthesis
 ---
@@ -75,3 +75,5 @@ When shared references need to be consumed by multiple plugins (not just skills 
 - [[Source - Docs Root Config]]
 - [[Source - ID Rules]]
 - [[Source - Cross-Plugin Convention Layer]]
+- [[Source - jx-core Docs Root Config]]
+- [[Source - jx-core ID Rules]]

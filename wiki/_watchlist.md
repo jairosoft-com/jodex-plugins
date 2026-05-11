@@ -1,6 +1,6 @@
 ---
 title: Ingest Watchlist
-updated: 2026-05-09
+updated: 2026-05-11
 ---
 
 # Ingest Watchlist
@@ -21,7 +21,7 @@ Monitored paths for new or changed content. Run `/jx-kb:ingest` against pending 
 | `.claude-plugin/marketplace.json` | exact | Marketplace manifest |
 | `README.md` | exact | Project root README |
 
-## Already Ingested (64 sources)
+## Already Ingested (80 sources)
 
 - `.claude-plugin/marketplace.json`
 - `README.md`
@@ -87,6 +87,22 @@ Monitored paths for new or changed content. Run `/jx-kb:ingest` against pending 
 - `plugins/jx-qa/skills/playwright-cli/references/test-generation.md`
 - `plugins/jx-qa/skills/playwright-cli/references/tracing.md`
 - `plugins/jx-qa/skills/playwright-cli/references/video-recording.md`
+- `plugins/jx-core/README.md`
+- `plugins/jx-core/_shared/docs-root.md`
+- `plugins/jx-core/_shared/id-rules.md`
+- `plugins/jx-core/_shared/task-json-schema.md`
+- `plugins/jx-dev/README.md`
+- `plugins/jx-dev/agents/ABOUT.md`
+- `plugins/jx-dev/commands/spec.md`
+- `plugins/jx-dev/commands/task.md`
+- `plugins/jx-dev/hooks/ABOUT.md`
+- `plugins/jx-dev/prompts/ABOUT.md`
+- `plugins/jx-dev/schemas/ABOUT.md`
+- `plugins/jx-dev/scripts/ABOUT.md`
+- `plugins/jx-dev/skills/spec/SKILL.md`
+- `plugins/jx-dev/skills/spec/references/diagram-patterns.md`
+- `plugins/jx-dev/skills/spec/references/template.md`
+- `plugins/jx-dev/skills/task/SKILL.md`
 
 ## Pending (not yet ingested)
 

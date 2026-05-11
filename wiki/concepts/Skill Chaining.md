@@ -4,7 +4,7 @@ type: concept
 tags: [pattern, plugin, workflow, pipeline]
 created: 2026-05-09
 updated: 2026-05-09
-source_count: 10
+source_count: 13
 aliases: [skill pipeline, chain flag, inter-skill chaining]
 provenance: synthesis
 ---
@@ -58,3 +58,6 @@ When jx-pm was split into jx-dev + jx-pm, all `--chain` and `--chain-all` flags 
 - [[Source - Task JSON Converter SKILL]]
 - [[Source - Pipeline SKILL]]
 - [[Source - Split Tech Spec Idea]]
+- [[Source - jx-dev Plugin README]]
+- [[Source - jx-dev Spec SKILL]]
+- [[Source - jx-dev Task SKILL]]

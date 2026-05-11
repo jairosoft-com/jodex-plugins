@@ -4,7 +4,7 @@ type: concept
 tags: [pattern, configuration, plugin, portability]
 created: 2026-05-09
 updated: 2026-05-09
-source_count: 3
+source_count: 4
 aliases: [config resolution order, flag-env-default, three-level config]
 provenance: synthesis
 ---
@@ -75,3 +75,4 @@ Used by all jx-pm skills for `docs-root` resolution. Could apply to any configur
 - [[Source - Docs Root Config]]
 - [[Source - PRD Generator SKILL]]
 - [[Source - Split Tech Spec Idea]]
+- [[Source - jx-core Docs Root Config]]

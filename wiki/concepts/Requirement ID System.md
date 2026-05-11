@@ -4,7 +4,7 @@ type: concept
 tags: [pattern, requirements, id-system, traceability]
 created: 2026-05-09
 updated: 2026-05-09
-source_count: 6
+source_count: 9
 aliases: [folder-based IDs, requirement IDs, feature number IDs]
 provenance: synthesis
 ---
@@ -71,3 +71,6 @@ Feature number derives from folder name pattern `{NNN}_{feature_name}`:
 - [[Source - Unified BRD-PRD Template]]
 - [[Source - Tech Spec Template]]
 - [[Source - ID Rules]]
+- [[Source - jx-core ID Rules]]
+- [[Source - jx-dev Spec SKILL]]
+- [[Source - jx-dev Tech Spec Template]]

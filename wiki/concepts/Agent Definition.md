@@ -4,7 +4,7 @@ type: concept
 tags: [plugin, component, subagent, orchestration]
 created: 2026-05-09
 updated: 2026-05-09
-source_count: 1
+source_count: 2
 aliases: [agent, agents, custom agent, subagent definition]
 provenance: source-derived
 ---
@@ -47,3 +47,4 @@ Agents can reference multiple skills, enabling [[Skill Chaining]] within a singl
 
 ## Sources
 - [[Source - JX QA Agents Directory]]
+- [[Source - jx-dev Agents Guide]]

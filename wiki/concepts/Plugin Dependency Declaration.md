@@ -4,7 +4,7 @@ type: concept
 tags: [plugin, convention, dependency, architecture]
 created: 2026-05-09
 updated: 2026-05-09
-source_count: 1
+source_count: 3
 aliases: [plugin dependencies, dependency field]
 provenance: source-derived
 ---
@@ -60,3 +60,5 @@ jx-kb (no deps)
 
 ## Sources
 - [[Source - Plugin Split Implementation Plan]]
+- [[Source - jx-core Plugin README]]
+- [[Source - jx-dev Plugin README]]

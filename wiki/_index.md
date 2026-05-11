@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-09
-page_count: 181
+page_count: 200
 ---
 
 # Wiki Index
@@ -107,7 +107,9 @@ page_count: 181
 - [[Anthropic]] — AI safety company behind Claude (#company, #ai)
 - [[Obsidian]] — Markdown knowledge management app, wiki viewer/IDE (#tool, #editor)
 - [[Playwright]] — Browser automation framework by Microsoft (#tool, #testing)
+- [[Ramon Aseniero]] — Jairosoft primary developer, plugin architecture creator (#person, #contributor)
 - [[Vannevar Bush]] — Memex originator (1945), personal knowledge store vision (#person, #history)
+- [[Vicsante Aseniero]] — Jairosoft contributor, MCP server and Claude Desktop integration (#person, #contributor)
 
 ## Topics
 
@@ -140,6 +142,7 @@ page_count: 181
 
 ## Code
 
+- [[Creating a Plugin]] — End-to-end guide for adding a new plugin to the plugin architecture (#plugin, #how-to, #onboarding)
 - [[Creating a Skill]] — Step-by-step guide for adding a new skill to a Claude Code plugin (#skill, #how-to)
 - [[wiki-tools.py]] — Pinned helper script for jx-kb plugin (#script, #python)
 - [[xlsx-writer.py]] — Pinned helper script for jx-qa plugin (#script, #python)
@@ -216,3 +219,19 @@ page_count: 181
 - [[Source - Tech Spec Generator SKILL]] — Tech spec from PRD with Mermaid, JSON Schema, OpenAPI, ADRs (#skill, #jx-pm, #techspec)
 - [[Source - Tech Spec Template]] — 8-section TECH_SPEC.md template with EARS syntax (#jx-pm, #techspec)
 - [[Source - Unified BRD-PRD Template]] — Combined BRD+PRD template with strategic + tactical sections (#jx-pm, #prd)
+- [[Source - jx-core Plugin README]] — Reference-only shared convention plugin overview (#jx-core, #plugin)
+- [[Source - jx-core Docs Root Config]] — Canonical docs-root resolution with plugin-neutral env var (#jx-core, #config)
+- [[Source - jx-core ID Rules]] — Canonical ID generation and folder validation rules (#jx-core, #id-system)
+- [[Source - jx-core Task JSON Schema]] — Canonical task.json schema post-split (#jx-core, #schema)
+- [[Source - jx-dev Plugin README]] — Dev plugin overview: spec + task skills (#jx-dev, #plugin)
+- [[Source - jx-dev Spec Command]] — /jx-dev:spec slash command definition (#jx-dev, #command)
+- [[Source - jx-dev Task Command]] — /jx-dev:task slash command definition (#jx-dev, #command)
+- [[Source - jx-dev Spec SKILL]] — Tech spec generation skill, 5-phase with Socratic interview (#jx-dev, #skill)
+- [[Source - jx-dev Task SKILL]] — Task conversion skill, 5-phase merge-aware with tombstone (#jx-dev, #skill)
+- [[Source - jx-dev Diagram Patterns]] — Mermaid diagram types, canonical post-split copy (#jx-dev, #mermaid)
+- [[Source - jx-dev Tech Spec Template]] — TECH_SPEC.md template, canonical post-split copy (#jx-dev, #techspec)
+- [[Source - jx-dev Agents Guide]] — Agent definition format and use cases for jx-dev (#jx-dev, #agents)
+- [[Source - jx-dev Hooks Stub]] — Placeholder for jx-dev lifecycle hooks (#jx-dev, #stub)
+- [[Source - jx-dev Prompts Stub]] — Placeholder for jx-dev prompt fragments (#jx-dev, #stub)
+- [[Source - jx-dev Schemas Stub]] — Placeholder, delegates to jx-core (#jx-dev, #stub)
+- [[Source - jx-dev Scripts Stub]] — Placeholder for jx-dev scripts (#jx-dev, #stub)

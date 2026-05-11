@@ -4,7 +4,7 @@ type: concept
 tags: [plugin, component, lifecycle]
 created: 2026-05-07
 updated: 2026-05-07
-source_count: 3
+source_count: 4
 aliases: [hooks, lifecycle hook]
 provenance: source-derived
 ---
@@ -21,3 +21,4 @@ Hooks live in the `hooks/` directory of a plugin. They provide automation around
 - [[Source - Claude CLI vs Desktop MCP Guide]]
 - [[Source - JX QA Hooks Directory]]
 - [[Source - jx-kb Hooks Guide]]
+- [[Source - jx-dev Hooks Stub]]

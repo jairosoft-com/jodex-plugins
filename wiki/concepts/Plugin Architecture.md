@@ -4,7 +4,7 @@ type: concept
 tags: [architecture, plugin, claude-code]
 created: 2026-05-07
 updated: 2026-05-09
-source_count: 3
+source_count: 4
 aliases: [.claude-plugin format, plugin format]
 provenance: source-derived
 ---
@@ -100,3 +100,4 @@ See [[Plugin Dependency Declaration]] for the `dependencies` array field convent
 - [[Source - Claude CLI vs Desktop MCP Guide]]
 - [[Source - Split Tech Spec Idea]]
 - [[Source - Cross-Plugin Convention Layer]]
+- [[Source - jx-core Plugin README]]

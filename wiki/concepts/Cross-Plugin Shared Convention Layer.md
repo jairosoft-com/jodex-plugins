@@ -4,7 +4,7 @@ type: concept
 tags: [pattern, plugin-architecture, DRY, jx-core]
 created: 2026-05-09
 updated: 2026-05-09
-source_count: 2
+source_count: 8
 aliases: [shared convention plugin, reference-only plugin, jx-core pattern]
 provenance: source-derived
 ---
@@ -86,3 +86,9 @@ Can't just rename — must support both during transition.
 ## Sources
 - [[Source - Split Tech Spec Idea]]
 - [[Source - Cross-Plugin Convention Layer]]
+- [[Source - jx-core Plugin README]]
+- [[Source - jx-core Docs Root Config]]
+- [[Source - jx-core ID Rules]]
+- [[Source - jx-core Task JSON Schema]]
+- [[Source - jx-dev Plugin README]]
+- [[Source - jx-dev Schemas Stub]]

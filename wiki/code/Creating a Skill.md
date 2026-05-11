@@ -11,7 +11,7 @@ provenance: conversation-derived
 
 # Creating a Skill
 
-Step-by-step guide for manually adding a new skill to a Claude Code plugin in this repo.
+Step-by-step guide for manually adding a new skill to a Claude Code plugin in this repo. For creating an entirely new plugin first, see [[Creating a Plugin]].
 
 ## Anatomy
 

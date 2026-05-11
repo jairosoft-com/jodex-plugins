@@ -4,6 +4,33 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-11 — Ingest (jx-core + jx-dev, 2-agent parallel)
+
+- **Operation**: agent team ingest (2 parallel agents: ingest-core, ingest-dev)
+- **Sources**:
+  - jx-core: 4 files (README, docs-root, id-rules, task-json-schema)
+  - jx-dev: 12 files (README, 2 commands, 2 SKILLs, 2 references, 5 ABOUT stubs)
+- **Raw snapshots created**: 16
+- **Source pages created**: 16
+- **Concept pages updated**: 19 (8 by ingest-core, 11 by ingest-dev)
+- **Notable findings**:
+  - 2 jx-dev files byte-identical to jx-pm originals (diagram-patterns, template)
+  - 3 jx-core files substantively identical to jx-pm originals with minor changes
+  - jx-core docs-root adds `$JX_DOCS_ROOT` plugin-neutral env var (4-level chain vs 3)
+  - jx-dev agents/ABOUT.md contains real format docs, not a stub
+  - jx-dev skills renamed: techspec → spec, chain flags removed
+- **Index**: updated, page_count 184 → 200
+- **Outcome**: Both post-split plugins fully ingested. Wiki source coverage now includes all 5 plugins (jx-qa, jx-kb, jx-pm, jx-core, jx-dev).
+
+## 2026-05-10 — Filing (query-derived, batch)
+
+- **Operation**: manual filing from wiki query synthesis
+- **Pages created**: 3 — [[Creating a Plugin]] (code/), [[Vicsante Aseniero]] (entities/), [[Ramon Aseniero]] (entities/)
+- **Pages updated**: 1 — [[Jodex Plugin Marketplace]] (added Contributors section with Ramon + Vicsante roles)
+- **Index**: updated, page_count 181 → 184
+- **Cross-references**: 15 outbound links to existing concept pages
+- **Outcome**: Filled two gaps — (1) wiki had [[Creating a Skill]] but no end-to-end plugin creation guide; (2) project page had no contributor info, forcing "who is the developer?" queries to fall back to git log.
+
 ## 2026-05-09 — Dream filing
 
 - **Operation**: end-of-session dream reflection filed to wiki
