@@ -3,7 +3,7 @@ title: Lint
 type: concept
 tags: [operation, wiki, maintenance]
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-11
 source_count: 3
 aliases: [lint operation, wiki lint, health check]
 provenance: source-derived
@@ -30,6 +30,10 @@ The LLM suggests new questions to investigate and new sources to look for. Lint 
 ## Health Score
 
 Generates a score from 0 to 100. Factors include broken links, orphan pages, missing frontmatter, index drift, and unresolved conflicts.
+
+## Signal Scope
+
+Lint should evaluate maintained wiki pages, not immutable provenance snapshots. If [[Raw Sources]] are included in graph and frontmatter checks, example links and source-file formatting can create false defects. See [[Wiki Signal Quality]].
 
 ## Additional Checks
 

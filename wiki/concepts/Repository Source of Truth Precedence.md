@@ -29,6 +29,12 @@ For plugin inventory and agent orientation, prefer:
 
 Maintained wiki pages should be reconciled when they drift. Raw sources and older source snapshots preserve provenance, but they are not automatically current.
 
+## Historical Source Summaries
+
+`wiki/sources/` pages may intentionally preserve old command names, old plugin layouts, or pre-split implementation details because they summarize the source as it existed when ingested. Treat those pages as provenance summaries unless a maintained wiki page explicitly promotes the claim as current.
+
+When source-summary history disagrees with live files, keep the historical note intact and update the maintained guidance layer instead.
+
 ## Agent Behavior
 
 - Treat stale wiki/source snapshots as evidence of history, not current plugin truth.
@@ -43,6 +49,7 @@ Maintained wiki pages should be reconciled when they drift. Raw sources and olde
 - [[Plugin Metadata Surfaces]]
 - [[Raw Sources]]
 - [[Source - Agent Instructions]]
+- [[Wiki Signal Quality]]
 
 ## Sources
 

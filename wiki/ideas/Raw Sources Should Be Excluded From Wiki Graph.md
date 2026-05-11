@@ -22,6 +22,10 @@ status: backlogged
 
 Raw snapshots may contain example wiki-link syntax, incomplete frontmatter, or content that should not be maintained as wiki pages. Including them pollutes [[Lint]] output and weakens trust in [[Health Score]].
 
+## Generalized Insight
+
+This is an instance of [[Wiki Signal Quality]]: provenance material must remain auditable without being scored as maintained knowledge. The fix should preserve `wiki/raw/sources/` for [[Ingest]] snapshots while excluding it from graph, backlink, broken-link, frontmatter, and orphan checks.
+
 ## 2026-05-11 Lint Evidence
 
 A lint pass reported 33 errors, 20 warnings, and a 0/100 health score, with much of the strict score dominated by `wiki/raw/` snapshots and example-link noise. The raw snapshots are intentionally ignored by git and should remain provenance inputs, not maintained wiki pages.
@@ -35,12 +39,14 @@ Update page discovery in [[wiki-tools.py]] so wiki-page commands exclude `raw/` 
 ## Related
 
 - [[Raw Sources]]
+- [[Wiki Signal Quality]]
 - [[Path Confinement]]
 - [[Jodex Plugin Marketplace]]
 - [[Plugin Dogfooding Workflow]]
 
 ## Derived From
 - [[Raw Sources]]
+- [[Wiki Signal Quality]]
 - [[wiki-tools.py]]
 - [[Lint]]
 - [[Health Score]]

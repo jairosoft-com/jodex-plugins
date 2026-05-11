@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-11
-page_count: 206
+page_count: 207
 ---
 
 # Wiki Index
@@ -96,6 +96,7 @@ page_count: 206
 - [[Triage]] — Classify raw ideas: promote, backlog, or archive (#operation, #classification)
 - [[User Confirmation Gate]] — Security pattern: no writes before explicit approval (#security, #ux)
 - [[Watchlist Pattern]] — Manifest-driven tracking list for scan-based operations (#pattern, #workflow)
+- [[Wiki Signal Quality]] — Separate maintained knowledge from provenance snapshots so lint scores remain meaningful (#wiki, #lint, #provenance)
 - [[Wiki Query Patterns]] — Query types: retrieval, exploratory, generative (#wiki, #query)
 - [[ADO State Sync Model]] — Bottom-up state transition model for Azure Boards sync (#jx-pm, #ado, #state-machine)
 - [[Agent Definition]] — Custom AI subagent definition format for plugins (#plugin, #subagent, #orchestration)

@@ -4,6 +4,20 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-11 — Synthesis Filing
+
+- **Operation**: file insight (analysis-derived)
+- **Pages updated**: [[Repository Source of Truth Precedence]], `_log.md`
+- **Outcome**: Clarified that `wiki/sources/` can intentionally preserve historical command names and plugin shapes, while live repository files remain current authority.
+
+## 2026-05-11 — Synthesis Filing
+
+- **Operation**: file insight (analysis-derived)
+- **Pages created**: [[Wiki Signal Quality]]
+- **Pages updated**: [[Raw Sources Should Be Excluded From Wiki Graph]], [[Lint]], [[Health Score]], `_index.md`, `_log.md`
+- **Index**: updated, page_count 206 -> 207
+- **Outcome**: Captured the generalized distinction between maintained knowledge pages and provenance snapshots so raw-source auditability does not degrade lint and health-score signal.
+
 ## 2026-05-11 — Maintenance (wiki lint cleanup planning)
 
 - **Operation**: manual wiki maintenance
