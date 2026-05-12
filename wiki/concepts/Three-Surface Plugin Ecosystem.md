@@ -3,7 +3,7 @@ title: Three-Surface Plugin Ecosystem
 type: concept
 tags: [architecture, plugin, platform, ecosystem]
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-05-12
 source_count: 0
 aliases: [plugin ecosystem, shared plugin surfaces]
 provenance: synthesis
@@ -31,11 +31,17 @@ Installing a plugin in any one surface makes it available in all three. The regi
 
 Write once, distribute once via [[Marketplace]], available on three surfaces. No per-surface packaging or configuration needed.
 
+## Operational Nuance
+
+Shared plugin registry does not collapse every setup path into one instruction. CLI and Desktop can share installed plugins, but MCP setup still has a [[Client-Specific MCP Boundary]], and developer onboarding still benefits from a [[Layered Developer Onboarding]] sequence that separates platform install, plugin install, wiki init, external MCP setup, and workflow verification.
+
 ## Related
 
 - [[Plugin Architecture]] — the shared format
 - [[Marketplace]] — distribution mechanism
 - [[Local Plugin Development]] — `--plugin-dir` also works across surfaces
+- [[Client-Specific MCP Boundary]] — MCP setup is client-specific even when plugins are shared
+- [[Layered Developer Onboarding]] — dependency-ordered setup pattern
 
 ## Sources
 - (synthesis — discovered from user observation that CLI install reflects in Desktop, 2026-05-08)

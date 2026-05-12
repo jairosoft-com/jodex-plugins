@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
-updated: 2026-05-11
-page_count: 210
+updated: 2026-05-12
+page_count: 214
 ---
 
 # Wiki Index
@@ -28,6 +28,7 @@ page_count: 210
 - [[Agent Team Execution]] — Parallel agent orchestration with sequential foundation and tmux visibility (#pattern, #agent, #orchestration)
 - [[Atomic Rename Boundary]] — Runtime-critical rename changes must land in one commit (#pattern, #naming, #git)
 - [[Canonical Agent Instruction with Compatibility Shims]] — One canonical agent instruction file with thin discovery shims (#agent, #instructions, #compatibility)
+- [[Client-Specific MCP Boundary]] — MCP setup must be documented by exact client, transport, auth path, and verification surface (#mcp, #claude-code, #azure-devops)
 - [[Codex Plugin Compatibility]] — Claude Code vs Codex plugin format differences and conversion tools (#plugin, #codex)
 - [[Configurable Default Chain]] — CLI flag → env var → hardcoded default resolution order (#pattern, #configuration)
 - [[Cross-Plugin Shared Convention Layer]] — Reference-only plugin pattern for shared conventions across plugins (#pattern, #plugin-architecture, #DRY)
@@ -48,6 +49,7 @@ page_count: 210
 - [[Iterative Adversarial Review]] — Multi-pass design hardening: review, resolve, re-submit until clean (#pattern, #quality)
 - [[Ingest]] — Core operation: absorb source documents into wiki pages (#operation, #wiki)
 - [[Knowledge Flywheel]] — Self-reinforcing loop: build → review → execute → capture → enrich → lint (#pattern, #workflow, #meta)
+- [[Layered Developer Onboarding]] — Install and verify developer workflow capabilities in dependency order (#onboarding, #developer-experience, #plugin)
 - [[Link Graph Traversal]] — Page discovery via wikilink graph during query (#wiki, #navigation)
 - [[Local Plugin Development]] — --plugin-dir workflow for local disk plugin dev (#plugin, #development)
 - [[Lint]] — Periodic health-check operation for wiki (#operation, #maintenance)
@@ -55,6 +57,7 @@ page_count: 210
 - [[Marketplace]] — Plugin distribution mechanism for Claude Code CLI (#distribution, #plugin)
 - [[MCP Server]] — Model Context Protocol server for Claude Desktop extensibility (#protocol, #mcp)
 - [[MCP Tool]] — Individual capability exposed by MCP Server (#protocol, #tool)
+- [[MCP Tool Surface Alignment Gate]] — Verify connected MCP tools match command allowlists before external writes (#mcp, #tool-surface, #safety)
 - [[Memory vs Wiki Separation]] — When to use agent memory vs wiki pages (#architecture, #persistence)
 - [[Mode Flag Pattern]] — Merge N similar skills into 1 with --mode flag when 80%+ structure shared (#pattern, #plugin)
 - [[Multi-Phase Skill]] — Structural pattern: numbered phases with gates (#pattern, #architecture)
@@ -150,6 +153,7 @@ page_count: 210
 
 - [[Creating a Plugin]] — End-to-end guide for adding a new plugin to the plugin architecture (#plugin, #how-to, #onboarding)
 - [[Creating a Skill]] — Step-by-step guide for adding a new skill to a Claude Code plugin (#skill, #how-to)
+- [[JX Dev Onboarding]] — Developer setup guide for installing Claude Code CLI/Desktop, jx-dev, jx-kb, the project wiki, and Azure DevOps MCP (#jx-dev, #jx-kb, #claude-code, #azure-devops, #onboarding)
 - [[JX QA Onboarding]] — QA user setup guide for installing jx-qa and jx-kb, initializing a project wiki, and running Playwright workflows (#jx-qa, #onboarding, #setup, #playwright)
 - [[wiki-tools.py]] — Pinned helper script for jx-kb plugin (#script, #python)
 - [[xlsx-writer.py]] — Pinned helper script for jx-qa plugin (#script, #python)

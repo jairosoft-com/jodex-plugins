@@ -3,7 +3,7 @@ title: Product Management Skills Plugin
 type: plugin
 tags: [plugin, product-management, brd, prd, ado, jx-pm]
 created: 2026-05-09
-updated: 2026-05-11
+updated: 2026-05-12
 source_count: 3
 aliases: [PM plugin, PO plugin, product owner skills, jx-pm]
 provenance: synthesis
@@ -47,6 +47,7 @@ The complete PM-to-delivery workflow spans three plugins:
 - ADO sync should preview tenant/org/project before writes.
 - Work item IDs are written back to `task.json` so retries can resume without duplicating work.
 - Force-recreate and state-sync style operations require explicit confirmation.
+- Azure DevOps MCP is a pre-write dependency for `/jx-pm:ado`; verify the installed [[MCP Tool Surface Alignment Gate]] before live sync.
 
 ## Historical Notes
 
@@ -65,3 +66,4 @@ The original jx-pm design bundled PRD generation, technical specification genera
 - [[Source - jx-pm Plugin README]]
 - [[Source - jx-dev Plugin README]]
 - [[Source - jx-core Plugin README]]
+- [[MCP Tool Surface Alignment Gate]]

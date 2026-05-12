@@ -4,6 +4,40 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-12 — Synthesis Filing
+
+- **Operation**: file onboarding and MCP setup insights
+- **Pages created**: [[Layered Developer Onboarding]], [[Client-Specific MCP Boundary]], [[MCP Tool Surface Alignment Gate]]
+- **Pages updated**: [[JX Dev Onboarding]], [[Product Management Skills Plugin]], [[Three-Surface Plugin Ecosystem]], `_index.md`, `_log.md`
+- **Index**: updated, page_count 211 -> 214
+- **Outcome**: Captured three reusable patterns from the developer onboarding work: setup as a dependency ladder, MCP instructions as client-specific contracts, and MCP tool-surface alignment as a pre-write gate for Azure Boards sync.
+
+## 2026-05-12 — Synthesis Filing
+
+- **Operation**: update onboarding guide
+- **Pages updated**: [[JX Dev Onboarding]], [[Developer Skills Plugin]], `_index.md`, `_log.md`
+- **Outcome**: Added step-by-step Claude Code CLI and Claude Code Desktop installation, authentication, verification, plugin access, Windows Git requirements, and desktop troubleshooting guidance.
+
+## 2026-05-12 — Synthesis Filing
+
+- **Operation**: update onboarding guide
+- **Pages updated**: [[JX Dev Onboarding]], [[Developer Skills Plugin]], `_index.md`, `_log.md`
+- **Outcome**: Added step-by-step Azure DevOps MCP installation for Claude Code, including Node.js 20 prerequisite, local `@azure-devops/mcp` setup, auth options, verification commands, focused domain filters, and troubleshooting.
+
+## 2026-05-11 — Synthesis Filing
+
+- **Operation**: update onboarding guide
+- **Pages updated**: [[JX Dev Onboarding]], [[Developer Skills Plugin]], `_index.md`, `_log.md`
+- **Outcome**: Added `jx-kb` installation, `wiki/` initialization, basic ingest/query/lint usage, and verification/troubleshooting guidance to developer onboarding.
+
+## 2026-05-11 — Synthesis Filing
+
+- **Operation**: file onboarding guide
+- **Pages created**: [[JX Dev Onboarding]]
+- **Pages updated**: [[Developer Skills Plugin]], [[Marketplace]], `_index.md`, `_log.md`
+- **Index**: updated, page_count 210 -> 211
+- **Outcome**: Added developer onboarding guidance for installing `jx-dev`, preparing a feature folder, generating `TECH_SPEC.md` and `task.json`, and distinguishing direct plugin dependencies from optional GitHub and Azure DevOps MCP handoff tools.
+
 ## 2026-05-11 — Synthesis Filing
 
 - **Operation**: file onboarding guide

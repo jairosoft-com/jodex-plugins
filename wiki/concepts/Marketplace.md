@@ -3,7 +3,7 @@ title: Marketplace
 type: concept
 tags: [distribution, plugin, registry]
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-11
 source_count: 2
 aliases: [plugin marketplace]
 provenance: source-derived
@@ -53,7 +53,7 @@ Renaming a marketplace or plugin cascades through the system. See [[Naming Rippl
 ## This Repo's Marketplace
 
 - **Name**: jodex-plugins
-- **Plugins**: [[QA Testing Plugin|jx-qa]] (category: productivity), [[Knowledge Base Plugin|jx-kb]] (category: knowledge)
+- **Plugins**: [[QA Testing Plugin|jx-qa]] (category: productivity), [[Knowledge Base Plugin|jx-kb]] (category: knowledge), [[Product Management Skills Plugin|jx-pm]] (category: productivity), [[Developer Skills Plugin|jx-dev]] (category: productivity), [[Core Shared Conventions Plugin|jx-core]] (category: core)
 - **Owner**: Jairosoft
 
 ## Sources
