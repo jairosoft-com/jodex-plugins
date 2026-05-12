@@ -3,8 +3,8 @@ title: Slash Command
 type: concept
 tags: [plugin, component, user-facing]
 created: 2026-05-07
-updated: 2026-05-07
-source_count: 1
+updated: 2026-05-11
+source_count: 5
 aliases: [command, commands, slash commands]
 provenance: source-derived
 ---
@@ -35,3 +35,4 @@ The [[Claude Desktop]] equivalent is an [[MCP Tool]] — a named capability expo
 - [[Source - Browser Command]]
 - [[Source - Extract Command]]
 - [[Source - Generate Command]]
+- [[Source - Test Command]]

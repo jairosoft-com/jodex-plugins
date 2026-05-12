@@ -21,7 +21,7 @@ Monitored paths for new or changed content. Run `/jx-kb:ingest` against pending 
 | `.claude-plugin/marketplace.json` | exact | Marketplace manifest |
 | `README.md` | exact | Project root README |
 
-## Already Ingested (81 sources)
+## Already Ingested (83 sources)
 
 - `.claude-plugin/marketplace.json`
 - `AGENTS.md`
@@ -73,12 +73,14 @@ Monitored paths for new or changed content. Run `/jx-kb:ingest` against pending 
 - `plugins/jx-qa/commands/browser.md`
 - `plugins/jx-qa/commands/extract.md`
 - `plugins/jx-qa/commands/generate.md`
+- `plugins/jx-qa/commands/test.md`
 - `plugins/jx-qa/hooks/ABOUT.md`
 - `plugins/jx-qa/prompts/ABOUT.md`
 - `plugins/jx-qa/schemas/ABOUT.md`
 - `plugins/jx-qa/skills/extract/SKILL.md`
 - `plugins/jx-qa/skills/generate/SKILL.md`
 - `plugins/jx-qa/skills/playwright-cli/SKILL.md`
+- `plugins/jx-qa/skills/test/SKILL.md`
 - `plugins/jx-qa/skills/playwright-cli/references/element-attributes.md`
 - `plugins/jx-qa/skills/playwright-cli/references/playwright-tests.md`
 - `plugins/jx-qa/skills/playwright-cli/references/request-mocking.md`

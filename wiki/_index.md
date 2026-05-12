@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-11
-page_count: 207
+page_count: 210
 ---
 
 # Wiki Index
@@ -150,6 +150,7 @@ page_count: 207
 
 - [[Creating a Plugin]] — End-to-end guide for adding a new plugin to the plugin architecture (#plugin, #how-to, #onboarding)
 - [[Creating a Skill]] — Step-by-step guide for adding a new skill to a Claude Code plugin (#skill, #how-to)
+- [[JX QA Onboarding]] — QA user setup guide for installing jx-qa and jx-kb, initializing a project wiki, and running Playwright workflows (#jx-qa, #onboarding, #setup, #playwright)
 - [[wiki-tools.py]] — Pinned helper script for jx-kb plugin (#script, #python)
 - [[xlsx-writer.py]] — Pinned helper script for jx-qa plugin (#script, #python)
 
@@ -180,7 +181,9 @@ page_count: 207
 - [[Source - Running Code Reference]] — run-code for arbitrary Playwright (#playwright)
 - [[Source - Session Management Reference]] — Named browser sessions (#playwright)
 - [[Source - Storage State Reference]] — Cookies, localStorage management (#playwright)
+- [[Source - Test Command]] — /jx-qa:test slash command definition (#jx-qa, #command, #playwright)
 - [[Source - Test Generation Reference]] — Auto-generating test code (#playwright)
+- [[Source - Test SKILL]] — Playwright test runner skill with headless, UI, and headed modes (#skill, #jx-qa, #playwright)
 - [[Source - Tracing Reference]] — Execution trace capture (#playwright)
 - [[Source - Triage SKILL]] — Idea classification (#skill)
 - [[Source - Video Recording Reference]] — WebM capture with overlays (#playwright)
