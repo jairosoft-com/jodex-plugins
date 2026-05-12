@@ -4,7 +4,7 @@ type: plugin
 tags: [plugin, developer, tech-spec, task, jx-dev]
 created: 2026-05-11
 updated: 2026-05-12
-source_count: 3
+source_count: 5
 aliases: [jx-dev, jx-dev plugin]
 provenance: synthesis
 ---
@@ -38,3 +38,5 @@ Use [[JX Dev Onboarding]] when a developer needs setup guidance for Claude Code 
 - [[Source - jx-dev Plugin README]]
 - [[Source - jx-dev Spec Command]]
 - [[Source - jx-dev Task Command]]
+- [[Source - jx-dev Prompts Stub]]
+- [[Source - jx-dev Scripts Stub]]

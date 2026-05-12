@@ -3,7 +3,7 @@ title: Plugin Dependency Declaration
 type: concept
 tags: [plugin, convention, dependency, architecture]
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-05-12
 source_count: 3
 aliases: [plugin dependencies, dependency field]
 provenance: source-derived
@@ -32,6 +32,8 @@ Convention for declaring inter-plugin dependencies in `plugin.json` using a `dep
 - Reference-only plugins (like jx-core) have NO dependencies field
 - This is a new convention — existing plugins prior to jx-pm split did not use it
 
+The field is documentation and install-order contract, not a runtime import system. A consuming plugin still references files by explicit relative path, but the dependency declaration tells maintainers, installers, and reviewers which sibling plugin must be present for those paths to resolve.
+
 ## Current Dependency Graph
 
 ```
@@ -51,6 +53,10 @@ jx-kb (no deps)
 | Duplicate shared files | Content drift between copies |
 | Symlink | Hard filesystem dependency, breaks on some platforms |
 | Dependency declaration | Explicit, verifiable, single source of truth in jx-core |
+
+## Verification Use
+
+Dependency declarations make split-plugin reviews concrete. Reviewers can compare `plugin.json` dependencies against every cross-plugin file reference and reject a split when a plugin consumes `jx-core` conventions without declaring the dependency.
 
 ## Related
 

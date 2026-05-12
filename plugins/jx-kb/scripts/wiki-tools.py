@@ -10,7 +10,7 @@ Subcommands:
   backlinks <wiki_path>                Full backlink map {page: [pages linking to it]}
   wikilinks <path>                     Extract all [[wikilinks]] from file or directory
   frontmatter-check <wiki_path>        Pages with missing/malformed YAML frontmatter
-  page-list <wiki_path>                All .md pages (excluding _-prefixed system files)
+  page-list <wiki_path>                All maintained .md pages (excluding _-prefixed system files and raw snapshots)
 
 All paths validated: must be within project root, no shell metacharacters.
 Stdlib-only — no external dependencies.
@@ -82,6 +82,8 @@ def get_wiki_pages(wiki_path):
             if f.endswith('.md') and not f.startswith('_'):
                 full = Path(root) / f
                 rel = full.relative_to(wiki_path)
+                if rel.parts and rel.parts[0] == 'raw':
+                    continue
                 name = f[:-3]
                 pages[name] = str(rel)
     return pages

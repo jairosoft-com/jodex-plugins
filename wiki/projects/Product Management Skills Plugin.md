@@ -4,7 +4,7 @@ type: plugin
 tags: [plugin, product-management, brd, prd, ado, jx-pm]
 created: 2026-05-09
 updated: 2026-05-12
-source_count: 3
+source_count: 5
 aliases: [PM plugin, PO plugin, product owner skills, jx-pm]
 provenance: synthesis
 status: active
@@ -36,6 +36,10 @@ The complete PM-to-delivery workflow spans three plugins:
 /jx-pm:ado   -> Azure work items
 ```
 
+## Onboarding
+
+Use [[JX PM Onboarding]] for product-owner workstation setup, GitHub access, Obsidian wiki viewing, plugin installation, first PRD generation, and optional Azure DevOps MCP dry-run verification.
+
 ## Dependencies
 
 - [[Core Shared Conventions Plugin|jx-core]] provides ID rules, docs-root resolution, and the task JSON schema.
@@ -64,6 +68,8 @@ The original jx-pm design bundled PRD generation, technical specification genera
 ## Sources
 
 - [[Source - jx-pm Plugin README]]
+- [[Source - jx-pm Hooks Stub]]
+- [[Source - jx-pm Prompts Stub]]
 - [[Source - jx-dev Plugin README]]
 - [[Source - jx-core Plugin README]]
 - [[MCP Tool Surface Alignment Gate]]

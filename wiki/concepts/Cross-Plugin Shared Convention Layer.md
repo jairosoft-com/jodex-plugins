@@ -82,6 +82,7 @@ Can't just rename — must support both during transition.
 - [[Skill Chaining]] — cross-plugin chaining deferred during this split
 - [[Product Management Skills Plugin]] — origin of this pattern (jx-pm split)
 - [[Iterative Adversarial Review]] — used to harden the split design
+- [[Cross-Plugin Shared Convention Layer (Promoted)]] — original promoted idea retained as audit trail
 
 ## Sources
 - [[Source - Split Tech Spec Idea]]

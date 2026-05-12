@@ -64,7 +64,7 @@ jx-dev → jx-core
 
 ```bash
 # Add marketplace (one-time)
-/plugin marketplace add jairosoft-com/jodex-qa-ai
+/plugin marketplace add jairosoft-com/jodex-plugins
 
 # Install plugins you need
 /plugin install jx-qa@jodex-plugins
@@ -82,10 +82,10 @@ Installing jx-pm or jx-dev will also pull jx-core automatically via dependencies
 
 ```bash
 # Test a single plugin locally
-claude --plugin-dir /path/to/jodex-qa-ai/plugins/jx-qa
+claude --plugin-dir /path/to/jodex-plugins/plugins/jx-qa
 
 # Or register as local marketplace
-claude plugin marketplace add /path/to/jodex-qa-ai --scope project
+claude plugin marketplace add /path/to/jodex-plugins --scope project
 claude plugin install jx-qa@jodex-plugins
 ```
 

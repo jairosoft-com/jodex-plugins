@@ -6,6 +6,50 @@ title: Wiki Log
 
 ## 2026-05-12 — Synthesis Filing
 
+- **Operation**: file onboarding review insight
+- **Pages created**: [[Executable Setup Documentation]]
+- **Pages updated**: [[MCP Tool Surface Alignment Gate]], [[Identity And Access Ladder]], `_index.md`, `_log.md`
+- **Index**: updated, page_count 216 -> 217
+- **Outcome**: Captured the review insight that setup commands in onboarding docs must be treated as executable examples with verified CLI syntax and secret-safe credential handling.
+
+## 2026-05-12 — Synthesis Filing
+
+- **Operation**: file onboarding insight
+- **Pages created**: [[Identity And Access Ladder]]
+- **Pages updated**: [[JX PM Onboarding]], `_index.md`, `_log.md`
+- **Index**: updated, page_count 215 -> 216
+- **Outcome**: Captured the session-level correlation that PM onboarding is an ordered identity and access ladder across Anthropic Enterprise, GitHub, Azure DevOps, local Git credentials, Azure/GitHub CLI verification, and MCP setup.
+
+## 2026-05-12 — Synthesis Filing
+
+- **Operation**: file product-owner onboarding guide
+- **Pages created**: [[JX PM Onboarding]]
+- **Pages updated**: [[Product Management Skills Plugin]], `_index.md`, `_log.md`
+- **Source updated**: `README.md`
+- **Index**: updated, page_count 214 -> 215
+- **Outcome**: Added product-owner onboarding guidance for Claude Code CLI/Desktop, GitHub Desktop, GitHub CLI, Obsidian, `jx-pm`, `jx-kb`, the PM-to-dev handoff, and optional Azure DevOps MCP dry-run workflow.
+
+## 2026-05-12 — Lint Remediation
+
+- **Operation**: fix maintained-page lint findings
+- **Pages updated**: [[QA Testing Plugin]], [[Claude Desktop]], [[Pinned Helper]], [[Plugin Dependency Declaration]], [[Conflict Callout]], [[Semantic Locator]], [[SHA-256 Fingerprinting]], [[Idea Lifecycle]], [[Tracing]], [[Request Mocking]], [[QA Test Automation]], [[Lint]], [[wiki-tools.py]], [[Source - JX QA README]], `_log.md`
+- **Source updated**: `plugins/jx-qa/README.md`
+- **Helper updated**: `plugins/jx-kb/scripts/wiki-tools.py`
+- **Raw snapshot created locally**: `wiki/raw/sources/8c30c6de-README.md` (`wiki/raw/` is gitignored provenance)
+- **Outcome**: Resolved the two maintained conflict callouts, added backlinks for maintained orphan pages, expanded thin concept/topic pages, and excluded `wiki/raw/` provenance snapshots from structural wiki helper checks.
+
+## 2026-05-12 — Lint
+
+- **Operation**: lint
+- **Errors found**: 0
+- **Warnings found**: 26
+- **Info found**: 3
+- **Auto-fixes applied**: 0
+- **Health score**: 0/100
+- **Outcome**: Report generated. Maintained wiki pages have no index drift, no maintained-page frontmatter failures, and no maintained-page broken links; score is floor-zero because the current scoring model penalizes each editorial warning and raw-source helper noise is reported separately.
+
+## 2026-05-12 — Synthesis Filing
+
 - **Operation**: file onboarding and MCP setup insights
 - **Pages created**: [[Layered Developer Onboarding]], [[Client-Specific MCP Boundary]], [[MCP Tool Surface Alignment Gate]]
 - **Pages updated**: [[JX Dev Onboarding]], [[Product Management Skills Plugin]], [[Three-Surface Plugin Ecosystem]], `_index.md`, `_log.md`

@@ -1,11 +1,11 @@
 # jx-qa — QA Testing Plugin for Claude Code
 
-A QA testing pipeline that extracts E2E test cases from BRD/PRD documents, generates Playwright specs, and provides browser automation.
+A QA testing pipeline that extracts E2E test cases from BRD/PRD documents, generates Playwright specs, provides browser automation, and runs Playwright tests.
 
 ## Pipeline
 
 ```
-BRD/PRD markdown → [/jx-qa:extract] → xlsx test plan → [/jx-qa:generate] → Playwright .spec.ts files
+BRD/PRD markdown → [/jx-qa:extract] → xlsx test plan → [/jx-qa:generate] → Playwright .spec.ts files → [/jx-qa:test]
                                                               ↓ uses
                                                         [playwright-cli] (browser automation)
 ```
@@ -67,6 +67,24 @@ Open a browser for manual exploration and debugging.
 
 **Allowed executables:** `playwright-cli` only
 
+### `/jx-qa:test`
+
+Run generated Playwright specs in headless, UI, or headed mode.
+
+```
+/jx-qa:test
+/jx-qa:test ui
+/jx-qa:test headed
+```
+
+**What it does:**
+1. Runs the project Playwright test suite headless by default
+2. Opens Playwright UI mode when passed `ui`
+3. Runs with a visible browser when passed `headed`
+4. Returns the test result output for review
+
+**Allowed executables:** `npx playwright test` only
+
 ## Plugin Structure
 
 ```
@@ -76,7 +94,8 @@ jx-qa/
 ├── skills/                       # Skill logic
 │   ├── extract/                  # BRD → xlsx
 │   ├── generate/                 # xlsx → Playwright specs
-│   └── playwright-cli/           # Browser automation (internal)
+│   ├── playwright-cli/           # Browser automation (internal)
+│   └── test/                     # Playwright test runner
 ├── agents/                       # Custom subagents (future)
 ├── hooks/                        # Lifecycle hooks (future)
 ├── prompts/                      # Shared prompt fragments (future)

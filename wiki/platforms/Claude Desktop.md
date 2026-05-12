@@ -3,7 +3,7 @@ title: Claude Desktop
 type: platform
 tags: [claude, desktop, mcp]
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-12
 source_count: 2
 aliases: [Desktop]
 provenance: source-derived
@@ -46,8 +46,9 @@ To use a [[Claude Code CLI]] plugin (e.g., `jodex-qa-ai`) in Desktop:
 2. Register CLI [[Skill]]s as [[MCP Tool]]s
 3. Configure Desktop to execute the server inside [[WSL]] via `wsl.exe`
 
-> [!conflict] WSL config example path
-> [[Source - Claude CLI vs Desktop MCP Guide]] and [[Source - Claude Desktop WSL Integration]] both provide the same WSL `wsl.exe` configuration JSON block with identical structure. No factual conflict — both sources agree on the approach.
+## Source Alignment Note
+
+[[Source - Claude CLI vs Desktop MCP Guide]] and [[Source - Claude Desktop WSL Integration]] both provide the same WSL `wsl.exe` configuration pattern. This is corroborating evidence rather than a factual conflict.
 
 ## Sources
 - [[Source - Claude CLI vs Desktop MCP Guide]]

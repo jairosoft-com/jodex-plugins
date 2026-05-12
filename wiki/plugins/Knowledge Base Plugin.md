@@ -3,7 +3,7 @@ title: Knowledge Base Plugin
 type: plugin
 tags: [knowledge-base, wiki, jx-kb]
 created: 2026-05-07
-updated: 2026-05-09
+updated: 2026-05-12
 source_count: 1
 aliases: [jx-kb, jx-kb plugin, llm-wiki]
 provenance: source-derived
@@ -51,7 +51,7 @@ raw source → /jx-kb:ingest → wiki pages
 
 - Wikilinks resolve natively
 - YAML frontmatter compatible with [[Dataview Queries|Dataview]]
-- `> [!conflict]` renders as callout blocks
+- Conflict callouts render as styled Obsidian callout blocks
 - Graph view shows full knowledge graph
 - Aliases in frontmatter for alternate names
 

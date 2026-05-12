@@ -3,7 +3,7 @@ title: QA Testing Plugin
 type: plugin
 tags: [testing, playwright, jx-qa]
 created: 2026-05-07
-updated: 2026-05-11
+updated: 2026-05-12
 source_count: 10
 aliases: [jx-qa, jx-qa plugin, qa-ai]
 provenance: source-derived
@@ -30,10 +30,9 @@ BRD/PRD markdown → /jx-qa:extract → xlsx test plan → /jx-qa:generate → P
 | `/jx-qa:browser` | playwright-cli | Browser automation (internal) |
 | `/jx-qa:test` | test | Run [[Playwright]] tests headless, UI, or headed |
 
-> [!conflict] Command inventory
-> [[Source - JX QA README]] preserves an older three-command plugin README.
-> [[Source - Root README]], [[Source - Test Command]], and [[Source - Test SKILL]] show `/jx-qa:test` as part of the current command surface.
-> Treat the live command and skill files as current until `plugins/jx-qa/README.md` is refreshed.
+## Source Refresh Note
+
+Earlier wiki lint found that [[Source - JX QA README]] preserved an older three-command README while live command files already included `/jx-qa:test`. The live `plugins/jx-qa/README.md` has now been refreshed to document `/jx-qa:test`, so the command inventory is no longer a maintained-page conflict.
 
 ## Test Plan Directory
 
@@ -61,6 +60,12 @@ Use [[JX QA Onboarding]] for QA-user setup: marketplace install, local project l
 
 - [[QA Test Automation]] — broader subject area
 - [[Browser Automation]] — Playwright ecosystem
+
+## Related Ideas
+
+- [[Scaffold QA Project From Skill]] — future setup accelerator for new QA projects
+- [[Gemma 4 for Playwright Script Generation]] — local model idea for Playwright spec generation
+- [[Distilled Local Model for Test Script Generation]] — distillation strategy for local spec generation
 
 ## Key Concepts
 

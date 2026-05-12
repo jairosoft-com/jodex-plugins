@@ -3,7 +3,7 @@ title: Obsidian
 type: entity
 tags: [tool, editor, markdown]
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-12
 source_count: 2
 aliases: [Obsidian.md]
 provenance: source-derived
@@ -30,7 +30,7 @@ User has Obsidian open on one side and the LLM agent on the other. The LLM makes
 
 - Wikilinks resolve natively in Obsidian
 - YAML frontmatter compatible with [[Dataview Queries|Dataview]] plugin
-- `> [!conflict]` callouts render as styled callout blocks
+- Conflict callouts render as styled callout blocks
 - Graph view shows full wiki knowledge graph
 - Aliases in frontmatter enable alternate page name resolution
 

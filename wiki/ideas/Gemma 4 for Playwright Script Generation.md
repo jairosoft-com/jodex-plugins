@@ -32,4 +32,5 @@ Use Google's Gemma 4 model to generate `.spec.ts` / [[Playwright]] scripts as pa
 
 - [[QA Testing Plugin|jx-qa]] — target plugin
 - [[Test Code Generation]] — existing concept for auto-generating specs
+- [[Distilled Local Model for Test Script Generation]] — related local-model strategy
 - [[Source - Generate SKILL]] — current generate workflow

@@ -44,6 +44,7 @@ Jodex slash commands use narrow tool permissions as a safety boundary. That boun
 
 - [[MCP Tool]]
 - [[Client-Specific MCP Boundary]]
+- [[Executable Setup Documentation]]
 - [[Product Management Skills Plugin]]
 - [[User Confirmation Gate]]
 - [[Fail-Closed Lookup]]

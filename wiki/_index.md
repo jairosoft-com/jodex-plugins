@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-12
-page_count: 214
+page_count: 217
 ---
 
 # Wiki Index
@@ -41,12 +41,14 @@ page_count: 214
 - [[Fail-Closed Lookup]] — Require exactly 1 match from external system; halt on 0 or 2+ (#pattern, #safety)
 - [[E2E Test Case]] — Classification of requirements as E2E-testable or not (#testing, #classification)
 - [[Emergent Design from Constraint]] — Best patterns emerge from hitting limits, not upfront design (#pattern, #meta, #emergence)
+- [[Executable Setup Documentation]] — Treat onboarding commands as verified, secret-safe executable examples (#documentation, #onboarding, #verification)
 - [[Health Score]] — 0-100 score quantifying wiki quality from lint (#wiki, #metrics)
 - [[Hook]] — Plugin lifecycle event handler (#plugin, #lifecycle)
 - [[Idea Lifecycle]] — Progression: raw → promoted/backlogged/archived (#wiki, #workflow)
 - [[Idempotent Operation]] — Safe re-run pattern, skips existing work (#pattern, #safety)
 - [[Index]] — Content catalog for wiki navigation via _index.md (#architecture, #wiki)
 - [[Iterative Adversarial Review]] — Multi-pass design hardening: review, resolve, re-submit until clean (#pattern, #quality)
+- [[Identity And Access Ladder]] — Verify identity, enterprise membership, repo access, credentials, and MCP tool access before first workflow (#onboarding, #identity, #access-control)
 - [[Ingest]] — Core operation: absorb source documents into wiki pages (#operation, #wiki)
 - [[Knowledge Flywheel]] — Self-reinforcing loop: build → review → execute → capture → enrich → lint (#pattern, #workflow, #meta)
 - [[Layered Developer Onboarding]] — Install and verify developer workflow capabilities in dependency order (#onboarding, #developer-experience, #plugin)
@@ -154,6 +156,7 @@ page_count: 214
 - [[Creating a Plugin]] — End-to-end guide for adding a new plugin to the plugin architecture (#plugin, #how-to, #onboarding)
 - [[Creating a Skill]] — Step-by-step guide for adding a new skill to a Claude Code plugin (#skill, #how-to)
 - [[JX Dev Onboarding]] — Developer setup guide for installing Claude Code CLI/Desktop, jx-dev, jx-kb, the project wiki, and Azure DevOps MCP (#jx-dev, #jx-kb, #claude-code, #azure-devops, #onboarding)
+- [[JX PM Onboarding]] — Product owner setup guide for installing Claude Code CLI/Desktop, GitHub tooling, Obsidian, jx-pm, jx-kb, and optional Azure DevOps MCP (#jx-pm, #product-owner, #onboarding)
 - [[JX QA Onboarding]] — QA user setup guide for installing jx-qa and jx-kb, initializing a project wiki, and running Playwright workflows (#jx-qa, #onboarding, #setup, #playwright)
 - [[wiki-tools.py]] — Pinned helper script for jx-kb plugin (#script, #python)
 - [[xlsx-writer.py]] — Pinned helper script for jx-qa plugin (#script, #python)
