@@ -7,7 +7,7 @@ updated: 2026-05-10
 source_count: 0
 aliases: [distilled model test gen, local distilled playwright]
 provenance: synthesis
-status: raw
+status: backlogged
 ---
 
 # Distilled Local Model for Test Script Generation

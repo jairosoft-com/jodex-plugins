@@ -7,7 +7,7 @@ updated: 2026-05-12
 source_count: 0
 aliases: [github tutorial, github for beginners, non-dev github guide]
 provenance: synthesis
-status: raw
+status: backlogged
 ---
 
 # GitHub Beginner Tutorial for Non-Developers

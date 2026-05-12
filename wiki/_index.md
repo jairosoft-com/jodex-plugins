@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-12
-page_count: 217
+page_count: 219
 ---
 
 # Wiki Index
@@ -15,10 +15,12 @@ page_count: 217
 - [[Cross-Plugin Shared Convention Layer (Promoted)]] — Shared convention plugin pattern from jx-pm split (#plugin-architecture, #pattern) [promoted]
 - [[Rebrand Skills to jx Namespace]] — Unify all plugins under jx-* naming: jx-qa, jx-kb, jx-pm, jx-dev, jx-core (#plugin, #naming) [completed]
 - [[Split Tech Spec Into jx-dev Plugin]] — Extract dev skills to jx-dev, shared conventions to jx-core (#plugin-architecture, #refactor) [archived: implemented]
-- [[Distilled Local Model for Test Script Generation]] — Use distilled local model to generate test scripts offline (#jx-qa, #local-llm, #distillation)
-- [[Scaffold QA Project From Skill]] — Skill to scaffold full QA project structure from one command (#jx-qa, #scaffolding, #developer-experience)
-- [[Gemma 4 for Playwright Script Generation]] — Use Gemma 4 to generate .spec.ts / Playwright scripts in jx-qa pipeline (#jx-qa, #gemma, #local-llm)
-- [[Schema Sources Rule Exception for Source Pages]] — Source pages self-referentially violate ## Sources requirement; 65 lint warnings (#wiki, #schema, #lint) [raw]
+- [[Distilled Local Model for Test Script Generation]] — Use distilled local model to generate test scripts offline (#jx-qa, #local-llm, #distillation) [backlogged P3]
+- [[Scaffold QA Project From Skill]] — Skill to scaffold full QA project structure from one command (#jx-qa, #scaffolding, #developer-experience) [backlogged P2]
+- [[Gemma 4 for Playwright Script Generation]] — Use Gemma 4 to generate .spec.ts / Playwright scripts in jx-qa pipeline (#jx-qa, #gemma, #local-llm) [backlogged P3]
+- [[GitHub Beginner Tutorial for Non-Developers]] — Teach non-devs to use GitHub for project collaboration via web UI (#documentation, #onboarding, #github) [backlogged P3]
+- [[JX Foundational Onboarding]] — Shared prerequisite setup steps (Claude Code, Git, GitHub CLI, uv, Node.js, jx-kb) extracted from PM/Dev/QA onboarding docs (#onboarding, #jx-kb, #setup, #shared) [backlogged P2]
+- [[Schema Sources Rule Exception for Source Pages]] — Source pages self-referentially violate ## Sources requirement; 65 lint warnings (#wiki, #schema, #lint) [backlogged P2]
 - [[Triage Wiki Lint Editorial Warnings]] — Review remaining maintained-page lint warnings after raw-source noise is excluded (#wiki, #lint) [backlogged P3]
 - [[Wiki Search Tools]] — qmd and CLI tools for wiki search at scale (#tooling, #search) [backlogged P3]
 

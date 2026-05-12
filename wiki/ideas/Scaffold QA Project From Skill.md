@@ -7,7 +7,7 @@ updated: 2026-05-10
 source_count: 0
 aliases: [qa project scaffold, jx-qa init, qa project generator]
 provenance: synthesis
-status: raw
+status: backlogged
 ---
 
 # Scaffold QA Project From Skill

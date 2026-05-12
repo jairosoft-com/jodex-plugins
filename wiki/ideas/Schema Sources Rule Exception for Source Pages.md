@@ -1,7 +1,7 @@
 ---
 title: Schema Sources Rule Exception for Source Pages
 type: idea
-status: raw
+status: backlogged
 created: 2026-05-10
 updated: 2026-05-11
 tags: [wiki, schema, lint, sources]

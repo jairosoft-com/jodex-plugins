@@ -7,7 +7,7 @@ updated: 2026-05-10
 source_count: 0
 aliases: [gemma playwright, gemma spec generation]
 provenance: synthesis
-status: raw
+status: backlogged
 ---
 
 # Gemma 4 for Playwright Script Generation
