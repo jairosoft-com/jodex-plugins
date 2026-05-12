@@ -122,7 +122,7 @@ Claude Code CLI and Claude Code Desktop share settings, project instructions, MC
 Install `jx-dev` and `jx-kb` from the marketplace:
 
 ```text
-/plugin marketplace add jairosoft-com/jodex-qa-ai
+/plugin marketplace add jairosoft-com/jodex-plugins
 /plugin install jx-dev@jodex-plugins
 /plugin install jx-kb@jodex-plugins
 /reload-plugins
