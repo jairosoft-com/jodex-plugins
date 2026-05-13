@@ -5,13 +5,13 @@ tags: [pattern, plugin-architecture, DRY, jx-core]
 created: 2026-05-09
 updated: 2026-05-09
 source_count: 8
-aliases: [shared convention plugin, reference-only plugin, jx-core pattern]
+aliases: [shared convention plugin, shared plugin, jx-core pattern]
 provenance: source-derived
 ---
 
 # Cross-Plugin Shared Convention Layer
 
-When splitting a monolithic plugin into multiple plugins, shared conventions (ID rules, output directory resolution, JSON schemas) belong in a dedicated reference-only plugin rather than being duplicated or symlinked.
+When splitting a monolithic plugin into multiple plugins, shared conventions (ID rules, output directory resolution, JSON schemas) and shared executable skill logic belong in a dedicated shared plugin rather than being duplicated or symlinked.
 
 ## The Problem
 
@@ -68,7 +68,7 @@ Can't just rename — must support both during transition.
 
 ## Key Learnings
 
-1. **Reference-only plugins are valid** — exempt from `commands/` directory requirement
+1. **Shared plugins are valid** — exempt from `commands/` directory requirement. Originally reference-only (conventions); expanded in 2026-05-12 to include executable skill logic (`_shared/ado.md`, `_shared/task.md`) consumed by role plugin stubs.
 2. **Path anchoring matters** — relative paths resolve from the consuming SKILL.md, not from the shared file
 3. **Deferred chaining avoids scope explosion** — cross-plugin orchestration is a separate concern from shared conventions
 4. **Pipeline reduction over cross-plugin orchestration** — reduce to single-skill delegation until chaining designed

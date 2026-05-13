@@ -15,7 +15,6 @@ updated: 2026-05-12
 - [[Scaffold QA Project From Skill]] — Add /jx-qa:init skill to scaffold complete QA project (dirs, playwright.config.ts, package.json, .gitignore) (#jx-qa, #scaffolding, #dx)
 - [[Align jx-qa Generate Tool Contract]] — Fix xlsx parsing tool mismatch in generate skill (#jx-qa, #security)
 - [[Raw Sources Should Be Excluded From Wiki Graph]] — Exclude raw/ from wiki-tools.py page graph; implementation plan saved in `.agent/plans/fix-wiki-lint-raw-exclusion.md` (#wiki, #lint)
-- [[Extract ADO Sync and Task Skills to jx-core]] — Move ado/task logic to jx-core/_shared/; role plugins keep commands + thin stubs; reclassifies jx-core contract (#plugin-architecture, #jx-core, #cross-role)
 
 ## P3 — Low
 

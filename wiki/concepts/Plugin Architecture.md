@@ -82,11 +82,11 @@ Plugins can declare dependencies on other plugins via a `dependencies` field in 
 }
 ```
 
-Sibling layout assumed — all plugins under `plugins/`. See [[Cross-Plugin Shared Convention Layer]] for the reference-only plugin pattern that motivated this convention.
+Sibling layout assumed — all plugins under `plugins/`. See [[Cross-Plugin Shared Convention Layer]] for the shared plugin pattern that motivated this convention.
 
-## Reference-Only Plugins
+## Shared Plugins
 
-A plugin with no user-invocable skills or commands — only shared convention files consumed by other plugins via relative paths. Exempt from `commands/` directory requirement. Contains `plugin.json`, README, and `_shared/` convention files only. See [[Cross-Plugin Shared Convention Layer]].
+A plugin with no user-invocable commands — shared convention files and executable skill logic consumed by other plugins via relative paths. Exempt from `commands/` directory requirement. Contains `plugin.json`, README, and `_shared/` files. See [[Cross-Plugin Shared Convention Layer]].
 
 ## Dependencies
 

@@ -62,7 +62,7 @@ plugins/{plugin}/skills/
 
 ## Cross-Plugin Extraction
 
-When shared references need to be consumed by multiple plugins (not just skills within one plugin), extract to a dedicated reference-only plugin. See [[Cross-Plugin Shared Convention Layer]] for the pattern where `_shared/` moves from `plugins/jx-pm/skills/_shared/` to `plugins/jx-core/_shared/`.
+When shared references need to be consumed by multiple plugins (not just skills within one plugin), extract to a dedicated shared plugin. See [[Cross-Plugin Shared Convention Layer]] for the pattern where `_shared/` moves from `plugins/jx-pm/skills/_shared/` to `plugins/jx-core/_shared/`.
 
 ## Related
 

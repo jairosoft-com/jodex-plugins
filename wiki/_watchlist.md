@@ -109,7 +109,8 @@ Monitored paths for new or changed content. Run `/jx-kb:ingest` against pending 
 
 ## Pending (not yet ingested)
 
-None — all monitored paths ingested.
+- `plugins/jx-core/_shared/ado.md`
+- `plugins/jx-core/_shared/task.md`
 
 ## Change Detection
 

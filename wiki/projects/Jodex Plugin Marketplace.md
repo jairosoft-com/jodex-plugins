@@ -50,7 +50,7 @@ For agent orientation, [[Source - Agent Instructions]] defines live repo files a
 | [[QA Testing Plugin|jx-qa]] | 4 | Complete | QA automation |
 | [[Product Management Skills Plugin|jx-pm]] | 3 | Current | PRD and ADO workflows |
 | [[Developer Skills Plugin|jx-dev]] | 2 | Current | Spec and task workflows |
-| [[Core Shared Conventions Plugin|jx-core]] | 0 | Current | Reference-only shared conventions |
+| [[Core Shared Conventions Plugin|jx-core]] | 0 | Current | Shared conventions + executable skill logic (ADO sync, task conversion) |
 
 ### Known Issues
 

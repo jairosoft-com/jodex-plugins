@@ -1,8 +1,6 @@
 # jx-core
 
-Reference-only plugin — no commands or skills.
-
-Provides shared conventions consumed by sibling plugins (`jx-pm`, `jx-dev`) via relative path references.
+Shared plugin — conventions and executable skill logic consumed by sibling role plugins. No user-invocable commands.
 
 ## Contents
 
@@ -11,14 +9,16 @@ Provides shared conventions consumed by sibling plugins (`jx-pm`, `jx-dev`) via 
 | `_shared/id-rules.md` | Folder validation, feature-number extraction, ID format and type definitions |
 | `_shared/docs-root.md` | Output directory resolution order and prompting conventions |
 | `_shared/task-json-schema.md` | Canonical task.json schema for task breakdowns |
+| `_shared/ado.md` | Azure Boards sync skill logic (consumed by `jx-pm` via stub) |
+| `_shared/task.md` | Task JSON converter skill logic (consumed by `jx-dev` via stub) |
 
 ## Sibling Layout
 
 ```
 plugins/
-  jx-core/          # this plugin (reference-only)
-  jx-pm/            # PM skills: prd, ado, pipeline
-  jx-dev/           # Dev skills: spec, task
+  jx-core/          # this plugin (shared conventions + executable logic)
+  jx-pm/            # PM skills: prd, ado (stub → jx-core), pipeline
+  jx-dev/           # Dev skills: spec, task (stub → jx-core)
 ```
 
 ## Relative Path Convention

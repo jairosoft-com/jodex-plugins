@@ -21,7 +21,7 @@ The best patterns in this project emerged from hitting limits, not from upfront 
 | No inter-process communication | Signal files (`touch /tmp/done`) | Simplest possible coordination |
 | Can't attach tmux from Claude Code | User monitors in Terminal.app | Clean separation of orchestration and observation |
 | Tmux pane indices vary per user config | Query indices before splitting (`list-windows`, `list-panes`) | Never assume 0-based; works across configs |
-| Plugin grows too large | Reference-only plugin (jx-core) | No commands, no skills, just shared contracts |
+| Plugin grows too large | Shared plugin (jx-core) | No user-invocable commands; `_shared/` holds both conventions and executable skill logic consumed by role plugins |
 | Env var rename breaks backward compat | Precedence chain fallback | Both old and new work simultaneously |
 
 ## The Pattern

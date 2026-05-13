@@ -1,7 +1,8 @@
 ---
 title: Extract ADO Sync and Task Skills to jx-core
 type: idea
-status: backlogged
+status: archived
+archive_reason: implemented
 updated: 2026-05-12
 created: 2026-05-12
 groomed: 2026-05-12
@@ -84,32 +85,32 @@ The `jx-core` dependency declaration is **required** — without it, a fresh mar
 ## Acceptance Criteria
 
 ### Core Logic Migration
-- [ ] `jx-core/_shared/ado.md` contains full ADO sync skill logic (moved from `jx-pm/skills/ado/SKILL.md`)
-- [ ] `jx-core/_shared/task.md` contains full task conversion skill logic (moved from `jx-dev/skills/task/SKILL.md`)
-- [ ] `jx-pm/skills/ado/SKILL.md` is a thin stub delegating to `../../../jx-core/_shared/ado.md`
-- [ ] `jx-dev/skills/task/SKILL.md` is a thin stub delegating to `../../../jx-core/_shared/task.md`
+- [x] `jx-core/_shared/ado.md` contains full ADO sync skill logic (moved from `jx-pm/skills/ado/SKILL.md`)
+- [x] `jx-core/_shared/task.md` contains full task conversion skill logic (moved from `jx-dev/skills/task/SKILL.md`)
+- [x] `jx-pm/skills/ado/SKILL.md` is a thin stub delegating to `../../../jx-core/_shared/ado.md`
+- [x] `jx-dev/skills/task/SKILL.md` is a thin stub delegating to `../../../jx-core/_shared/task.md`
 
 ### Surface Unchanged
-- [ ] `jx-pm/commands/ado.md` unchanged — `/jx-pm:ado` still invocable with same arguments and allowed-tools
-- [ ] `jx-dev/commands/task.md` unchanged — `/jx-dev:task` still invocable with same arguments and allowed-tools
-- [ ] `jx-core` has no `commands/` directory and no user-invocable skills
+- [x] `jx-pm/commands/ado.md` unchanged — `/jx-pm:ado` still invocable with same arguments and allowed-tools
+- [x] `jx-dev/commands/task.md` unchanged — `/jx-dev:task` still invocable with same arguments and allowed-tools
+- [x] `jx-core` has no `commands/` directory and no user-invocable skills
 
 ### jx-core Contract Update
-- [ ] `plugins/jx-core/README.md` updated — "reference-only" language removed, new scope described
-- [ ] `plugins/jx-core/.claude-plugin/plugin.json` description updated
-- [ ] `wiki/plugins/Core Shared Conventions Plugin.md` updated to reflect expanded contract
+- [x] `plugins/jx-core/README.md` updated — "reference-only" language removed, new scope described
+- [x] `plugins/jx-core/.claude-plugin/plugin.json` description updated
+- [x] `wiki/plugins/Core Shared Conventions Plugin.md` updated to reflect expanded contract
 
 ### Security
-- [ ] `jx-core/_shared/ado.md` contains all four confirmation gates: `rebind` (`--new-tenant`), `prune` (`--prune`), `recreate` (force-recreate), `sync` (state-sync)
-- [ ] Thin role stubs cannot bypass gates — no gate logic in stubs, all gate logic in shared file
-- [ ] `allowed-tools` in `jx-pm/commands/ado.md` unchanged — Azure MCP write tools declared at command level, not in jx-core
+- [x] `jx-core/_shared/ado.md` contains all four confirmation gates: `rebind` (`--new-tenant`), `prune` (`--prune`), `recreate` (force-recreate), `sync` (state-sync)
+- [x] Thin role stubs cannot bypass gates — no gate logic in stubs, all gate logic in shared file
+- [x] `allowed-tools` in `jx-pm/commands/ado.md` unchanged — Azure MCP write tools declared at command level, not in jx-core
 - [ ] Any new role wrapper for `ado` must mirror `allowed-tools` from `jx-pm/commands/ado.md` exactly
 
 ### Manifest Dependencies
-- [ ] `jx-pm/.claude-plugin/plugin.json` already declares `"jx-core"` in dependencies (verify unchanged)
-- [ ] `jx-dev/.claude-plugin/plugin.json` already declares `"jx-core"` in dependencies (verify unchanged)
+- [x] `jx-pm/.claude-plugin/plugin.json` already declares `"jx-core"` in dependencies (verify unchanged)
+- [x] `jx-dev/.claude-plugin/plugin.json` already declares `"jx-core"` in dependencies (verify unchanged)
 - [ ] Any future role plugin referencing `jx-core/_shared/*` must declare `"dependencies": ["jx-core"]`
 
 ### Schema
-- [ ] `task-json-schema.md` in `jx-core/_shared/` remains single source of truth for task structure
-- [ ] All relative path references in shared files resolve correctly
+- [x] `task-json-schema.md` in `jx-core/_shared/` remains single source of truth for task structure
+- [x] All relative path references in shared files resolve correctly

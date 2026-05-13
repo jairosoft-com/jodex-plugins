@@ -29,7 +29,7 @@ Convention for declaring inter-plugin dependencies in `plugin.json` using a `dep
 
 - `dependencies` is an array of plugin names (strings)
 - Dependent plugins assume sibling layout: all under `plugins/`
-- Reference-only plugins (like jx-core) have NO dependencies field
+- Core shared plugins (like jx-core) have NO dependencies field — they are the dependency, not the consumer
 - This is a new convention — existing plugins prior to jx-pm split did not use it
 
 The field is documentation and install-order contract, not a runtime import system. A consuming plugin still references files by explicit relative path, but the dependency declaration tells maintainers, installers, and reviewers which sibling plugin must be present for those paths to resolve.

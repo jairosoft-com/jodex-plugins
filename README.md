@@ -10,7 +10,7 @@ Claude Code plugin marketplace by **Jairosoft** — five plugins spanning QA aut
 | **jx-kb** | Knowledge | LLM-maintained wiki: ingest sources, query with citations, lint for health |
 | **jx-pm** | Product | Generate PRDs, sync to Azure Boards |
 | **jx-dev** | Developer | Generate technical specifications and task breakdowns from PRDs |
-| **jx-core** | Core | Shared conventions (ID rules, docs-root resolution, task JSON schema). Reference-only — no commands |
+| **jx-core** | Core | Shared conventions and executable skill logic (ADO sync, task conversion) consumed by role plugins. No user-facing commands |
 
 ### jx-qa
 

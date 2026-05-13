@@ -15,7 +15,7 @@
 - `plugins/*/README.md` carries plugin-specific workflow, dependency, and installation context.
 - `plugins/*/commands/*.md` defines user-facing slash commands.
 - `plugins/*/skills/*/SKILL.md` defines skill behavior.
-- `plugins/jx-core/_shared/` contains shared conventions consumed by sibling plugins.
+- `plugins/jx-core/_shared/` contains shared conventions and executable skill logic consumed by sibling plugins.
 - `wiki/` is the maintained project knowledge base; `wiki/raw/` is provenance, not maintained guidance.
 
 ## Operating Rules
@@ -32,7 +32,7 @@
 - `jx-kb` handles wiki init, ingest, query, triage, and lint workflows.
 - `jx-pm` handles PRD generation, pipeline orchestration, and Azure Boards sync.
 - `jx-dev` handles technical specifications and task breakdowns from PRDs.
-- `jx-core` is reference-only and provides shared conventions. It has no user-facing commands.
+- `jx-core` provides shared conventions and executable skill logic. It has no user-facing commands but its `_shared/` files contain executable instructions consumed by role plugin stubs.
 - The PM-to-delivery flow is `/jx-pm:prd` -> `/jx-dev:spec` -> `/jx-dev:task` -> `/jx-pm:ado`.
 
 ## Wiki and Memory
