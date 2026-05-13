@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-12
-page_count: 220
+page_count: 221
 ---
 
 # Wiki Index
@@ -23,6 +23,7 @@ page_count: 220
 - [[Schema Sources Rule Exception for Source Pages]] — Source pages self-referentially violate ## Sources requirement; 65 lint warnings (#wiki, #schema, #lint) [backlogged P2]
 - [[Triage Wiki Lint Editorial Warnings]] — Review remaining maintained-page lint warnings after raw-source noise is excluded (#wiki, #lint) [backlogged P3]
 - [[Wiki Search Tools]] — qmd and CLI tools for wiki search at scale (#tooling, #search) [backlogged P3]
+- [[Extract ADO Sync and Task Skills to jx-core]] — Move ado (jx-pm) and task (jx-dev) into jx-core for cross-role availability (#plugin-architecture, #jx-core, #cross-role) [backlogged P2]
 
 ## Concepts
 
