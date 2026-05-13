@@ -3,7 +3,7 @@ title: JX QA Onboarding
 type: code
 tags: [jx-qa, onboarding, setup, playwright]
 created: 2026-05-11
-updated: 2026-05-11
+updated: 2026-05-12
 source_count: 0
 aliases: [QA onboarding, jx-qa setup, QA setup guide]
 provenance: synthesis
@@ -11,18 +11,15 @@ provenance: synthesis
 
 # JX QA Onboarding
 
-This guide is for QA users setting up a local project with [[QA Testing Plugin|jx-qa]] and [[Knowledge Base Plugin|jx-kb]]. After onboarding, a QA user should be able to install the plugins, initialize a project wiki, extract test plans from BRD/PRD documents, generate [[Playwright]] specs, run tests, and report plugin issues with enough detail for maintainers to reproduce them.
+> [!prerequisite] Complete [[JX Foundational Onboarding]] before continuing.
+
+This guide is for QA users setting up a local project with [[QA Testing Plugin|jx-qa]] and [[Knowledge Base Plugin|jx-kb]]. After onboarding, a QA user should be able to install the plugins, extract test plans from BRD/PRD documents, generate [[Playwright]] specs, run tests, and report plugin issues with enough detail for maintainers to reproduce them.
 
 Use `jairosoft-com/jodex-plugins` as the canonical GitHub marketplace repo. Older references to `jodex-qa-ai` are legacy repo-alias wording from earlier snapshots; current install guidance should use `jodex-plugins`.
 
 ## Prerequisites
 
-- Claude Code CLI or Desktop with plugin support.
-- Git.
-- Python 3 plus `openpyxl`.
-- Node.js 18 or newer.
-- Playwright browsers.
-- `playwright-cli`.
+See [[JX Foundational Onboarding]] for shared prerequisites (Claude Code, Git, GitHub CLI, uv, Python 3, Node.js 20+, jx-core, jx-kb). QA-specific additions covered in this guide: Node.js packages (`@playwright/test`, `@playwright/cli`) and Playwright browsers.
 
 ## Project Layout
 
@@ -40,26 +37,18 @@ Create or clone a QA-owned project repo, then create only the working folders yo
 
 Start with project-owned folders such as `raw/articles/`, `test-plans/`, and `tests/`. Do not manually create `wiki/_schema.md`, taxonomy folders, `_index.md`, `_log.md`, `_backlog.md`, or `wiki/raw/sources/`; `/jx-kb:init wiki` creates the wiki scaffold.
 
-## Git Setup
+## Repository Setup
 
-Clone an existing QA/project repo or initialize a new one:
-
-```bash
-git clone <repo-url> <qa-project>
-cd <qa-project>
-git switch -c qa-onboarding
-```
-
-For a new local repo:
+After cloning (see [[JX Foundational Onboarding]]), create a working branch and set up QA-specific directories:
 
 ```bash
-mkdir <qa-project>
-cd <qa-project>
-git init
 git switch -c qa-onboarding
+mkdir -p raw/articles test-plans tests
 ```
 
-Create a branch per onboarding, test extraction, or spec-generation task. Add or update `.gitignore` before installing dependencies or running tests:
+These directories are required before `/jx-qa:extract`, `/jx-qa:generate`, and test output work. Do not skip this step even if the repo already has other directories.
+
+Add or update `.gitignore` before installing dependencies or running tests:
 
 ```gitignore
 node_modules/
@@ -77,16 +66,23 @@ Commit source docs, test plans, and generated specs intentionally. Do not commit
 
 ## Install Plugins
 
-Install the QA and knowledge-base plugins from the marketplace:
+Foundation already registered the marketplace and installed jx-core and jx-kb. Install only the QA plugin here:
 
 ```text
-/plugin marketplace add jairosoft-com/jodex-plugins
 /plugin install jx-qa@jodex-plugins
-/plugin install jx-kb@jodex-plugins
 /reload-plugins
 ```
 
-`jx-qa` handles BRD/PRD extraction, test-plan generation, Playwright spec generation, browser exploration, and test execution. `jx-kb` gives the project a local wiki for setup notes, source summaries, troubleshooting, and later retrieval.
+`jx-qa` handles BRD/PRD extraction, test-plan generation, Playwright spec generation, browser exploration, and test execution.
+
+Confirm these commands are visible after reload:
+
+```text
+/jx-qa:extract
+/jx-qa:generate
+/jx-qa:test
+/jx-qa:browser
+```
 
 ## Install Dependencies
 
@@ -101,24 +97,9 @@ npm install -g @playwright/cli@latest
 
 On Windows, prefer WSL or a shell environment that matches the commands used by the project. Avoid committing environment-specific files produced during installation.
 
-## Initialize Knowledge Base
-
-Run the init command once:
-
-```text
-/jx-kb:init wiki
-```
-
-This is the only setup step for wiki scaffolding. It creates `wiki/_schema.md`, `wiki/_index.md`, `wiki/_log.md`, `wiki/_backlog.md`, taxonomy directories, and `wiki/raw/sources/`.
-
-If `wiki/_schema.md` already exists, do not blindly reinitialize. The init skill stops and asks before resetting schema files while preserving existing pages.
-
-After initialization, use `/jx-kb:ingest <source> wiki` to file BRDs, setup notes, or troubleshooting writeups. Use `/jx-kb:query <question> wiki` to retrieve project knowledge with wiki citations.
-
 ## First Workflow
 
 ```text
-/jx-kb:init wiki
 /jx-qa:extract raw/articles/<BRD_OR_PRD>.md
 /jx-qa:generate test-plans/<test-plan>.xlsx
 /jx-qa:test
@@ -136,6 +117,18 @@ After initialization, use `/jx-kb:ingest <source> wiki` to file BRDs, setup note
 - Re-run only the specs you changed when debugging, then run the full suite before handing off.
 - Commit each meaningful step separately when it helps review: setup, source docs, generated test plan, generated specs, fixes.
 - Use the project wiki for setup decisions and troubleshooting notes that future QA users should reuse.
+
+## Verification Checklist
+
+Complete [[JX Foundational Onboarding#Verification Checklist]] first, then verify:
+
+- `/jx-qa:extract`, `/jx-qa:generate`, `/jx-qa:test` are visible commands.
+- `python3 -c "import openpyxl"` succeeds.
+- `npx playwright --version` succeeds.
+- `npm run test` or `npx playwright test` runs without config errors.
+- `raw/articles/` directory exists for BRD/PRD inputs.
+- `test-plans/` directory exists for xlsx outputs.
+- `tests/` directory exists for generated specs.
 
 ## Reporting Issues
 

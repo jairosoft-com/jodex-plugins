@@ -1,5 +1,5 @@
 ---
-title: JX Foundational Onboarding
+title: JX Foundational Onboarding (Promoted)
 type: idea
 tags: [onboarding, jx-kb, setup, claude-code, git, shared]
 created: 2026-05-12
@@ -7,8 +7,8 @@ updated: 2026-05-12
 source_count: 3
 aliases: [Foundational Onboarding, Common Onboarding, Base Onboarding, Shared Onboarding, Jodex Onboarding Foundation]
 provenance: synthesis
-status: backlogged
-promoted_to:
+status: promoted
+promoted_to: "[[JX Foundational Onboarding]]"
 archive_reason:
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-12
-page_count: 219
+page_count: 220
 ---
 
 # Wiki Index
@@ -19,7 +19,7 @@ page_count: 219
 - [[Scaffold QA Project From Skill]] — Skill to scaffold full QA project structure from one command (#jx-qa, #scaffolding, #developer-experience) [backlogged P2]
 - [[Gemma 4 for Playwright Script Generation]] — Use Gemma 4 to generate .spec.ts / Playwright scripts in jx-qa pipeline (#jx-qa, #gemma, #local-llm) [backlogged P3]
 - [[GitHub Beginner Tutorial for Non-Developers]] — Teach non-devs to use GitHub for project collaboration via web UI (#documentation, #onboarding, #github) [backlogged P3]
-- [[JX Foundational Onboarding]] — Shared prerequisite setup steps (Claude Code, Git, GitHub CLI, uv, Node.js, jx-kb) extracted from PM/Dev/QA onboarding docs (#onboarding, #jx-kb, #setup, #shared) [backlogged P2]
+- [[JX Foundational Onboarding (Promoted)]] — Shared prerequisite setup steps (Claude Code, Git, GitHub CLI, uv, Node.js, jx-kb) extracted from PM/Dev/QA onboarding docs (#onboarding, #jx-kb, #setup, #shared) [promoted]
 - [[Schema Sources Rule Exception for Source Pages]] — Source pages self-referentially violate ## Sources requirement; 65 lint warnings (#wiki, #schema, #lint) [backlogged P2]
 - [[Triage Wiki Lint Editorial Warnings]] — Review remaining maintained-page lint warnings after raw-source noise is excluded (#wiki, #lint) [backlogged P3]
 - [[Wiki Search Tools]] — qmd and CLI tools for wiki search at scale (#tooling, #search) [backlogged P3]
@@ -159,6 +159,7 @@ page_count: 219
 - [[Creating a Skill]] — Step-by-step guide for adding a new skill to a Claude Code plugin (#skill, #how-to)
 - [[JX Dev Onboarding]] — Developer setup guide for installing Claude Code CLI/Desktop, jx-dev, jx-kb, the project wiki, and Azure DevOps MCP (#jx-dev, #jx-kb, #claude-code, #azure-devops, #onboarding)
 - [[JX PM Onboarding]] — Product owner setup guide for installing Claude Code CLI/Desktop, GitHub tooling, Obsidian, jx-pm, jx-kb, and optional Azure DevOps MCP (#jx-pm, #product-owner, #onboarding)
+- [[JX Foundational Onboarding]] — Shared prerequisite setup for all Jodex project roles: Claude Code, Git, GitHub CLI, uv, Python 3, Node.js 20+, jx-kb (#onboarding, #setup, #shared, #jx-kb)
 - [[JX QA Onboarding]] — QA user setup guide for installing jx-qa and jx-kb, initializing a project wiki, and running Playwright workflows (#jx-qa, #onboarding, #setup, #playwright)
 - [[wiki-tools.py]] — Pinned helper script for jx-kb plugin (#script, #python)
 - [[xlsx-writer.py]] — Pinned helper script for jx-qa plugin (#script, #python)

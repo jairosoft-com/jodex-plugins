@@ -11,7 +11,6 @@ updated: 2026-05-12
 
 ## P2 — Medium
 
-- [[JX Foundational Onboarding]] — Extract common setup steps from PM/Dev/QA onboarding into a shared prerequisite doc (#onboarding, #jx-kb)
 - [[Schema Sources Rule Exception for Source Pages]] — Exempt source pages from ## Sources lint rule; eliminates 65 warnings, lifts health score ~82→90+ (#wiki, #schema, #lint)
 - [[Scaffold QA Project From Skill]] — Add /jx-qa:init skill to scaffold complete QA project (dirs, playwright.config.ts, package.json, .gitignore) (#jx-qa, #scaffolding, #dx)
 - [[Align jx-qa Generate Tool Contract]] — Fix xlsx parsing tool mismatch in generate skill (#jx-qa, #security)
