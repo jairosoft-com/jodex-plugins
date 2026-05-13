@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-12
-page_count: 221
+page_count: 222
 ---
 
 # Wiki Index
@@ -95,6 +95,7 @@ page_count: 221
 - [[Skill]] — Multi-phase instructional module powering slash commands (#plugin, #implementation)
 - [[Slash Command]] — User-facing command wrapper /plugin:command (#plugin, #user-facing)
 - [[Storage State]] — Browser state persistence for auth reuse (#testing, #persistence)
+- [[Stub-Delegation Pattern]] — SKILL.md with zero logic delegates to shared executable file via fail-closed guard (#pattern, #plugin-architecture, #security, #DRY)
 - [[Tombstone Pattern]] — Mark synced items as removed instead of deleting; preserve external bindings (#pattern, #sync)
 - [[Template-as-Reference Pattern]] — Store templates in references/ subdir, keep SKILL.md behavior-only (#pattern, #organization)
 - [[Taxonomy Routing]] — Classification rules for routing knowledge to buckets (#classification, #wiki)
