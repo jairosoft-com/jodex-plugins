@@ -18,6 +18,7 @@ page_count: 222
 - [[Distilled Local Model for Test Script Generation]] — Use distilled local model to generate test scripts offline (#jx-qa, #local-llm, #distillation) [backlogged P3]
 - [[Scaffold QA Project From Skill]] — Skill to scaffold full QA project structure from one command (#jx-qa, #scaffolding, #developer-experience) [backlogged P2]
 - [[Gemma 4 for Playwright Script Generation]] — Use Gemma 4 to generate .spec.ts / Playwright scripts in jx-qa pipeline (#jx-qa, #gemma, #local-llm) [backlogged P3]
+- [[Claude CLI Training Course]] — Short training course for launching and using Claude Code CLI on Windows/Mac (#documentation, #onboarding, #claude-code, #cli) [raw]
 - [[GitHub Beginner Tutorial for Non-Developers]] — Teach non-devs to use GitHub for project collaboration via web UI (#documentation, #onboarding, #github) [backlogged P3]
 - [[JX Foundational Onboarding (Promoted)]] — Shared prerequisite setup steps (Claude Code, Git, GitHub CLI, uv, Node.js, jx-kb) extracted from PM/Dev/QA onboarding docs (#onboarding, #jx-kb, #setup, #shared) [promoted]
 - [[Schema Sources Rule Exception for Source Pages]] — Source pages self-referentially violate ## Sources requirement; 65 lint warnings (#wiki, #schema, #lint) [backlogged P2]
