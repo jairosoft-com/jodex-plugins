@@ -77,6 +77,18 @@ Stop when:
 - Advisor confirms further rounds polish spec without code to validate against
 - Implementation will surface remaining issues more efficiently
 
+## Convergence Limit: External Constraints
+
+Stop iterating when Codex repeats a finding across 2+ rounds and the underlying constraint is external to the design (e.g., a third-party API that doesn't expose the needed capability).
+
+In this case, no design revision can satisfy the reviewer — the tooling fundamentally can't deliver what's being asked for. The correct exit is:
+
+1. Document the constraint as accepted residual risk
+2. Present the user with explicit options: (a) accept with documented risk, (b) descope the capability, (c) block until the external constraint is resolved
+3. Stop the review loop — further rounds will not converge
+
+**Example (feedback skill, 2026-05-14):** Codex flagged "org-binding gap" across 3 rounds. The ADO MCP server doesn't expose its configured organization. No amount of plan revision could satisfy "add a real connected-organization check" because the check is impossible with available tools. Resolution: accept residual risk with strengthened typed confirmation gate (see [[User Confirmation Gate]]).
+
 ## Key Patterns Discovered Through This Loop
 
 Each round surfaced patterns that became wiki concepts:

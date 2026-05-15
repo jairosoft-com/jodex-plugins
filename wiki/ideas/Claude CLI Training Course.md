@@ -7,7 +7,7 @@ updated: 2026-05-13
 source_count: 0
 aliases: [claude cli tutorial, claude code training, claude terminal guide]
 provenance: user-request
-status: raw
+status: backlogged
 ---
 
 # Claude CLI Training Course

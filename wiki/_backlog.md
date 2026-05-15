@@ -1,6 +1,6 @@
 ---
 title: Backlog
-updated: 2026-05-12
+updated: 2026-05-14
 ---
 
 # Backlog
@@ -15,10 +15,9 @@ updated: 2026-05-12
 - [[Scaffold QA Project From Skill]] — Add /jx-qa:init skill to scaffold complete QA project (dirs, playwright.config.ts, package.json, .gitignore) (#jx-qa, #scaffolding, #dx)
 - [[Align jx-qa Generate Tool Contract]] — Fix xlsx parsing tool mismatch in generate skill (#jx-qa, #security)
 - [[Raw Sources Should Be Excluded From Wiki Graph]] — Exclude raw/ from wiki-tools.py page graph; implementation plan saved in `.agent/plans/fix-wiki-lint-raw-exclusion.md` (#wiki, #lint)
+- [[Slash Feedback Skill for jx-core]] — Capture user feedback via `/feedback` and create ADO Feature work items; v1 ships jx-pm + jx-qa stubs (#jx-core, #feedback, #skill, #cross-role, #ado)
 
 ## P3 — Low
-
-- [[Slash Feedback Skill]] — Capture user feedback via `/feedback` slash command and file it as a GitHub issue automatically (#tooling, #skills, #dx)
 
 - [[Distilled Local Model for Test Script Generation]] — Fine-tune a smaller local model on jx-qa spec output for offline, zero-cost test generation (#jx-qa, #local-llm, #distillation)
 - [[Gemma 4 for Playwright Script Generation]] — Evaluate Gemma 4 as local model for /jx-qa:generate spec output (#jx-qa, #gemma, #local-llm)
@@ -26,4 +25,5 @@ updated: 2026-05-12
 - [[Wiki Search Tools]] — qmd and CLI tools for scaling wiki search (#tooling, #search) — from [[Source - LLM Wiki]]
 - [[Triage Wiki Lint Editorial Warnings]] — Review orphan, conflict, thin-page, and stale-idea warnings after raw-source noise is excluded (#wiki, #lint)
 - [[Marp Integration]] — Markdown slide decks from wiki content (#tooling, #presentation) — from [[Source - LLM Wiki]]
+- [[Claude CLI Training Course]] — Short training course for launching and using Claude Code CLI on Windows/Mac (#documentation, #onboarding, #claude-code, #cli)
 - [[Dataview Queries]] — Obsidian plugin for frontmatter queries (#tooling, #obsidian) — from [[Source - LLM Wiki]]

@@ -42,6 +42,7 @@ Create a beginner-friendly tutorial teaching non-developers how to use GitHub fo
 
 ## Related
 
+- [[Claude CLI Training Course]] — companion onboarding idea for Claude Code CLI
 - [[Layered Developer Onboarding]] — developer-focused onboarding concept
 - [[Executable Setup Documentation]] — verified setup docs pattern
 - [[Knowledge Management]] — broader knowledge sharing goal

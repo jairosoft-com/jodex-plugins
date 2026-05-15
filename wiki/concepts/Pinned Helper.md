@@ -37,6 +37,10 @@ This also gives reviewers a clear permission boundary. If a command needs broade
 
 The pattern does not make the helper safe by itself. The helper still needs [[Path Confinement]], structured argument parsing, predictable JSON output, and narrow behavior. Pinning only reduces which executable can run; it does not replace script-level validation.
 
+## Related
+
+- [[Cross-Plugin Pinned Helper]] — extended pattern for invoking helpers from dependency plugins via sibling traversal
+
 ## Sources
 - [[Source - JX KB README]]
 - [[Source - JX QA README]]

@@ -18,13 +18,14 @@ page_count: 222
 - [[Distilled Local Model for Test Script Generation]] — Use distilled local model to generate test scripts offline (#jx-qa, #local-llm, #distillation) [backlogged P3]
 - [[Scaffold QA Project From Skill]] — Skill to scaffold full QA project structure from one command (#jx-qa, #scaffolding, #developer-experience) [backlogged P2]
 - [[Gemma 4 for Playwright Script Generation]] — Use Gemma 4 to generate .spec.ts / Playwright scripts in jx-qa pipeline (#jx-qa, #gemma, #local-llm) [backlogged P3]
-- [[Claude CLI Training Course]] — Short training course for launching and using Claude Code CLI on Windows/Mac (#documentation, #onboarding, #claude-code, #cli) [raw]
+- [[Claude CLI Training Course]] — Short training course for launching and using Claude Code CLI on Windows/Mac (#documentation, #onboarding, #claude-code, #cli) [backlogged P3]
 - [[GitHub Beginner Tutorial for Non-Developers]] — Teach non-devs to use GitHub for project collaboration via web UI (#documentation, #onboarding, #github) [backlogged P3]
 - [[JX Foundational Onboarding (Promoted)]] — Shared prerequisite setup steps (Claude Code, Git, GitHub CLI, uv, Node.js, jx-kb) extracted from PM/Dev/QA onboarding docs (#onboarding, #jx-kb, #setup, #shared) [promoted]
 - [[Schema Sources Rule Exception for Source Pages]] — Source pages self-referentially violate ## Sources requirement; 65 lint warnings (#wiki, #schema, #lint) [backlogged P2]
 - [[Triage Wiki Lint Editorial Warnings]] — Review remaining maintained-page lint warnings after raw-source noise is excluded (#wiki, #lint) [backlogged P3]
 - [[Wiki Search Tools]] — qmd and CLI tools for wiki search at scale (#tooling, #search) [backlogged P3]
 - [[Extract ADO Sync and Task Skills to jx-core]] — Move ado (jx-pm) and task (jx-dev) into jx-core for cross-role availability (#plugin-architecture, #jx-core, #cross-role) [archived: implemented]
+- [[Slash Feedback Skill for jx-core]] — Structured feedback capture skill in jx-core for cross-role use (#jx-core, #feedback, #cross-role) [backlogged P2]
 
 ## Concepts
 
@@ -35,6 +36,7 @@ page_count: 222
 - [[Client-Specific MCP Boundary]] — MCP setup must be documented by exact client, transport, auth path, and verification surface (#mcp, #claude-code, #azure-devops)
 - [[Codex Plugin Compatibility]] — Claude Code vs Codex plugin format differences and conversion tools (#plugin, #codex)
 - [[Configurable Default Chain]] — CLI flag → env var → hardcoded default resolution order (#pattern, #configuration)
+- [[Cross-Plugin Pinned Helper]] — Resolution pattern for invoking pinned helper scripts from dependency plugins (#pattern, #security, #plugin-architecture, #DRY)
 - [[Cross-Plugin Shared Convention Layer]] — Reference-only plugin pattern for shared conventions across plugins (#pattern, #plugin-architecture, #DRY)
 - [[Conflict Callout]] — Pattern for handling contradictions between sources (#wiki, #contradiction)
 - [[Cross-Reference Pass]] — Bidirectional wikilink pass after page creation (#wiki, #linking)

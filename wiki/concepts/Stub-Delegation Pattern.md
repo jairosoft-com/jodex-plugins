@@ -148,6 +148,7 @@ sequenceDiagram
 - [[Cross-Plugin Shared Convention Layer]] — the shared plugin pattern that hosts delegated logic
 - [[Plugin Dependency Declaration]] — stubs require declared dependency on jx-core
 - [[Core Shared Conventions Plugin]] — current host of shared executable logic
+- [[Slash Feedback Skill for jx-core]] — v1 implementation using this pattern for jx-pm and jx-qa stubs
 
 ## Sources
 

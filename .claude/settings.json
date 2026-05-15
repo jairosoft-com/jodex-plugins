@@ -1,6 +1,2 @@
 {
-  "enabledPlugins": {
-    "jx-kb@jodex-plugins": true,
-    "jx-qa@jodex-plugins": true
-  }
 }
