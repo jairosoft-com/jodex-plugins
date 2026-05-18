@@ -11,12 +11,14 @@
 - [Adversarial review workflow](feedback_adversarial_review_workflow.md) — Run iteratively, expect multiple rounds until clean
 - [Discuss findings individually](feedback_discuss_findings.md) — Present findings one-by-one, not batch multi-select
 - [Repo-local memory preference](feedback_repo_local_memory.md) — Save reusable project memory in `.agent/memory/` as repo-local artifacts
+- [Succinct ideas](feedback_succinct_ideas.md) — Wiki ideas must be brief; no over-grooming or verbose sections
+- [Plans directory](feedback_plans_directory.md) — Use .agent/plans/ from settings.local.json, not ~/.claude/plans/
 
 ## NotebookLM
 - [Associated notebooks](reference_notebooklm.md) — Plugin Marketplace Architecture + Mastering Skill.MD
 
 ## Confidence threshold
-- [Advisor confidence threshold](feedback_advisor_threshold.md) — Call advisor when confidence <=93%
+- [Advisor confidence threshold](feedback_advisor_threshold.md) — Call advisor when confidence <=96%
 
 ## Projects
 - [jx-pm plugin](project_jx_pm_plugin.md) — Built, committed, ready for dogfooding. 5 skills at plugins/jx-pm/
