@@ -3,8 +3,8 @@ name: pipeline
 user-invocable: true
 argument-hint: "[--mode lite|prd|unified] [--docs-root <path>]"
 description: >
-  Run PRD generation. For the full workflow (PRD → Spec → Task → ADO),
-  run each skill manually: /jx-pm:prd → /jx-dev:spec → /jx-dev:task → /jx-pm:ado.
+  Run PRD generation. For the full workflow (PRD → ADO → Spec → Task),
+  run each skill manually: /jx-pm:prd → /jx-pm:ado → /jx-dev:spec → /jx-dev:task.
   Triggers on: run pipeline, pm workflow, generate prd pipeline.
   Do not trigger for individual skill invocations.
 ---
@@ -31,10 +31,10 @@ Run PRD generation via the `jx-pm:prd` skill.
 For the complete pipeline, run each skill in order:
 
 ```
-1. /jx-pm:prd        → PRD.md
-2. /jx-dev:spec      → TECH_SPEC.md
-3. /jx-dev:task      → task.json
-4. /jx-pm:ado        → Azure work items
+1. /jx-pm:prd   → PRD.md
+2. /jx-pm:ado   → Azure work items (reads PRD directly)
+3. /jx-dev:spec → TECH_SPEC.md (optional)
+4. /jx-dev:task → task.json (optional)
 ```
 
 ## Deprecated Flags
