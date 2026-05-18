@@ -47,3 +47,7 @@ ado_sync:
 ```
 
 Story points, hour estimates, and `passes` flags are not stored — estimates are LLM-derived at sync time, state lives on ADO.
+
+## Validation
+
+Studied a real BRD-PRD (Feature 010) and its generated task.json. The PRD already contains all hierarchy needed: Feature ID, User Stories with IDs, Acceptance Criteria with IDs. task.json only adds estimates, priority ordering, and ADO bindings — all derivable or storable in frontmatter.
