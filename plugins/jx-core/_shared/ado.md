@@ -1,17 +1,16 @@
 ---
 name: ado
 user-invocable: true
-argument-hint: "[--dry-run] [--tenant <org>/<project>] [--docs-root <path>] [--prune] [--new-tenant]"
+argument-hint: "[--dry-run] [--tenant <org>/<project>] [--docs-root <path>] [--new-tenant]"
 description: >
-  Synchronize task.json to Azure Boards. Creates Feature, User Stories, and Tasks hierarchy.
-  Supports dry-run preview, state sync, and stale item pruning.
-  Triggers on: sync to azure boards, create azure work items, populate boards from task json, sync state to azure.
+  Synchronize PRD.md / BRD_PRD.md to Azure Boards. Creates Feature and User Story hierarchy.
+  Triggers on: sync to azure boards, create azure work items, populate boards from PRD.
   Do not trigger for: PRD generation, tech spec generation, task breakdown, wiki operations.
 ---
 
 # Azure Boards Sync
 
-Synchronize task.json to Azure Boards via MCP tools. Creates work item hierarchy, maintains bindings, and reconciles state.
+Synchronize PRD to Azure Boards via MCP tools. Creates Feature and User Story work items, maintains bindings in PRD frontmatter.
 
 ## Arguments
 
@@ -20,18 +19,15 @@ Synchronize task.json to Azure Boards via MCP tools. Creates work item hierarchy
 | `--dry-run` | No | — | Show planned operations without executing |
 | `--tenant` | No | — | Explicit `<org>/<project>` override |
 | `--docs-root` | No | `docs/` or `$JX_DOCS_ROOT` | Output directory root |
-| `--prune` | No | — | Close tombstoned Azure work items (destructive, requires confirmation) |
 | `--new-tenant` | No | — | Strip existing Azure IDs and re-sync to different tenant (destructive) |
 
 ## Modes
 
 | Mode | Trigger | Behavior |
 |------|---------|----------|
-| Normal | No Azure metadata in task.json | Create all items |
-| Partial | Some items have `azureWorkItemId` | Create only missing items |
-| Update | All items synced, user requests update | Update existing items with current content |
-| Force recreate | User requests | Clear Azure refs, create all fresh |
-| State sync | User requests | Update ADO states from `passes` flags |
+| Normal | No `ado_sync` in PRD frontmatter | Create all items |
+| Partial | Some stories have work item IDs | Create only missing items |
+| Update | All items synced | Update existing items with current PRD content |
 
 ---
 
@@ -39,69 +35,79 @@ Synchronize task.json to Azure Boards via MCP tools. Creates work item hierarchy
 
 1. Resolve folder path per `../../../jx-core/_shared/docs-root.md`
 2. Validate folder name per `../../../jx-core/_shared/id-rules.md`
-3. Require `task.json` in folder (halt if missing)
-4. Validate JSON structure per `../../../jx-core/_shared/task-json-schema.md`: require `project`, `featureName`, `featureId`, `userStories`
-5. Validate `featureId` matches folder feature number
-6. Verify Azure DevOps MCP tools are available
+3. Detect source document: look for `PRD.md` first, then `BRD_PRD.md`. Halt if neither exists: "No PRD.md or BRD_PRD.md found in {folder}."
+4. Verify Azure DevOps MCP tools are available
 
 ---
 
-## Phase 2: Tenant Binding
+## Phase 2: Parse PRD
 
-**task.json is authoritative. Memory is suggestion only.**
+### Frontmatter
 
-### First sync (no Azure metadata in task.json)
+1. If PRD begins with `---`, parse the YAML frontmatter block
+2. Extract `ado_sync` key if present. Preserve all other frontmatter keys for later merge.
+3. If no frontmatter or no `ado_sync` → treat as first sync
+
+### Body
+
+Extract from markdown:
+
+1. **Feature metadata**: From `## Document Metadata` section, extract Feature ID (3-digit) and Feature Name. Validate Feature ID matches folder feature number.
+2. **Feature description**: Extract from `## Executive Summary`, `## Overview`, or `## Introduction` — whichever exists first.
+3. **User Stories**: Find all `### US-{NNN}-{seq}: {Title}` headings. For each story extract:
+   - Story ID (e.g., `US-010-01`)
+   - Title (text after the colon)
+   - Description: the "As a / I want / So that" block
+   - Acceptance Criteria: all `AC-{NNN}-{seq}: {text}` lines under the story
+   - "Validates:" reference (included in description for traceability)
+
+The parser handles all three template variants (lite, standard, unified BRD-PRD). Patterns are consistent: `### US-` headings, `AC-` prefixed list items, `## Document Metadata` section.
+
+---
+
+## Phase 3: Tenant Binding
+
+**PRD frontmatter `ado_sync` is authoritative. Memory is suggestion only.**
+
+**Known limitation:** No MCP tool exposes which organization the server is connected to. The `organization` field is stored for user verification during confirmation, not MCP-validated.
+
+### First sync (no `ado_sync` block)
 1. Check agent memory for last-used org/project
 2. Display suggestion: "Sync to {org}/{project}? (from memory)"
 3. User confirms or provides different org/project
-4. Bind to task.json on first successful write
+4. Validate project: Call `mcp__azure-devops__core_list_projects` with `projectNameFilter`. Exactly 1 match → proceed. 0 matches → halt.
+5. Bind on first successful write-back to frontmatter
 
-### Subsequent syncs (Azure metadata exists)
-1. Read `azureOrganization`/`azureProject` from task.json
-2. Compare against current MCP connection
-3. If mismatch: **HALT** — "Tenant mismatch: task.json bound to {stored}, connected to {current}. Use --new-tenant to re-bind."
-
-### --tenant flag
-- If provided, override MCP connection target
-- Must still pass mismatch check against task.json binding
+### Subsequent syncs (`ado_sync.organization` and `ado_sync.project` present)
+1. Read org/project from frontmatter
+2. Compare against current MCP connection (project name only — org cannot be verified)
+3. If project mismatch: **HALT** — "Tenant mismatch: PRD bound to {stored}, connected to {current}. Use --new-tenant to re-bind."
 
 ### --new-tenant flag (destructive — confirmation gate)
-1. Show all Azure IDs that will be stripped
-2. Create timestamped backup: `task.json.{org}.{project}.{timestamp}.bak`
-3. Require typed confirmation: "Type 'rebind' to strip Azure IDs and sync to new tenant:"
-4. Tombstone all existing Azure IDs as `{previousTenant: {org, project, ids: [...]}}`
-5. Proceed with fresh sync to new tenant
+1. Show all Azure IDs from `ado_sync.stories` map + `feature_work_item_id`
+2. Require typed confirmation: "Type 'rebind' to strip Azure IDs and sync to new tenant:"
+3. Clear the entire `ado_sync` block from frontmatter via pinned helper
+4. Proceed with fresh sync
 
 ---
 
-## Phase 3: Detect Sync State
+## Phase 4: Detect Sync State & Hierarchy Reconciliation
 
-Classify each item in task.json:
+### Sync state detection
 
-- **Root Feature:** has/lacks `azureWorkItemId`
-- **Each User Story:** has/lacks `azureWorkItemId`
-- **Each AC:** has/lacks `azureWorkItemId`
-- **Tombstoned items:** `{removed: true}` — skip for creation, report in dry-run
+- `ado_sync.feature_work_item_id` absent → Feature needs creation
+- For each story from Phase 2: check if `ado_sync.stories[{story_id}]` has a value. No value → needs creation.
+- **Orphans**: any key in `ado_sync.stories` whose ID does not appear in parsed PRD body. Report in dry-run and final report. Do NOT close or modify in ADO.
 
-Determine mode:
-- All items lack IDs → Normal (create all)
-- Some items have IDs → Partial (create missing only)
-- All items have IDs → prompt: Update / Force recreate / State sync / Skip
+### Determine mode
+- No `ado_sync` block or all IDs absent → Normal (create all)
+- Some story IDs present, some absent → Partial (create missing, update existing)
+- All IDs present → Update only
 
----
-
-## Phase 4: Hierarchy Reconciliation
-
-**Runs on every sync (not just retries).** Before creating anything new:
-
-For each item with `azureWorkItemId`:
-1. **Feature:** verify it exists in Azure (query by ID)
-2. **User Stories:** verify each is linked to Feature parent. Create link if missing.
-3. **Tasks:** verify each is linked to its User Story parent. Create link if missing.
-
-**Conflict handling:**
-- Item linked to wrong parent → HALT, show conflict, require manual resolution
-- Item not found in Azure (deleted externally) → warn, clear local ID, treat as needs-creation
+### Hierarchy reconciliation (for items with existing Azure IDs)
+1. **Feature**: verify it exists in Azure via `wit_get_work_item`
+2. **Each Story**: verify it exists and is linked to Feature parent. Repair link with `wit_add_child_work_items` if missing.
+3. **Item not found in Azure** (deleted externally): warn, clear ID from `ado_sync.stories`, treat as needs-creation.
 
 Include reconciliation results in `--dry-run` output.
 
@@ -111,165 +117,122 @@ Include reconciliation results in `--dry-run` output.
 
 ### Title Convention
 
-All work items titled with source ID prefix:
 - Feature: `{featureId}: {featureName}`
 - User Story: `{story.id}: {story.title}`
-- Task: `{criterion.id}: {criterion.text}`
+
+### Work Item Tagging
+
+Every work item gets an immutable source tag at creation:
+- Feature: `prd:FEAT-{featureId}` (e.g., `prd:FEAT-010`)
+- User Story: `prd:{story.id}` (e.g., `prd:US-010-01`)
+
+Tags are used for crash recovery identification. Never modify or remove them.
 
 ### Creation Order
 
 1. Feature (if not exists)
-2. User Stories (child of Feature)
-3. Tasks (child of respective User Story)
+2. User Stories (as children of Feature)
 
-### Per-Item Write-Back
-
-After EACH individual create:
-1. Capture `azureWorkItemId` and `azureWorkItemUrl`
-2. Write immediately to task.json (temp+rename)
-3. Proceed to next item
-
-This minimizes crash-without-ID window to single item.
-
-### Crash Recovery Fallback
-
-If task.json lacks ID for an item (rare — only after crash between create and write-back):
-1. Search Azure by title prefix at correct hierarchy level
-2. Exactly 1 match → reuse (write ID back)
-3. 0 matches → create new
-4. 2+ matches → HALT, show duplicates, require manual resolution (fail-closed)
+**No ADO Task work items are created.** Acceptance criteria are not tasks — they become content in the User Story AC field.
 
 ### Work Item Fields
 
 **Feature:**
 - Title: `{featureId}: {featureName}`
-- Description: feature description + business context
+- Description: Executive Summary / Overview content from PRD
+- Tags: `prd:FEAT-{featureId}`
 
 **User Story:**
 - Title: `{story.id}: {story.title}`
-- Description: story description
-- Acceptance Criteria field: Gherkin (extracted from PRD or synthesized from behavioral ACs)
-- Story Points: from `storyPoints`
+- Description: "As a / I want / So that" block + "Validates:" reference
+- Acceptance Criteria field: Gherkin synthesized from behavioral ACs. Exclude quality-gate criteria (lint, typecheck, tests). If only quality-gate remain → leave AC field empty, log warning.
+- Story Points: LLM-derived estimate (1/2/3/5/8 scale based on AC count and complexity). **First sync only — never overwrite on subsequent syncs.**
+- Tags: `prd:{story.id}`
 
-**Task:**
-- Title: `{criterion.id}: {criterion.text}`
-- Description: criterion text
-- Original Estimate: from `estimatedHours`
+### Field Update Rules (on update of existing items)
 
-### Gherkin for User Story AC Field
+| Field | Behavior |
+|-------|----------|
+| Title | PRD wins — always update |
+| Description | PRD wins — always update |
+| Acceptance Criteria (text) | PRD wins — always update |
+| Story Points | Preserve ADO value (never overwrite after first sync) |
+| State | Never touch (ADO owns state) |
+| Area Path | Never touch |
+| Iteration Path | Never touch |
 
-1. Check PRD for inline Gherkin blocks in story section → use if found
-2. No inline Gherkin → synthesize from behavioral acceptance criteria
-3. Exclude quality-gate criteria (lint, typecheck, tests) from synthesis
-4. If only quality-gate criteria remain → leave AC field empty, log warning
+### Per-Item Frontmatter Write-Back
 
----
+After EACH successful `wit_create_work_item`:
+1. Capture the returned work item ID and URL
+2. Call pinned helper `frontmatter-sync.py` with updated `ado_sync` fields:
+   - For Feature: set `feature_work_item_id` and `feature_work_item_url`
+   - For Story: add `{story_id}: {work_item_id}` to `ado_sync.stories` map
+   - Set `last_synced` to current ISO timestamp
+   - Set `organization` and `project` (on first sync)
+3. The helper performs atomic temp+rename — no partial writes
 
-## Phase 6: State Sync
+### Crash Recovery
 
-**Only runs in State Sync mode.** Reads `passes` flags from task.json and updates Azure states.
+If frontmatter lacks ID for an item that should exist (crash between create and write-back):
+1. Search Azure by tag: `prd:{item_id}` (immutable marker)
+2. Exactly 1 match → reuse (write ID back to frontmatter via helper)
+3. 0 matches → create new
+4. 2+ matches → HALT, show duplicates, require manual resolution (fail-closed)
 
-### Task (AC) State Transitions
+### Dry-Run
 
-| AC `passes` | Current ADO State | Action |
-|---|---|---|
-| `true` | New | → Active → Closed (two updates) |
-| `true` | Active | → Closed |
-| `true` | Closed | No change |
-| `false` | Resolved/Closed | → Active (reopen) |
-| `false` | New/Active | No change |
-| — | Removed | Log warning, skip |
-
-### User Story State Transitions
-
-Story complete = `passes: true` AND every AC `passes: true`
-
-| Complete? | Current ADO State | Action |
-|---|---|---|
-| Yes | New | → Active → Resolved |
-| Yes | Active | → Resolved |
-| Yes | Resolved | No change |
-| No | Resolved/Closed | → Active (reopen) |
-| No | New/Active | No change |
-
-### Feature State Transitions
-
-All stories pass = every story `passes: true` AND ADO cross-check (all child stories Resolved/Closed)
-
-| All pass? | Current ADO State | Action |
-|---|---|---|
-| Yes | New | → Active → Resolved |
-| Yes | Active | → Resolved |
-| Yes | Resolved | No change |
-| No | Resolved/Closed | → Active (reopen) |
-| No | New/Active | No change |
-
-Process order: Tasks → Stories → Feature (bottom-up).
+If `--dry-run` is set:
+- Show all planned operations (creates, updates, reconciliation)
+- Do NOT call any ADO write tools
+- Do NOT modify PRD frontmatter
+- Exit after displaying the plan
 
 ---
 
-## Phase 7: Prune Tombstoned Items
+## Phase 6: Sync Report
 
-**Only runs with `--prune` flag. Destructive — confirmation gate required.**
+### Update frontmatter
 
-1. Find all tombstoned items in task.json (`removed: true` with `azureWorkItemId`)
-2. Show preview:
-   - Work item ID, title, current Azure state
-   - Intended action: Close work item
-3. Create timestamped backup of task.json
-4. Require typed confirmation: "Type 'prune' to close {N} stale Azure work items:"
-5. Close each tombstoned work item in Azure (set state to Closed)
-6. Remove tombstones from task.json
-7. Write updated task.json
+Final write-back ensuring `last_synced`, `organization`, `project` are current.
 
----
+### Save memory
 
-## Phase 8: Sync Report & Save
+Store org/project as suggestion for next time.
 
-### Update task.json
+### Display report
 
-- Add/update `azureWorkItemId`, `azureWorkItemUrl` per item
-- Set `lastSyncedToAzure` to current ISO timestamp
-- Set `azureOrganization`, `azureProject`
-- Save agent memory with org/project as suggestion for next time
-
-### Generate Report
-
-Display markdown report:
-- Source folder, PRD path
+Markdown report:
+- Source folder and PRD path
 - Azure organization and project
 - Sync mode used
-- Counts: Features, Stories, Tasks created/updated/skipped
+- Counts: Features created/updated, Stories created/updated/skipped
+- Orphans: story IDs in frontmatter but not in PRD body (with Azure work item IDs for manual review)
 - Reconciliation: links repaired
-- Tombstones: stale items (if any)
-- State sync: items transitioned (if state sync mode)
 - Warnings and errors
 
 ---
 
 ## Confirmation Gates
 
-All destructive external-state operations require preview + typed confirmation:
-
 | Operation | Confirmation word | What it does |
 |---|---|---|
-| Force recreate | `recreate` | Clears all Azure refs, creates fresh |
-| State sync | `sync` | Updates Azure work item states from passes |
-| `--new-tenant` | `rebind` | Strips Azure IDs, re-syncs to different tenant |
-| `--prune` | `prune` | Closes tombstoned Azure work items |
+| `--new-tenant` | `rebind` | Clears `ado_sync` block, re-syncs to different tenant |
 
 ---
 
 ## Checklist
 
-- [ ] task.json exists and passes schema validation
-- [ ] Feature ID matches folder feature number
-- [ ] Tenant binding verified (or first-bind confirmed)
-- [ ] Hierarchy reconciliation completed (links verified/repaired)
-- [ ] Per-item write-back after each create
-- [ ] Crash recovery uses fail-closed lookup (exactly 1 match or halt)
-- [ ] Gherkin extracted/synthesized for User Story AC field
-- [ ] State sync processes bottom-up (Tasks → Stories → Feature)
-- [ ] Tombstoned items reported in dry-run
-- [ ] Destructive operations behind confirmation gates
+- [ ] PRD.md or BRD_PRD.md found in folder
+- [ ] Feature ID extracted and matches folder feature number
+- [ ] User Stories and ACs parsed from PRD body
+- [ ] Tenant binding verified (or first-bind confirmed via `core_list_projects`)
+- [ ] Hierarchy reconciliation completed (Feature + Story links verified/repaired)
+- [ ] Per-item frontmatter write-back after each create (via pinned helper, atomic)
+- [ ] Crash recovery uses tag-based search, fail-closed (exactly 1 match or halt)
+- [ ] Gherkin synthesized for User Story AC field (quality-gate criteria excluded)
+- [ ] Story Points LLM-derived on first sync only; preserved on subsequent syncs
+- [ ] Orphaned stories reported but not modified in ADO
+- [ ] No Task work items created
+- [ ] All work items tagged with `prd:{source_id}`
 - [ ] Sync report generated

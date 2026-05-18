@@ -76,6 +76,9 @@ target/
 # --- Wiki raw source snapshots (originals already in repo) ---
 wiki/raw/
 
+# --- Temporary / scratch files ---
+tmp/
+
 # --- Misc build / debug ---
 *.tmp
 *.temp
