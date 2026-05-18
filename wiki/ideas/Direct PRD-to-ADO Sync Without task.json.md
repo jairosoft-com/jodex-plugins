@@ -27,3 +27,23 @@ Change `/jx-pm:ado` to sync directly from PRD.md (or BRD_PRD.md) to Azure Boards
 - **Estimation**: LLM-derived. The ADO skill infers story points and hour estimates from story/AC descriptions at sync time — no user prompting per story.
 - **Bindings**: Write back to PRD.md frontmatter. Azure work item IDs and sync timestamps are stored in the PRD's YAML frontmatter, keeping a single source of truth.
 - **Migration**: Replace entirely. Remove task.json support from `/jx-pm:ado` — PRD is the only input going forward. The `/jx-dev:task` skill and `task-json-schema.md` become unused by the ADO sync path.
+- **State tracking**: Not persisted locally. Work item states are queried from ADO at sync time rather than cached in the PRD.
+
+## Frontmatter Shape
+
+```yaml
+ado_sync:
+  organization: "jairosoft"
+  project: "Jodex"
+  feature_work_item_id: 204500
+  feature_work_item_url: "https://..."
+  last_synced: "2026-05-18T10:30:00Z"
+  stories:
+    US-001-01:
+      work_item_id: 204501
+      tasks:
+        AC-001: 204502
+        AC-002: 204503
+```
+
+Story points, hour estimates, and `passes` flags are not stored — estimates are LLM-derived at sync time, state lives on ADO.
