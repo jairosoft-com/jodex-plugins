@@ -6,7 +6,7 @@ created: 2026-05-18
 updated: 2026-05-18
 source: user request
 source_count: 0
-provenance: user-stated
+provenance: synthesis
 groomed: 2026-05-18
 tags:
   - jx-pm

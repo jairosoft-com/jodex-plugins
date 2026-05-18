@@ -1,0 +1,125 @@
+{
+  "project": "Casa Colina Care",
+  "featureName": "nickname",
+  "featureId": "010",
+  "description": "Founder Nickname in Prose Content — Use nickname 'Kriss' in informal prose contexts on the About page, defined as a codebase constant for future-proofing.",
+  "detailedPrdPath": "BRD_PRD.md",
+  "technicalSpecPath": "TECH_SPEC.md",
+  "azureWorkItemId": 202498,
+  "azureWorkItemUrl": "https://dev.azure.com/jairo/CasaColinaCare.com/_workitems/edit/202498",
+  "azureOrganization": "jairo",
+  "azureProject": "CasaColinaCare.com",
+  "lastSyncedToAzure": "2026-04-09T02:48:00.000Z",
+  "userStories": [
+    {
+      "id": "US-010-02",
+      "title": "Define Founder Nickname as a Codebase Constant",
+      "description": "As a developer adding future content, I want the founder's nickname available as a named constant, so that I never need to guess the correct informal name to use in prose.",
+      "technicalSpecSection": "#31-us-010-02-define-founder-nickname-as-a-codebase-constant",
+      "azureWorkItemId": 202499,
+      "azureWorkItemUrl": "https://dev.azure.com/jairo/CasaColinaCare.com/_workitems/edit/202499",
+      "acceptanceCriteria": [
+        {
+          "id": "AC-010-07",
+          "text": "src/lib/constants.ts exports FOUNDER_NICKNAME = 'Kriss'",
+          "passes": false,
+          "estimatedHours": 0.5,
+          "azureWorkItemId": 202500,
+          "azureWorkItemUrl": "https://dev.azure.com/jairo/CasaColinaCare.com/_workitems/edit/202500"
+        },
+        {
+          "id": "AC-010-08",
+          "text": "src/app/about/page.tsx imports FOUNDER_NICKNAME from src/lib/constants.ts and uses it in the bio string (no hardcoded nickname string in component)",
+          "passes": false,
+          "estimatedHours": 0.5,
+          "azureWorkItemId": 202501,
+          "azureWorkItemUrl": "https://dev.azure.com/jairo/CasaColinaCare.com/_workitems/edit/202501"
+        },
+        {
+          "id": "AC-010-09",
+          "text": "npm run lint -- --fix passes with no errors",
+          "passes": false,
+          "estimatedHours": 0.25,
+          "azureWorkItemId": 202502,
+          "azureWorkItemUrl": "https://dev.azure.com/jairo/CasaColinaCare.com/_workitems/edit/202502"
+        },
+        {
+          "id": "AC-010-10",
+          "text": "npm run type-check passes with no errors",
+          "passes": false,
+          "estimatedHours": 0.25,
+          "azureWorkItemId": 202503,
+          "azureWorkItemUrl": "https://dev.azure.com/jairo/CasaColinaCare.com/_workitems/edit/202503"
+        }
+      ],
+      "priority": 1,
+      "storyPoints": 2,
+      "totalEstimatedHours": 1.5,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-010-01",
+      "title": "Update Founder Bio to Use Nickname",
+      "description": "As a site visitor reading the About page, I want the founder's bio to feel warm and personal, so that I connect with the care home's family-oriented brand.",
+      "technicalSpecSection": "#32-us-010-01-update-founder-bio-to-use-nickname",
+      "azureWorkItemId": 202504,
+      "azureWorkItemUrl": "https://dev.azure.com/jairo/CasaColinaCare.com/_workitems/edit/202504",
+      "acceptanceCriteria": [
+        {
+          "id": "AC-010-01",
+          "text": "The bio text in team[0].bio (src/app/about/page.tsx:45) uses 'Kriss' instead of 'Mari Kriss C. Aseniero' in the prose sentence — verified by unit test in tests/unit/app/about/page.test.tsx asserting bio contains 'Kriss' and does not contain 'Mari Kriss C. Aseniero'",
+          "passes": false,
+          "estimatedHours": 1,
+          "azureWorkItemId": 202505,
+          "azureWorkItemUrl": "https://dev.azure.com/jairo/CasaColinaCare.com/_workitems/edit/202505"
+        },
+        {
+          "id": "AC-010-02",
+          "text": "The team[0].name field ('Mari Kriss C. Aseniero') remains unchanged — verified by unit test in tests/unit/app/about/page.test.tsx asserting team[0].name === 'Mari Kriss C. Aseniero'",
+          "passes": false,
+          "estimatedHours": 0.5,
+          "azureWorkItemId": 202506,
+          "azureWorkItemUrl": "https://dev.azure.com/jairo/CasaColinaCare.com/_workitems/edit/202506"
+        },
+        {
+          "id": "AC-010-03",
+          "text": "The rendered About page displays 'Kriss founded Casa Colina Care...' in the bio paragraph (browser-verified using dev-browser skill)",
+          "passes": false,
+          "estimatedHours": 0.5,
+          "azureWorkItemId": 202507,
+          "azureWorkItemUrl": "https://dev.azure.com/jairo/CasaColinaCare.com/_workitems/edit/202507"
+        },
+        {
+          "id": "AC-010-04",
+          "text": "npm run lint -- --fix passes with no errors",
+          "passes": false,
+          "estimatedHours": 0.25,
+          "azureWorkItemId": 202508,
+          "azureWorkItemUrl": "https://dev.azure.com/jairo/CasaColinaCare.com/_workitems/edit/202508"
+        },
+        {
+          "id": "AC-010-05",
+          "text": "npm run type-check passes with no errors",
+          "passes": false,
+          "estimatedHours": 0.25,
+          "azureWorkItemId": 202509,
+          "azureWorkItemUrl": "https://dev.azure.com/jairo/CasaColinaCare.com/_workitems/edit/202509"
+        },
+        {
+          "id": "AC-010-06",
+          "text": "npm test -- --run passes with no regressions (includes new unit tests for FOUNDER_NICKNAME export and bio text content)",
+          "passes": false,
+          "estimatedHours": 0.25,
+          "azureWorkItemId": 202510,
+          "azureWorkItemUrl": "https://dev.azure.com/jairo/CasaColinaCare.com/_workitems/edit/202510"
+        }
+      ],
+      "priority": 2,
+      "storyPoints": 3,
+      "totalEstimatedHours": 2.75,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}
