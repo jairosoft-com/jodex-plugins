@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
-updated: 2026-05-12
-page_count: 222
+updated: 2026-05-18
+page_count: 223
 ---
 
 # Wiki Index
@@ -26,6 +26,7 @@ page_count: 222
 - [[Wiki Search Tools]] — qmd and CLI tools for wiki search at scale (#tooling, #search) [backlogged P3]
 - [[Extract ADO Sync and Task Skills to jx-core]] — Move ado (jx-pm) and task (jx-dev) into jx-core for cross-role availability (#plugin-architecture, #jx-core, #cross-role) [archived: implemented]
 - [[Slash Feedback Skill for jx-core]] — Structured feedback capture skill in jx-core for cross-role use (#jx-core, #feedback, #cross-role) [backlogged P2]
+- [[Direct PRD-to-ADO Sync Without task.json]] — Change /jx-pm:ado to sync PRD directly to Azure Boards, removing task.json dependency (#jx-pm, #ado, #prd, #refactor) [raw]
 
 ## Concepts
 
