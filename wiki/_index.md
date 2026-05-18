@@ -26,6 +26,7 @@ page_count: 229
 - [[Wiki Search Tools]] — qmd and CLI tools for wiki search at scale (#tooling, #search) [backlogged P3]
 - [[Extract ADO Sync and Task Skills to jx-core]] — Move ado (jx-pm) and task (jx-dev) into jx-core for cross-role availability (#plugin-architecture, #jx-core, #cross-role) [archived: implemented]
 - [[Slash Feedback Skill for jx-core]] — Structured feedback capture skill in jx-core for cross-role use (#jx-core, #feedback, #cross-role) [backlogged P2]
+- [[Direct PRD-to-ADO Sync Without task.json]] — Change /jx-pm:ado to sync PRD directly to Azure Boards, removing task.json dependency (#jx-pm, #ado, #prd, #refactor) [backlogged]
 - [[Jodex Plugin Installation Guide]] — End-to-end install docs: marketplace setup → jx-core/jx-kb prereqs → role-specific plugins (#documentation, #onboarding, #plugin-architecture, #marketplace) [backlogged P2]
 - [[Azure DevOps MCP Installation for Claude Code CLI (Promoted)]] — Quick-reference: ADO MCP install and verification for Claude Code CLI (#documentation, #onboarding, #mcp, #azure-devops, #claude-code) [promoted]
 - [[Dry-Run Gate Must Include Explicit Docs-Root]] — Dry-run verification must use explicit --docs-root to avoid stale env var misdirection (#jx-pm, #ado, #safety, #verification) [raw]

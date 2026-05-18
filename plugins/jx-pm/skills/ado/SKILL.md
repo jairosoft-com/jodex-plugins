@@ -1,11 +1,10 @@
 ---
 name: ado
 user-invocable: true
-argument-hint: "[--dry-run] [--tenant <org>/<project>] [--docs-root <path>] [--prune] [--new-tenant]"
+argument-hint: "[--dry-run] [--tenant <org>/<project>] [--docs-root <path>] [--new-tenant]"
 description: >
-  Synchronize task.json to Azure Boards. Creates Feature, User Stories, and Tasks hierarchy.
-  Supports dry-run preview, state sync, and stale item pruning.
-  Triggers on: sync to azure boards, create azure work items, populate boards from task json, sync state to azure.
+  Synchronize PRD.md / BRD_PRD.md to Azure Boards. Creates Feature and User Story hierarchy.
+  Triggers on: sync to azure boards, create azure work items, populate boards from PRD.
   Do not trigger for: PRD generation, tech spec generation, task breakdown, wiki operations.
 ---
 

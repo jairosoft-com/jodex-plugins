@@ -4,6 +4,14 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-18 — Idea Filed
+
+- **Operation**: file idea
+- **Pages created**: [[Direct PRD-to-ADO Sync Without task.json]]
+- **Pages updated**: `_index.md`, `_log.md`
+- **Index**: updated, page_count 222 -> 223
+- **Outcome**: Filed raw idea to change /jx-pm:ado to sync directly from PRD.md to Azure Boards, removing the task.json intermediate dependency.
+
 ## 2026-05-18 — Session Insights Filed
 
 - **Operation**: file idea + update concept
