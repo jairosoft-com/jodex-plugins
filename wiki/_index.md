@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-18
-page_count: 223
+page_count: 229
 ---
 
 # Wiki Index
@@ -27,6 +27,12 @@ page_count: 223
 - [[Extract ADO Sync and Task Skills to jx-core]] — Move ado (jx-pm) and task (jx-dev) into jx-core for cross-role availability (#plugin-architecture, #jx-core, #cross-role) [archived: implemented]
 - [[Slash Feedback Skill for jx-core]] — Structured feedback capture skill in jx-core for cross-role use (#jx-core, #feedback, #cross-role) [backlogged P2]
 - [[Direct PRD-to-ADO Sync Without task.json]] — Change /jx-pm:ado to sync PRD directly to Azure Boards, removing task.json dependency (#jx-pm, #ado, #prd, #refactor) [backlogged]
+- [[Jodex Plugin Installation Guide]] — End-to-end install docs: marketplace setup → jx-core/jx-kb prereqs → role-specific plugins (#documentation, #onboarding, #plugin-architecture, #marketplace) [backlogged P2]
+- [[Azure DevOps MCP Installation for Claude Code CLI (Promoted)]] — Quick-reference: ADO MCP install and verification for Claude Code CLI (#documentation, #onboarding, #mcp, #azure-devops, #claude-code) [promoted]
+- [[Dry-Run Gate Must Include Explicit Docs-Root]] — Dry-run verification must use explicit --docs-root to avoid stale env var misdirection (#jx-pm, #ado, #safety, #verification) [raw]
+- [[Fix Promotion Rename Link Retargeting]] — Idea promotion renames silently retarget historical log wikilinks (#wiki, #lint, #promotion, #wikilinks) [raw]
+- [[Over-Grooming Anti-Pattern]] — Grooming failure mode where scope inflates beyond requestor's intent (#pattern, #wiki, #idea-lifecycle, #anti-pattern) [raw]
+- [[Wrong-Tenant Filing as Tenant Binding Validation]] — Feedback skill filed to wrong ADO project when feedback-target.json missing (#jx-pm, #ado, #tenant-binding, #incident) [raw]
 
 ## Concepts
 
@@ -163,6 +169,7 @@ page_count: 223
 
 - [[Creating a Plugin]] — End-to-end guide for adding a new plugin to the plugin architecture (#plugin, #how-to, #onboarding)
 - [[Creating a Skill]] — Step-by-step guide for adding a new skill to a Claude Code plugin (#skill, #how-to)
+- [[Azure DevOps MCP Installation for Claude Code CLI]] — Quick-reference install and 4-step verification for the Azure DevOps MCP server in Claude Code CLI (#documentation, #onboarding, #mcp, #azure-devops, #claude-code, #cli)
 - [[JX Dev Onboarding]] — Developer setup guide for installing Claude Code CLI/Desktop, jx-dev, jx-kb, the project wiki, and Azure DevOps MCP (#jx-dev, #jx-kb, #claude-code, #azure-devops, #onboarding)
 - [[JX PM Onboarding]] — Product owner setup guide for installing Claude Code CLI/Desktop, GitHub tooling, Obsidian, jx-pm, jx-kb, and optional Azure DevOps MCP (#jx-pm, #product-owner, #onboarding)
 - [[JX Foundational Onboarding]] — Shared prerequisite setup for all Jodex project roles: Claude Code, Git, GitHub CLI, uv, Python 3, Node.js 20+, jx-kb (#onboarding, #setup, #shared, #jx-kb)
