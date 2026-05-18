@@ -3,7 +3,7 @@ title: Iterative Adversarial Review
 type: concept
 tags: [pattern, quality, design, review]
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-05-18
 source_count: 1
 aliases: [adversarial review loop, multi-pass review, design hardening]
 provenance: synthesis
@@ -101,6 +101,19 @@ Each round surfaced patterns that became wiki concepts:
 Adversarial review catches stale references in non-code artifacts (plans, docs) after plugin renames. Example from jx-qa test skill plan (2026-05-10): plan authored pre-rename targeted `plugins/qa-ai/...` paths, but live code had moved to `plugins/jx-qa/...`. Codex flagged the mismatch as high-severity — executing the plan would have created dead duplicate paths or left the real skill untouched.
 
 This failure mode is invisible to grep-based verification (which checks code, not plans) and only surfaces when adversarial review reads both the plan and the filesystem.
+
+## Multi-Stage Lifecycle Review (2026-05-18)
+
+Adversarial review applied at different lifecycle stages catches different classes of issues:
+
+| Stage | Target | Findings Class |
+|-------|--------|---------------|
+| Idea grooming | Scope and acceptance criteria | Safety gaps in *what* to build (weak verification, underspecified credential handling) |
+| Plan review | Implementation sequence and file operations | Execution risks in *how* to build it (link retargeting, missing explicit flags) |
+
+The idea-stage review caught that the verification checklist could bless the wrong tenant. The plan-stage review caught that the promotion rename would silently retarget historical wikilinks. Neither finding would have surfaced at the other stage — the idea review didn't know about the rename strategy, and the plan review wouldn't have questioned the verification design.
+
+This suggests adversarial review is most effective when applied at each lifecycle transition, not just before implementation.
 
 ## When to Use
 

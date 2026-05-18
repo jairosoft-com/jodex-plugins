@@ -4,6 +4,45 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-18 — Session Insights Filed
+
+- **Operation**: file idea + update concept
+- **Pages created**: [[Over-Grooming Anti-Pattern]], [[Wrong-Tenant Filing as Tenant Binding Validation]]
+- **Pages updated**: [[Iterative Adversarial Review]] (added Multi-Stage Lifecycle Review section)
+- **Source**: Session reflection — insights from triage, grooming, adversarial review, and ADO filing
+- **Outcome**: Filed 2 raw ideas from session incidents; enriched adversarial review concept with lifecycle-stage observation.
+
+## 2026-05-18 — Idea Promotion
+
+- **Operation**: promote idea to code page
+- **Idea**: [[Azure DevOps MCP Installation for Claude Code CLI (Promoted)]]
+- **Pages created**: [[Azure DevOps MCP Installation for Claude Code CLI]] (code/)
+- **Pages updated**: [[Azure DevOps MCP Installation for Claude Code CLI (Promoted)]] (status: backlogged → promoted), `_index.md`, `_log.md`
+- **Index**: updated, page_count 226 → 227
+- **Outcome**: Consolidated ADO MCP install instructions into a standalone quick-reference card with 4-step verification checklist and PAT security warnings.
+
+## 2026-05-18 — Ideas Filed
+
+- **Operation**: file idea
+- **Pages created**: [[Fix Promotion Rename Link Retargeting]], [[Dry-Run Gate Must Include Explicit Docs-Root]]
+- **Source**: Adversarial review findings from ADO MCP Installation plan review
+- **Outcome**: Two raw ideas filed from Codex review findings for later triage.
+
+## 2026-05-17 — Triage
+
+- **Operation**: triage
+- **Ideas triaged**: 2
+- **Results**:
+  - [[Azure DevOps MCP Installation for Claude Code CLI]] — groomed and refined: narrowed to quick-reference + troubleshooting guide consolidating scattered ADO MCP content → backlogged P2
+  - [[Jodex Plugin Installation Guide]] — backlogged P2 as-is, scope is clear
+- **Outcome**: No raw ideas remaining in idea box.
+
+## 2026-05-14 — Idea Filed
+
+- **Operation**: file idea
+- **Pages created**: [[Jodex Plugin Installation Guide]], [[Azure DevOps MCP Installation for Claude Code CLI]]
+- **Outcome**: Two raw ideas filed — plugin installation guide and ADO MCP setup documentation.
+
 ## 2026-05-12 00:44 PDT — Lint
 
 - **Operation**: lint
