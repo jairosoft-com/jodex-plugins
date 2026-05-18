@@ -24,10 +24,10 @@ Change `/jx-pm:ado` to sync directly from PRD.md (or BRD_PRD.md) to Azure Boards
 
 ## Grooming Decisions
 
-- **Estimation**: LLM-derived. The ADO skill infers story points and hour estimates from story/AC descriptions at sync time — no user prompting per story.
+- **Estimation**: LLM-derived on first sync only. Subsequent syncs preserve existing ADO estimates — never overwrite planning fields.
 - **Bindings**: Write back to PRD.md frontmatter. Azure work item IDs and sync timestamps are stored in the PRD's YAML frontmatter, keeping a single source of truth.
 - **Migration**: Replace entirely. Remove task.json support from `/jx-pm:ado` — PRD is the only input going forward. The `/jx-dev:task` skill and `task-json-schema.md` become unused by the ADO sync path.
-- **State tracking**: Per-story `passes` flags stored in `ado_sync` frontmatter, defaulting to `false` on first sync. Drives state transitions (all Stories pass → Feature resolves).
+- **State ownership**: ADO owns state. No `passes` flags in frontmatter. State transitions are managed in ADO by humans, not by the skill.
 - **Write-back**: Per-item. Each Azure ID is written to PRD frontmatter immediately after creation — crash-safe, matches existing [[Per-Item Write-Back]] contract.
 - **Legacy migration**: Accepted risk. No auto-import from task.json. This is a new workflow; existing projects continue as-is or re-sync manually.
 - **Sync direction**: PRD wins. The PRD is source of truth for content (titles, descriptions, AC text). ADO edits are overwritten on next sync. ADO remains source of truth for state (e.g., Active, Closed).
@@ -42,11 +42,11 @@ ado_sync:
   feature_work_item_url: "https://..."
   last_synced: "2026-05-18T10:30:00Z"
   stories:
-    US-001-01: { work_item_id: 204501, passes: false }
-    US-001-02: { work_item_id: 204504, passes: false }
+    US-001-01: 204501
+    US-001-02: 204504
 ```
 
-Story points and hour estimates are not stored — LLM-derived at sync time.
+Estimates are LLM-derived on first sync only, not stored locally. State lives in ADO.
 
 ## First-Run Behavior
 
