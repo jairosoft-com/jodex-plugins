@@ -2,10 +2,6 @@
 .DS_Store
 Thumbs.db
 Desktop.ini
-*.swp
-*.swo
-*~
-.idea/
 .obsidian/
 
 # --- Claude / Cursor local state (not plugin source) ---
@@ -22,12 +18,8 @@ pnpm-debug.log*
 dist/
 build/
 out/
-.next/
-.nuxt/
-.turbo/
 .cache/
 *.tsbuildinfo
-.parcel-cache/
 coverage/
 .nyc_output/
 *.log
@@ -67,19 +59,10 @@ coverage.xml
 *.cover
 .pyre/
 
-# --- Rust ---
-target/
-**/*.rs.bk
-# Keep Cargo.lock for apps/binaries; uncomment next line for library-only crates:
-# Cargo.lock
-
 # --- Wiki raw source snapshots (originals already in repo) ---
 wiki/raw/
 
 # --- Temporary / scratch files ---
 tmp/
-
-# --- Misc build / debug ---
 *.tmp
 *.temp
-.sass-cache/
