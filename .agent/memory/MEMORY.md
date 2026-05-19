@@ -15,7 +15,7 @@
 - [Plans directory](feedback_plans_directory.md) — Use .agent/plans/ from settings.local.json, not ~/.claude/plans/
 
 ## NotebookLM
-- [Associated notebooks](reference_notebooklm.md) — Plugin Marketplace Architecture + Mastering Skill.MD
+- [Associated notebooks](reference_notebooklm.md) — Plugin Marketplace Architecture + Mastering Skill.MD + Building Product Management Skills
 
 ## Confidence threshold
 - [Advisor confidence threshold](feedback_advisor_threshold.md) — Call advisor when confidence <=96%
