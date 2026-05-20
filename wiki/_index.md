@@ -8,6 +8,9 @@ page_count: 229
 
 ## Ideas
 
+- [[Conditional AC Format Selection]] — AC format should match story type: G/W/T for journeys, checklist for constraints, system state for backend (#acceptance-criteria, #prd, #jx-pm) [raw]
+- [[Downstream Contract Audit for Skill Output Changes]] — Audit all downstream consumers when changing a skill's output format; PRD change cascaded to 5+ files (#skill-design, #contracts) [raw]
+- [[Sub-Headers as Dual-Purpose Contracts]] — Bold sub-headers serve both visual grouping and machine-parseable format routing; content structure IS the contract (#skill-design, #design-pattern) [raw]
 - [[Dataview Queries]] — Obsidian plugin for frontmatter queries (#tooling, #obsidian) [backlogged P3]
 - [[Marp Integration]] — Markdown slide decks from wiki content (#tooling, #presentation) [backlogged P3]
 - [[Align jx-qa Generate Tool Contract]] — Bring generate workflow instructions into alignment with allowed tools (#jx-qa, #tooling) [backlogged P2]
