@@ -7,7 +7,7 @@ updated: 2026-05-18
 source_count: 0
 aliases: [scope inflation during grooming, grooming over-scope]
 provenance: session-derived
-status: raw
+status: backlogged
 ---
 
 # Over-Grooming Anti-Pattern

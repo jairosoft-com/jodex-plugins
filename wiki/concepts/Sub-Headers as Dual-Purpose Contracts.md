@@ -1,10 +1,12 @@
 ---
 title: Sub-Headers as Dual-Purpose Contracts
-type: idea
+type: concept
 tags: [skill-design, prd, ado, parsing, design-pattern]
 created: 2026-05-20
-status: raw
-source: jx-pm PRD multi-format AC session (2026-05-20)
+updated: 2026-05-20
+source_count: 1
+aliases: [content-as-contract, dual-purpose markdown headers]
+provenance: session-derived
 ---
 
 # Sub-Headers as Dual-Purpose Contracts
@@ -16,4 +18,9 @@ Bold sub-headers in PRD AC blocks (`**Scenarios:**`, `**Rules:**`, `**System Beh
 
 Pattern: content structure IS the contract. No separate metadata, no hidden flags. The markdown the author writes is the same markdown the ADO parser reads.
 
-Key constraint: sub-header detection must be scoped to the AC block only (between `**Acceptance Criteria:**` and `**Validates:**`) to avoid false matches from identically-named sections elsewhere in the story.
+Key constraint: sub-header detection must be scoped to the AC block only (between `**Acceptance Criteria:**` and `**Validates:**`) to avoid false matches elsewhere in the story.
+
+## Related
+
+- [[Conditional AC Format Selection]]
+- [[ADO State Sync Model]]

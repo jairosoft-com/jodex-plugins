@@ -1,16 +1,17 @@
 ---
 title: Wiki Index
-updated: 2026-05-18
-page_count: 229
+updated: 2026-05-20
+page_count: 232
 ---
 
 # Wiki Index
 
 ## Ideas
 
-- [[Conditional AC Format Selection]] — AC format should match story type: G/W/T for journeys, checklist for constraints, system state for backend (#acceptance-criteria, #prd, #jx-pm) [raw]
-- [[Downstream Contract Audit for Skill Output Changes]] — Audit all downstream consumers when changing a skill's output format; PRD change cascaded to 5+ files (#skill-design, #contracts) [raw]
-- [[Sub-Headers as Dual-Purpose Contracts]] — Bold sub-headers serve both visual grouping and machine-parseable format routing; content structure IS the contract (#skill-design, #design-pattern) [raw]
+- [[Automate Plugin Creation Like Skill Creation]] — Scaffolding command to generate plugin directory layout, manifest, and starter files (#jx-core, #plugin, #scaffolding) [backlogged P1]
+- [[Conditional AC Format Selection (Promoted)]] — AC format should match story type: G/W/T for journeys, checklist for constraints, system state for backend (#acceptance-criteria, #prd, #jx-pm) [promoted]
+- [[Downstream Contract Audit for Skill Output Changes]] — Audit all downstream consumers when changing a skill's output format; PRD change cascaded to 5+ files (#skill-design, #contracts) [backlogged P2]
+- [[Sub-Headers as Dual-Purpose Contracts (Promoted)]] — Bold sub-headers serve both visual grouping and machine-parseable format routing; content structure IS the contract (#skill-design, #design-pattern) [promoted]
 - [[Dataview Queries]] — Obsidian plugin for frontmatter queries (#tooling, #obsidian) [backlogged P3]
 - [[Marp Integration]] — Markdown slide decks from wiki content (#tooling, #presentation) [backlogged P3]
 - [[Align jx-qa Generate Tool Contract]] — Bring generate workflow instructions into alignment with allowed tools (#jx-qa, #tooling) [backlogged P2]
@@ -32,10 +33,10 @@ page_count: 229
 - [[Direct PRD-to-ADO Sync Without task.json]] — Change /jx-pm:ado to sync PRD directly to Azure Boards, removing task.json dependency (#jx-pm, #ado, #prd, #refactor) [backlogged]
 - [[Jodex Plugin Installation Guide]] — End-to-end install docs: marketplace setup → jx-core/jx-kb prereqs → role-specific plugins (#documentation, #onboarding, #plugin-architecture, #marketplace) [backlogged P2]
 - [[Azure DevOps MCP Installation for Claude Code CLI (Promoted)]] — Quick-reference: ADO MCP install and verification for Claude Code CLI (#documentation, #onboarding, #mcp, #azure-devops, #claude-code) [promoted]
-- [[Dry-Run Gate Must Include Explicit Docs-Root]] — Dry-run verification must use explicit --docs-root to avoid stale env var misdirection (#jx-pm, #ado, #safety, #verification) [raw]
-- [[Fix Promotion Rename Link Retargeting]] — Idea promotion renames silently retarget historical log wikilinks (#wiki, #lint, #promotion, #wikilinks) [raw]
-- [[Over-Grooming Anti-Pattern]] — Grooming failure mode where scope inflates beyond requestor's intent (#pattern, #wiki, #idea-lifecycle, #anti-pattern) [raw]
-- [[Wrong-Tenant Filing as Tenant Binding Validation]] — Feedback skill filed to wrong ADO project when feedback-target.json missing (#jx-pm, #ado, #tenant-binding, #incident) [raw]
+- [[Dry-Run Gate Must Include Explicit Docs-Root]] — Dry-run verification must use explicit --docs-root to avoid stale env var misdirection (#jx-pm, #ado, #safety, #verification) [backlogged]
+- [[Fix Promotion Rename Link Retargeting]] — Idea promotion renames silently retarget historical log wikilinks (#wiki, #lint, #promotion, #wikilinks) [backlogged P2]
+- [[Over-Grooming Anti-Pattern]] — Grooming failure mode where scope inflates beyond requestor's intent (#pattern, #wiki, #idea-lifecycle, #anti-pattern) [backlogged P2]
+- [[Wrong-Tenant Filing as Tenant Binding Validation]] — Feedback skill filed to wrong ADO project when feedback-target.json missing (#jx-pm, #ado, #tenant-binding, #incident) [backlogged P2]
 
 ## Concepts
 
@@ -45,6 +46,7 @@ page_count: 229
 - [[Canonical Agent Instruction with Compatibility Shims]] — One canonical agent instruction file with thin discovery shims (#agent, #instructions, #compatibility)
 - [[Client-Specific MCP Boundary]] — MCP setup must be documented by exact client, transport, auth path, and verification surface (#mcp, #claude-code, #azure-devops)
 - [[Codex Plugin Compatibility]] — Claude Code vs Codex plugin format differences and conversion tools (#plugin, #codex)
+- [[Conditional AC Format Selection]] — AC format matches story type: G/W/T for journeys, checklist for constraints, system-state for backend (#acceptance-criteria, #prd, #design-pattern)
 - [[Configurable Default Chain]] — CLI flag → env var → hardcoded default resolution order (#pattern, #configuration)
 - [[Cross-Plugin Pinned Helper]] — Resolution pattern for invoking pinned helper scripts from dependency plugins (#pattern, #security, #plugin-architecture, #DRY)
 - [[Cross-Plugin Shared Convention Layer]] — Reference-only plugin pattern for shared conventions across plugins (#pattern, #plugin-architecture, #DRY)
@@ -107,7 +109,8 @@ page_count: 229
 - [[SHA-256 Fingerprinting]] — Content-based dedup via hash (#security, #dedup)
 - [[Skill]] — Multi-phase instructional module powering slash commands (#plugin, #implementation)
 - [[Slash Command]] — User-facing command wrapper /plugin:command (#plugin, #user-facing)
-- [[Storage State]] — Browser state persistence for auth reuse (#testing, #persistence)
+- [[Storage State]]
+- [[Sub-Headers as Dual-Purpose Contracts]] — Bold sub-headers as both visual grouping and machine-parseable format routing for ADO sync (#skill-design, #prd, #design-pattern) — Browser state persistence for auth reuse (#testing, #persistence)
 - [[Stub-Delegation Pattern]] — SKILL.md with zero logic delegates to shared executable file via fail-closed guard (#pattern, #plugin-architecture, #security, #DRY)
 - [[Tombstone Pattern]] — Mark synced items as removed instead of deleting; preserve external bindings (#pattern, #sync)
 - [[Template-as-Reference Pattern]] — Store templates in references/ subdir, keep SKILL.md behavior-only (#pattern, #organization)

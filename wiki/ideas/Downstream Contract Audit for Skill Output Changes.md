@@ -3,7 +3,7 @@ title: Downstream Contract Audit for Skill Output Changes
 type: idea
 tags: [skill-design, contracts, jx-pm, jx-core, jx-dev]
 created: 2026-05-20
-status: raw
+status: backlogged
 source: jx-pm PRD multi-format AC session (2026-05-20)
 ---
 

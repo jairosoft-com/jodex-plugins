@@ -4,6 +4,18 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-20 — Triage Raw Ideas
+
+- **Operation**: triage
+- **Ideas triaged**: 7
+- **Backlogged (P1)**: [[Automate Plugin Creation Like Skill Creation]]
+- **Backlogged (P2)**: [[Over-Grooming Anti-Pattern]], [[Wrong-Tenant Filing as Tenant Binding Validation]], [[Fix Promotion Rename Link Retargeting]], [[Downstream Contract Audit for Skill Output Changes]]
+- **Promoted to concepts/**: [[Conditional AC Format Selection]], [[Sub-Headers as Dual-Purpose Contracts]]
+- **Pages created**: `concepts/Conditional AC Format Selection.md`, `concepts/Sub-Headers as Dual-Purpose Contracts.md`
+- **Pages updated**: `_index.md`, `_backlog.md`, `_log.md`, 7 idea files (status updates)
+- **Index**: updated, page_count 229 -> 232
+- **Outcome**: All raw ideas triaged. No ideas archived. Zero raw ideas remaining.
+
 ## 2026-05-18 — Idea Filed
 
 - **Operation**: file idea

@@ -7,7 +7,7 @@ updated: 2026-05-18
 source_count: 0
 aliases: [promotion link corruption, idea rename link drift]
 provenance: session-derived
-status: raw
+status: backlogged
 ---
 
 # Fix Promotion Rename Link Retargeting
