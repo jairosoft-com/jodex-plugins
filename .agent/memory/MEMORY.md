@@ -26,4 +26,5 @@
 - [Wiki lint fixes pending](project_wiki_lint_fixes.md) — Post-plugin-split lint score 78/100, 5 errors + 5 warnings
 
 ## References
+- [ADO project binding](reference_ado_project.md) — Org: jairo, Project: Jodex (dev.azure.com/jairo/Jodex)
 - [CasaColina source skills](reference_casacolina_source_skills.md) — Original cc-gen-* skills that jx-pm was ported from
