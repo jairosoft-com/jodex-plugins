@@ -8,7 +8,7 @@ page_count: 249
 
 ## Ideas
 
-- [[Automate Plugin Creation Like Skill Creation]] — Scaffolding command to generate plugin directory layout, manifest, and starter files (#jx-core, #plugin, #scaffolding) [backlogged P1]
+- [[Automate Plugin Creation Like Skill Creation]] — `/jx-skill:create-plugin` scaffolds plugin skeletons and marketplace entries with pinned-helper safety (#jx-skill, #plugin, #scaffolding) [backlogged P1]
 - [[Conditional AC Format Selection (Promoted)]] — AC format should match story type: G/W/T for journeys, checklist for constraints, system state for backend (#acceptance-criteria, #prd, #jx-pm) [promoted]
 - [[Downstream Contract Audit for Skill Output Changes]] — Audit all downstream consumers when changing a skill's output format; PRD change cascaded to 5+ files (#skill-design, #contracts) [backlogged P2]
 - [[Sub-Headers as Dual-Purpose Contracts (Promoted)]] — Bold sub-headers serve both visual grouping and machine-parseable format routing; content structure IS the contract (#skill-design, #design-pattern) [promoted]
@@ -30,15 +30,14 @@ page_count: 249
 - [[Wiki Search Tools]] — qmd and CLI tools for wiki search at scale (#tooling, #search) [backlogged P3]
 - [[Extract ADO Sync and Task Skills to jx-core]] — Move ado (jx-pm) and task (jx-dev) into jx-core for cross-role availability (#plugin-architecture, #jx-core, #cross-role) [archived: implemented]
 - [[Slash Feedback Skill for jx-core]] — Structured feedback capture skill in jx-core for cross-role use (#jx-core, #feedback, #cross-role) [backlogged P2]
-- [[Direct PRD-to-ADO Sync Without task.json]] — Change /jx-pm:ado to sync PRD directly to Azure Boards, removing task.json dependency (#jx-pm, #ado, #prd, #refactor) [backlogged]
+- [[Direct PRD-to-ADO Sync Without task.json]] — Change /jx-pm:ado to sync PRD directly to Azure Boards, removing task.json dependency (#jx-pm, #ado, #prd, #refactor) [backlogged P2]
 - [[Jodex Plugin Installation Guide]] — End-to-end install docs: marketplace setup → jx-core/jx-kb prereqs → role-specific plugins (#documentation, #onboarding, #plugin-architecture, #marketplace) [backlogged P2]
 - [[Azure DevOps MCP Installation for Claude Code CLI (Promoted)]] — Quick-reference: ADO MCP install and verification for Claude Code CLI (#documentation, #onboarding, #mcp, #azure-devops, #claude-code) [promoted]
-- [[Dry-Run Gate Must Include Explicit Docs-Root]] — Dry-run verification must use explicit --docs-root to avoid stale env var misdirection (#jx-pm, #ado, #safety, #verification) [backlogged]
+- [[Dry-Run Gate Must Include Explicit Docs-Root]] — Dry-run verification must use explicit --docs-root to avoid stale env var misdirection (#jx-pm, #ado, #safety, #verification) [backlogged P2]
 - [[Fix Promotion Rename Link Retargeting]] — Idea promotion renames silently retarget historical log wikilinks (#wiki, #lint, #promotion, #wikilinks) [backlogged P2]
 - [[Over-Grooming Anti-Pattern]] — Grooming failure mode where scope inflates beyond requestor's intent (#pattern, #wiki, #idea-lifecycle, #anti-pattern) [backlogged P2]
 - [[Wrong-Tenant Filing as Tenant Binding Validation]] — Feedback skill filed to wrong ADO project when feedback-target.json missing (#jx-pm, #ado, #tenant-binding, #incident) [backlogged P2]
 - [[Skill Creator for Jodex Plugins]] — `/jx-skill:create` in new jx-skill plugin; scaffolds skills with convention enforcement and validation (#developer-experience, #plugins, #tooling, #jx-skill) [backlogged P1]
-- [[Dry-Run Gate Must Include Explicit Docs-Root]] — Dry-run verification must use explicit --docs-root to avoid stale env var misdirection (#jx-pm, #ado, #safety, #verification) [raw]
 - [[Fix Promotion Rename Link Retargeting]] — Idea promotion renames silently retarget historical log wikilinks (#wiki, #lint, #promotion, #wikilinks) [raw]
 - [[Over-Grooming Anti-Pattern]] — Grooming failure mode where scope inflates beyond requestor's intent (#pattern, #wiki, #idea-lifecycle, #anti-pattern) [raw]
 - [[Wrong-Tenant Filing as Tenant Binding Validation]] — Feedback skill filed to wrong ADO project when feedback-target.json missing (#jx-pm, #ado, #tenant-binding, #incident) [raw]

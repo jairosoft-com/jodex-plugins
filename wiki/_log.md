@@ -842,3 +842,36 @@ title: Wiki Log
 - **Pages updated**: Source - Ingest SKILL, Source - Marketplace Config, Source - Extract SKILL, Source - Generate SKILL, Source - JX QA README, QA AI (added test plan directory), xlsx-writer.py (expanded usage to both extract + generate)
 - **Pages created**: (none)
 - **Outcome**: Success — all 5 source pages updated with new hashes and change summaries
+
+## 2026-05-20 13:54 PDT — Query
+
+- **Operation**: query
+- **Question**: "list ideas in inbox"
+- **Pages consulted**: [[Idea Lifecycle]], [[Triage]], [[Escape User Descriptions in Scaffold Frontmatter]], [[Per-Plugin Allowed-Tools Allowlist]], [[Three-Way Naming Sync Validation Gate]], [[Update Wiki Inventory for Six-Plugin Marketplace]], [[Reject Core and Self Plugin Targets in Scaffold]]
+- **Answer filed**: No
+- **Outcome**: Answered with 7 citations
+
+## 2026-05-20 13:57 PDT — Query
+
+- **Operation**: query
+- **Question**: "list items in the backlog"
+- **Pages consulted**: [[Idea Lifecycle]], [[Triage]], [[Direct PRD-to-ADO Sync Without task.json]], [[Dry-Run Gate Must Include Explicit Docs-Root]], plus `wiki/_backlog.md` and `wiki/_index.md`
+- **Answer filed**: No
+- **Outcome**: Answered with 4 citations and identified 2 backlog/index drift candidates
+
+## 2026-05-20 14:10 PDT — Backlog Maintenance
+
+- **Operation**: backlog drift repair
+- **Pages updated**: `_backlog.md`, `_index.md`, `_log.md`
+- **Items added to P2**: [[Direct PRD-to-ADO Sync Without task.json]], [[Dry-Run Gate Must Include Explicit Docs-Root]]
+- **Index cleanup**: Set both target entries to `[backlogged P2]`; removed stale duplicate `[raw]` entry for [[Dry-Run Gate Must Include Explicit Docs-Root]]
+- **Status decisions**: None changed; both idea pages were already `status: backlogged`
+- **Outcome**: Success — backlog and index now reflect the two selected P2 backlog items
+
+## 2026-05-20 14:28 PDT — Backlog Grooming
+
+- **Operation**: groom backlog item
+- **Page updated**: [[Automate Plugin Creation Like Skill Creation]]
+- **Decisions captured**: Home in `jx-skill`; command `/jx-skill:create-plugin`; v1 creates plugin skeleton plus marketplace entry; first-skill generation deferred to existing `/jx-skill:create`
+- **Index/backlog sync**: Updated summary text and tags from `jx-core` to `jx-skill`
+- **Outcome**: Success — item refined into an implementation-ready P1 backlog entry without code changes

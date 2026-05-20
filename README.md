@@ -1,6 +1,6 @@
 # jodex-plugins
 
-Claude Code plugin marketplace by **Jairosoft** — six plugins spanning QA automation, knowledge management, product management, developer tooling, skill scaffolding, and shared conventions.
+Claude Code plugin marketplace by **Jairosoft** — six plugins spanning QA automation, knowledge management, product management, developer tooling, skill/plugin scaffolding, and shared conventions.
 
 ## Plugins
 
@@ -11,7 +11,7 @@ Claude Code plugin marketplace by **Jairosoft** — six plugins spanning QA auto
 | **jx-pm** | Product | Generate PRDs, sync to Azure Boards |
 | **jx-dev** | Developer | Generate technical specifications and task breakdowns from PRDs |
 | **jx-core** | Core | Shared conventions and executable skill logic (ADO sync, task conversion) consumed by role plugins. No user-facing commands |
-| **jx-skill** | Productivity | Scaffold new skills inside existing plugins with convention enforcement |
+| **jx-skill** | Productivity | Scaffold new skills inside existing plugins and new plugin skeletons with convention enforcement |
 
 ### jx-qa
 
@@ -51,6 +51,7 @@ Claude Code plugin marketplace by **Jairosoft** — six plugins spanning QA auto
 
 ```
 /jx-skill:create [--plugin <name>] [--skill <name>]   Scaffold a new skill
+/jx-skill:create-plugin --plugin <jx-name> --description "..."   Scaffold a new plugin skeleton
 ```
 
 ### Dependencies
@@ -104,6 +105,7 @@ claude plugin install jx-qa@jodex-plugins
 /plugin uninstall jx-kb@jodex-plugins
 /plugin uninstall jx-pm@jodex-plugins
 /plugin uninstall jx-dev@jodex-plugins
+/plugin uninstall jx-skill@jodex-plugins
 /plugin marketplace remove jodex-plugins
 ```
 
