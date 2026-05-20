@@ -15,6 +15,39 @@ title: Wiki Log
 - **Pages updated**: `_index.md`, `_backlog.md`, `_log.md`, 7 idea files (status updates)
 - **Index**: updated, page_count 229 -> 232
 - **Outcome**: All raw ideas triaged. No ideas archived. Zero raw ideas remaining.
+## 2026-05-20 — Review Round 6 Fixes and Ideas Filed
+
+- **Operation**: fix bugs + file idea
+- **Fixes applied**:
+  - Changed `confine_to_project_root` to resolve + validate path instead of constraining to `cwd()` (P1: blocked usage when cwd differs from repo root)
+  - Deleted stray `plugins/jx-pm/escape.md` test artifact (P3: leftover from traversal test)
+- **Pages created**: [[Reject Core and Self Plugin Targets in Scaffold]]
+- **Pages updated**: `_index.md` (page_count 234 -> 235), `_log.md`
+- **Outcome**: Fixed 2 findings (urgency 8/10 and 7/10). Filed 1 finding (urgency 4/10) as raw idea.
+
+## 2026-05-20 — Post-Review Fixes and Ideas Filed
+
+- **Operation**: fix bugs + file ideas
+- **Fixes applied**:
+  - Added `SKILL_NAME_RE` guard to `cmd_scaffold` in `skill-creator.py` (safety bug: `../escape` bypassed name validation)
+  - Added `Bash(python3 -m json.tool:*)` to `commands/create.md` allowed-tools (Phase 5b JSON lint was blocked)
+- **Pages created**: [[Escape User Descriptions in Scaffold Frontmatter]], [[Update Wiki Inventory for Six-Plugin Marketplace]]
+- **Pages updated**: `_index.md` (page_count 232 -> 234), `_log.md`
+- **Outcome**: Fixed 2 findings (urgency 9/10 and 5/10). Filed 2 low-urgency findings (3/10 and 2/10) as raw ideas.
+
+## 2026-05-20 — Adversarial Review Ideas Filed
+
+- **Operation**: file ideas
+- **Pages created**: [[Per-Plugin Allowed-Tools Allowlist]], [[Three-Way Naming Sync Validation Gate]]
+- **Pages updated**: `_index.md` (page_count 230 -> 232), `_log.md`
+- **Outcome**: Filed 2 raw ideas from Codex adversarial review round 4. Diminishing returns — v1 plan already addresses both concerns. Filed for future `/jx-skill:validate` enhancement.
+
+## 2026-05-20 — Skill Creator Idea Filed
+
+- **Operation**: file idea
+- **Pages created**: [[Skill Creator for Jodex Plugins]]
+- **Pages updated**: `_backlog.md` (added to P1), `_index.md` (page_count 229 -> 230)
+- **Outcome**: Captured skill-creator feature from ADO #204325. Scaffolding tool for new skills/plugins with convention enforcement, validation gates, and boilerplate generation. Open decisions: plugin placement (jx-dev vs jx-core vs jx-meta), scope (skill-only vs full plugin), UX mode (interactive vs flag-driven vs hybrid).
 
 ## 2026-05-18 — Idea Filed
 

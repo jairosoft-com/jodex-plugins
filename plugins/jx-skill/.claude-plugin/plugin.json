@@ -1,0 +1,6 @@
+{
+  "name": "jx-skill",
+  "version": "1.0.0",
+  "description": "Skill scaffolding: create new skills inside existing Jodex plugins with convention enforcement.",
+  "author": { "name": "Jairosoft", "email": "ramon@jairosoft.com" }
+}

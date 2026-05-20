@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-20
-page_count: 232
+page_count: 249
 ---
 
 # Wiki Index
@@ -37,6 +37,16 @@ page_count: 232
 - [[Fix Promotion Rename Link Retargeting]] — Idea promotion renames silently retarget historical log wikilinks (#wiki, #lint, #promotion, #wikilinks) [backlogged P2]
 - [[Over-Grooming Anti-Pattern]] — Grooming failure mode where scope inflates beyond requestor's intent (#pattern, #wiki, #idea-lifecycle, #anti-pattern) [backlogged P2]
 - [[Wrong-Tenant Filing as Tenant Binding Validation]] — Feedback skill filed to wrong ADO project when feedback-target.json missing (#jx-pm, #ado, #tenant-binding, #incident) [backlogged P2]
+- [[Skill Creator for Jodex Plugins]] — `/jx-skill:create` in new jx-skill plugin; scaffolds skills with convention enforcement and validation (#developer-experience, #plugins, #tooling, #jx-skill) [backlogged P1]
+- [[Dry-Run Gate Must Include Explicit Docs-Root]] — Dry-run verification must use explicit --docs-root to avoid stale env var misdirection (#jx-pm, #ado, #safety, #verification) [raw]
+- [[Fix Promotion Rename Link Retargeting]] — Idea promotion renames silently retarget historical log wikilinks (#wiki, #lint, #promotion, #wikilinks) [raw]
+- [[Over-Grooming Anti-Pattern]] — Grooming failure mode where scope inflates beyond requestor's intent (#pattern, #wiki, #idea-lifecycle, #anti-pattern) [raw]
+- [[Wrong-Tenant Filing as Tenant Binding Validation]] — Feedback skill filed to wrong ADO project when feedback-target.json missing (#jx-pm, #ado, #tenant-binding, #incident) [raw]
+- [[Per-Plugin Allowed-Tools Allowlist]] — Permission-aware scaffolding for generated command stubs (#jx-skill, #security, #permissions) [raw]
+- [[Three-Way Naming Sync Validation Gate]] — Automated 3-way naming sync check for plugin scaffolding (#jx-skill, #plugins, #validation) [raw]
+- [[Escape User Descriptions in Scaffold Frontmatter]] — Quote/escape descriptions with YAML-special chars in generated stubs (#jx-skill, #yaml, #safety) [raw]
+- [[Update Wiki Inventory for Six-Plugin Marketplace]] — Update stale five-plugin references in _schema.md and project page (#wiki, #plugins, #inventory) [raw]
+- [[Reject Core and Self Plugin Targets in Scaffold]] — Block --plugin jx-core and --plugin jx-skill via flag bypass (#jx-skill, #validation, #safety) [raw]
 
 ## Concepts
 

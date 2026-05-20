@@ -10,6 +10,7 @@ updated: 2026-05-20
 ## P1 — High
 
 - [[Automate Plugin Creation Like Skill Creation]] — Scaffolding command to generate plugin directory layout, manifest, and starter files in one step (#jx-core, #plugin, #scaffolding, #dx)
+- [[Skill Creator for Jodex Plugins]] — `/jx-skill:create` in new jx-skill plugin; scaffolds skills inside existing plugins with convention enforcement and validation; ADO #204325 (#developer-experience, #plugins, #tooling, #jx-skill)
 
 ## P2 — Medium
 

@@ -51,6 +51,15 @@
       },
       "category": "productivity",
       "source": "./plugins/jx-dev"
+    },
+    {
+      "name": "jx-skill",
+      "description": "Skill scaffolding: create new skills inside existing Jodex plugins with convention enforcement.",
+      "author": {
+        "name": "Jairosoft"
+      },
+      "category": "productivity",
+      "source": "./plugins/jx-skill"
     }
   ]
 }

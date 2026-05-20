@@ -9,7 +9,7 @@
 
 ## Repository Map
 
-- `README.md` describes the five-plugin marketplace: `jx-qa`, `jx-kb`, `jx-pm`, `jx-dev`, and `jx-core`.
+- `README.md` describes the six-plugin marketplace: `jx-qa`, `jx-kb`, `jx-pm`, `jx-dev`, `jx-core`, and `jx-skill`.
 - `.claude-plugin/marketplace.json` is the marketplace listing surface.
 - `plugins/*/.claude-plugin/plugin.json` is each plugin package manifest.
 - `plugins/*/README.md` carries plugin-specific workflow, dependency, and installation context.
@@ -33,6 +33,7 @@
 - `jx-pm` handles PRD generation, pipeline orchestration, and Azure Boards sync.
 - `jx-dev` handles technical specifications and task breakdowns from PRDs.
 - `jx-core` provides shared conventions and executable skill logic. It has no user-facing commands but its `_shared/` files contain executable instructions consumed by role plugin stubs.
+- `jx-skill` handles skill scaffolding inside existing plugins: convention enforcement, trigger uniqueness, boilerplate generation.
 - The PM-to-delivery flow is `/jx-pm:prd` -> `/jx-dev:spec` -> `/jx-dev:task` -> `/jx-pm:ado`.
 
 ## Wiki and Memory
@@ -46,7 +47,7 @@
 
 - Validate marketplace JSON with `python3 -m json.tool .claude-plugin/marketplace.json`.
 - Validate plugin manifests with `python3 -m json.tool plugins/*/.claude-plugin/plugin.json`.
-- For helper-script changes, run `python3 -m py_compile plugins/jx-kb/scripts/wiki-tools.py plugins/jx-qa/scripts/xlsx-writer.py`.
+- For helper-script changes, run `python3 -m py_compile plugins/jx-kb/scripts/wiki-tools.py plugins/jx-qa/scripts/xlsx-writer.py plugins/jx-skill/scripts/skill-creator.py`.
 - For wiki inventory changes, check maintained pages for stale three-plugin or old plugin-count language.
 
 ## Do Not
