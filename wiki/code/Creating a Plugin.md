@@ -3,7 +3,7 @@ title: Creating a Plugin
 type: code
 tags: [plugin, how-to, architecture, onboarding]
 created: 2026-05-10
-updated: 2026-05-10
+updated: 2026-05-20
 source_count: 0
 aliases: [plugin creation, new plugin, writing a plugin]
 provenance: conversation-derived
@@ -12,6 +12,10 @@ provenance: conversation-derived
 # Creating a Plugin
 
 End-to-end guide for adding a new plugin to the Claude Code plugin architecture. For adding skills to an existing plugin, see [[Creating a Skill]].
+
+## Automation Shortcut
+
+Use `/jx-skill:create-plugin` for the standard Jodex plugin skeleton. It is backed by [[plugin-creator.py]], creates package metadata and component `ABOUT.md` files, appends the marketplace entry, and leaves first-skill creation to `/jx-skill:create`.
 
 ## Step 1: Create Directory Structure
 

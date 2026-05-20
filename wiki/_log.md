@@ -875,3 +875,22 @@ title: Wiki Log
 - **Decisions captured**: Home in `jx-skill`; command `/jx-skill:create-plugin`; v1 creates plugin skeleton plus marketplace entry; first-skill generation deferred to existing `/jx-skill:create`
 - **Index/backlog sync**: Updated summary text and tags from `jx-core` to `jx-skill`
 - **Outcome**: Success — item refined into an implementation-ready P1 backlog entry without code changes
+
+## 2026-05-20 15:49 PDT — Synthesis Filing
+
+- **Operation**: file insight
+- **Provenance**: synthesis
+- **Pages created**: [[plugin-creator.py]]
+- **Pages updated**: [[Creating a Plugin]], `_index.md`, `_log.md`
+- **Insight captured**: `/jx-skill:create-plugin` should scaffold only package structure plus marketplace registration; first-skill and command behavior stay delegated to `/jx-skill:create`.
+- **Outcome**: Success — implemented helper contract filed without changing backlog status
+
+## 2026-05-20 15:53 PDT — Lint
+
+- **Operation**: lint
+- **Errors found**: 3
+- **Warnings found**: 36
+- **Info found**: 5
+- **Auto-fixes applied**: 0 (report only)
+- **Health score**: 0/100
+- **Outcome**: Report generated

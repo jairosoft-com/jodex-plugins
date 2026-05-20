@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-20
-page_count: 249
+page_count: 250
 ---
 
 # Wiki Index
@@ -189,6 +189,7 @@ page_count: 249
 - [[JX PM Onboarding]] — Product owner setup guide for installing Claude Code CLI/Desktop, GitHub tooling, Obsidian, jx-pm, jx-kb, and optional Azure DevOps MCP (#jx-pm, #product-owner, #onboarding)
 - [[JX Foundational Onboarding]] — Shared prerequisite setup for all Jodex project roles: Claude Code, Git, GitHub CLI, uv, Python 3, Node.js 20+, jx-kb (#onboarding, #setup, #shared, #jx-kb)
 - [[JX QA Onboarding]] — QA user setup guide for installing jx-qa and jx-kb, initializing a project wiki, and running Playwright workflows (#jx-qa, #onboarding, #setup, #playwright)
+- [[plugin-creator.py]] — Pinned helper script for jx-skill plugin skeleton scaffolding (#script, #python, #jx-skill)
 - [[wiki-tools.py]] — Pinned helper script for jx-kb plugin (#script, #python)
 - [[xlsx-writer.py]] — Pinned helper script for jx-qa plugin (#script, #python)
 
