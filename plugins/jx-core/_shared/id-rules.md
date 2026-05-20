@@ -70,6 +70,18 @@ US-006-01 -> AC-006-01, AC-006-02
 US-006-02 -> AC-006-03, AC-006-04  (continues, not reset)
 ```
 
+## AC Format Compatibility
+
+AC IDs support three body formats. All MUST remain single-line after the `AC-{NNN}-{seq}:` prefix:
+
+- **Scenario-Based:** `AC-{NNN}-{seq}: Given [context], When [action], Then [result]`
+- **Rule-Based:** `AC-{NNN}-{seq}: [Constraint or validation statement]`
+- **System State:** `AC-{NNN}-{seq}: When [trigger], system [action] and returns [result]`
+
+One scenario/rule/state = one AC ID. The global counter applies uniformly across all formats.
+
+Multi-line AC bodies are invalid — the ADO parser extracts `AC-{NNN}-{seq}: {text}` per line and silently drops continuation text.
+
 ## Cross-Document Rules
 
 - The spec skill references PRD IDs (US, AC, FR, NFR) -- NEVER creates new ones

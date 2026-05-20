@@ -90,17 +90,19 @@ Items with `removed: true` are inert -- not synced, not created. Preserved for `
 
 ## Story Points (per User Story)
 
+Use **functional AC count** (excluding quality gates) for sizing. See task.md Functional AC Counting for exclusion rules.
+
 | Points | Signals |
 |--------|---------|
-| 1 | 1-2 ACs, single file, <=0.75h |
-| 2 | 2-3 ACs, 1-2 files, <=1.5h |
-| 3 | 3-5 ACs, 2-4 files, <=3h |
-| 5 | 5-7 ACs, 4-6 files, <=5h |
-| 8 | 7+ ACs, 6+ files -- consider splitting |
+| 1 | 1-2 functional ACs, single file, <=0.75h |
+| 2 | 2-3 functional ACs, 1-2 files, <=1.5h |
+| 3 | 3-5 functional ACs, 2-4 files, <=3h |
+| 5 | 5-7 functional ACs, 4-6 files, <=5h |
+| 8 | 7+ functional ACs, 6+ files -- consider splitting |
 
 ## Story Sizing Rule
 
-Each story must be completable in ONE context window. If you can't describe the change in 2-3 sentences, split it.
+Each story must be completable in ONE context window. If you can't describe the change in 2-3 sentences, split it. Split threshold uses functional AC count (quality gates excluded).
 
 ## Dependency Ordering
 

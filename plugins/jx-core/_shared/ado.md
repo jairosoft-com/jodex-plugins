@@ -58,10 +58,22 @@ Extract from markdown:
    - Story ID (e.g., `US-010-01`)
    - Title (text after the colon)
    - Description: the "As a / I want / So that" block
-   - Acceptance Criteria: all `AC-{NNN}-{seq}: {text}` lines under the story
+   - Acceptance Criteria with format context: for each AC, produce `{ac_id, text, format_group}`:
+     - Locate `**Acceptance Criteria:**` container within the story. Sub-header detection is SCOPED to the AC block only (between `**Acceptance Criteria:**` and the block boundary: `**Validates:**`, next `### US-` heading, next `##` heading, or end of story)
+     - Within the AC block, scan for routing sub-headers: `**Scenarios:**`, `**Rules:**`, `**System Behavior:**` (alias `**System State:**`), `**Quality Gates:**`
+     - ACs following a routing sub-header inherit that sub-header's format_group (`scenarios`, `rules`, `system_behavior`, `quality_gates`)
+     - `**Acceptance Criteria:**` itself is a non-routing container (resets format_group to none)
+     - ACs with no preceding format sub-header → `format_group = "legacy"`
+     - **Orphaned format promotion:** For legacy ACs, check if text contains full Given/When/Then structure (all three keywords) → promote to `scenarios_inferred`. If text contains both `When ` and `system ` → promote to `system_behavior_inferred`. Partial matches remain `legacy`.
    - "Validates:" reference (included in description for traceability)
 
-The parser handles all three template variants (lite, standard, unified BRD-PRD). Patterns are consistent: `### US-` headings, `AC-` prefixed list items, `## Document Metadata` section.
+4. **Pre-sync AC validation**: Run the shared validator before proceeding:
+   ```bash
+   bash ../scripts/validate-ac-blocks.sh {prd_file}
+   ```
+   Halt with line-numbered errors if any orphan/continuation lines detected. This catches hand-edited PRDs that bypass the PRD generator's Phase 6 validation.
+
+The parser handles all three template variants (lite, standard, unified BRD-PRD) and both legacy (no sub-headers) and new-format (with sub-headers) PRDs.
 
 ---
 
@@ -145,8 +157,17 @@ Tags are used for crash recovery identification. Never modify or remove them.
 **User Story:**
 - Title: `{story.id}: {story.title}`
 - Description: "As a / I want / So that" block + "Validates:" reference
-- Acceptance Criteria field: Gherkin synthesized from behavioral ACs. Exclude quality-gate criteria (lint, typecheck, tests). If only quality-gate remain → leave AC field empty, log warning.
-- Story Points: LLM-derived estimate (1/2/3/5/8 scale based on AC count and complexity). **First sync only — never overwrite on subsequent syncs.**
+- Acceptance Criteria field: Route each AC by its `format_group` from Phase 2:
+  - `scenarios` / `scenarios_inferred` → pass through as-is (already Gherkin)
+  - `rules` / `legacy` (after exclusion) → synthesize Gherkin from behavioral statement
+  - `system_behavior` / `system_behavior_inferred` → pass through as-is (technical behavior spec)
+  - `quality_gates` → exclude from AC field
+  - `legacy` with normalized exact-phrase match → exclude (phrases: `Lint passes`, `Typecheck passes`, `Unit tests pass`, `E2E tests pass` after stripping trailing annotations like `*(UI stories only)*`)
+  - **Sub-header routing is authoritative:** ACs under functional sub-headers (scenarios, rules, system_behavior) are NEVER phrase-excluded.
+  - If only quality-gate ACs remain → leave AC field empty, log warning.
+  - **Inferred-routing confirmation:** If any ACs were promoted to `scenarios_inferred` or `system_behavior_inferred`, display the inferred routing before any write (all non-dry-run modes: Normal, Partial, Update). User must confirm before ADO writes proceed.
+  - Dry-run output shows format routing per AC: `AC-NNN-NN [format_group] → action: "text"`
+- Story Points: LLM-derived estimate (1/2/3/5/8 scale). Weight by functional scenario count (excluding quality gates), not raw AC line count. **First sync only — never overwrite on subsequent syncs.**
 - Tags: `prd:{story.id}`
 
 ### Field Update Rules (on update of existing items)
@@ -218,6 +239,7 @@ Markdown report:
 | Operation | Confirmation word | What it does |
 |---|---|---|
 | `--new-tenant` | `rebind` | Clears `ado_sync` block, re-syncs to different tenant |
+| Inferred AC routing | `confirm` | Proceeds with inferred `scenarios_inferred` / `system_behavior_inferred` routing for legacy ACs without sub-headers |
 
 ---
 
@@ -230,8 +252,11 @@ Markdown report:
 - [ ] Hierarchy reconciliation completed (Feature + Story links verified/repaired)
 - [ ] Per-item frontmatter write-back after each create (via pinned helper, atomic)
 - [ ] Crash recovery uses tag-based search, fail-closed (exactly 1 match or halt)
-- [ ] Gherkin synthesized for User Story AC field (quality-gate criteria excluded)
-- [ ] Story Points LLM-derived on first sync only; preserved on subsequent syncs
+- [ ] AC block validation passed (shared validator, no orphan/continuation lines)
+- [ ] AC format routing applied per format_group (scenarios→pass-through, rules/legacy→synthesize, system_behavior→pass-through, quality_gates→exclude)
+- [ ] Quality-gate exclusion: sub-header layer + normalized exact-phrase layer (legacy only); sub-header routing is authoritative
+- [ ] Inferred routing confirmed by user (if any scenarios_inferred/system_behavior_inferred ACs present)
+- [ ] Story Points weighted by functional scenario count (excluding quality gates); first sync only
 - [ ] Orphaned stories reported but not modified in ADO
 - [ ] No Task work items created
 - [ ] All work items tagged with `prd:{source_id}`

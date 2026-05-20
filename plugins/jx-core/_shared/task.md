@@ -100,7 +100,7 @@ Build the canonical JSON structure per `../../../jx-core/_shared/task-json-schem
 Each story must be completable in ONE context window. Split if:
 - Cannot describe the change in 2-3 sentences
 - Touches more than 6 files
-- Has more than 7 acceptance criteria
+- Has more than 7 **functional** acceptance criteria (see Functional AC Counting below)
 
 ### Hour Estimation
 
@@ -119,15 +119,24 @@ Read PRD and TECH_SPEC before estimating. Classify each AC:
 - TECH_SPEC calls out edge cases → +0.25h
 - Cap: no AC exceeds 2h
 
+### Functional AC Counting
+
+When sizing, count **functional ACs only** — exclude quality gates using the same two-layer rule as ADO sync:
+1. ACs under `**Quality Gates:**` sub-header → excluded
+2. Legacy ACs (no sub-header) matching normalized exact phrases (`Lint passes`, `Typecheck passes`, `Unit tests pass`, `E2E tests pass` after stripping annotations) → excluded
+3. ACs under functional sub-headers (`**Scenarios:**`, `**Rules:**`, `**System Behavior:**`) are NEVER phrase-excluded — sub-header routing is authoritative
+
+When a story has >3 unhappy-path ACs testing the same flow with different error conditions, count them as 1 complexity unit for sizing (but preserve all IDs in task.json).
+
 ### Story Points
 
 | Points | Signals |
 |--------|---------|
-| 1 | 1-2 ACs, ≤0.75h |
-| 2 | 2-3 ACs, ≤1.5h |
-| 3 | 3-5 ACs, ≤3h |
-| 5 | 5-7 ACs, ≤5h |
-| 8 | 7+ ACs — consider splitting |
+| 1 | 1-2 functional ACs, ≤0.75h |
+| 2 | 2-3 functional ACs, ≤1.5h |
+| 3 | 3-5 functional ACs, ≤3h |
+| 5 | 5-7 functional ACs, ≤5h |
+| 8 | 7+ functional ACs — consider splitting |
 
 ### Dependency Ordering
 

@@ -29,12 +29,21 @@
 **I want** [feature/capability]
 **So that** [benefit/value]
 
+*Format: Rule-Based — [rationale]*
+
 **Acceptance Criteria:**
-- AC-{feature_number}-01: [Specific, verifiable criterion]
+
+**Rules:**
+- AC-{feature_number}-01: [Specific, verifiable criterion — happy path]
 - AC-{feature_number}-02: [Another criterion]
-- AC-{feature_number}-03: Lint passes
-- AC-{feature_number}-04: Typecheck passes
-- AC-{feature_number}-05: Unit tests pass
+- AC-{feature_number}-03: [Unhappy path — error/edge case]
+
+**Quality Gates:**
+- AC-{feature_number}-04: Lint passes
+- AC-{feature_number}-05: Typecheck passes
+- AC-{feature_number}-06: Unit tests pass
+
+<!-- See SKILL.md Format Selection Rules for Scenario-Based and System State formats -->
 
 **Validates:** [OBJ or GOAL reference]
 

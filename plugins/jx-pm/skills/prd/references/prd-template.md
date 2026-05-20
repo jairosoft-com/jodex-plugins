@@ -23,14 +23,19 @@
 
 **Description:** As a [user], I want [feature] so that [benefit].
 
+*Format: Scenario-Based — [rationale: user-facing flow with step-by-step journey]*
+
 **Acceptance Criteria:**
-- AC-{feature_number}-01: [Specific verifiable criterion]
-- AC-{feature_number}-02: [Another criterion]
-- AC-{feature_number}-03: [Error handling criterion]
-- AC-{feature_number}-04: Lint passes
-- AC-{feature_number}-05: Typecheck passes
-- AC-{feature_number}-06: Unit tests pass
-- AC-{feature_number}-07: E2E tests pass *(UI stories only)*
+
+**Scenarios:**
+- AC-{feature_number}-01: Given [context], When [action], Then [expected result — happy path]
+- AC-{feature_number}-02: Given [context], When [error condition], Then [error handling — unhappy path]
+
+**Quality Gates:**
+- AC-{feature_number}-03: Lint passes
+- AC-{feature_number}-04: Typecheck passes
+- AC-{feature_number}-05: Unit tests pass
+- AC-{feature_number}-06: E2E tests pass
 
 **Validates:** [Goal or objective reference]
 
@@ -38,9 +43,16 @@
 
 **Description:** As a [user], I want [feature] so that [benefit].
 
+*Format: Rule-Based — [rationale: field validations and constraints]*
+
 **Acceptance Criteria:**
-- AC-{feature_number}-08: [Criterion — note global counter continues]
-- AC-{feature_number}-09: [Another criterion]
+
+**Rules:**
+- AC-{feature_number}-07: [Constraint or validation — happy path. Note global counter continues]
+- AC-{feature_number}-08: [Another constraint]
+- AC-{feature_number}-09: [Error/edge case — unhappy path]
+
+**Quality Gates:**
 - AC-{feature_number}-10: Lint passes
 - AC-{feature_number}-11: Typecheck passes
 - AC-{feature_number}-12: Unit tests pass

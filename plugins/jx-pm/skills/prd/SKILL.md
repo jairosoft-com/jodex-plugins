@@ -160,9 +160,15 @@ Generate using the appropriate template:
 **I want** [feature/capability]
 **So that** [benefit/value]
 
+*Format: [Selected format] — [1-2 sentence rationale]*
+
 **Acceptance Criteria:**
-- AC-{feature_number}-{seq}: [Specific, verifiable criterion]
-- AC-{feature_number}-{seq}: [Another measurable criterion]
+
+**[Scenarios:|Rules:|System Behavior:]**
+- AC-{feature_number}-{seq}: [Happy-path criterion]
+- AC-{feature_number}-{seq}: [Unhappy-path criterion]
+
+**Quality Gates:**
 - AC-{feature_number}-{seq}: Lint passes
 - AC-{feature_number}-{seq}: Typecheck passes
 - AC-{feature_number}-{seq}: Unit tests pass
@@ -170,15 +176,81 @@ Generate using the appropriate template:
 **Validates:** [OBJ-{feature_number}-{seq} or GOAL-{feature_number}-{seq}]
 ```
 
-**AC Counter Rule:** Global sequential numbering across ALL user stories (never resets per story).
+**AC Counter Rule:** Global sequential numbering across ALL user stories (never resets per story). One scenario/rule/state = one AC ID.
 
-**Quality Criteria (auto-added to every story):**
+**All AC bodies MUST be single-line** after the `AC-{NNN}-{seq}:` prefix. Multi-line bodies break the ADO parser. See `../../../jx-core/_shared/id-rules.md` AC Format Compatibility.
+
+### AC Format Selection
+
+Analyze each user story and apply the format(s) most relevant to the feature type:
+
+| Condition | Story Type | Format | Example |
+|-----------|-----------|--------|---------|
+| A | User interacts with UI in step-by-step flow | Scenario-Based (Given/When/Then) | Login, checkout, form submission |
+| B | Field validations, permissions, constraints, accessibility | Rule-Based (Checklist) | Password rules, role access, WCAG |
+| C | Background processing, API payloads, data migrations | System State / Flow | Webhook handler, ETL job, API integration |
+
+**Do NOT default to one format.** Analyze the story type and select accordingly.
+
+**Hybrid:** Complex stories may need multiple formats. Separate with bold sub-headers:
+- `**Scenarios:**` — Given/When/Then items
+- `**Rules:**` — Checklist items
+- `**System Behavior:**` — State/flow items (canonical name; `**System State:**` is also accepted)
+- `**Quality Gates:**` — Always present, always Rule-Based
+
+These sub-headers serve dual purpose: visual grouping in the PRD AND format detection for ADO sync.
+
+**Format Rationale:** Before the Acceptance Criteria block, add an italic line: `*Format: [type] — [why]*`
+
+**Happy/Unhappy Paths:** Every story MUST include at least one happy-path AC and one unhappy-path AC. Unhappy paths cover error handling, edge cases, and failure recovery.
+
+**Mode-Specific Defaults:**
+
+| Mode | Default AC Format | Format Selection |
+|------|-------------------|------------------|
+| `lite` | Rule-Based (checklist) | Escalate to Scenario-Based or System State only if story type demands it |
+| `prd` | Conditional per story | Full format selection rules apply |
+| `unified` | Conditional per story | Full format selection rules apply |
+
+**AC Format Examples:**
+
+Scenario-Based:
+```
+- AC-006-01: Given user is on checkout page, When they click "Buy Now", Then order processes within 2s
+- AC-006-02: Given user clicks "Buy Now" with expired card, When payment fails, Then error message displays with retry option
+```
+
+Rule-Based:
+```
+- AC-006-01: Payment details stored using PCI-compliant tokenization
+- AC-006-02: User can save up to 3 payment methods
+- AC-006-03: Invalid card number displays inline error within 500ms
+```
+
+System State:
+```
+- AC-006-01: When POST /orders receives valid payload, system creates order record with status=pending and returns 201
+- AC-006-02: When POST /orders receives invalid payload, system returns 400 with validation errors array
+```
+
+**Quality Gates (auto-added to every story under `**Quality Gates:**` sub-header):**
 - All stories: Lint passes, Typecheck passes, Unit tests pass
 - UI stories: + E2E tests pass
 
 ---
 
-## Phase 6: Save
+## Phase 6: Validate & Save
+
+### Pre-Save Validation
+
+Run the shared AC block validator before writing:
+```bash
+bash ../../../jx-core/scripts/validate-ac-blocks.sh {output_file}
+```
+
+The validator checks that within each AC block (between `**Acceptance Criteria:**` and `**Validates:**` / next story / next section), every non-blank line matches: AC bullet (`- AC-{NNN}-{seq}: ...`), routing sub-header (`**Scenarios:**` etc.), or format rationale (`*Format: ...`). Orphan/continuation lines halt the save with line-numbered errors.
+
+### Save
 
 1. Save to `{docs_root}/{folder_name}/PRD.md` (or `BRD_PRD.md` for unified mode)
 2. Display save confirmation with path
@@ -193,9 +265,13 @@ Generate using the appropriate template:
 - [ ] All objectives are SMART goals
 - [ ] User stories follow INVEST criteria with `US-{NNN}-{seq}` format
 - [ ] Acceptance criteria use global counter with `AC-{NNN}-{seq}` format
+- [ ] AC format rationale present for each story
+- [ ] Happy and unhappy paths covered for each story
+- [ ] Sub-headers present on every AC block (Scenarios/Rules/System Behavior + Quality Gates)
+- [ ] All AC bodies are single-line (pre-save validation passed)
 - [ ] Each story has "Validates:" field linking to objective/goal
 - [ ] Functional requirements numbered `FR-{NNN}-{seq}` with "Supports:" notation
 - [ ] NFRs are measurable (no vague terms)
 - [ ] Non-goals explicitly listed
 - [ ] Success metrics tie back to business objective
-- [ ] Quality criteria added to every story
+- [ ] Quality Gates added to every story

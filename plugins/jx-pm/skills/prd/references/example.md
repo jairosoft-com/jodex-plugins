@@ -35,14 +35,21 @@ Analytics show 35% of returning customers abandon their cart during checkout. Us
 **I want** my payment method saved securely
 **So that** I don't re-enter it every purchase
 
+*Format: Rule-Based — constraints and validation rules for payment storage*
+
 **Acceptance Criteria:**
+
+**Rules:**
 - AC-009-01: Payment details stored using PCI-compliant tokenization
 - AC-009-02: User can save up to 3 payment methods
 - AC-009-03: Saved methods show last 4 digits only
 - AC-009-04: User can delete saved payment methods
-- AC-009-05: Lint passes
-- AC-009-06: Typecheck passes
-- AC-009-07: Unit tests pass
+- AC-009-05: Invalid card number displays inline error within 500ms
+
+**Quality Gates:**
+- AC-009-06: Lint passes
+- AC-009-07: Typecheck passes
+- AC-009-08: Unit tests pass
 
 **Validates:** Increase checkout conversion rate
 
@@ -51,15 +58,22 @@ Analytics show 35% of returning customers abandon their cart during checkout. Us
 **I want** a "Buy Now" button on product pages
 **So that** I can complete purchase in one click
 
+*Format: Scenario-Based — user-facing checkout flow with step-by-step journey*
+
 **Acceptance Criteria:**
-- AC-009-08: "Buy Now" visible only for logged-in users with saved payment
-- AC-009-09: Clicking completes purchase within 2 seconds
-- AC-009-10: Order confirmation displays immediately with order number
-- AC-009-11: Button disabled during processing (prevent double-click)
-- AC-009-12: Lint passes
-- AC-009-13: Typecheck passes
-- AC-009-14: Unit tests pass
-- AC-009-15: E2E tests pass
+
+**Scenarios:**
+- AC-009-09: Given user is logged in with saved payment, When they click "Buy Now", Then order completes within 2 seconds and confirmation displays with order number
+- AC-009-10: Given user is not logged in, When product page loads, Then "Buy Now" button is not visible
+- AC-009-11: Given user clicks "Buy Now" with expired card, When payment fails, Then error message displays with option to update payment method
+- AC-009-12: Given user clicks "Buy Now" during network timeout, When request fails, Then retry prompt displays and no duplicate order is created
+- AC-009-13: Given user clicks "Buy Now", When processing is in progress, Then button is disabled to prevent double-click
+
+**Quality Gates:**
+- AC-009-14: Lint passes
+- AC-009-15: Typecheck passes
+- AC-009-16: Unit tests pass
+- AC-009-17: E2E tests pass
 
 **Validates:** Reduce checkout time to <1:00
 

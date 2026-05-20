@@ -93,9 +93,15 @@
 **I want** [action]
 **So that** [benefit]
 
+*Format: Scenario-Based — [rationale]*
+
 **Acceptance Criteria:**
-- AC-{feature_number}-01: [Criterion]
-- AC-{feature_number}-02: [Criterion]
+
+**Scenarios:**
+- AC-{feature_number}-01: Given [context], When [action], Then [result — happy path]
+- AC-{feature_number}-02: Given [context], When [error condition], Then [error handling — unhappy path]
+
+**Quality Gates:**
 - AC-{feature_number}-03: Lint passes
 - AC-{feature_number}-04: Typecheck passes
 - AC-{feature_number}-05: Unit tests pass
@@ -107,12 +113,19 @@
 **I want** [action]
 **So that** [benefit]
 
+*Format: Rule-Based — [rationale]*
+
 **Acceptance Criteria:**
-- AC-{feature_number}-06: [Criterion — global counter continues]
-- AC-{feature_number}-07: [Criterion]
-- AC-{feature_number}-08: Lint passes
-- AC-{feature_number}-09: Typecheck passes
-- AC-{feature_number}-10: Unit tests pass
+
+**Rules:**
+- AC-{feature_number}-06: [Constraint — happy path. Global counter continues]
+- AC-{feature_number}-07: [Another constraint]
+- AC-{feature_number}-08: [Error/edge case — unhappy path]
+
+**Quality Gates:**
+- AC-{feature_number}-09: Lint passes
+- AC-{feature_number}-10: Typecheck passes
+- AC-{feature_number}-11: Unit tests pass
 
 **Validates:** OBJ-{feature_number}-01
 
