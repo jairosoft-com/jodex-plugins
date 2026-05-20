@@ -1,6 +1,6 @@
 ---
 title: Backlog
-updated: 2026-05-14
+updated: 2026-05-20
 ---
 
 # Backlog
@@ -8,6 +8,8 @@ updated: 2026-05-14
 ## P0 — Critical
 
 ## P1 — High
+
+- [[Skill Creator for Jodex Plugins]] — `/jx-skill:create` in new jx-skill plugin; scaffolds skills inside existing plugins with convention enforcement and validation; ADO #204325 (#developer-experience, #plugins, #tooling, #jx-skill)
 
 ## P2 — Medium
 

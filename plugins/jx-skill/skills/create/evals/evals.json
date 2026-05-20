@@ -1,0 +1,49 @@
+[
+  {
+    "name": "scaffold-new-skill-happy-path",
+    "description": "Scaffold a new skill in jx-pm with all flags provided",
+    "input": "/jx-skill:create --plugin jx-pm --skill idea --triggers \"capture idea, new idea, file idea\" --description \"Capture and file a raw idea to the wiki\"",
+    "assertions": [
+      { "type": "file_exists", "path": "plugins/jx-pm/skills/idea/SKILL.md" },
+      { "type": "file_exists", "path": "plugins/jx-pm/commands/idea.md" },
+      { "type": "file_exists", "path": "plugins/jx-pm/skills/idea/evals/evals.json" },
+      { "type": "file_contains", "path": "plugins/jx-pm/skills/idea/SKILL.md", "contains": "name: idea" },
+      { "type": "file_contains", "path": "plugins/jx-pm/skills/idea/SKILL.md", "contains": "user-invocable: true" },
+      { "type": "file_contains", "path": "plugins/jx-pm/skills/idea/SKILL.md", "contains": "Triggers on:" },
+      { "type": "file_contains", "path": "plugins/jx-pm/commands/idea.md", "contains": "allowed-tools:" },
+      { "type": "output_contains", "contains": "Skill Scaffolded" }
+    ]
+  },
+  {
+    "name": "reject-invalid-name",
+    "description": "Reject a skill name that violates the naming regex",
+    "input": "/jx-skill:create --plugin jx-pm --skill ../escape --triggers \"test\" --description \"test\"",
+    "assertions": [
+      { "type": "output_contains", "contains": "invalid" }
+    ]
+  },
+  {
+    "name": "reject-collision",
+    "description": "Reject creating a skill that already exists in another plugin",
+    "input": "/jx-skill:create --plugin jx-pm --skill ingest --triggers \"ingest data\" --description \"test\"",
+    "assertions": [
+      { "type": "output_contains", "contains": "collision" }
+    ]
+  },
+  {
+    "name": "reject-trigger-overlap",
+    "description": "Reject triggers that overlap with existing skills",
+    "input": "/jx-skill:create --plugin jx-pm --skill my-spec --triggers \"create tech spec\" --description \"test\"",
+    "assertions": [
+      { "type": "output_contains", "contains": "conflict" }
+    ]
+  },
+  {
+    "name": "reject-nonexistent-plugin",
+    "description": "Reject when target plugin does not exist",
+    "input": "/jx-skill:create --plugin jx-nonexistent --skill test-skill --triggers \"test\" --description \"test\"",
+    "assertions": [
+      { "type": "output_contains", "contains": "not found" }
+    ]
+  }
+]
