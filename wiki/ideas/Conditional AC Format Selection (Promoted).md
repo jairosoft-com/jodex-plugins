@@ -3,6 +3,7 @@ title: Conditional AC Format Selection
 type: idea
 tags: [acceptance-criteria, prd, product-management, bdd, jx-pm]
 created: 2026-05-20
+updated: 2026-05-20
 status: promoted
 source: NotebookLM (Building PM Skills) + Gemini AC prompt
 ---
