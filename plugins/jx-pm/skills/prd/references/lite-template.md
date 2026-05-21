@@ -5,6 +5,12 @@
 - **Feature Name**: {feature_name}
 - **Document Type**: PRD
 - **Generated Date**: {YYYY-MM-DD}
+- **Quality Profile**: default
+- **Quality Gates**:
+  - Lint passes
+  - Typecheck passes
+  - Unit tests pass
+  - E2E tests pass [ui-only]
 
 ## Overview
 - **Feature ID:** {feature_number}
@@ -39,10 +45,11 @@
 - AC-{feature_number}-03: [Unhappy path — error/edge case]
 
 **Quality Gates:**
-- AC-{feature_number}-04: Lint passes
-- AC-{feature_number}-05: Typecheck passes
-- AC-{feature_number}-06: Unit tests pass
+- AC-{feature_number}-04: {quality_gate_1}
+- AC-{feature_number}-05: {quality_gate_2}
+- AC-{feature_number}-06: {quality_gate_3}
 
+<!-- Gates resolved from quality-gates.md. Default: Lint passes, Typecheck passes, Unit tests pass, E2E tests pass [ui-only] -->
 <!-- See SKILL.md Format Selection Rules for Scenario-Based and System State formats -->
 
 **Validates:** [OBJ or GOAL reference]

@@ -1,7 +1,7 @@
 ---
 name: prd
 user-invocable: true
-argument-hint: "[--mode lite|prd|unified] [--docs-root <path>]"
+argument-hint: "[--mode lite|prd|unified] [--docs-root <path>] [--quality-profile default|python|rust|go]"
 description: >
   Generate structured Product Requirements Documents with built-in traceability.
   Supports three modes: lite (single feature, 3-5 stories), prd (complex multi-system),
@@ -21,6 +21,7 @@ Generate structured requirements documents with golden thread traceability from 
 |----------|----------|---------|-------|
 | `--mode` | No | `prd` | `lite` \| `prd` \| `unified` |
 | `--docs-root` | No | `docs/` or `$JX_DOCS_ROOT` | Output directory root |
+| `--quality-profile` | No | `default` | `default` \| `python` \| `rust` \| `go` \| path to custom config |
 
 ## Mode Selection Guide
 
@@ -38,6 +39,10 @@ Parse arguments from invocation:
 - Extract `--mode` (default: `prd`)
 - Resolve docs root per `../../../jx-core/_shared/docs-root.md`
 - Resolve `$JX_DOCS_ROOT` for output path
+- Resolve quality profile per `../../../jx-core/_shared/quality-gates.md` resolution order:
+  1. `--quality-profile` argument (highest priority)
+  2. Project override at `{docs_root}/.jodex/quality-gates.md` (must have `version: 1` frontmatter)
+  3. Default gates from quality-gates.md
 
 ---
 
@@ -234,8 +239,22 @@ System State:
 ```
 
 **Quality Gates (auto-added to every story under `**Quality Gates:**` sub-header):**
-- All stories: Lint passes, Typecheck passes, Unit tests pass
-- UI stories: + E2E tests pass
+
+Read gates from the resolved quality profile (see `../../../jx-core/_shared/quality-gates.md`). Gates without tags are added to all stories. Gates tagged `[ui-only]` are added only to UI stories.
+
+Default profile gates: Lint passes, Typecheck passes, Unit tests pass, E2E tests pass [ui-only].
+
+Persist the resolved profile and gate list in the PRD Document Metadata section:
+```markdown
+- **Quality Profile**: {profile_name}
+- **Quality Gates**:
+  - {gate_1}
+  - {gate_2}
+  - {gate_3}
+  - {gate_4} [ui-only]
+```
+
+The `Quality Gates:` metadata is authoritative for downstream ADO/task consumers. Gate names must not contain commas.
 
 ---
 

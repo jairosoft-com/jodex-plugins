@@ -83,8 +83,8 @@ Items with `removed: true` are inert -- not synced, not created. Preserved for `
 
 | Hours | Label | When to use |
 |-------|-------|-------------|
-| 0.25 | Trivial | Quality gates: lint, typecheck, unit tests |
-| 0.5 | Simple | E2E test, browser verification, single config change |
+| 0.25 | Trivial | Quality gates without `[ui-only]` tag (from PRD metadata or defaults) |
+| 0.5 | Simple | Quality gates with `[ui-only]` tag (E2E/browser verification), single config change |
 | 1 | Moderate | New test file, component update, multi-file change |
 | 2 | Complex | New feature logic, significant refactor |
 

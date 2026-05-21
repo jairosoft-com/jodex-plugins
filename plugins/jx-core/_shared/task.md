@@ -108,8 +108,8 @@ Read PRD and TECH_SPEC before estimating. Classify each AC:
 
 | Hours | When |
 |-------|------|
-| 0.25 | Quality gates: lint, typecheck, unit tests |
-| 0.5 | E2E test, browser verification, single config change |
+| 0.25 | Quality gates without `[ui-only]` tag (from PRD `Quality Gates:` metadata or defaults) |
+| 0.5 | Quality gates with `[ui-only]` tag (E2E/browser verification), single config change |
 | 1 | New test file, component update, multi-file change |
 | 2 | New feature logic, significant refactor |
 
@@ -123,8 +123,10 @@ Read PRD and TECH_SPEC before estimating. Classify each AC:
 
 When sizing, count **functional ACs only** — exclude quality gates using the same two-layer rule as ADO sync:
 1. ACs under `**Quality Gates:**` sub-header → excluded
-2. Legacy ACs (no sub-header) matching normalized exact phrases (`Lint passes`, `Typecheck passes`, `Unit tests pass`, `E2E tests pass` after stripping annotations) → excluded
+2. Legacy ACs (no sub-header) matching normalized exact phrases from PRD `Quality Gates:` metadata (or default gates if absent: `Lint passes`, `Typecheck passes`, `Unit tests pass`, `E2E tests pass`) → excluded
 3. ACs under functional sub-headers (`**Scenarios:**`, `**Rules:**`, `**System Behavior:**`) are NEVER phrase-excluded — sub-header routing is authoritative
+
+See `../../../jx-core/_shared/quality-gates.md` for gate resolution order and tag semantics.
 
 When a story has >3 unhappy-path ACs testing the same flow with different error conditions, count them as 1 complexity unit for sizing (but preserve all IDs in task.json).
 

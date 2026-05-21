@@ -67,7 +67,13 @@ Extract from markdown:
      - **Orphaned format promotion:** For legacy ACs, check if text contains full Given/When/Then structure (all three keywords) → promote to `scenarios_inferred`. If text contains both `When ` and `system ` → promote to `system_behavior_inferred`. Partial matches remain `legacy`.
    - "Validates:" reference (included in description for traceability)
 
-4. **Pre-sync AC validation**: Run the shared validator before proceeding:
+4. **Quality gate metadata extraction**: From `## Document Metadata`, read `Quality Gates:` bullet list. Parse each bullet as one gate phrase, strip `[ui-only]` tags for exclusion matching.
+   - If `Quality Gates:` is present as a bullet list → use as the authoritative exclusion list
+   - If `Quality Gates:` is present but malformed (e.g., comma-separated) → **halt with error**: "Malformed Quality Gates metadata. Expected bullet list, found comma-separated value. Fix PRD Document Metadata."
+   - If `Quality Gates:` is entirely absent → use default gates: `Lint passes`, `Typecheck passes`, `Unit tests pass`, `E2E tests pass` (backward compat with legacy PRDs)
+   - Fallback is keyed on absence of `Quality Gates:`, NOT on `Quality Profile:`
+
+5. **Pre-sync AC validation**: Run the shared validator before proceeding:
    ```bash
    bash ../scripts/validate-ac-blocks.sh {prd_file}
    ```
@@ -162,7 +168,7 @@ Tags are used for crash recovery identification. Never modify or remove them.
   - `rules` / `legacy` (after exclusion) → synthesize Gherkin from behavioral statement
   - `system_behavior` / `system_behavior_inferred` → pass through as-is (technical behavior spec)
   - `quality_gates` → exclude from AC field
-  - `legacy` with normalized exact-phrase match → exclude (phrases: `Lint passes`, `Typecheck passes`, `Unit tests pass`, `E2E tests pass` after stripping trailing annotations like `*(UI stories only)*`)
+  - `legacy` with normalized exact-phrase match → exclude (phrases from PRD `Quality Gates:` metadata, or default gates if absent, after stripping trailing annotations like `*(UI stories only)*`)
   - **Sub-header routing is authoritative:** ACs under functional sub-headers (scenarios, rules, system_behavior) are NEVER phrase-excluded.
   - If only quality-gate ACs remain → leave AC field empty, log warning.
   - **Inferred-routing confirmation:** If any ACs were promoted to `scenarios_inferred` or `system_behavior_inferred`, display the inferred routing before any write (all non-dry-run modes: Normal, Partial, Update). User must confirm before ADO writes proceed.

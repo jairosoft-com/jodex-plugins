@@ -5,6 +5,12 @@
 - **Feature Name**: {feature_name}
 - **Document Type**: BRD_PRD
 - **Generated Date**: {YYYY-MM-DD}
+- **Quality Profile**: default
+- **Quality Gates**:
+  - Lint passes
+  - Typecheck passes
+  - Unit tests pass
+  - E2E tests pass [ui-only]
 
 ## Document Control
 
@@ -102,9 +108,10 @@
 - AC-{feature_number}-02: Given [context], When [error condition], Then [error handling — unhappy path]
 
 **Quality Gates:**
-- AC-{feature_number}-03: Lint passes
-- AC-{feature_number}-04: Typecheck passes
-- AC-{feature_number}-05: Unit tests pass
+- AC-{feature_number}-03: {quality_gate_1}
+- AC-{feature_number}-04: {quality_gate_2}
+- AC-{feature_number}-05: {quality_gate_3}
+<!-- Gates resolved from quality-gates.md -->
 
 **Validates:** OBJ-{feature_number}-01
 
@@ -123,9 +130,10 @@
 - AC-{feature_number}-08: [Error/edge case — unhappy path]
 
 **Quality Gates:**
-- AC-{feature_number}-09: Lint passes
-- AC-{feature_number}-10: Typecheck passes
-- AC-{feature_number}-11: Unit tests pass
+- AC-{feature_number}-09: {quality_gate_1}
+- AC-{feature_number}-10: {quality_gate_2}
+- AC-{feature_number}-11: {quality_gate_3}
+<!-- Gates resolved from quality-gates.md -->
 
 **Validates:** OBJ-{feature_number}-01
 
