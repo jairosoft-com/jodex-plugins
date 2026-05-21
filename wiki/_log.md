@@ -4,6 +4,16 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-21 — Lint
+
+- **Operation**: lint
+- **Errors found**: 4
+- **Warnings found**: 1
+- **Info found**: 19
+- **Auto-fixes applied**: 6 (added `updated` to 3 idea files; added Backlog Idea Grooming to _index.md; linked from Idea Lifecycle and Triage)
+- **Health score**: 95/100
+- **Outcome**: Report generated, all errors and warnings resolved
+
 ## 2026-05-20 — Triage Raw Ideas
 
 - **Operation**: triage
