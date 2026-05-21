@@ -3,13 +3,15 @@ title: QA Documentation Workflow
 type: idea
 tags: [jx-qa, workflow, documentation, process]
 created: 2026-05-20
-updated: 2026-05-20
+updated: 2026-05-21
 groomed: 2026-05-20
+promoted: 2026-05-21
 source_count: 0
 aliases: [qa workflow, qa doc workflow, jx-qa workflow]
 provenance: user
-status: backlogged
+status: promoted
 priority: medium
+prd: docs/001_qa_documentation_workflow/BRD_PRD.md
 ---
 
 # QA Documentation Workflow
