@@ -8,6 +8,24 @@ Quality gates in the PRD skill are hardcoded to JS/TS toolchain ("Lint passes", 
 
 New shared config file at `plugins/jx-core/_shared/quality-gates.md` with tagged conditions and language presets. Follows the `docs-root.md` pattern.
 
+## Hard Constraints
+
+### HC-1: Profile Persistence in PRD Metadata
+
+The selected quality profile MUST be persisted in the generated PRD's Document Metadata section as `Quality Profile: <name>`. This ensures ADO sync and task conversion use the same gate set that was used during generation. Without persistence, a Python PRD could be synced with JS/TS exclusion phrases.
+
+### HC-2: Project Override Must Be Explicit
+
+Project-level overrides require a namespaced path (`{docs_root}/.jodex/quality-gates.md`) with a required `version:` frontmatter marker. A file without the marker is ignored with a warning. This prevents stale or unrelated files from silently changing behavior.
+
+### HC-3: Backward Compatibility (Refined)
+
+Default gates are identical to current hardcoded values. Behavior changes ONLY when:
+- `--quality-profile` is explicitly passed, OR
+- A valid `.jodex/quality-gates.md` override exists with correct version marker
+
+A default run with no profile and no override produces identical output to the current skill.
+
 ## Changes
 
 ### 1. Create quality-gates.md
@@ -15,35 +33,46 @@ New shared config file at `plugins/jx-core/_shared/quality-gates.md` with tagged
 New file: `plugins/jx-core/_shared/quality-gates.md`
 
 Contents:
-- Resolution order (--quality-profile > project override > defaults)
+- Resolution order:
+  1. `--quality-profile <name>` argument (highest priority)
+  2. Project override at `{docs_root}/.jodex/quality-gates.md` (must have `version: 1` frontmatter)
+  3. Default gates from this file
 - Default gate list with [ui-only] tags
 - Language presets: python, rust, go
-- Tag semantics documentation
+- Tag semantics: `[ui-only]` appended only to UI stories
+- Profile propagation rule: resolved profile name written to PRD metadata
 
 ### 2. Update SKILL.md
 
-- Phase 1: add `--quality-profile` to argument table
-- Phase 5: replace hardcoded gate list with "Read gates from `../../../jx-core/_shared/quality-gates.md`"
+- Phase 1: add `--quality-profile` to argument table (values: `default`, `python`, `rust`, `go`, or path to custom config)
+- Phase 2: resolve quality profile per quality-gates.md resolution order
+- Phase 5: replace hardcoded gate list with "Read gates from resolved profile"
+- Phase 5: persist `Quality Profile: <name>` in Document Metadata section
 - Quality Gates auto-append rule: reference config, respect [ui-only] tag
 
 ### 3. Update ado.md
 
-- Phase 2: read quality-gates.md to build the exact-phrase exclusion list
-- Phase 5: replace hardcoded 4 phrases with config-sourced list
-- Legacy fallback: use default gates for exclusion when no config detected
+- Phase 2: read `Quality Profile:` from PRD Document Metadata. Resolve gate list from quality-gates.md using that profile. If no profile metadata → use default gates (backward compat).
+- Phase 5: exact-phrase exclusion list sourced from resolved profile, not hardcoded
+- Dry-run output: show resolved profile name and exclusion phrases before any write
+- Legacy fallback: PRDs without `Quality Profile:` metadata use default gates (identical to current behavior)
 
-### 4. Update task.md
+### 4. Update task.md and task-json-schema.md
 
-- Functional AC Counting: exclusion phrases sourced from quality-gates.md instead of hardcoded
+- Functional AC Counting: exclusion phrases sourced from resolved quality profile
+- Hour estimation: classify quality-gate ACs by tag context from resolved config, not JS-specific labels. All quality-gate ACs get 0.25h regardless of toolchain.
+- task-json-schema.md: update quality-gate hour classification to reference config
 
 ### 5. Update templates
 
-- lite-template.md, prd-template.md, unified-template.md: replace literal gate names with `[quality gate from config]` placeholders + comment referencing quality-gates.md
+- lite-template.md, prd-template.md, unified-template.md: replace literal gate names with `{quality_gate}` placeholders + comment: `<!-- Gates resolved from quality-gates.md. Default: Lint passes, Typecheck passes, Unit tests pass -->`
+- Add `Quality Profile: default` to Document Metadata section in all templates
 
 ### 6. Add python-example.md
 
 New file: `plugins/jx-pm/skills/prd/references/python-example.md`
 - Same one-click checkout scenario but with Ruff/Mypy gates
+- Document Metadata includes `Quality Profile: python`
 - Demonstrates --quality-profile python usage
 
 ## Files
@@ -54,11 +83,20 @@ New file: `plugins/jx-pm/skills/prd/references/python-example.md`
 | `plugins/jx-pm/skills/prd/references/python-example.md` | Create | Low — new example |
 | `plugins/jx-pm/skills/prd/SKILL.md` | Modify | Medium — core skill |
 | `plugins/jx-core/_shared/ado.md` | Modify | Medium — ADO sync |
-| `plugins/jx-core/_shared/task.md` | Modify | Low — sizing only |
+| `plugins/jx-core/_shared/task.md` | Modify | Medium — sizing + hour estimation |
+| `plugins/jx-core/_shared/task-json-schema.md` | Modify | Low — hour classification |
 | `plugins/jx-pm/skills/prd/references/lite-template.md` | Modify | Low |
 | `plugins/jx-pm/skills/prd/references/prd-template.md` | Modify | Low |
 | `plugins/jx-pm/skills/prd/references/unified-template.md` | Modify | Low |
 
 ## Backward Compatibility
 
-Default gates are identical to current hardcoded values. No existing PRD or ADO sync behavior changes unless --quality-profile is explicitly used.
+Default gates are identical to current hardcoded values. Behavior changes only with explicit `--quality-profile` or a valid `.jodex/quality-gates.md` override. PRDs without `Quality Profile:` metadata are treated as default profile by ADO/task (identical to current behavior).
+
+## Resolved Review Findings
+
+| ID | Source | Finding | Resolution |
+|----|--------|---------|------------|
+| F1 | Codex R1 | Profile not propagated to ADO/task | HC-1: persist in PRD metadata, ADO/task read from it |
+| F2 | Codex R1 | Project override silently breaks defaults | HC-2: namespaced path + version marker, explicit opt-in |
+| F3 | Codex R1 | Task hour estimation JS-specific | Task change expanded: all quality gates get 0.25h via config tag |
