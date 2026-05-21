@@ -7,7 +7,7 @@ updated: 2026-05-20
 source_count: 0
 aliases: [permission policy, tool allowlist, command permissions]
 provenance: synthesis
-status: raw
+status: backlogged
 ---
 
 # Per-Plugin Allowed-Tools Allowlist
