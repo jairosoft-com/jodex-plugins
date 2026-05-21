@@ -4,6 +4,13 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-21 — Session Insights Filed (jx-skill:create)
+
+- **Operation**: enrich concept pages
+- **Pages updated**: [[Iterative Adversarial Review]] (added urgency triage pattern, 7-round quantified diminishing returns curve, jx-skill progression table), [[Path Confinement]] (added cwd() fragility section with anti-pattern and correct pattern), [[Pinned Helper]] (added skill-creator.py example, cwd() trap warning)
+- **Source**: jx-skill:create implementation session — 7 Codex review rounds across idea→plan→implementation→post-fix lifecycle
+- **Outcome**: Three generalizable insights captured: (1) urgency-rated triage for review findings, (2) quantified signal-to-noise curve showing optimal stopping at round 3-5, (3) cwd() fragility in plugin helpers when Claude Code sets cwd to user's project.
+
 ## 2026-05-21 — Lint
 
 - **Operation**: lint

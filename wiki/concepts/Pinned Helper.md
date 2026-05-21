@@ -3,7 +3,7 @@ title: Pinned Helper
 type: concept
 tags: [security, pattern, execution]
 created: 2026-05-07
-updated: 2026-05-12
+updated: 2026-05-21
 source_count: 2
 aliases: [pinned executable, pinned script]
 provenance: source-derived
@@ -26,6 +26,7 @@ This means the LLM can only run that one script with any arguments — it cannot
 
 - [[wiki-tools.py]] — stdlib-only Python helper for the [[Knowledge Base Plugin|jx-kb]] plugin
 - `xlsx-writer.py` — openpyxl helper for the [[QA Testing Plugin|jx-qa]] plugin
+- `skill-creator.py` — stdlib-only Python helper for the jx-skill plugin
 
 ## Why It Matters
 
@@ -36,6 +37,8 @@ This also gives reviewers a clear permission boundary. If a command needs broade
 ## Boundary
 
 The pattern does not make the helper safe by itself. The helper still needs [[Path Confinement]], structured argument parsing, predictable JSON output, and narrow behavior. Pinning only reduces which executable can run; it does not replace script-level validation.
+
+**cwd() trap:** Plugin helpers must not confine paths against `Path.cwd()` — Claude Code sets cwd to the user's project, not the plugin install dir. Use `CLAUDE_PLUGIN_ROOT` or resolve paths absolutely. See [[Path Confinement#cwd() Fragility in Plugin Helpers (2026-05-20)]].
 
 ## Related
 

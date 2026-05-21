@@ -58,6 +58,18 @@ A design-hardening pattern: submit a spec to adversarial review, resolve finding
 | 1 | Execution safety | 1 critical (race condition), 4 major — missing marketplace update, broken verification checks |
 | 2 | Polish | 0 blockers — README env var, smoke test gaps, git-empty-dir |
 
+## Observed Progression (jx-skill:create scaffolder — 7 rounds)
+
+| Round | Focus | Findings |
+|-------|-------|----------|
+| 1 | Idea review | 2 high (path confinement, trigger parsing), 2 medium (no unimplemented commands, wiki provenance) |
+| 2 | Idea update review | 2 findings (filename/link mismatch, broken wikilinks) — wiki filing issues |
+| 3 | Plan review | 2 high (Write bypass, multiline trigger parsing), 1 medium (rollback dirs) |
+| 4 | Plan re-review | 2 high (already addressed in plan), filed as diminishing returns |
+| 5 | Implementation review | 1 P1 (name regex in scaffold), 2 P2 (YAML escaping, json.tool permission), 2 P3 (stray artifact, wiki inventory) |
+| 6 | Post-fix review | 1 P1 (cwd confinement), 2 P2 (YAML escaping repeat, core/self target), 2 P3 (stray artifact, wiki inventory repeat) |
+| 7 | Final review | 1 P1 (plugin root confinement), 2 P2 (YAML escaping repeat, core/self repeat), 0 new |
+
 ## Resolution-Induced Regression
 
 Key anti-pattern: fixing a round-1 finding creates a new bug visible only in round 2.
@@ -68,6 +80,33 @@ Examples:
 - Making tracks parallel created a race condition (B copies files C deletes)
 
 This is why multi-round review matters — single-pass misses cascading effects of its own fixes.
+
+## Urgency-Based Triage (2026-05-20)
+
+When a round returns multiple findings, rate each 1-10 for urgency and triage individually:
+
+| Urgency | Action | Example |
+|---------|--------|---------|
+| 7-10 | Fix before shipping | Path traversal bug, safety gate bypass |
+| 4-6 | Fix if quick, otherwise file as idea | Missing permission in allowed-tools |
+| 1-3 | File to idea inbox | Theoretical edge case, stale wiki text |
+
+This is more effective than binary fix/defer — it lets low-urgency items flow to the backlog without blocking the commit, while safety bugs get immediate attention. The urgency rating also creates a paper trail for *why* a finding was deferred.
+
+## Diminishing Returns Curve — Quantified (2026-05-20)
+
+7-round review of `/jx-skill:create` (skill scaffolder). Largest adversarial progression recorded.
+
+| Round | Finding quality | Real bugs | Repeats/theoretical |
+|-------|----------------|-----------|---------------------|
+| 1-2 | Safety bugs | 4 (path traversal, trigger parsing, overwrite, unimplemented stubs) | 0 |
+| 3 | Design constraints | 3 (no Write bypass, multiline parsing, atomic rollback) | 0 |
+| 4 | Misread scope | 0 | 2 (read idea page instead of plan) |
+| 5 | Mixed | 2 (name regex in scaffold, json.tool permission) | 1 |
+| 6 | Mixed | 2 (cwd confinement, stray artifact) | 1 |
+| 7 | Mostly repeats | 1 (plugin root confinement) | 2 |
+
+Signal-to-noise dropped sharply after round 3. Rounds 4-7 found 5 real bugs but also produced ~6 repeat/theoretical findings. The optimal stopping point was round 5 — after that, implementation would surface remaining issues faster than review.
 
 ## Diminishing Returns Signal
 
