@@ -73,26 +73,26 @@ Contents:
 - Phase 1: add `--quality-profile` to argument table (values: `default`, `python`, `rust`, `go`, or path to custom config)
 - Phase 2: resolve quality profile per quality-gates.md resolution order
 - Phase 5: replace hardcoded gate list with "Read gates from resolved profile"
-- Phase 5: persist `Quality Profile: <name>` and `Quality Gates: <comma-separated list>` in Document Metadata section. The gate list is authoritative for downstream consumers.
+- Phase 5: persist `Quality Profile: <name>` and `Quality Gates:` as a nested bullet list in Document Metadata section (see HC-1 format). The gate list is authoritative for downstream consumers.
 - Quality Gates auto-append rule: reference config, respect [ui-only] tag
 
 ### 3. Update ado.md
 
 - Phase 2: read `Quality Gates:` bullet list from PRD Document Metadata. Parse each bullet as one gate phrase, strip [ui-only] tags for exclusion matching. If no `Quality Gates:` metadata → use default gates (backward compat with legacy PRDs).
 - Phase 5: exact-phrase exclusion list sourced from PRD metadata gate list, not hardcoded or re-resolved from filesystem
-- Dry-run output: show resolved profile name and exclusion phrases before any write
-- Legacy fallback: PRDs without `Quality Profile:` metadata use default gates (identical to current behavior)
+- Dry-run output: show resolved gate list and exclusion phrases before any write
+- Legacy fallback: PRDs without `Quality Gates:` metadata use default gates (identical to current behavior). Keyed on absence of `Quality Gates:`, NOT on `Quality Profile:` — a PRD with gates but no profile still uses its gate list.
 
 ### 4. Update task.md and task-json-schema.md
 
-- Functional AC Counting: exclusion phrases sourced from PRD metadata `Quality Gates:` list (same as ADO). Legacy PRDs without metadata use default gates.
+- Functional AC Counting: exclusion phrases sourced from PRD metadata `Quality Gates:` bullet list (same as ADO). Legacy PRDs without `Quality Gates:` metadata use default gates.
 - Hour estimation: classify quality-gate ACs by matching against the PRD metadata gate list, not JS-specific labels. All quality-gate ACs get 0.25h regardless of toolchain.
 - task-json-schema.md: update quality-gate hour classification to reference config
 
 ### 5. Update templates
 
 - lite-template.md, prd-template.md, unified-template.md: replace literal gate names with `{quality_gate}` placeholders + comment: `<!-- Gates resolved from quality-gates.md. Default: Lint passes, Typecheck passes, Unit tests pass -->`
-- Add `Quality Profile: default` and `Quality Gates: Lint passes, Typecheck passes, Unit tests pass, E2E tests pass [ui-only]` to Document Metadata section in all templates
+- Add `Quality Profile: default` and `Quality Gates:` as nested bullet list to Document Metadata section in all templates (matching HC-1 format)
 
 ### 6. Add python-example.md
 
@@ -130,3 +130,5 @@ Default gates are identical to current hardcoded values. PRD output has additive
 | F5 | Codex R3 | Fallback contradicts authoritative metadata | Fallback depends on absence of Quality Gates:, not Quality Profile: |
 | F6 | Codex R3 | Comma-separated gate list not replay-safe | Bullet list format, commas forbidden in gate names, validated at generation |
 | F7 | Codex R3 | Backward compat promise internally impossible | Revised HC-3: additive metadata, identical downstream behavior |
+| F8 | Codex R4 | SKILL.md/templates still reference comma-separated format | All instructions updated to nested bullet-list per HC-1 |
+| F9 | Codex R4 | ADO fallback keys off Quality Profile instead of Quality Gates | Fallback depends only on absence of Quality Gates: metadata |
