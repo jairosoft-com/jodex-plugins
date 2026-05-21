@@ -23,7 +23,7 @@ The selected quality profile AND the resolved gate list MUST be persisted in the
   - E2E tests pass [ui-only]
 ```
 
-**Comma-separated `Quality Gates:` metadata is invalid.** If detected, ADO/task should warn and fall back to default gates rather than guessing the split.
+**Comma-separated `Quality Gates:` metadata is invalid.** If detected, ADO/task MUST halt with a line-numbered error and remediation message — NOT fall back to defaults. Only when `Quality Gates:` is entirely absent (legacy PRDs) do they fall back to default gates. Present-but-malformed metadata is a hard error.
 
 ADO sync and task conversion read the `Quality Gates:` bullet list directly from PRD metadata — they do NOT re-resolve from the profile name or filesystem path. This makes the PRD self-contained: it works identically regardless of which machine runs the sync, whether the custom config file still exists, or whether the preset definitions have changed since generation.
 
@@ -97,7 +97,7 @@ Contents:
 
 ### 5. Update templates
 
-- lite-template.md, prd-template.md, unified-template.md: replace literal gate names with `{quality_gate}` placeholders + comment: `<!-- Gates resolved from quality-gates.md. Default: Lint passes, Typecheck passes, Unit tests pass -->`
+- lite-template.md, prd-template.md, unified-template.md: replace literal gate names with `{quality_gate}` placeholders + comment: `<!-- Gates resolved from quality-gates.md. Default: Lint passes, Typecheck passes, Unit tests pass, E2E tests pass [ui-only] -->`
 - Add `Quality Profile: default` and `Quality Gates:` as nested bullet list to Document Metadata section in all templates (matching HC-1 format)
 
 ### 6. Add python-example.md
@@ -140,3 +140,5 @@ Default gates are identical to current hardcoded values. PRD output has additive
 | F9 | Codex R4 | ADO fallback keys off Quality Profile instead of Quality Gates | Fallback depends only on absence of Quality Gates: metadata |
 | F10 | Codex R5 | Comma-separated example still in HC-1 | Replaced with canonical bullet-list; comma format declared invalid |
 | F11 | Codex R5 | Default E2E gate hours would regress | [ui-only] gates preserve 0.5h; non-E2E gates get 0.25h |
+| F12 | Codex R6 | Malformed metadata falls back to wrong gates | Present-but-invalid Quality Gates: is a hard error, not fallback |
+| F13 | Codex R6 | Template instruction omits E2E default gate | Added E2E tests pass [ui-only] to template comment |
