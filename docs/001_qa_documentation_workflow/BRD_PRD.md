@@ -251,7 +251,7 @@ Documentation was written skill-by-skill as the plugin was built. No one synthes
 |---|---|---|---|
 | Should edge cases be included? | 2026-05-20 | No — happy path only for MVP | Keep the guide lean; edge cases can be a follow-on |
 | Where should the page live? | 2026-05-20 | wiki/code/ | Alongside JX QA Onboarding; same taxonomy level |
-| Should expected outputs be real terminal output or descriptions? | Open | TBD at writing time | Recommend prose descriptions to avoid version drift |
+| Should expected outputs be real terminal output or descriptions? | 2026-05-20 | Prose descriptions | Durable — survives plugin updates without going stale |
 
 ### 13. Release Plan
 
