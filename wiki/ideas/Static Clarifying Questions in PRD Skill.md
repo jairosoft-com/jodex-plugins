@@ -3,7 +3,7 @@ title: Static Clarifying Questions in PRD Skill
 type: idea
 tags: [jx-pm, prd, hardcoded, customization]
 created: 2026-05-20
-status: raw
+status: backlogged
 source: PRD skill hardcoded values review (2026-05-20)
 ---
 

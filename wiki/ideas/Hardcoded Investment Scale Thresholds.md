@@ -3,7 +3,7 @@ title: Hardcoded Investment Scale Thresholds
 type: idea
 tags: [jx-pm, prd, hardcoded, unified-mode]
 created: 2026-05-20
-status: raw
+status: backlogged
 source: PRD skill hardcoded values review (2026-05-20)
 ---
 

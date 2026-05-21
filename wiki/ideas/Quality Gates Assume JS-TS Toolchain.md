@@ -3,7 +3,7 @@ title: Quality Gates Assume JS-TS Toolchain
 type: idea
 tags: [jx-pm, prd, hardcoded, quality-gates, polyglot]
 created: 2026-05-20
-status: raw
+status: backlogged
 source: PRD skill hardcoded values review (2026-05-20)
 ---
 
