@@ -7,7 +7,7 @@ updated: 2026-05-20
 source_count: 0
 aliases: [qa workflow, qa doc workflow, jx-qa workflow]
 provenance: user
-status: raw
+status: backlogged
 ---
 
 # QA Documentation Workflow

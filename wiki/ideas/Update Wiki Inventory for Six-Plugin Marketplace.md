@@ -7,7 +7,7 @@ updated: 2026-05-20
 source_count: 0
 aliases: [six plugin update, wiki plugin count]
 provenance: synthesis
-status: raw
+status: backlogged
 ---
 
 # Update Wiki Inventory for Six-Plugin Marketplace

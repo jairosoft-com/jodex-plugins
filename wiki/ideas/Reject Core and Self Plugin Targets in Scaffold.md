@@ -7,7 +7,7 @@ updated: 2026-05-20
 source_count: 0
 aliases: [core target guard, self-scaffold guard]
 provenance: synthesis
-status: raw
+status: backlogged
 ---
 
 # Reject Core and Self Plugin Targets in Scaffold

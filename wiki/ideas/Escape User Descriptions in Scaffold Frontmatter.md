@@ -7,7 +7,7 @@ updated: 2026-05-20
 source_count: 0
 aliases: [yaml escaping, description quoting]
 provenance: synthesis
-status: raw
+status: backlogged
 ---
 
 # Escape User Descriptions in Scaffold Frontmatter
