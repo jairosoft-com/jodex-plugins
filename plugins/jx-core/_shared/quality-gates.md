@@ -10,12 +10,14 @@ All jx skills reference this file for quality gate resolution, PRD generation, a
 
 ## Default Gates
 
+## Presets
+
+### TypeScript/JavaScript
+
 - Lint passes
 - Typecheck passes
 - Unit tests pass
 - E2E tests pass [ui-only]
-
-## Presets
 
 ### python
 - Ruff passes
