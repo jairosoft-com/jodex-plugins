@@ -8,6 +8,7 @@ source_count: 0
 aliases: [qa workflow, qa doc workflow, jx-qa workflow]
 provenance: user
 status: backlogged
+priority: medium
 ---
 
 # QA Documentation Workflow
@@ -16,7 +17,7 @@ Create a `wiki/code/` page with a numbered, step-by-step walkthrough of the jx-q
 
 ## Scope
 
-Full pipeline, documented as-is:
+Happy path only. Full pipeline, documented as-is:
 
 1. **Prepare BRD/PRD** — human writes/has a BRD markdown doc
 2. **Extract test cases** — `/jx-qa:extract <brd-file>` → human confirms classification → xlsx test plan written to `test-plans/`
@@ -29,6 +30,12 @@ Human checkpoints documented as-is: classification confirm in extract; everythin
 ## Deliverable
 
 A new `wiki/code/JX QA Workflow.md` page, linked from [[QA Testing Plugin]] and [[JX QA Onboarding]].
+
+## Acceptance Criteria
+
+- [ ] `wiki/code/JX QA Workflow.md` exists with numbered happy-path walkthrough
+- [ ] Page linked from [[QA Testing Plugin]]
+- [ ] Page linked from [[JX QA Onboarding]]
 
 ## Related
 
