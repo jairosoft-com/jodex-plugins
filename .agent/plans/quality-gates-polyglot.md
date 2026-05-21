@@ -21,7 +21,22 @@ The selected quality profile AND the resolved gate list MUST be persisted in the
 
 ADO sync and task conversion read the `Quality Gates:` list directly from PRD metadata — they do NOT re-resolve from the profile name or filesystem path. This makes the PRD self-contained: it works identically regardless of which machine runs the sync, whether the custom config file still exists, or whether the preset definitions have changed since generation.
 
-The `Quality Profile:` field is informational (for human readers). The `Quality Gates:` field is authoritative (for ADO/task).
+The `Quality Profile:` field is informational (for human readers). The `Quality Gates:` field is **authoritative** (for ADO/task).
+
+**Fallback rule:** ADO/task use `Quality Gates:` metadata whenever present, regardless of whether `Quality Profile:` is present, missing, or unrecognized. Only when `Quality Gates:` is entirely absent (legacy PRDs) do they fall back to default gates.
+
+**Gate list format:** Persisted as a markdown bullet list under a `Quality Gates:` heading in Document Metadata, NOT as a comma-separated string. Each gate is one bullet. Tags like `[ui-only]` are preserved inline.
+
+```
+- **Quality Profile**: python
+- **Quality Gates**:
+  - Ruff passes
+  - Mypy passes
+  - Unit tests pass
+  - E2E tests pass [ui-only]
+```
+
+Gate names MUST NOT contain commas. Validation at generation time rejects gate names with commas.
 
 ### HC-2: Project Override Must Be Explicit
 
@@ -29,11 +44,13 @@ Project-level overrides require a namespaced path (`{docs_root}/.jodex/quality-g
 
 ### HC-3: Backward Compatibility (Refined)
 
-Default gates are identical to current hardcoded values. Behavior changes ONLY when:
-- `--quality-profile` is explicitly passed, OR
-- A valid `.jodex/quality-gates.md` override exists with correct version marker
+**Downstream behavior** is identical to current: default gates are the same phrases, ADO exclusion and task sizing produce the same results.
 
-A default run with no profile and no override produces identical output to the current skill.
+**PRD output** has additive metadata changes: new `Quality Profile:` and `Quality Gates:` fields in Document Metadata. This is explicitly additive — no existing fields are removed or renamed. Downstream parsers that don't read these fields are unaffected.
+
+**Existing PRDs** (without `Quality Gates:` metadata) are handled by the fallback rule: ADO/task use default gates when metadata is absent. No migration required.
+
+**Non-default behavior** activates ONLY when `--quality-profile` is explicitly passed OR a valid `.jodex/quality-gates.md` override exists with correct version marker.
 
 ## Changes
 
@@ -61,7 +78,7 @@ Contents:
 
 ### 3. Update ado.md
 
-- Phase 2: read `Quality Gates:` list directly from PRD Document Metadata. Parse as comma-separated phrases, strip [ui-only] tags. If no `Quality Gates:` metadata → use default gates (backward compat with legacy PRDs).
+- Phase 2: read `Quality Gates:` bullet list from PRD Document Metadata. Parse each bullet as one gate phrase, strip [ui-only] tags for exclusion matching. If no `Quality Gates:` metadata → use default gates (backward compat with legacy PRDs).
 - Phase 5: exact-phrase exclusion list sourced from PRD metadata gate list, not hardcoded or re-resolved from filesystem
 - Dry-run output: show resolved profile name and exclusion phrases before any write
 - Legacy fallback: PRDs without `Quality Profile:` metadata use default gates (identical to current behavior)
@@ -100,7 +117,7 @@ New file: `plugins/jx-pm/skills/prd/references/python-example.md`
 
 ## Backward Compatibility
 
-Default gates are identical to current hardcoded values. Behavior changes only with explicit `--quality-profile` or a valid `.jodex/quality-gates.md` override. PRDs without `Quality Profile:` metadata are treated as default profile by ADO/task (identical to current behavior).
+Default gates are identical to current hardcoded values. PRD output has additive metadata (Quality Profile + Quality Gates fields). Downstream behavior changes only with explicit `--quality-profile` or a valid `.jodex/quality-gates.md` override. Legacy PRDs without `Quality Gates:` metadata use default gates via fallback rule.
 
 ## Resolved Review Findings
 
@@ -110,3 +127,6 @@ Default gates are identical to current hardcoded values. Behavior changes only w
 | F2 | Codex R1 | Project override silently breaks defaults | HC-2: namespaced path + version marker, explicit opt-in |
 | F3 | Codex R1 | Task hour estimation JS-specific | Task change expanded: all quality gates get 0.25h via config tag |
 | F4 | Codex R2 | Custom profile paths not replayable downstream | Gate list persisted in PRD metadata; ADO/task read from metadata, not filesystem |
+| F5 | Codex R3 | Fallback contradicts authoritative metadata | Fallback depends on absence of Quality Gates:, not Quality Profile: |
+| F6 | Codex R3 | Comma-separated gate list not replay-safe | Bullet list format, commas forbidden in gate names, validated at generation |
+| F7 | Codex R3 | Backward compat promise internally impossible | Revised HC-3: additive metadata, identical downstream behavior |
