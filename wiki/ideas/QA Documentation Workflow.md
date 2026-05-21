@@ -58,7 +58,7 @@ Expected output: test-plans/<name>.xlsx written, coverage report printed
 ## Step 3 — Generate Playwright specs
 Command: /jx-qa:generate
 [live browser note, idempotent note]
-Expected output: tests/specs/*.spec.ts files written
+Expected output: tests/*.spec.ts files written
 
 ## Step 4 — Run tests
 Command: /jx-qa:test

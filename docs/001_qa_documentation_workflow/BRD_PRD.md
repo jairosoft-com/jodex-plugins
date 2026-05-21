@@ -31,16 +31,16 @@ This initiative delivers `wiki/code/JX QA Workflow.md`: a concise, numbered happ
 flowchart TD
     A([📄 BRD / PRD\nMarkdown doc]) --> B
 
-    B["**Step 1**\n/jx-qa:extract &lt;brd-file&gt;"]
+    B["/jx-qa:extract &lt;brd-file&gt;"]
     B --> C{Human confirms\ntest classification}
     C -->|Approved| D([📊 xlsx Test Plan\ntest-plans/*.xlsx])
     C -->|Revise| B
 
-    D --> E["**Step 2**\n/jx-qa:generate"]
+    D --> E["/jx-qa:generate"]
     E --> F([🌐 Live Browser\nauto-discovers locators])
-    F --> G([🧪 Playwright Specs\ntests/specs/*.spec.ts])
+    F --> G([🧪 Playwright Specs\ntests/*.spec.ts])
 
-    G --> H["**Step 3**\n/jx-qa:test"]
+    G --> H["/jx-qa:test"]
     H --> I{Tests pass?}
     I -->|✅ All pass| J([✅ Test Report\nN passed / 0 failed])
     I -->|❌ Failures| K["**Optional**\n/jx-qa:browser open &lt;url&gt;\nManual exploration"]
@@ -175,7 +175,7 @@ Documentation was written skill-by-skill as the plugin was built. No one synthes
 
 **Rules:**
 - AC-001-08: Step 2 (extract) documents expected output: xlsx file written to `test-plans/` and coverage report printed
-- AC-001-09: Step 3 (generate) documents expected output: `.spec.ts` files written to `tests/specs/`
+- AC-001-09: Step 3 (generate) documents expected output: `.spec.ts` files written to `tests/`
 - AC-001-10: Step 4 (test) documents expected output: N passed / N failed summary
 - AC-001-11: Step 5 (debug) documents when to use `/jx-qa:browser` (only if tests fail)
 - AC-001-12: No step omits its expected-output statement
@@ -226,7 +226,7 @@ Documentation was written skill-by-skill as the plugin was built. No one synthes
 **Rules:**
 - AC-001-22: `wiki/plugins/QA Testing Plugin.md` contains a wikilink `[[JX QA Workflow]]`
 - AC-001-23: Given a user navigates to `[[QA Testing Plugin]]`, When they look for the workflow, Then they find a direct link — happy path
-- AC-001-24: Given `[[JX QA Workflow]]` link is missing from the plugin page, When wiki lint runs, Then lint reports a missing cross-reference — unhappy path detected
+- AC-001-24: Given `[[JX QA Workflow]]` link is missing from the plugin page, When `grep -c "\[\[JX QA Workflow\]\]"` is run on `QA Testing Plugin.md`, Then the count is zero — unhappy path detectable via grep
 
 **Quality Gates:**
 - AC-001-25: Lint passes
@@ -249,7 +249,7 @@ Documentation was written skill-by-skill as the plugin was built. No one synthes
 **Rules:**
 - AC-001-28: `wiki/code/JX QA Onboarding.md` contains a wikilink `[[JX QA Workflow]]`
 - AC-001-29: Given a user finishes onboarding and looks for next steps, When they reach the end of the onboarding page, Then they see a link to [[JX QA Workflow]] — happy path
-- AC-001-30: Given `[[JX QA Workflow]]` link is missing from onboarding, When wiki lint runs, Then lint reports the missing reference — unhappy path detected
+- AC-001-30: Given `[[JX QA Workflow]]` link is missing from onboarding, When `grep -c "\[\[JX QA Workflow\]\]"` is run on `JX QA Onboarding.md`, Then the count is zero — unhappy path detectable via grep
 
 **Quality Gates:**
 - AC-001-31: Lint passes
@@ -282,6 +282,7 @@ Documentation was written skill-by-skill as the plugin was built. No one synthes
 | Should edge cases be included? | 2026-05-20 | No — happy path only for MVP | Keep the guide lean; edge cases can be a follow-on |
 | Where should the page live? | 2026-05-20 | wiki/code/ | Alongside JX QA Onboarding; same taxonomy level |
 | Should expected outputs be real terminal output or descriptions? | 2026-05-20 | Prose descriptions | Durable — survives plugin updates without going stale |
+| AC-001-29 "end of onboarding page" — literal final section or after main content? | 2026-05-21 | After main content, before final `## Derived From` (sources) | Wiki schema requires Sources/Derived From as the trailing section; the Next Step section is in the obvious position a reader expects |
 
 ### 13. Release Plan
 

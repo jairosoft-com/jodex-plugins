@@ -3,7 +3,7 @@ title: JX QA Onboarding
 type: code
 tags: [jx-qa, onboarding, setup, playwright]
 created: 2026-05-11
-updated: 2026-05-12
+updated: 2026-05-21
 source_count: 0
 aliases: [QA onboarding, jx-qa setup, QA setup guide]
 provenance: synthesis
@@ -147,6 +147,10 @@ Include:
 - Sanitized sample files when useful.
 
 Separate product defects from plugin/tooling issues. Product behavior belongs in the product tracker. Plugin installation, test-plan extraction, spec generation, browser automation, or runtime problems belong in the plugin repo.
+
+## Next Step
+
+Ready to run a full QA cycle on a feature? Follow [[JX QA Workflow]] for the step-by-step pipeline with expected outputs at each stage.
 
 ## Derived From
 
