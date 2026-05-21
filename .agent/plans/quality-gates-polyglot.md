@@ -16,10 +16,16 @@ The selected quality profile AND the resolved gate list MUST be persisted in the
 
 ```
 - **Quality Profile**: python
-- **Quality Gates**: Ruff passes, Mypy passes, Unit tests pass, E2E tests pass [ui-only]
+- **Quality Gates**:
+  - Ruff passes
+  - Mypy passes
+  - Unit tests pass
+  - E2E tests pass [ui-only]
 ```
 
-ADO sync and task conversion read the `Quality Gates:` list directly from PRD metadata — they do NOT re-resolve from the profile name or filesystem path. This makes the PRD self-contained: it works identically regardless of which machine runs the sync, whether the custom config file still exists, or whether the preset definitions have changed since generation.
+**Comma-separated `Quality Gates:` metadata is invalid.** If detected, ADO/task should warn and fall back to default gates rather than guessing the split.
+
+ADO sync and task conversion read the `Quality Gates:` bullet list directly from PRD metadata — they do NOT re-resolve from the profile name or filesystem path. This makes the PRD self-contained: it works identically regardless of which machine runs the sync, whether the custom config file still exists, or whether the preset definitions have changed since generation.
 
 The `Quality Profile:` field is informational (for human readers). The `Quality Gates:` field is **authoritative** (for ADO/task).
 
@@ -86,7 +92,7 @@ Contents:
 ### 4. Update task.md and task-json-schema.md
 
 - Functional AC Counting: exclusion phrases sourced from PRD metadata `Quality Gates:` bullet list (same as ADO). Legacy PRDs without `Quality Gates:` metadata use default gates.
-- Hour estimation: classify quality-gate ACs by matching against the PRD metadata gate list, not JS-specific labels. All quality-gate ACs get 0.25h regardless of toolchain.
+- Hour estimation: classify quality-gate ACs by matching against the PRD metadata gate list, not JS-specific labels. Non-E2E quality gates get 0.25h. Gates tagged `[ui-only]` (typically E2E) preserve the existing 0.5h classification to maintain backward-compatible estimates for default profiles.
 - task-json-schema.md: update quality-gate hour classification to reference config
 
 ### 5. Update templates
@@ -132,3 +138,5 @@ Default gates are identical to current hardcoded values. PRD output has additive
 | F7 | Codex R3 | Backward compat promise internally impossible | Revised HC-3: additive metadata, identical downstream behavior |
 | F8 | Codex R4 | SKILL.md/templates still reference comma-separated format | All instructions updated to nested bullet-list per HC-1 |
 | F9 | Codex R4 | ADO fallback keys off Quality Profile instead of Quality Gates | Fallback depends only on absence of Quality Gates: metadata |
+| F10 | Codex R5 | Comma-separated example still in HC-1 | Replaced with canonical bullet-list; comma format declared invalid |
+| F11 | Codex R5 | Default E2E gate hours would regress | [ui-only] gates preserve 0.5h; non-E2E gates get 0.25h |
