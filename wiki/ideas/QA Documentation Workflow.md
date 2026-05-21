@@ -4,6 +4,7 @@ type: idea
 tags: [jx-qa, workflow, documentation, process]
 created: 2026-05-20
 updated: 2026-05-20
+groomed: 2026-05-20
 source_count: 0
 aliases: [qa workflow, qa doc workflow, jx-qa workflow]
 provenance: user
@@ -30,6 +31,44 @@ Human checkpoints documented as-is: classification confirm in extract; everythin
 ## Deliverable
 
 A new `wiki/code/JX QA Workflow.md` page, linked from [[QA Testing Plugin]] and [[JX QA Onboarding]].
+
+## Page Outline
+
+Structure for `wiki/code/JX QA Workflow.md`:
+
+```
+# JX QA Workflow
+
+> Not set up yet? See [[JX QA Onboarding]] first.
+
+## Overview
+[one-line pipeline diagram: BRD → extract → xlsx → generate → specs → test → results]
+
+## Step 1 — Prepare your BRD
+[what the input doc should look like]
+Expected output: a markdown file ready to pass to extract
+
+## Step 2 — Extract test cases
+Command: /jx-qa:extract <brd-file>
+[human confirm step explained]
+Expected output: test-plans/<name>.xlsx written, coverage report printed
+
+## Step 3 — Generate Playwright specs
+Command: /jx-qa:generate
+[live browser note, idempotent note]
+Expected output: tests/specs/*.spec.ts files written
+
+## Step 4 — Run tests
+Command: /jx-qa:test
+Expected output: N passed, N failed summary
+
+## Step 5 — Debug (optional)
+Command: /jx-qa:browser open <url>
+[when to use this step]
+
+## Related
+[[QA Testing Plugin]] | [[JX QA Onboarding]]
+```
 
 ## Acceptance Criteria
 
