@@ -3,7 +3,7 @@ title: Iterative Adversarial Review
 type: concept
 tags: [pattern, quality, design, review]
 created: 2026-05-09
-updated: 2026-05-18
+updated: 2026-05-21
 source_count: 1
 aliases: [adversarial review loop, multi-pass review, design hardening]
 provenance: synthesis
@@ -135,6 +135,7 @@ This suggests adversarial review is most effective when applied at each lifecycl
 - [[Split Verification Pattern]] — dual-tier verification emerged from review findings
 - [[Knowledge Flywheel]] — review is one phase of the self-reinforcing knowledge loop
 - [[Naming Ripple Effect]] — stale paths in plans are a rename cascade the code-level grep misses
+- [[AC Verifiability Gap]] — sub-pattern: ACs that reference unrealizable verification mechanisms, surfaced during review
 
 ## Sources
 - [[Source - Plugin Split Implementation Plan]]

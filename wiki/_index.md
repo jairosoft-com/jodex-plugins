@@ -50,6 +50,7 @@ page_count: 250
 
 ## Concepts
 
+- [[AC Verifiability Gap]] — Failure mode where PRD ACs reference verification mechanisms that don't match reality; three resolution patterns (#prd, #acceptance-criteria, #verification)
 - [[Ad-hoc vs Manifest-Driven Workflows]] — Two workflow modes: manual target selection vs manifest-tracked suggestions (#pattern, #workflow)
 - [[Agent Team Execution]] — Parallel agent orchestration with sequential foundation and tmux visibility (#pattern, #agent, #orchestration)
 - [[Atomic Rename Boundary]] — Runtime-critical rename changes must land in one commit (#pattern, #naming, #git)
