@@ -11,6 +11,7 @@ page_count: 250
 - [[Automate Plugin Creation Like Skill Creation]] — `/jx-skill:create-plugin` scaffolds plugin skeletons and marketplace entries with pinned-helper safety (#jx-skill, #plugin, #scaffolding) [backlogged P1]
 - [[Conditional AC Format Selection (Promoted)]] — AC format should match story type: G/W/T for journeys, checklist for constraints, system state for backend (#acceptance-criteria, #prd, #jx-pm) [promoted]
 - [[Downstream Contract Audit for Skill Output Changes]] — Audit all downstream consumers when changing a skill's output format; PRD change cascaded to 5+ files (#skill-design, #contracts) [backlogged P2]
+- [[Shared Validators Over Prompt Instructions]] — Enforce format constraints via shared scripts, not prompt instructions; wire same validator into generator and consumers (#skill-design, #validation, #design-pattern) [raw]
 - [[Sub-Headers as Dual-Purpose Contracts (Promoted)]] — Bold sub-headers serve both visual grouping and machine-parseable format routing; content structure IS the contract (#skill-design, #design-pattern) [promoted]
 - [[Dataview Queries]] — Obsidian plugin for frontmatter queries (#tooling, #obsidian) [backlogged P3]
 - [[Marp Integration]] — Markdown slide decks from wiki content (#tooling, #presentation) [backlogged P3]
