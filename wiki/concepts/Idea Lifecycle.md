@@ -51,5 +51,10 @@ The wiki treats ideas as decision history, not disposable scratch notes. Keeping
 
 An old raw idea is not automatically bad, but it is a useful review queue. During [[Triage]], raw ideas should be promoted when they have reusable knowledge value, backlogged when they imply work, or archived when they are duplicate, stale, or not worth keeping active.
 
+## Related
+
+- [[Backlog Idea Grooming]] — how to groom a backlogged idea before promotion
+- [[Triage]] — upstream step that classifies raw ideas
+
 ## Sources
 - [[Source - Triage SKILL]]

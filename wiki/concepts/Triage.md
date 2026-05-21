@@ -32,7 +32,7 @@ Triage is the human curation checkpoint. While [[Ingest]] is largely automated, 
 5. Update `_backlog.md`
 6. Append to [[Log]]
 
-See [[Idea Lifecycle]] for full state machine.
+See [[Idea Lifecycle]] for full state machine. After backlogging, use [[Backlog Idea Grooming]] to refine before promotion.
 
 ## Sources
 - [[Source - LLM Wiki]]

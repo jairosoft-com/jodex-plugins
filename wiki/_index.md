@@ -71,6 +71,7 @@ page_count: 250
 - [[Executable Setup Documentation]] — Treat onboarding commands as verified, secret-safe executable examples (#documentation, #onboarding, #verification)
 - [[Health Score]] — 0-100 score quantifying wiki quality from lint (#wiki, #metrics)
 - [[Hook]] — Plugin lifecycle event handler (#plugin, #lifecycle)
+- [[Backlog Idea Grooming]] — Transform a backlogged idea into execution-ready spec: scope, AC, outline, priority (#wiki, #workflow, #backlog)
 - [[Idea Lifecycle]] — Progression: raw → promoted/backlogged/archived (#wiki, #workflow)
 - [[Idempotent Operation]] — Safe re-run pattern, skips existing work (#pattern, #safety)
 - [[Index]] — Content catalog for wiki navigation via _index.md (#architecture, #wiki)
