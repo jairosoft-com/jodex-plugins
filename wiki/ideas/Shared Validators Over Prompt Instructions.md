@@ -3,6 +3,7 @@ title: Shared Validators Over Prompt Instructions
 type: idea
 tags: [skill-design, validation, contracts, jx-core, design-pattern]
 created: 2026-05-20
+updated: 2026-05-20
 status: raw
 source: jx-pm PRD multi-format AC session (2026-05-20), Codex R12
 ---
