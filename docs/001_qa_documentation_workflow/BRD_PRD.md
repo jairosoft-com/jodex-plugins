@@ -25,6 +25,36 @@ The jx-qa plugin provides a complete QA automation pipeline — from BRD extract
 
 This initiative delivers `wiki/code/JX QA Workflow.md`: a concise, numbered happy-path walkthrough for any jx-qa user who is already set up and wants to run a new feature through QA from scratch. The deliverable is a single wiki page, linked from the plugin reference page and the onboarding guide. Investment is minimal (docs-only, <1 week), and success is defined as users being able to complete a full BRD-to-test cycle without external support.
 
+#### Pipeline Overview
+
+```mermaid
+flowchart TD
+    A([📄 BRD / PRD\nMarkdown doc]) --> B
+
+    B["**Step 1**\n/jx-qa:extract &lt;brd-file&gt;"]
+    B --> C{Human confirms\ntest classification}
+    C -->|Approved| D([📊 xlsx Test Plan\ntest-plans/*.xlsx])
+    C -->|Revise| B
+
+    D --> E["**Step 2**\n/jx-qa:generate"]
+    E --> F([🌐 Live Browser\nauto-discovers locators])
+    F --> G([🧪 Playwright Specs\ntests/specs/*.spec.ts])
+
+    G --> H["**Step 3**\n/jx-qa:test"]
+    H --> I{Tests pass?}
+    I -->|✅ All pass| J([✅ Test Report\nN passed / 0 failed])
+    I -->|❌ Failures| K["**Optional**\n/jx-qa:browser open &lt;url&gt;\nManual exploration"]
+    K --> E
+
+    style A fill:#e8f4fd,stroke:#4a90d9
+    style D fill:#e8f4fd,stroke:#4a90d9
+    style G fill:#e8f4fd,stroke:#4a90d9
+    style J fill:#d4edda,stroke:#28a745
+    style K fill:#fff3cd,stroke:#ffc107
+    style C fill:#f8f9fa,stroke:#6c757d
+    style I fill:#f8f9fa,stroke:#6c757d
+```
+
 ### 2. Business Problem & Opportunity
 
 #### Current State
