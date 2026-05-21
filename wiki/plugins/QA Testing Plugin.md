@@ -3,7 +3,7 @@ title: QA Testing Plugin
 type: plugin
 tags: [testing, playwright, jx-qa]
 created: 2026-05-07
-updated: 2026-05-12
+updated: 2026-05-21
 source_count: 10
 aliases: [jx-qa, jx-qa plugin, qa-ai]
 provenance: source-derived
@@ -47,6 +47,8 @@ Test plans stored in `test-plans/` (changed from `raw/data/`). Both extract and 
 ## Onboarding
 
 Use [[JX QA Onboarding]] for QA-user setup: marketplace install, local project layout, Git hygiene, `jx-kb` wiki initialization, dependency installation, first `jx-qa` workflow, and issue-reporting expectations.
+
+For the day-to-day pipeline walkthrough (extract → generate → test with expected outputs), see [[JX QA Workflow]].
 
 ## Security Model
 
