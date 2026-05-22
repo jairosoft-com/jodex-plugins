@@ -13,6 +13,7 @@
 - [Repo-local memory preference](feedback_repo_local_memory.md) — Save reusable project memory in `.agent/memory/` as repo-local artifacts
 - [Succinct ideas](feedback_succinct_ideas.md) — Wiki ideas must be brief; no over-grooming or verbose sections
 - [Plans directory](feedback_plans_directory.md) — Use .agent/plans/ from settings.local.json, not ~/.claude/plans/
+- [Plan vs execute boundary](feedback_plan_vs_execute.md) — Plan approval is not implementation approval; stop after planning unless explicitly told to implement
 
 ## NotebookLM
 - [Associated notebooks](reference_notebooklm.md) — Plugin Marketplace Architecture + Mastering Skill.MD + Building Product Management Skills
