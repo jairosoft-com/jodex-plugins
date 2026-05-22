@@ -4,7 +4,7 @@ type: idea
 tags: [skill-design, validation, contracts, jx-core, design-pattern]
 created: 2026-05-20
 updated: 2026-05-20
-status: backlogged
+status: completed
 source: jx-pm PRD multi-format AC session (2026-05-20), Codex R12
 ---
 

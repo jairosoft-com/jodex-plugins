@@ -7,7 +7,7 @@ updated: 2026-05-20
 source_count: 1
 aliases: [skill creator, skill scaffolder, jx-skill:create]
 provenance: synthesis
-status: backlogged
+status: completed
 ---
 
 # Skill Creator for Jodex Plugins
