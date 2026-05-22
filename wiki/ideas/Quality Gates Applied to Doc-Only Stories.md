@@ -20,9 +20,7 @@ The PRD generator auto-appends quality gates (Lint passes, Typecheck passes, Uni
 
 Observed during FEAT-002 (ADO Sync AC Field Fix): all 4 stories are spec/doc changes to `ado.md`, yet each received 3 quality gate ACs that add no value and inflate the AC count.
 
-## Distinct From
-
-This is NOT the same as "Quality Gates Assume JS-TS Toolchain" (completed) which addressed language-specific gate presets. That fix added python/rust/go presets. This issue is about story-type awareness — the generator doesn't distinguish code stories from documentation stories regardless of language.
+*Not the same as [[Quality Gates Assume JS-TS Toolchain]] (completed) — that fix added language presets (python/rust/go). This is about story-type awareness: the generator doesn't distinguish code stories from doc stories regardless of language.*
 
 ## Proposed Solution
 
@@ -61,12 +59,7 @@ The generator already writes a format rationale line per story (`*Format: Rule-B
 | `plugins/jx-core/_shared/quality-gates.md` | Add `[code-only]` tag definition to Tag Semantics table. Tag default gates with `[code-only]`. Add Hour Estimation row for `[code-only]`. |
 | `plugins/jx-pm/skills/prd/SKILL.md` | Phase 5 Quality Gates section: add `[code-only]` filtering logic based on story format rationale. |
 
-### Unchanged
-
-| File | Reason |
-|------|--------|
-| `plugins/jx-core/_shared/ado.md` | ADO sync reads gates from PRD metadata — if the PRD omits them, ADO won't see them. No change needed. |
-| `plugins/jx-pm/commands/ado.md` | No allowed-tools change. |
+*No changes to `plugins/jx-core/_shared/ado.md` (ADO sync reads from PRD metadata — omitted gates won't reach ADO) or `plugins/jx-pm/commands/ado.md` (no allowed-tools change).*
 
 ## Dependencies
 
