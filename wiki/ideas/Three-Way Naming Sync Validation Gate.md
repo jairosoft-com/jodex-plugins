@@ -7,7 +7,7 @@ updated: 2026-05-20
 source_count: 0
 aliases: [naming sync check, plugin naming validation]
 provenance: synthesis
-status: backlogged
+status: completed
 ---
 
 # Three-Way Naming Sync Validation Gate

@@ -1,7 +1,7 @@
 ---
 title: Direct PRD-to-ADO Sync Without task.json
 type: idea
-status: backlogged
+status: completed
 created: 2026-05-18
 updated: 2026-05-18
 source: user request

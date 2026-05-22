@@ -1,7 +1,7 @@
 ---
 title: Automate Plugin Creation Like Skill Creation
 type: idea
-status: backlogged
+status: completed
 priority: P1
 tags: [jx-skill, plugin, scaffolding, developer-experience, automation]
 created: 2026-05-20

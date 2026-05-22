@@ -4,7 +4,7 @@ type: idea
 tags: [jx-pm, prd, hardcoded, quality-gates, polyglot, jx-core]
 created: 2026-05-20
 updated: 2026-05-20
-status: backlogged
+status: completed
 priority: P2
 effort: medium
 source: PRD skill hardcoded values review (2026-05-20)

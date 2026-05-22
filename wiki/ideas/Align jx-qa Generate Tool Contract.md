@@ -7,7 +7,7 @@ updated: 2026-05-09
 source_count: 0
 aliases: [jx-qa generate allowed tools mismatch]
 provenance: synthesis
-status: backlogged
+status: completed
 ---
 
 # Align jx-qa Generate Tool Contract

@@ -1,7 +1,7 @@
 ---
 title: Slash Feedback Skill for jx-core
 type: idea
-status: backlogged
+status: completed
 tags: [jx-core, feedback, skill, cross-role, developer-experience, ado]
 created: 2026-05-14
 updated: 2026-05-14

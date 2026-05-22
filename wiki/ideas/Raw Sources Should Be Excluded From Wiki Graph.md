@@ -7,7 +7,7 @@ updated: 2026-05-11
 source_count: 0
 aliases: [exclude raw sources from graph]
 provenance: synthesis
-status: backlogged
+status: completed
 ---
 
 # Raw Sources Should Be Excluded From Wiki Graph
