@@ -1,3 +1,17 @@
+---
+ado_sync:
+  feature_work_item_id: 204854
+  feature_work_item_url: "https://dev.azure.com/jairo/91958783-8c2b-4e19-9fff-c73139334abf/_workitems/edit/204854"
+  organization: jairo
+  project: Jodex
+  last_synced: "2026-05-22T08:09:42Z"
+  stories:
+    US-001-01: 204855
+    US-001-02: 204856
+    US-001-03: 204857
+    US-001-04: 204858
+    US-001-05: 204859
+---
 # QA Documentation Workflow
 
 ## Document Metadata
@@ -29,21 +43,21 @@ This initiative delivers `wiki/code/JX QA Workflow.md`: a concise, numbered happ
 
 ```mermaid
 flowchart TD
-    A([📄 BRD / PRD\nMarkdown doc]) --> B
+    A(["📄 BRD / PRD\nMarkdown doc"]) --> B
 
-    B["/jx-qa:extract &lt;brd-file&gt;"]
-    B --> C{Human confirms\ntest classification}
-    C -->|Approved| D([📊 xlsx Test Plan\ntest-plans/*.xlsx])
+    B["/jx-qa:extract [brd-file]"]
+    B --> C{"Human confirms\ntest classification"}
+    C -->|Approved| D(["📊 xlsx Test Plan\ntest-plans/*.xlsx"])
     C -->|Revise| B
 
     D --> E["/jx-qa:generate"]
-    E --> F([🌐 Live Browser\nauto-discovers locators])
-    F --> G([🧪 Playwright Specs\ntests/*.spec.ts])
+    E --> F(["🌐 Live Browser\nauto-discovers locators"])
+    F --> G(["🧪 Playwright Specs\ntests/*.spec.ts"])
 
     G --> H["/jx-qa:test"]
-    H --> I{Tests pass?}
-    I -->|✅ All pass| J([✅ Test Report\nN passed / 0 failed])
-    I -->|❌ Failures| K["**Optional**\n/jx-qa:browser open &lt;url&gt;\nManual exploration"]
+    H --> I{"Tests pass?"}
+    I -->|✅ All pass| J(["✅ Test Report\nN passed / 0 failed"])
+    I -->|❌ Failures| K["**Optional**\n/jx-qa:browser open [url]\nManual exploration"]
     K --> E
 
     style A fill:#e8f4fd,stroke:#4a90d9
