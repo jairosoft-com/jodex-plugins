@@ -4,7 +4,7 @@ type: idea
 tags: [jx-pm, jx-core, ado, acceptance-criteria, bug, spec-gap]
 created: 2026-05-22
 updated: 2026-05-22
-status: backlogged
+status: completed
 priority: P1
 effort: small
 source: Live ADO sync session (2026-05-22)

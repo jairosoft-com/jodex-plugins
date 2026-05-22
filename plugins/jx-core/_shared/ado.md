@@ -148,10 +148,13 @@ Tags are used for crash recovery identification. Never modify or remove them.
 
 ### Creation Order
 
-1. Feature (if not exists)
-2. User Stories (as children of Feature)
+1. Feature (if not exists) — via `wit_create_work_item`
+2. User Stories — two-step creation per story:
+   a. **Create + parent-link:** Call `wit_add_child_work_items` with the Feature as parent. The `description` parameter receives ONLY the story narrative ("As a / I want / So that" block + "Validates:" reference). Do NOT include acceptance criteria in this call.
+   b. **Set fields:** Call `wit_update_work_item` on the returned work item ID to set `Microsoft.VSTS.Common.AcceptanceCriteria` with routed ACs (HTML format, ordered list), Tags (`prd:{story.id}`), and Story Points in a single call.
+3. Frontmatter write-back occurs after step 2a (see Per-Item Frontmatter Write-Back), NOT after step 2b — this ensures crash between 2a and 2b is recoverable via update mode.
 
-**No ADO Task work items are created.** Acceptance criteria are not tasks — they become content in the User Story AC field.
+**No ADO Task work items are created.** Acceptance criteria are not tasks — they become content in the User Story `Microsoft.VSTS.Common.AcceptanceCriteria` field.
 
 ### Work Item Fields
 
@@ -162,55 +165,67 @@ Tags are used for crash recovery identification. Never modify or remove them.
 
 **User Story:**
 - Title: `{story.id}: {story.title}`
-- Description: "As a / I want / So that" block + "Validates:" reference
-- Acceptance Criteria field: Route each AC by its `format_group` from Phase 2:
+- Description (`System.Description`): "As a / I want / So that" block + "Validates:" reference. **No acceptance criteria content.** Set via `wit_add_child_work_items` description parameter (step 2a).
+- Acceptance Criteria (`Microsoft.VSTS.Common.AcceptanceCriteria`): Route each AC by its `format_group` from Phase 2. Set via `wit_update_work_item` (step 2b). Content uses HTML format (ordered list).
   - `scenarios` / `scenarios_inferred` → pass through as-is (already Gherkin)
   - `rules` / `legacy` (after exclusion) → synthesize Gherkin from behavioral statement
   - `system_behavior` / `system_behavior_inferred` → pass through as-is (technical behavior spec)
   - `quality_gates` → exclude from AC field
   - `legacy` with normalized exact-phrase match → exclude (phrases from PRD `Quality Gates:` metadata, or default gates if absent, after stripping trailing annotations like `*(UI stories only)*`)
   - **Sub-header routing is authoritative:** ACs under functional sub-headers (scenarios, rules, system_behavior) are NEVER phrase-excluded.
-  - If only quality-gate ACs remain → leave AC field empty, log warning.
+  - If only quality-gate ACs remain → leave `Microsoft.VSTS.Common.AcceptanceCriteria` empty, log warning.
   - **Inferred-routing confirmation:** If any ACs were promoted to `scenarios_inferred` or `system_behavior_inferred`, display the inferred routing before any write (all non-dry-run modes: Normal, Partial, Update). User must confirm before ADO writes proceed.
   - Dry-run output shows format routing per AC: `AC-NNN-NN [format_group] → action: "text"`
-- Story Points: LLM-derived estimate (1/2/3/5/8 scale). Weight by functional scenario count (excluding quality gates), not raw AC line count. **First sync only — never overwrite on subsequent syncs.**
-- Tags: `prd:{story.id}`
+- Story Points: LLM-derived estimate (1/2/3/5/8 scale). Weight by functional scenario count (excluding quality gates), not raw AC line count. **First sync only — never overwrite on subsequent syncs.** Set via `wit_update_work_item` (step 2b).
+- Tags: `prd:{story.id}` — set via `wit_update_work_item` (step 2b).
 
 ### Field Update Rules (on update of existing items)
 
-| Field | Behavior |
-|-------|----------|
-| Title | PRD wins — always update |
-| Description | PRD wins — always update |
-| Acceptance Criteria (text) | PRD wins — always update |
-| Story Points | Preserve ADO value (never overwrite after first sync) |
-| State | Never touch (ADO owns state) |
-| Area Path | Never touch |
-| Iteration Path | Never touch |
+| Field | ADO Field Path | Behavior |
+|-------|----------------|----------|
+| Title | `System.Title` | PRD wins — always update |
+| Description | `System.Description` | PRD wins — always update (narrative only, no ACs) |
+| Acceptance Criteria | `Microsoft.VSTS.Common.AcceptanceCriteria` | PRD wins — always update |
+| Story Points | `Microsoft.VSTS.Scheduling.StoryPoints` | Preserve ADO value (never overwrite after first sync) |
+| State | `System.State` | Never touch (ADO owns state) |
+| Area Path | `System.AreaPath` | Never touch |
+| Iteration Path | `System.IterationPath` | Never touch |
+
+In update mode, a single `wit_update_work_item` call sets both the cleaned Description (narrative only) and the AC field per story. This corrects legacy stories where Description contained combined narrative + AC content from pre-fix syncs. The PRD is authoritative — both fields are overwritten from source regardless of current content.
 
 ### Per-Item Frontmatter Write-Back
 
-After EACH successful `wit_create_work_item`:
-1. Capture the returned work item ID and URL
-2. Call pinned helper `frontmatter-sync.py` with updated `ado_sync` fields:
+After EACH successful work item creation:
+1. For Feature: after `wit_create_work_item`, capture the returned work item ID and URL
+2. For User Story: after step 2a (`wit_add_child_work_items`), capture the returned work item ID. Write-back occurs here — **before** step 2b (`wit_update_work_item`). This ensures the ID is persisted even if the AC-update step fails.
+3. Call pinned helper `frontmatter-sync.py` with updated `ado_sync` fields:
    - For Feature: set `feature_work_item_id` and `feature_work_item_url`
    - For Story: add `{story_id}: {work_item_id}` to `ado_sync.stories` map
    - Set `last_synced` to current ISO timestamp
    - Set `organization` and `project` (on first sync)
-3. The helper performs atomic temp+rename — no partial writes
+4. The helper performs atomic temp+rename — no partial writes
 
 ### Crash Recovery
 
-If frontmatter lacks ID for an item that should exist (crash between create and write-back):
+**Window 1 — crash between create and frontmatter write-back** (ID not yet persisted):
 1. Search Azure by tag: `prd:{item_id}` (immutable marker)
 2. Exactly 1 match → reuse (write ID back to frontmatter via helper)
 3. 0 matches → create new
 4. 2+ matches → HALT, show duplicates, require manual resolution (fail-closed)
 
+**Window 2 — crash between step 2a (create+link) and step 2b (AC update)** (ID persisted, but AC field empty and Description may contain narrative-only content):
+- Frontmatter already has the work item ID (write-back happens after step 2a)
+- Next sync enters Update or Partial mode and applies Field Update Rules — `wit_update_work_item` sets both Description (narrative only) and `Microsoft.VSTS.Common.AcceptanceCriteria` (routed ACs)
+- No tag-based search needed for this window — update mode corrects the field layout automatically
+
 ### Dry-Run
 
 If `--dry-run` is set:
 - Show all planned operations (creates, updates, reconciliation)
+- For each User Story, show field mapping separately:
+  - **Description** (`System.Description`): preview of narrative content ("As a / I want / So that" + "Validates:")
+  - **Acceptance Criteria** (`Microsoft.VSTS.Common.AcceptanceCriteria`): preview of routed ACs
+  - **Excluded**: list quality-gate ACs with exclusion reason (e.g., `AC-NNN-NN [quality_gates] → excluded: "Lint passes"`)
 - Do NOT call any ADO write tools
 - Do NOT modify PRD frontmatter
 - Exit after displaying the plan
@@ -257,6 +272,8 @@ Markdown report:
 - [ ] Tenant binding verified (or first-bind confirmed via `core_list_projects`)
 - [ ] Hierarchy reconciliation completed (Feature + Story links verified/repaired)
 - [ ] Per-item frontmatter write-back after each create (via pinned helper, atomic)
+- [ ] User Story AC field (`Microsoft.VSTS.Common.AcceptanceCriteria`) populated via two-step flow (create+link, then update)
+- [ ] Description contains narrative only — no AC content
 - [ ] Crash recovery uses tag-based search, fail-closed (exactly 1 match or halt)
 - [ ] AC block validation passed (shared validator, no orphan/continuation lines)
 - [ ] AC format routing applied per format_group (scenarios→pass-through, rules/legacy→synthesize, system_behavior→pass-through, quality_gates→exclude)
