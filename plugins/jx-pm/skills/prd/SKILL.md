@@ -173,10 +173,10 @@ Generate using the appropriate template:
 - AC-{feature_number}-{seq}: [Happy-path criterion]
 - AC-{feature_number}-{seq}: [Unhappy-path criterion]
 
-**Quality Gates:**
-- AC-{feature_number}-{seq}: Lint passes
-- AC-{feature_number}-{seq}: Typecheck passes
-- AC-{feature_number}-{seq}: Unit tests pass
+**Quality Gates:** *(omit entire section for doc-only stories — see Phase 5 section-emit rule)*
+- AC-{feature_number}-{seq}: Lint passes [code-only]
+- AC-{feature_number}-{seq}: Typecheck passes [code-only]
+- AC-{feature_number}-{seq}: Unit tests pass [code-only]
 
 **Validates:** [OBJ-{feature_number}-{seq} or GOAL-{feature_number}-{seq}]
 ```
@@ -201,7 +201,7 @@ Analyze each user story and apply the format(s) most relevant to the feature typ
 - `**Scenarios:**` — Given/When/Then items
 - `**Rules:**` — Checklist items
 - `**System Behavior:**` — State/flow items (canonical name; `**System State:**` is also accepted)
-- `**Quality Gates:**` — Always present, always Rule-Based
+- `**Quality Gates:**` — Present only when at least one gate survives story-type filtering; always Rule-Based when present
 
 These sub-headers serve dual purpose: visual grouping in the PRD AND format detection for ADO sync.
 
@@ -238,11 +238,20 @@ System State:
 - AC-006-02: When POST /orders receives invalid payload, system returns 400 with validation errors array
 ```
 
-**Quality Gates (auto-added to every story under `**Quality Gates:**` sub-header):**
+**Quality Gates (conditionally added per story type under `**Quality Gates:**` sub-header):**
 
-Read gates from the resolved quality profile (see `../../../jx-core/_shared/quality-gates.md`). Gates without tags are added to all stories. Gates tagged `[ui-only]` are added only to UI stories.
+Read gates from the resolved quality profile (see `../../../jx-core/_shared/quality-gates.md`). Apply tag-based filtering per story type using the format rationale line:
 
-Default profile gates: Lint passes, Typecheck passes, Unit tests pass, E2E tests pass [ui-only].
+- Gates with **no tag** → added to all stories
+- Gates tagged `[ui-only]` → added only when format rationale mentions "UI", "interface", or "browser"
+- Gates tagged `[code-only]` → skipped when format rationale contains any of: `documentation`, `spec`, `wiki`, `markdown` AND contains none of: "UI", "interface", "browser", "code", "implementation"
+- **Absent format rationale** → include all gates regardless of tag (backward-compatible default)
+
+**Story-type classification rule:** A story is doc-only only when its format rationale contains doc-only keywords (`documentation`, `spec`, `wiki`, `markdown`) AND contains no code-producing or UI-deliverable signals ("UI", "interface", "browser", "code", "implementation"). Mixed-signal rationales are treated as code stories: `[code-only]` gates are included.
+
+**Section emit rule:** Emit the `**Quality Gates:**` sub-header and its contents only when at least one gate survives filtering. If all gates are filtered out (pure doc-only story under default profile), omit the `**Quality Gates:**` sub-header entirely for that story.
+
+Default profile gates: Lint passes [code-only], Typecheck passes [code-only], Unit tests pass [code-only], E2E tests pass [ui-only].
 
 Persist the resolved profile and gate list in the PRD Document Metadata section:
 ```markdown
@@ -286,11 +295,11 @@ The validator checks that within each AC block (between `**Acceptance Criteria:*
 - [ ] Acceptance criteria use global counter with `AC-{NNN}-{seq}` format
 - [ ] AC format rationale present for each story
 - [ ] Happy and unhappy paths covered for each story
-- [ ] Sub-headers present on every AC block (Scenarios/Rules/System Behavior + Quality Gates)
+- [ ] Sub-headers present on every AC block (Scenarios/Rules/System Behavior); Quality Gates sub-header present only when at least one gate survives story-type filtering
 - [ ] All AC bodies are single-line (pre-save validation passed)
 - [ ] Each story has "Validates:" field linking to objective/goal
 - [ ] Functional requirements numbered `FR-{NNN}-{seq}` with "Supports:" notation
 - [ ] NFRs are measurable (no vague terms)
 - [ ] Non-goals explicitly listed
 - [ ] Success metrics tie back to business objective
-- [ ] Quality Gates added to every story
+- [ ] Quality Gates section present for every code-producing story; omitted entirely for doc-only stories (format rationale has doc keywords and no code/UI signals) when no unfiltered gates remain
