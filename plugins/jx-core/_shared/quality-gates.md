@@ -14,9 +14,9 @@ All jx skills reference this file for quality gate resolution, PRD generation, a
 
 ### TypeScript/JavaScript
 
-- Lint passes
-- Typecheck passes
-- Unit tests pass
+- Lint passes [code-only]
+- Typecheck passes [code-only]
+- Unit tests pass [code-only]
 - E2E tests pass [ui-only]
 
 ### python
@@ -40,6 +40,7 @@ All jx skills reference this file for quality gate resolution, PRD generation, a
 | Tag | Meaning |
 |-----|---------|
 | `[ui-only]` | Gate is appended only to stories identified as UI stories |
+| `[code-only]` | Gate is appended only to stories identified as producing code artifacts |
 | *(no tag)* | Gate is appended to all stories |
 
 ## Gate Name Rules
@@ -72,6 +73,7 @@ The PRD generator persists the resolved profile and gate list in Document Metada
 | Tag | Hours | Rationale |
 |-----|-------|-----------|
 | *(no tag)* | 0.25 | Standard quality gate |
+| `[code-only]` | 0.25 | Code tooling verification, same cost as standard |
 | `[ui-only]` | 0.5 | E2E/browser verification, higher cost |
 
 ## Project Override Format
@@ -86,4 +88,4 @@ version: 1
 
 Files without `version: 1` frontmatter are ignored with a warning. This prevents stale or unrelated files from silently changing behavior.
 
-Override contents follow the same format as the Default Gates section above: one gate per line, optional `[ui-only]` tag.
+Override contents follow the same format as the Default Gates section above: one gate per line, with any recognized tag from the Tag Semantics table (`[ui-only]`, `[code-only]`, or no tag).
