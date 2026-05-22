@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-20
-page_count: 250
+page_count: 251
 ---
 
 # Wiki Index
@@ -167,7 +167,7 @@ page_count: 250
 - [[Core Shared Conventions Plugin|jx-core]] — Reference-only shared conventions for PM and developer plugins (#plugin, #shared-conventions)
 - [[Developer Skills Plugin|jx-dev]] — Technical specification and task breakdown workflows (#plugin, #developer)
 - [[Knowledge Base Plugin|jx-kb]] — LLM-maintained knowledge base plugin for Claude Code (#knowledge-base, #wiki)
-- [[Product Management Skills Plugin|jx-pm]] — PRD generation, pipeline orchestration, and Azure Boards sync (#plugin, #product-management) [active]
+- [[Product Management Skills Plugin|jx-pm]] — PRD generation, pipeline orchestration, Azure Boards sync, and daily meeting preparation (#plugin, #product-management) [active]
 - [[QA Testing Plugin|jx-qa]] — QA testing pipeline: BRD → xlsx → Playwright specs (#testing, #playwright)
 
 ## Platforms
