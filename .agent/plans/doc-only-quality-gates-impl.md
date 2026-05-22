@@ -3,7 +3,7 @@
 **Source:** `wiki/ideas/Quality Gates Applied to Doc-Only Stories.md`
 **PRD:** `docs/003_doc_only_quality_gates/BRD_PRD.md`
 **Status:** Awaiting approval
-**Review:** Round 2 complete — 9 findings total, all resolved (2+3 HIGH, 3+0 MEDIUM, 1+0 LOW)
+**Review:** Round 3 complete — 10 findings total, all resolved (2+3+1 HIGH, 3 MEDIUM, 1 LOW)
 
 ---
 
@@ -150,6 +150,30 @@ Read gates from the resolved quality profile (see `../../../jx-core/_shared/qual
 Default profile gates: Lint passes [code-only], Typecheck passes [code-only], Unit tests pass [code-only], E2E tests pass [ui-only].
 ```
 
+### 2d. Update the User Story Format scaffold — lines 176-179 (R3-F1)
+
+**Target location:** The hard-coded Quality Gates block inside the `**User Story Format:**` scaffold
+
+**Current (lines 176-179):**
+```markdown
+**Quality Gates:**
+- AC-{feature_number}-{seq}: Lint passes
+- AC-{feature_number}-{seq}: Typecheck passes
+- AC-{feature_number}-{seq}: Unit tests pass
+```
+
+**After:**
+```markdown
+**Quality Gates:** *(omit entire section for doc-only stories — see Phase 5 section-emit rule)*
+- AC-{feature_number}-{seq}: Lint passes [code-only]
+- AC-{feature_number}-{seq}: Typecheck passes [code-only]
+- AC-{feature_number}-{seq}: Unit tests pass [code-only]
+```
+
+> Rationale: annotating gates with `[code-only]` in the scaffold makes the filtering intent explicit at the point of generation. The italic note prevents the scaffold from overriding the Phase 5 conditional-emission rule.
+
+---
+
 ### 2c. Update the Checklist — two entries (R2-F1)
 
 **Current line 289:**
@@ -235,6 +259,7 @@ Default profile gates: Lint passes [code-only], Typecheck passes [code-only], Un
 | R2 | F1: SKILL.md line 204 + checklist still say "always present" | HIGH | Steps 2a + 2c |
 | R2 | F2: Precedence rule inverted (doc-only wins over mixed) | HIGH | Step 2b — classification rule now requires doc keywords AND no code/UI signals |
 | R2 | F3: ado.md line 174 legacy path also needs stripping | HIGH | Step 3b |
+| R3 | F1: SKILL.md scaffold (lines 176-179) hard-codes untagged gates | HIGH | Step 2d — scaffold annotated with `[code-only]` and emit-rule note |
 
 ---
 
