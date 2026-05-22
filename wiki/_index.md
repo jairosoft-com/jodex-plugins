@@ -14,6 +14,7 @@ page_count: 250
 - [[Static Clarifying Questions in PRD Skill]] — Phase 3 questions are identical regardless of domain; no customization or conditional follow-ups (#jx-pm, #prd, #hardcoded) [backlogged]
 - [[Hardcoded Investment Scale Thresholds]] — Unified mode $50K/$250K thresholds are org-specific; no "Other" escape hatch (#jx-pm, #prd, #hardcoded) [backlogged]
 - [[Quality Gates Assume JS-TS Toolchain]] — Auto-appended quality gates hardcode lint/typecheck; need polyglot support via config (#jx-pm, #prd, #quality-gates) [backlogged]
+- [[Self-Contained Documents via Metadata Persistence]] — Persist resolved config in output document metadata so downstream consumers read from the document, not the filesystem (#skill-design, #metadata, #design-pattern) [raw]
 - [[Shared Validators Over Prompt Instructions]] — Enforce format constraints via shared scripts, not prompt instructions; wire same validator into generator and consumers (#skill-design, #validation, #design-pattern) [backlogged]
 - [[Sub-Headers as Dual-Purpose Contracts (Promoted)]] — Bold sub-headers serve both visual grouping and machine-parseable format routing; content structure IS the contract (#skill-design, #design-pattern) [promoted]
 - [[Dataview Queries]] — Obsidian plugin for frontmatter queries (#tooling, #obsidian) [backlogged P3]
