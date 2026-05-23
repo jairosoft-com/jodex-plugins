@@ -20,19 +20,19 @@ All jx skills reference this file for quality gate resolution, PRD generation, a
 - E2E tests pass [ui-only]
 
 ### python
-- Ruff passes
-- Mypy passes
-- Unit tests pass
+- Ruff passes [code-only]
+- Mypy passes [code-only]
+- Unit tests pass [code-only]
 - E2E tests pass [ui-only]
 
 ### rust
-- Cargo clippy passes
-- Unit tests pass
+- Cargo clippy passes [code-only]
+- Unit tests pass [code-only]
 - Integration tests pass [ui-only]
 
 ### go
-- Go vet passes
-- Unit tests pass
+- Go vet passes [code-only]
+- Unit tests pass [code-only]
 - E2E tests pass [ui-only]
 
 ## Tag Semantics
@@ -56,9 +56,9 @@ The PRD generator persists the resolved profile and gate list in Document Metada
 ```markdown
 - **Quality Profile**: python
 - **Quality Gates**:
-  - Ruff passes
-  - Mypy passes
-  - Unit tests pass
+  - Ruff passes [code-only]
+  - Mypy passes [code-only]
+  - Unit tests pass [code-only]
   - E2E tests pass [ui-only]
 ```
 

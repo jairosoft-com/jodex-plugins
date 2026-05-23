@@ -244,22 +244,98 @@ Read gates from the resolved quality profile (see `../../../jx-core/_shared/qual
 
 - Gates with **no tag** → added to all stories
 - Gates tagged `[ui-only]` → added only when format rationale mentions "UI", "interface", or "browser"
-- Gates tagged `[code-only]` → skipped when format rationale contains any of: `documentation`, `spec`, `wiki`, `markdown` AND contains none of: "UI", "interface", "browser", "code", "implementation"
+- Gates tagged `[code-only]` → skipped when format rationale contains any of: `documentation`, `spec`, `wiki`, `markdown` AND contains no **affirming** code/UI signals. Negation phrases ("no executable code", "no code produced", "not code-producing", "no implementation") do NOT count as code signals — only affirmative references to code production trigger the mixed-signal rule.
 - **Absent format rationale** → include all gates regardless of tag (backward-compatible default)
 
-**Story-type classification rule:** A story is doc-only only when its format rationale contains doc-only keywords (`documentation`, `spec`, `wiki`, `markdown`) AND contains no code-producing or UI-deliverable signals ("UI", "interface", "browser", "code", "implementation"). Mixed-signal rationales are treated as code stories: `[code-only]` gates are included.
+**Story-type classification rule:** A story is doc-only when EITHER:
+1. Its format rationale contains doc-only keywords (`documentation`, `spec`, `wiki`, `markdown`) AND contains no affirming code/UI signals, OR
+2. Its format rationale lacks doc-only keywords — the generator MUST then classify the story by checking: does the story produce an executable artifact (code, script, config that runs)? If NO, the generator MUST rewrite the rationale to include at least one doc-only keyword (`documentation`, `spec`, `wiki`, or `markdown`) before applying the filter.
+
+**Rationale rewrite obligation:** When the generator produces a format rationale that describes a non-executable deliverable but omits doc-only keywords, the generator must insert a doc-only keyword into the rationale. The keyword must accurately describe the deliverable type (e.g., "specification" for spec changes, "documentation" for docs, "markdown" for template edits). This closes the gap where the generator and filter are out of sync.
+
+**Classification test:** Does this story's deliverable get compiled, interpreted, linted, typechecked, or tested by a CI pipeline? If yes → code story. If no → doc-only.
+
+Mixed-signal rationales (doc-only keyword + affirming code/UI signal, e.g., "spec change that also requires code migration") are treated as code stories: `[code-only]` gates are included.
 
 **Section emit rule:** Emit the `**Quality Gates:**` sub-header and its contents only when at least one gate survives filtering. If all gates are filtered out (pure doc-only story under default profile), omit the `**Quality Gates:**` sub-header entirely for that story.
 
 Default profile gates: Lint passes [code-only], Typecheck passes [code-only], Unit tests pass [code-only], E2E tests pass [ui-only].
 
-Persist the resolved profile and gate list in the PRD Document Metadata section:
+**Doc-only classification examples:**
+
+Doc-only story (Quality Gates omitted):
+```markdown
+### US-006-01: Update error message template
+**As a** developer
+**I want** the error message template updated
+**So that** users see clearer error descriptions
+
+*Format: Rule-Based — specification change to error-template.md; no executable artifact produced*
+
+**Acceptance Criteria:**
+
+**Rules:**
+- AC-006-01: Error template includes HTTP status code prefix
+- AC-006-02: Template omits stack traces in production mode
+
+**Validates:** OBJ-006-01
+```
+→ Contains "specification" (doc-only keyword). "No executable" negates code signal. Classification: doc-only. **Quality Gates sub-header omitted entirely.**
+
+Code-producing story (Quality Gates included):
+```markdown
+### US-006-02: Add input validation
+**As a** developer
+**I want** card number validation on the checkout form
+**So that** invalid payment data is rejected before submission
+
+*Format: Rule-Based — validation logic for the payment processing module*
+
+**Acceptance Criteria:**
+
+**Rules:**
+- AC-006-03: Card number validated via Luhn algorithm
+- AC-006-04: Expired card returns 422 with descriptive message
+
+**Quality Gates:**
+- AC-006-05: Lint passes [code-only]
+- AC-006-06: Typecheck passes [code-only]
+- AC-006-07: Unit tests pass [code-only]
+
+**Validates:** OBJ-006-01
+```
+→ No doc-only keywords. Story produces code. Classification: code story. **Quality Gates included.**
+
+Mixed-signal story (Quality Gates included):
+```markdown
+### US-006-03: Migrate error codes to new schema
+**As a** developer
+**I want** the error code spec updated and a migration script written
+**So that** existing error codes conform to the new schema
+
+*Format: Rule-Based — spec change that also requires a code migration script*
+
+**Acceptance Criteria:**
+
+**Rules:**
+- AC-006-08: Error code spec document updated with new schema format
+- AC-006-09: Migration script converts existing error codes to new format
+
+**Quality Gates:**
+- AC-006-10: Lint passes [code-only]
+- AC-006-11: Unit tests pass [code-only]
+
+**Validates:** OBJ-006-01
+```
+→ Contains "spec" (doc-only keyword) AND "code migration" (affirming code signal). Classification: code story (mixed-signal). **Quality Gates included.**
+
+Persist the resolved profile and gate list in the PRD Document Metadata section. **Tags MUST be preserved exactly as they appear in the resolved profile** — do not strip `[code-only]`, `[ui-only]`, or any other bracket annotations:
 ```markdown
 - **Quality Profile**: {profile_name}
 - **Quality Gates**:
-  - {gate_1}
-  - {gate_2}
-  - {gate_3}
+  - {gate_1} [code-only]
+  - {gate_2} [code-only]
+  - {gate_3} [code-only]
   - {gate_4} [ui-only]
 ```
 
@@ -302,4 +378,5 @@ The validator checks that within each AC block (between `**Acceptance Criteria:*
 - [ ] NFRs are measurable (no vague terms)
 - [ ] Non-goals explicitly listed
 - [ ] Success metrics tie back to business objective
-- [ ] Quality Gates section present for every code-producing story; omitted entirely for doc-only stories (format rationale has doc keywords and no code/UI signals) when no unfiltered gates remain
+- [ ] Quality Gates section present for every code-producing story; omitted entirely for doc-only stories (format rationale has doc keywords and no affirming code/UI signals) when no unfiltered gates remain
+- [ ] Doc-only stories verified: each story classified as doc-only has a format rationale containing at least one doc-only keyword and no affirming code/UI signals

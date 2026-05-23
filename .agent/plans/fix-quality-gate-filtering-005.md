@@ -3,7 +3,7 @@
 **Source:** `wiki/ideas/PRD Quality Gate Filtering Fails on Doc-Only Stories.md`
 **PRD:** `docs/005_quality_gate_filtering/BRD_PRD.md`
 **Predecessor:** FEAT-003 (landed the `[code-only]` tag system; FEAT-005 fixes residual bugs)
-**Status:** Awaiting approval
+**Status:** Implemented
 **Review:** Round 3 — 11 total findings (1 HIGH, 7 MEDIUM, 3 LOW), all resolved
 
 ---
