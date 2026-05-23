@@ -4,7 +4,7 @@ type: idea
 tags: [jx-pm, jx-core, ado, feature, description, template]
 created: 2026-05-22
 updated: 2026-05-22
-status: backlogged
+status: completed
 priority: P1
 effort: medium
 source: User-provided Gemini prompt template (2026-05-22)

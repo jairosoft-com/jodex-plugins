@@ -53,7 +53,13 @@ Synchronize PRD to Azure Boards via MCP tools. Creates Feature and User Story wo
 Extract from markdown:
 
 1. **Feature metadata**: From `## Document Metadata` section, extract Feature ID (3-digit) and Feature Name. Validate Feature ID matches folder feature number.
-2. **Feature description**: Extract from `## Executive Summary`, `## Overview`, or `## Introduction` — whichever exists first.
+2. **Feature description sections**: Extract content for the 6-section Feature Description template. For each template section, locate the corresponding PRD source section per the mapping table in Phase 5 Work Item Fields → Feature. If a mapped PRD section is not present, mark that template section for placeholder substitution. The following PRD sections are read (first match wins for each):
+   - Summary source: `### 1. Executive Summary` or `## Overview` + `## Problem Statement` or `## Introduction`
+   - Persona source: `### 8. Target Users & Personas` (if present)
+   - Value/metrics source: `### 3. Business Objectives & Success Metrics` or `## Goals` + `## Success Metrics`
+   - Scope source: `### 4. Project Scope` or `## Non-Goals (Out of Scope)`
+   - Feature AC source: `### 10. Non-Functional Requirements` or `## Non-Functional Requirements` + Quality Gates metadata (Phase 2 step 4)
+   - Resources source: `## Document Metadata` (Feature ID, Feature Name) + folder path inspection for TECH_SPEC.md + `ado_sync.feature_work_item_url` from frontmatter
 3. **User Stories**: Find all `### US-{NNN}-{seq}: {Title}` headings. For each story extract:
    - Story ID (e.g., `US-010-01`)
    - Title (text after the colon)
@@ -160,7 +166,79 @@ Tags are used for crash recovery identification. Never modify or remove them.
 
 **Feature:**
 - Title: `{featureId}: {featureName}`
-- Description: Executive Summary / Overview content from PRD
+- Description (`System.Description`): Structured 6-section template synthesized from PRD. Content uses HTML format (`<h2>` headings, `<ul>` bullets, Unicode ☐ checkboxes, Unicode emoji). Set via `wit_create_work_item` description parameter on creation, or `wit_update_work_item` on update.
+
+  **Template:**
+
+  ```html
+  <h2>Summary / Problem Statement</h2>
+  <p>[2-3 sentence synthesis from Executive Summary — not a raw paragraph dump]</p>
+
+  <h2>Target Persona</h2>
+  <ul>
+    <li>👤 [Primary persona]</li>
+    <li>👤 [Secondary persona]</li>
+  </ul>
+
+  <h2>Value Hypothesis &amp; Success Metrics</h2>
+  <p>[1-sentence "If we do X, then Y" hypothesis]</p>
+  <ul>
+    <li>📊 [KPI 1 from Success Metrics]</li>
+    <li>📊 [KPI 2 from Success Metrics]</li>
+  </ul>
+
+  <h2>Scope Guardrails</h2>
+  <ul>
+    <li>✅ <strong>In Scope:</strong> [comma-separated major deliverables]</li>
+    <li>❌ <strong>Out of Scope:</strong> [comma-separated excluded items]</li>
+  </ul>
+
+  <h2>Acceptance Criteria (Feature Level)</h2>
+  <ul>
+    <li>☐ All child User Stories are completed, tested, and closed.</li>
+    <li>☐ [Major integration/security/compliance gate from NFRs]</li>
+    <li>☐ [End-to-end verification step from NFRs]</li>
+    <li>☐ Code quality gates pass.</li>
+  </ul>
+
+  <h2>Resources &amp; Links</h2>
+  <ul>
+    <li>🔗 <strong>Full BRD/PRD:</strong> {featureId}: {featureName}</li>
+    <li>🏗️ <strong>Technical Spec:</strong> [path or "Pending"]</li>
+    <li>🐞 <strong>ADO Link:</strong> [URL or "Auto-populated after creation"]</li>
+  </ul>
+  ```
+
+  **Extraction Rules:**
+  1. Be concise & scannable — synthesize PRD content into punchy sentences and bullets; do not copy-paste prose paragraphs
+  2. Elevate the "Why" — foreground the business problem and expected value
+  3. Filter out the "How" — omit technical specifications, API payload details, code-level requirements (those belong in child User Stories)
+  4. Feature-Level AC Only — Definition of Done checkboxes (☐); NOT Given/When/Then scenarios (those belong in User Story ACs)
+
+  **Section-to-PRD Mapping:**
+
+  | Template Section | Unified BRD_PRD Source | Standard PRD Source | Lite PRD Source |
+  |-----------------|----------------------|--------------------|--------------------|
+  | Summary / Problem Statement | `### 1. Executive Summary` | `## Introduction` | `## Overview` + `## Problem Statement` |
+  | Target Persona | `### 8. Target Users & Personas` | Not present → "Not specified" | Not present → "Not specified" |
+  | Value Hypothesis & Success Metrics | `### 3. Business Objectives & Success Metrics` | `## Goals` + `## Success Metrics` | `## Goals` + `## Success Metrics` |
+  | Scope Guardrails | `### 4. Project Scope` (In Scope + Out of Scope) | `## Non-Goals (Out of Scope)` (In Scope = story titles) | `## Non-Goals (Out of Scope)` (In Scope = story titles) |
+  | Feature-Level AC | `### 10. Non-Functional Requirements` + Quality Gates metadata | `## Non-Functional Requirements` + Quality Gates metadata | Quality Gates metadata only (NFRs may be absent) |
+  | Resources & Links | `## Document Metadata` + folder path | `## Document Metadata` + folder path | `## Document Metadata` + folder path |
+
+  **Placeholder Rules (graceful degradation):**
+  - Missing Target Users / Personas section → write `"Not specified"` under the Target Persona heading
+  - Missing Business Objectives / Goals section → write `"Not specified"` under the Value Hypothesis heading
+  - Missing Out of Scope / Non-Goals section → write `"None defined"` as the Out of Scope value
+  - Missing In Scope / Project Scope section → derive In Scope from User Story titles as comma-separated list
+  - Missing NFRs section → use the default Feature-level ACs: "All child User Stories are completed, tested, and closed." + quality gates from Document Metadata (Phase 2 step 4)
+  - **No section is omitted.** All 6 headings always appear; content within a section may be a placeholder.
+
+  **Resources & Links Auto-Population:**
+  - **Full BRD/PRD:** Always populated as `{featureId}: {featureName}` from Document Metadata
+  - **Technical Spec:** Check for `TECH_SPEC.md` in the same folder as the PRD. If file exists → use relative path. If not → write `"Pending"`.
+  - **ADO Link:** On first sync (Feature not yet created) → write `"Auto-populated after creation"`. After Feature creation and frontmatter write-back, issue `wit_update_work_item` to re-render the Resources section with the actual `ado_sync.feature_work_item_url`. On update mode → always use current `ado_sync.feature_work_item_url`.
+
 - Tags: `prd:FEAT-{featureId}`
 
 **User Story:**
@@ -184,14 +262,20 @@ Tags are used for crash recovery identification. Never modify or remove them.
 | Field | ADO Field Path | Behavior |
 |-------|----------------|----------|
 | Title | `System.Title` | PRD wins — always update |
-| Description | `System.Description` | PRD wins — always update (narrative only, no ACs) |
+| Description | `System.Description` | PRD wins — always update. Feature: re-render structured 6-section template. User Story: narrative only, no ACs. |
 | Acceptance Criteria | `Microsoft.VSTS.Common.AcceptanceCriteria` | PRD wins — always update |
 | Story Points | `Microsoft.VSTS.Scheduling.StoryPoints` | Preserve ADO value (never overwrite after first sync) |
 | State | `System.State` | Never touch (ADO owns state) |
 | Area Path | `System.AreaPath` | Never touch |
 | Iteration Path | `System.IterationPath` | Never touch |
 
-In update mode, a single `wit_update_work_item` call sets both the cleaned Description (narrative only) and the AC field per story. This corrects legacy stories where Description contained combined narrative + AC content from pre-fix syncs. The PRD is authoritative — both fields are overwritten from source regardless of current content.
+In update mode for **User Stories**, a single `wit_update_work_item` call sets both the cleaned Description (narrative only) and the AC field per story. This corrects legacy stories where Description contained combined narrative + AC content from pre-fix syncs.
+
+In update mode for **Features**, a single `wit_update_work_item` call re-renders the full 6-section structured Description from the current PRD content. This overwrites any previous raw-prose or stale template description. The `ado_sync.feature_work_item_url` is used for the Resources & Links ADO Link. Existing Features created before the structured template was introduced are upgraded to the new format on their next re-sync.
+
+On first sync, after Feature creation via `wit_create_work_item` and frontmatter write-back, issue an additional `wit_update_work_item` to re-render the Feature Description with the actual ADO Link URL (replacing the "Auto-populated after creation" placeholder). This is 1 extra API call on first sync only.
+
+The PRD is authoritative — both Feature and User Story fields are overwritten from source regardless of current content.
 
 ### Per-Item Frontmatter Write-Back
 
@@ -222,6 +306,10 @@ After EACH successful work item creation:
 
 If `--dry-run` is set:
 - Show all planned operations (creates, updates, reconciliation)
+- For the Feature, show the structured Description preview:
+  - **Description** (`System.Description`): preview of the full 6-section template with populated content
+  - Each section annotated with its PRD source: `[from: {PRD section heading}]` or `[placeholder: section not found]`
+  - Example: `Summary / Problem Statement [from: ### 1. Executive Summary]`
 - For each User Story, show field mapping separately:
   - **Description** (`System.Description`): preview of narrative content ("As a / I want / So that" + "Validates:")
   - **Acceptance Criteria** (`Microsoft.VSTS.Common.AcceptanceCriteria`): preview of routed ACs
@@ -273,7 +361,12 @@ Markdown report:
 - [ ] Hierarchy reconciliation completed (Feature + Story links verified/repaired)
 - [ ] Per-item frontmatter write-back after each create (via pinned helper, atomic)
 - [ ] User Story AC field (`Microsoft.VSTS.Common.AcceptanceCriteria`) populated via two-step flow (create+link, then update)
-- [ ] Description contains narrative only — no AC content
+- [ ] User Story Description contains narrative only — no AC content
+- [ ] Feature Description uses 6-section structured template (Summary, Persona, Value Hypothesis, Scope, Feature AC, Resources)
+- [ ] Feature Description includes feature-level AC (Definition of Done checkboxes ☐) — distinct from User Story narrative-only rule
+- [ ] Missing PRD sections produce placeholders ("Not specified" / "None defined"), not empty or omitted sections
+- [ ] Dry-run Feature preview shows 6-section template with provenance annotations
+- [ ] Resources & Links: TECH_SPEC.md detected if present; ADO Link auto-populated after creation
 - [ ] Crash recovery uses tag-based search, fail-closed (exactly 1 match or halt)
 - [ ] AC block validation passed (shared validator, no orphan/continuation lines)
 - [ ] AC format routing applied per format_group (scenarios→pass-through, rules/legacy→synthesize, system_behavior→pass-through, quality_gates→exclude)
