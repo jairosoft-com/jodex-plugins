@@ -911,3 +911,11 @@ title: Wiki Log
 - **Auto-fixes applied**: 0 (report only)
 - **Health score**: 0/100
 - **Outcome**: Report generated
+
+## 2026-05-22 15:19 PDT — Query
+
+- **Operation**: query
+- **Question**: "list all ideas"
+- **Pages consulted**: `wiki/_schema.md`, `wiki/_index.md`, `wiki/_backlog.md`, `wiki/ideas/*.md`
+- **Answer filed**: No
+- **Outcome**: Listed 45 live idea files grouped by status

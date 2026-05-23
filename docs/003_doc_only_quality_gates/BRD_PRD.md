@@ -1,3 +1,14 @@
+---
+ado_sync:
+  feature_work_item_id: 204867
+  feature_work_item_url: "https://dev.azure.com/jairo/91958783-8c2b-4e19-9fff-c73139334abf/_workitems/edit/204867"
+  organization: jairo
+  project: Jodex
+  last_synced: "2026-05-22T21:47:28Z"
+  stories:
+    US-003-01: 204868
+    US-003-02: 204869
+---
 # Doc-Only Quality Gates
 
 ## Document Metadata

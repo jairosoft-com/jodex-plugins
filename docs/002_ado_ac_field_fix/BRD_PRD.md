@@ -1,3 +1,16 @@
+---
+ado_sync:
+  feature_work_item_id: 204862
+  feature_work_item_url: "https://dev.azure.com/jairo/91958783-8c2b-4e19-9fff-c73139334abf/_workitems/edit/204862"
+  organization: jairo
+  project: Jodex
+  last_synced: "2026-05-22T21:42:11Z"
+  stories:
+    US-002-01: 204863
+    US-002-02: 204864
+    US-002-03: 204865
+    US-002-04: 204866
+---
 # ADO Sync AC Field Fix
 
 ## Document Metadata

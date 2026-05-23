@@ -66,3 +66,6 @@ wiki/raw/
 tmp/
 *.tmp
 *.temp
+
+# Antigravity
+.antigravitycli/
