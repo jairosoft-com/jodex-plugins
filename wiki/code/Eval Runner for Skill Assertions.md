@@ -74,14 +74,57 @@ Each eval that creates files needs isolation to avoid collisions:
 - Option B: temp directory with symlinked source (lighter)
 - Option C: cleanup hooks that restore state between evals
 
+## When Evals Run
+
+Evals are a **development-time** tool, not a runtime check. They do not run when a user invokes a skill in a real session.
+
+### Why Not at Skill Execution Time
+
+- Evals consume tokens and time (each is a full Claude session)
+- Evals have side effects (create files, modify state)
+- The user wants the skill output, not a test report
+
+### Why Not at Scaffold Time (`/jx-skill:create`)
+
+- At scaffold time, SKILL.md is a placeholder template with no real logic
+- `evals/evals.json` starts as an empty `[]`
+- Running evals against an empty skeleton is meaningless — like running `npm test` right after `npm init`
+
+### When They Should Run: Skill Authoring Workflow
+
+Evals run during the development cycle that happens **after** scaffolding:
+
+| Step | Action | Evals? |
+|------|--------|--------|
+| 1 | `/jx-skill:create` scaffolds skeleton | No — nothing to test |
+| 2 | Developer writes actual SKILL.md instructions | No — still authoring |
+| 3 | Developer writes evals that test those instructions | No — defining the contract |
+| 4 | Developer runs evals to verify skill works | **Yes — this is the integration point** |
+| 5 | Iterate steps 2-4 until evals pass | **Yes — regression check** |
+| 6 | Commit and PR | Optionally via CI |
+
+### Integration Points
+
+The eval runner should be invocable as:
+
+- **A skill/command** (e.g., `/jx-dev:eval --skill spec`) — run evals for a specific skill during authoring
+- **A PR check** — run evals for any skill whose SKILL.md or references changed
+- **A refactoring guard** — when shared references change (id-rules.md, templates), run evals for all skills that reference the changed file
+
+### Seed Evals from Scaffold
+
+`/jx-skill:create` could generate starter evals (not just `[]`) based on `--triggers` and `--description` flags. For example, if triggers include "create tech spec", scaffold a happy-path eval with that prompt and placeholder assertions the developer fills in. This gives developers a test contract to start from, not a blank file.
+
 ### Future Enhancements
 
 - CI integration (run on PR that modifies a SKILL.md)
 - Coverage report (which skills have evals, which don't)
 - `fixture` field support (pre-conditions setup before eval runs)
 - LLM-as-judge fallback for prose assertions that resist migration to typed checks
+- Seed eval generation in `/jx-skill:create` based on trigger and description inputs
 
 ## Related
 
 - [[Creating a Skill]] — skill scaffolding convention that creates evals/evals.json
 - [[Skill Integration Testing via Agent SDK]] — complementary pattern for agent-level testing
+- [[Skill]] — multi-phase instructional module powering slash commands
