@@ -3,7 +3,7 @@ title: Iterative Adversarial Review
 type: concept
 tags: [pattern, quality, design, review]
 created: 2026-05-09
-updated: 2026-05-21
+updated: 2026-05-22
 source_count: 1
 aliases: [adversarial review loop, multi-pass review, design hardening]
 provenance: synthesis
@@ -57,6 +57,25 @@ A design-hardening pattern: submit a spec to adversarial review, resolve finding
 |-------|-------|----------|
 | 1 | Execution safety | 1 critical (race condition), 4 major — missing marketplace update, broken verification checks |
 | 2 | Polish | 0 blockers — README env var, smoke test gaps, git-empty-dir |
+
+## Observed Progression (jx-pm ADO skill test plan — 10 rounds)
+
+| Round | Focus | Findings |
+|-------|-------|----------|
+| 1 | Fixture contract | 3 high — fixture naming violates skill ID contract, cleanup queries non-existent tags, sandbox guard too permissive |
+| 2 | Write-path safety | 3 critical/high — pre-write MCP verification missing, cleanup irreversible, SDK not pinned to branch |
+| 3 | Guard precision | 2 high — guard compares env to itself, pre-seeded IDs collide with cleanup |
+| 4 | Crash window | 2 high — cleanup misses untagged stories (created before tagging step), circular ID check |
+| 5 | Env contradiction | 2 high + 1 medium — hardcoded SANDBOX contradicted by env-derived helpers |
+| 6 | Pre-seeded mutation | 2 high + 1 medium — partial/update fixtures share committed IDs that cleanup can corrupt |
+| 7 | Persistent contradiction | 2 high + 1 medium — tenant source-of-truth still split across env and constants |
+| 8 | Sandbox cleanup | 2 high + 1 medium — `destroy=true` too broad, pre-seeded items need per-run seeding |
+| 9 | Credential isolation | 1 high + 2 medium — dry-run write denial needs read-only PAT isolation |
+| 10 | Platform constraint | 3 high — MCP org binding cannot be verified (external constraint, not plan flaw) |
+
+**Exit:** Round 10 identified a platform constraint (ADO MCP cannot expose org binding) that no plan revision could resolve. Accepted as documented risk. 10 rounds is atypically long; signal remained high through round 8 because the plan had an internal contradiction (env vs hardcoded sandbox) that kept re-surfacing in different sections.
+
+**Key insight from this session:** When a finding recurs across 3+ rounds despite fixes, check for an internal plan contradiction in a different section — not just the section cited in the finding. A single-section fix is often incomplete when the same concept appears in architecture docs, phase checklists, file-tree comments, and env tables simultaneously.
 
 ## Observed Progression (jx-skill:create scaffolder — 7 rounds)
 
