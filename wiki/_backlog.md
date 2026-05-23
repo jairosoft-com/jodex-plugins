@@ -22,6 +22,7 @@ updated: 2026-05-22 # 4 jx-pm ADO test harness findings added from Codex review
 - [[Skill Integration Testing via Agent SDK]] — Pattern for testing Claude Code skills via `query()` with pinned plugins, read-only PAT, temp fixtures, pre/post frontmatter diff (#jx-qa, #agent-sdk, #testing, #pattern)
 - [[Read-Only Credential as Dry-Run Guard]]
 - [[Flag-Value Helper Antipattern]] — Helpers returning `--flag value` cause double-flag bugs; return value only, flag name belongs at call site (#patterns, #dx, #testing) — Use read-only PAT for dry-run tests so any write call fails with 401 rather than relying on post-hoc tag scans (#testing, #safety, #dry-run)
+- [[PRD Quality Gate Filtering Fails on Doc-Only Stories]] — Doc-only stories get false-positive quality gates; keyword detection is fragile and metadata drops `[code-only]` tags (#jx-pm, #prd, #quality-gates, #bug)
 - [[Align jx-qa Generate Tool Contract]] — Fix xlsx parsing tool mismatch in generate skill (#jx-qa, #security)
 - [[Direct PRD-to-ADO Sync Without task.json]] — Change `/jx-pm:ado` to sync PRD directly to Azure Boards, removing `task.json` dependency (#jx-pm, #ado, #prd, #refactor)
 - [[Downstream Contract Audit for Skill Output Changes]] — Build contract audit step into skill change workflow; grep output patterns across all plugins before planning (#skill-design, #contracts)
