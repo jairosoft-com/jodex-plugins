@@ -1,6 +1,6 @@
 ---
 title: Backlog
-updated: 2026-05-22
+updated: 2026-05-22 # 4 jx-pm ADO test harness findings added from Codex review
 ---
 
 # Backlog
@@ -14,6 +14,10 @@ updated: 2026-05-22
 
 ## P2 — Medium
 
+- [[jx-pm ADO Test — PAT Override Not Passed to SDK]] — `skill-runner.ts` builds overridden `env` with `adoPat` but never passes it to `query()` options; SDK subprocess inherits outer `process.env` so read-only PAT guardrail is dormant (#jx-pm, #jx-qa, #testing, #ado)
+- [[jx-pm ADO Test — Partial and Update Fixtures Need Pre-Seeded IDs]] — Tests 911 (partial) and 912 (update) always enter Normal/create-all mode because temp fixture has no pre-seeded `ado_sync` IDs; partial-mode and update-mode code paths are not exercised (#jx-pm, #jx-qa, #testing, #playwright)
+- [[jx-pm ADO Test — getChildIds Reads Wrong ADO Field]] — Orphan cleanup uses `item.fields["System.Relations"]` but `$expand=relations` returns hierarchy links at `item.relations`; `getChildIds` always returns empty, disabling crash-window orphan detection (#jx-pm, #jx-qa, #testing, #cleanup)
+- [[jx-pm ADO Test — Orphan Filter Compares Real ADO IDs to Fixture Range]] — Crash-window cleanup filters child IDs against fixture range 901–999 but real ADO IDs are 100k+; every orphan is silently dropped even if F3 is fixed (#jx-pm, #jx-qa, #testing, #cleanup)
 - [[Playwright Tests for jx-pm ADO Skills]] — End-to-end Playwright suite for `/jx-pm:ado` sync flows; assert work items created/updated correctly in ADO (#jx-pm, #jx-qa, #playwright, #integration-test)
 - [[Skill Integration Testing via Agent SDK]] — Pattern for testing Claude Code skills via `query()` with pinned plugins, read-only PAT, temp fixtures, pre/post frontmatter diff (#jx-qa, #agent-sdk, #testing, #pattern)
 - [[Read-Only Credential as Dry-Run Guard]]
