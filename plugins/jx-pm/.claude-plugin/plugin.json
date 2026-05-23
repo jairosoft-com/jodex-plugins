@@ -3,5 +3,6 @@
   "version": "1.0.0",
   "description": "Pm.Ai Harness: generate PRDs and sync to Azure Boards.",
   "author": { "name": "Jairosoft", "email": "ramon@jairosoft.com" },
-  "dependencies": ["jx-core", "jx-dev"]
+  "dependencies": ["jx-core", "jx-dev"],
+  "exclude": ["tests/"]
 }
