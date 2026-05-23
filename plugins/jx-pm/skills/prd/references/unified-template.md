@@ -7,9 +7,9 @@
 - **Generated Date**: {YYYY-MM-DD}
 - **Quality Profile**: default
 - **Quality Gates**:
-  - Lint passes
-  - Typecheck passes
-  - Unit tests pass
+  - Lint passes [code-only]
+  - Typecheck passes [code-only]
+  - Unit tests pass [code-only]
   - E2E tests pass [ui-only]
 
 ## Document Control
