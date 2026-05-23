@@ -197,6 +197,7 @@ page_count: 251
 - [[JX Foundational Onboarding]] — Shared prerequisite setup for all Jodex project roles: Claude Code, Git, GitHub CLI, uv, Python 3, Node.js 20+, jx-kb (#onboarding, #setup, #shared, #jx-kb)
 - [[JX QA Onboarding]] — QA user setup guide for installing jx-qa and jx-kb, initializing a project wiki, and running Playwright workflows (#jx-qa, #onboarding, #setup, #playwright)
 - [[JX QA Workflow]] — Day-to-day numbered walkthrough of the jx-qa pipeline: extract → generate → test (#jx-qa, #workflow, #process)
+- [[Eval Runner for Skill Assertions]] — Automated eval runner design: discover evals, execute via `claude -p`, check typed assertions, report pass/fail (#testing, #evals, #skills, #automation)
 - [[plugin-creator.py]] — Pinned helper script for jx-skill plugin skeleton scaffolding (#script, #python, #jx-skill)
 - [[wiki-tools.py]] — Pinned helper script for jx-kb plugin (#script, #python)
 - [[xlsx-writer.py]] — Pinned helper script for jx-qa plugin (#script, #python)

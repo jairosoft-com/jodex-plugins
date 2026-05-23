@@ -1,6 +1,6 @@
 ---
 title: Backlog
-updated: 2026-05-22 # 4 jx-pm ADO test harness findings added from Codex review
+updated: 2026-05-23 # Added eval runner backlog item
 ---
 
 # Backlog
@@ -11,6 +11,7 @@ updated: 2026-05-22 # 4 jx-pm ADO test harness findings added from Codex review
 
 - [[Automate Plugin Creation Like Skill Creation]] — `/jx-skill:create-plugin` to scaffold plugin skeletons and marketplace entries with the same safety model as skill creation (#jx-skill, #plugin, #scaffolding, #dx)
 - [[Skill Creator for Jodex Plugins]] — `/jx-skill:create` in new jx-skill plugin; scaffolds skills inside existing plugins with convention enforcement and validation; ADO #204325 (#developer-experience, #plugins, #tooling, #jx-skill)
+- [[Eval Runner for Skill Assertions]] — Automated runner for `evals/evals.json`; executes skill prompts via `claude -p`, checks typed assertions (output_contains, file_exists, file_contains), reports pass/fail; requires Format A→B migration for jx-qa (#testing, #evals, #skills, #automation, #dx)
 
 ## P2 — Medium
 
