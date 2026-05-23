@@ -1,3 +1,16 @@
+---
+ado_sync:
+  feature_work_item_id: 204895
+  feature_work_item_url: "https://dev.azure.com/jairo/91958783-8c2b-4e19-9fff-c73139334abf/_workitems/edit/204895"
+  organization: jairo
+  project: Jodex
+  last_synced: "2026-05-23T07:34:50Z"
+  stories:
+    US-004-01: 204896
+    US-004-02: 204897
+    US-004-03: 204898
+    US-004-04: 204899
+---
 # Structured Feature Description Template for ADO
 
 ## Document Metadata
