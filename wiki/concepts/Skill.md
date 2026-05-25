@@ -3,8 +3,8 @@ title: Skill
 type: concept
 tags: [plugin, component, implementation]
 created: 2026-05-07
-updated: 2026-05-07
-source_count: 1
+updated: 2026-05-25
+source_count: 2
 aliases: [skills, SKILL.md]
 provenance: source-derived
 ---
@@ -39,6 +39,10 @@ allowed-tools: <pinned executables & file ops>
 
 Followed by multi-phase implementation instructions (typically 4-10 phases).
 
+## Execution Discipline
+
+SKILL.md is a contract. Before executing any skill, read its SKILL.md completely and follow its phases, field mappings, and confirmation gates exactly. See [[Spec-First Skill Execution]].
+
 ## Relationship to Other Components
 
 - One [[Slash Command]] maps to one skill
@@ -47,3 +51,4 @@ Followed by multi-phase implementation instructions (typically 4-10 phases).
 
 ## Sources
 - [[Source - Claude CLI vs Desktop MCP Guide]]
+- [[Source - Spec-First Feedback]]

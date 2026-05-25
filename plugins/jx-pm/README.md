@@ -11,8 +11,11 @@ Generate PRDs and sync to Azure Boards.
 | Skill | Command | Description |
 |-------|---------|-------------|
 | prd | `/jx-pm:prd` | Generate BRD/PRD documents (modes: lite, prd, unified) |
-| ado | `/jx-pm:ado` | Sync task.json to Azure Boards (Feature → Stories → Tasks) |
+| ado | `/jx-pm:ado` | Sync PRD to Azure Boards (Feature → Stories hierarchy) |
 | pipeline | `/jx-pm:pipeline` | Run PRD generation (reduced — see full workflow below) |
+| meet-pre | `/jx-pm:meet-pre` | Generate daily meeting preparation from Azure Boards |
+| meet-email | `/jx-pm:meet-email` | Email the meeting preparation as styled HTML via Graph API |
+| feedback | `/jx-pm:feedback` | Capture feedback and create ADO Feature work item |
 
 ## Full Workflow
 

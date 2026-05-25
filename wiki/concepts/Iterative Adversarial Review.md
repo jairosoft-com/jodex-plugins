@@ -3,8 +3,8 @@ title: Iterative Adversarial Review
 type: concept
 tags: [pattern, quality, design, review]
 created: 2026-05-09
-updated: 2026-05-22
-source_count: 1
+updated: 2026-05-25
+source_count: 2
 aliases: [adversarial review loop, multi-pass review, design hardening]
 provenance: synthesis
 ---
@@ -88,6 +88,23 @@ A design-hardening pattern: submit a spec to adversarial review, resolve finding
 | 5 | Implementation review | 1 P1 (name regex in scaffold), 2 P2 (YAML escaping, json.tool permission), 2 P3 (stray artifact, wiki inventory) |
 | 6 | Post-fix review | 1 P1 (cwd confinement), 2 P2 (YAML escaping repeat, core/self target), 2 P3 (stray artifact, wiki inventory repeat) |
 | 7 | Final review | 1 P1 (plugin root confinement), 2 P2 (YAML escaping repeat, core/self repeat), 0 new |
+
+## Observed Progression (FEAT-006 meet-email skill plan — 6 rounds)
+
+| Round | Focus | Findings |
+|-------|-------|----------|
+| 1 | File selection, mail transport, tool surface | 2 high (stale file selection via lex sort, unverified mail tool path), 1 medium (unrestricted Bash in email skill) |
+| 2 | Safety gates, sender binding, freshness | 2 high (headless gate not executable without Bash, no sender account binding), 1 medium (stale file freshness) |
+| 3 | Tool verification, dry-run gap | 1 high (mail tool names ungrounded in repo), 1 medium (verification requires dry-run but none defined) |
+| 4 | Test safety ordering | 1 high (live send not isolated behind dry-run in verification plan) |
+| 5 | Attachment integrity, HTML escaping, dry-run enforcement | 2 high (attachment path diverges from selected file, no HTML escaping for ADO content), 1 medium (dry-run lacks hard boundary) |
+| 6 | Dry-run enforcement (repeated) | 1 high (same dry-run tool-level gate — structural SKILL.md limitation) |
+
+**Exit:** Round 6 repeated the dry-run enforcement finding from Round 5. The underlying constraint is structural: SKILL.md skills are LLM instruction files with no mechanism for conditional tool access per argument. Accepted as documented risk with double-gate mitigation (instruction + confirmation).
+
+**Key insight:** When Codex escalates a finding's severity across rounds but the recommendation is unchanged, the issue is likely a platform constraint rather than a design flaw. The correct exit is accepted risk, not another plan revision.
+
+**New pattern discovered:** [[Email-Safe HTML Rendering Pattern]] — reusable rules for converting Markdown to email-compatible inline-styled HTML.
 
 ## Resolution-Induced Regression
 
@@ -192,8 +209,10 @@ This suggests adversarial review is most effective when applied at each lifecycl
 - [[Cross-Plugin Shared Convention Layer]] — adversarial review caught resolution-induced regressions during split
 - [[Split Verification Pattern]] — dual-tier verification emerged from review findings
 - [[Knowledge Flywheel]] — review is one phase of the self-reinforcing knowledge loop
+- [[Spec-First Skill Execution]] — lesson generalized from FEAT-006 review: read the spec before executing
 - [[Naming Ripple Effect]] — stale paths in plans are a rename cascade the code-level grep misses
 - [[AC Verifiability Gap]] — sub-pattern: ACs that reference unrealizable verification mechanisms, surfaced during review
 
 ## Sources
 - [[Source - Plugin Split Implementation Plan]]
+- [[Source - FEAT-006 Meeting Prep Email Plan]]
