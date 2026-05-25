@@ -1,3 +1,15 @@
+---
+ado_sync:
+  feature_work_item_id: 204900
+  feature_work_item_url: "https://dev.azure.com/jairo/91958783-8c2b-4e19-9fff-c73139334abf/_workitems/edit/204900"
+  organization: jairo
+  project: Jodex
+  last_synced: "2026-05-23T08:02:10Z"
+  stories:
+    US-005-01: 204901
+    US-005-02: 204902
+    US-005-03: 204903
+---
 # Fix PRD Quality Gate Filtering for Doc-Only Stories
 
 ## Document Metadata
