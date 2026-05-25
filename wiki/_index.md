@@ -51,6 +51,7 @@ page_count: 251
 - [[Escape User Descriptions in Scaffold Frontmatter]] — Quote/escape descriptions with YAML-special chars in generated stubs (#jx-skill, #yaml, #safety) [raw]
 - [[Update Wiki Inventory for Six-Plugin Marketplace]] — Update stale five-plugin references in _schema.md and project page (#wiki, #plugins, #inventory) [raw]
 - [[Reject Core and Self Plugin Targets in Scaffold]] — Block --plugin jx-core and --plugin jx-skill via flag bypass (#jx-skill, #validation, #safety) [raw]
+- [[Seed Evals from Skill Scaffold]] — Generate starter evals from --triggers instead of empty [] (#evals, #jx-skill, #scaffolding, #dx) [raw]
 
 ## Concepts
 
@@ -136,6 +137,7 @@ page_count: 251
 - [[Tracing]] — Execution trace capture for debugging (#debugging, #observability)
 - [[Triage]] — Classify raw ideas: promote, backlog, or archive (#operation, #classification)
 - [[User Confirmation Gate]] — Security pattern: no writes before explicit approval (#security, #ux)
+- [[Skill Eval]] — Development-time behavior contract for skills: prompt + typed assertions, 5 eval patterns (#testing, #evals, #skills, #pattern)
 - [[Watchlist Pattern]] — Manifest-driven tracking list for scan-based operations (#pattern, #workflow)
 - [[Wiki Signal Quality]] — Separate maintained knowledge from provenance snapshots so lint scores remain meaningful (#wiki, #lint, #provenance)
 - [[Wiki Query Patterns]] — Query types: retrieval, exploratory, generative (#wiki, #query)

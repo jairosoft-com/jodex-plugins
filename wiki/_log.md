@@ -4,6 +4,13 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-25 — Session Insights Filed (eval runner investigation)
+
+- **Operation**: file concept + idea
+- **Pages created**: [[Skill Eval]] (concept — development-time behavior contract pattern, two assertion styles, eval timing, 5 eval patterns), [[Seed Evals from Skill Scaffold]] (idea — generate starter evals from --triggers instead of empty [])
+- **Source**: Investigation of eval coverage across all plugins; found 9 skills with evals, zero runner, two divergent formats
+- **Outcome**: Concept captures the eval pattern for skill development; idea proposes improving /jx-skill:create scaffold output
+
 ## 2026-05-21 — Session Insights Filed (jx-skill:create)
 
 - **Operation**: enrich concept pages
