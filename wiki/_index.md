@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
-updated: 2026-05-20
-page_count: 251
+updated: 2026-05-25
+page_count: 255
 ---
 
 # Wiki Index
@@ -46,6 +46,7 @@ page_count: 251
 - [[Fix Promotion Rename Link Retargeting]] — Idea promotion renames silently retarget historical log wikilinks (#wiki, #lint, #promotion, #wikilinks) [raw]
 - [[Over-Grooming Anti-Pattern]] — Grooming failure mode where scope inflates beyond requestor's intent (#pattern, #wiki, #idea-lifecycle, #anti-pattern) [raw]
 - [[Wrong-Tenant Filing as Tenant Binding Validation]] — Feedback skill filed to wrong ADO project when feedback-target.json missing (#jx-pm, #ado, #tenant-binding, #incident) [raw]
+- [[Email-Safe HTML Rendering Pattern]] — Reusable inline-styled HTML rules for email-compatible skill output (#pattern, #email, #html, #jx-pm) [raw]
 - [[Per-Plugin Allowed-Tools Allowlist]] — Permission-aware scaffolding for generated command stubs (#jx-skill, #security, #permissions) [raw]
 - [[Three-Way Naming Sync Validation Gate]] — Automated 3-way naming sync check for plugin scaffolding (#jx-skill, #plugins, #validation) [raw]
 - [[Escape User Descriptions in Scaffold Frontmatter]] — Quote/escape descriptions with YAML-special chars in generated stubs (#jx-skill, #yaml, #safety) [raw]
@@ -124,6 +125,7 @@ page_count: 251
 - [[Settings Portability]] — settings.json (committed) vs settings.local.json (gitignored) split pattern (#pattern, #configuration)
 - [[SHA-256 Fingerprinting]] — Content-based dedup via hash (#security, #dedup)
 - [[Skill]] — Multi-phase instructional module powering slash commands (#plugin, #implementation)
+- [[Spec-First Skill Execution]] — Read SKILL.md before executing any skill; do not improvise (#pattern, #skill, #contract, #discipline)
 - [[Slash Command]] — User-facing command wrapper /plugin:command (#plugin, #user-facing)
 - [[Storage State]]
 - [[Sub-Headers as Dual-Purpose Contracts]] — Bold sub-headers as both visual grouping and machine-parseable format routing for ADO sync (#skill-design, #prd, #design-pattern) — Browser state persistence for auth reuse (#testing, #persistence)
@@ -197,6 +199,7 @@ page_count: 251
 - [[JX Foundational Onboarding]] — Shared prerequisite setup for all Jodex project roles: Claude Code, Git, GitHub CLI, uv, Python 3, Node.js 20+, jx-kb (#onboarding, #setup, #shared, #jx-kb)
 - [[JX QA Onboarding]] — QA user setup guide for installing jx-qa and jx-kb, initializing a project wiki, and running Playwright workflows (#jx-qa, #onboarding, #setup, #playwright)
 - [[JX QA Workflow]] — Day-to-day numbered walkthrough of the jx-qa pipeline: extract → generate → test (#jx-qa, #workflow, #process)
+- [[Eval Runner for Skill Assertions]] — Automated eval runner design: discover evals, execute via `claude -p`, check typed assertions, report pass/fail (#testing, #evals, #skills, #automation)
 - [[plugin-creator.py]] — Pinned helper script for jx-skill plugin skeleton scaffolding (#script, #python, #jx-skill)
 - [[wiki-tools.py]] — Pinned helper script for jx-kb plugin (#script, #python)
 - [[xlsx-writer.py]] — Pinned helper script for jx-qa plugin (#script, #python)
@@ -292,3 +295,5 @@ page_count: 251
 - [[Source - jx-dev Prompts Stub]] — Placeholder for jx-dev prompt fragments (#jx-dev, #stub)
 - [[Source - jx-dev Schemas Stub]] — Placeholder, delegates to jx-core (#jx-dev, #stub)
 - [[Source - jx-dev Scripts Stub]] — Placeholder for jx-dev scripts (#jx-dev, #stub)
+- [[Source - FEAT-006 Meeting Prep Email Plan]] — Implementation plan for meet-email skill with 6-round adversarial review (#jx-pm, #meet-email, #plan)
+- [[Source - Spec-First Feedback]] — Generalized lesson: read SKILL.md before executing any skill (#feedback, #skill, #contract)

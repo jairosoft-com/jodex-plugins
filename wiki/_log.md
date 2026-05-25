@@ -4,6 +4,27 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-25 — Ingest: Spec-First Skill Execution
+
+- **Operation**: ingest
+- **Source**: `~/.claude/projects/-Users-jairo-Projects-jodex-qa-ai/memory/feedback_read_skill_spec_first.md`
+- **Snapshot**: `wiki/raw/sources/ed3f565e-feedback_read_skill_spec_first.md`
+- **SHA-256**: `ed3f565e9bb159704803a69d32b8acfaf37d95fed33fa9400ae78c612f5fae37`
+- **Pages created**: [[Spec-First Skill Execution]] (concept), [[Source - Spec-First Feedback]] (source)
+- **Pages updated**: [[Skill]] (added execution discipline section), [[Iterative Adversarial Review]] (added cross-reference)
+- **Ideas extracted**: 0
+- **Conflicts flagged**: 0
+- **Cross-references added**: 4 (Skill, Iterative Adversarial Review, _index.md x2)
+- **Outcome**: Success
+
+## 2026-05-25 — FEAT-006 Insights Filed (meet-email plan + ADO sync)
+
+- **Operation**: ingest
+- **Pages created**: [[Source - FEAT-006 Meeting Prep Email Plan]], [[Email-Safe HTML Rendering Pattern]] (idea, raw)
+- **Pages updated**: [[Product Management Skills Plugin]] (added meet-email command, distribution skill category), [[Iterative Adversarial Review]] (added FEAT-006 6-round progression, severity escalation insight)
+- **Source**: adversarial review plan at `.agent/plans/rosy-forging-grove.md`, feedback memory `feedback_ado_sync_format.md`
+- **Outcome**: (1) FEAT-006 review progression documented — 6 rounds converging to SKILL.md platform constraint as accepted risk, (2) new idea filed for email-safe HTML rendering as reusable pattern, (3) jx-pm plugin page updated with meet-email as third skill category (distribution), (4) insight captured: when Codex escalates severity across rounds without changing the recommendation, the issue is a platform constraint not a design flaw.
+
 ## 2026-05-21 — Session Insights Filed (jx-skill:create)
 
 - **Operation**: enrich concept pages

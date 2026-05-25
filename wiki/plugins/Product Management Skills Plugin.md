@@ -1,10 +1,10 @@
 ---
 title: Product Management Skills Plugin
 type: plugin
-tags: [plugin, product-management, prd, ado, meeting-prep, jx-pm]
+tags: [plugin, product-management, prd, ado, meeting-prep, meet-email, jx-pm]
 created: 2026-05-22
-updated: 2026-05-22
-source_count: 0
+updated: 2026-05-25
+source_count: 1
 aliases: [jx-pm, jx-pm plugin]
 provenance: synthesis
 ---
@@ -34,6 +34,7 @@ Plugin name: **jx-pm**. Product management workflow plugin covering requirements
 | `/jx-pm:pipeline` | pipeline | Orchestrate full PRD → ADO pipeline in one command |
 | `/jx-pm:feedback` | feedback | Capture feedback and create an ADO Feature work item |
 | `/jx-pm:meet-pre` | meet-pre | Generate a daily meeting prep doc from live Azure Boards data |
+| `/jx-pm:meet-email` | meet-email | Email meeting prep as styled HTML via Graph API |
 
 ## Skill Categories
 
@@ -41,6 +42,7 @@ Two distinct types of skill live in jx-pm:
 
 - **Generation skills** (`prd`, `pipeline`) — transform user input into structured documents using clarifying questions and templates.
 - **Operational skills** (`meet-pre`, `feedback`) — pull live data from external systems (Azure Boards) and write dated operational artifacts.
+- **Distribution skills** (`meet-email`) — convert operational output to email-safe HTML and send via Graph API. See [[Email-Safe HTML Rendering Pattern]].
 
 ## meet-pre Output
 
@@ -62,3 +64,4 @@ Two distinct types of skill live in jx-pm:
 ## Sources
 
 - [[Source - jx-pm Plugin README]]
+- [[Source - FEAT-006 Meeting Prep Email Plan]]
