@@ -180,7 +180,11 @@ For updated pages, revise the one-line summary if the update meaningfully change
 
 Re-sort entries alphabetically within each section. Update `page_count` and `updated` date in frontmatter.
 
-## Phase 7: Append to `_log.md`
+## Phase 7: Prepend to `_log.md`
+
+Insert the new entry immediately after the `# Wiki Log` header (before existing
+entries) so the log remains newest-first. This ensures Phase 1's head-read
+captures recent filings on subsequent runs.
 
 ```markdown
 ## <date and time> — Session Insights: <label>
