@@ -33,7 +33,7 @@ is needed — the log entry records the session label instead.
 1. Check wiki exists — look for `_schema.md` at `wiki_path`. If not found: "Wiki not found. Run `/jx-kb:init` first."
 2. Read `_schema.md` to load taxonomy rules and custom routing.
 3. Read `_index.md` to get full page catalog (needed for dedup in Phase 3).
-4. Read `_log.md` (first 50 lines) for recent operations context.
+4. Read the last 50 lines of `_log.md` for recent operations context (newest entries are at the top, but reading the tail ensures coverage after many runs).
 
 ## Phase 2: Extract Session Insights
 
@@ -146,14 +146,13 @@ Write brief, structured content:
 
 End every page with:
 ```markdown
-## Derived From
+## Sources
 - Session: <label> (<date>)
-- [[Related Wiki Page]] (if insight builds on existing pages)
 ```
 
-Use `## Derived From` instead of `## Sources` because session insights have no
-raw source document. This matches the pattern used by `/jx-kb:query` for
-wiki-derived pages.
+Use `Session: <label> (<date>)` as the source line since there is no raw source
+document. This keeps the `## Sources` section required by the wiki schema and
+ensures compatibility with `/jx-kb:triage` which reads provenance from that section.
 
 ### Updating an Existing Page
 
@@ -161,7 +160,7 @@ wiki-derived pages.
 2. Integrate new claims, preserving existing content.
 3. If new info contradicts existing claims, add a conflict callout.
 4. Update `updated` date in frontmatter.
-5. Add `- Session: <label> (<date>)` to the page's `## Sources` or `## Derived From` section.
+5. Add `- Session: <label> (<date>)` to the page's `## Sources` section.
 
 **Content brevity**: Keep idea pages to 5-10 lines of body content. Concepts can be longer but should not exceed what the session evidence supports.
 
