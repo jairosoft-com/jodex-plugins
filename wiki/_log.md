@@ -4,6 +4,17 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-26 — Session Insights: jx-kb insights skill
+
+- **Operation**: insights
+- **Label**: jx-kb insights skill
+- **Pages created**: [[Algorithm Redesign Over Permission Expansion]] (idea)
+- **Pages updated**: [[Log]] (corrected append→prepend convention)
+- **Ideas extracted**: 1
+- **Conflicts flagged**: 0
+- **Cross-references added**: 0
+- **Outcome**: Success
+
 ## 2026-05-25 — Ingest: FEAT-006 Session Insights
 
 - **Operation**: ingest

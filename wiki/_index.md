@@ -1,13 +1,14 @@
 ---
 title: Wiki Index
-updated: 2026-05-25
-page_count: 264
+updated: 2026-05-26
+page_count: 265
 ---
 
 # Wiki Index
 
 ## Ideas
 
+- [[Algorithm Redesign Over Permission Expansion]] — Prefer narrowing algorithm tool requirements over expanding command permissions (#skill-design, #security, #permissions) [raw]
 - [[Automate Plugin Creation Like Skill Creation]] — `/jx-skill:create-plugin` scaffolds plugin skeletons and marketplace entries with pinned-helper safety (#jx-skill, #plugin, #scaffolding) [backlogged P1]
 - [[Conditional AC Format Selection (Promoted)]] — AC format should match story type: G/W/T for journeys, checklist for constraints, system state for backend (#acceptance-criteria, #prd, #jx-pm) [promoted]
 - [[Downstream Contract Audit for Skill Output Changes]] — Audit all downstream consumers when changing a skill's output format; PRD change cascaded to 5+ files (#skill-design, #contracts) [backlogged P2]
