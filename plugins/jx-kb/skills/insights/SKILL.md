@@ -69,7 +69,7 @@ For each candidate from Phase 2:
 1. Search `_index.md` for existing pages with similar titles or overlapping topics.
 2. For potential matches, grep wiki content for deeper verification:
    ```bash
-   grep -rl "<candidate title or key term>" <wiki_path>/ --include="*.md"
+   grep -rl "<candidate title or key term>" <wiki_path>/ --include="*.md" | grep -v "raw/"
    ```
 3. If a near-match exists, classify as:
    - **UPDATE** — the candidate adds genuinely new claims to an existing page
@@ -169,11 +169,13 @@ ensures compatibility with `/jx-kb:triage` which reads provenance from that sect
 For each newly created page, check if existing wiki pages mention its title in
 prose without a `[[wikilink]]`. Use grep:
 ```bash
-grep -rl "<new page title>" <wiki_path>/ --include="*.md" | grep -v "_index.md" | grep -v "_log.md"
+grep -rl "<new page title>" <wiki_path>/ --include="*.md" | grep -v "_index.md" | grep -v "_log.md" | grep -v "raw/"
 ```
 
-If matches are found, read those pages and add the missing `[[wikilinks]]` where
-the name appears naturally. This ensures bidirectional linking.
+Exclude `raw/` snapshots — these are immutable provenance files and must not be
+edited. If matches are found in maintained pages, read those pages and add the
+missing `[[wikilinks]]` where the name appears naturally. This ensures
+bidirectional linking.
 
 ## Phase 6: Update `_index.md`
 
