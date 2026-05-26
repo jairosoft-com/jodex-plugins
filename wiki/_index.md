@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-25
-page_count: 255
+page_count: 258
 ---
 
 # Wiki Index
@@ -52,6 +52,9 @@ page_count: 255
 - [[Escape User Descriptions in Scaffold Frontmatter]] — Quote/escape descriptions with YAML-special chars in generated stubs (#jx-skill, #yaml, #safety) [raw]
 - [[Update Wiki Inventory for Six-Plugin Marketplace]] — Update stale five-plugin references in _schema.md and project page (#wiki, #plugins, #inventory) [raw]
 - [[Reject Core and Self Plugin Targets in Scaffold]] — Block --plugin jx-core and --plugin jx-skill via flag bypass (#jx-skill, #validation, #safety) [raw]
+- [[Worktree Cleanup Skill as PM Workflow Capstone]] — clean-worktree as the closing step in the PM-to-delivery pipeline (#jx-pm, #worktree, #workflow) [raw]
+- [[Skill Creator Validates End-to-End Before Writing]] — Validate-all-then-confirm-then-write pattern in /jx-skill:create (#jx-skill, #validation, #design-pattern) [raw]
+- [[Scaffolded Skills Need Allowed-Tools Expansion]] — Default allowed-tools: Read too narrow for git/shell skills; consider --allowed-tools flag (#jx-skill, #scaffolding, #allowed-tools) [raw]
 
 ## Concepts
 

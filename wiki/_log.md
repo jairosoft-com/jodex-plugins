@@ -4,6 +4,16 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-25 — Session Insights: clean-worktree scaffolding
+
+- **Operation**: filing (session insights)
+- **Pages created**: [[Worktree Cleanup Skill as PM Workflow Capstone]] (idea), [[Skill Creator Validates End-to-End Before Writing]] (idea), [[Scaffolded Skills Need Allowed-Tools Expansion]] (idea)
+- **Pages updated**: _index.md (+3 entries)
+- **Ideas extracted**: 3
+- **Conflicts flagged**: 0
+- **Cross-references added**: 2 (User Confirmation Gate, Multi-Phase Skill)
+- **Outcome**: Success
+
 ## 2026-05-25 — Ingest: Spec-First Skill Execution
 
 - **Operation**: ingest
