@@ -4,6 +4,16 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-25 — Session Insights: meet-notes skill scaffolding
+
+- **Operation**: filing (session insights)
+- **Pages created**: [[Meeting Workflow Triad in jx-pm]] (idea), [[Real-Time Capture as Skill Pattern]] (idea)
+- **Pages updated**: [[Product Management Skills Plugin]] (added meet-notes command, capture skill category), _index.md (+2 entries)
+- **Ideas extracted**: 2
+- **Conflicts flagged**: 0
+- **Cross-references added**: 1 (Real-Time Capture as Skill Pattern from plugin page)
+- **Outcome**: Success
+
 ## 2026-05-25 — Ingest: Spec-First Skill Execution
 
 - **Operation**: ingest

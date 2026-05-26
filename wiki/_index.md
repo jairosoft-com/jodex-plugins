@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-25
-page_count: 255
+page_count: 257
 ---
 
 # Wiki Index
@@ -52,6 +52,8 @@ page_count: 255
 - [[Escape User Descriptions in Scaffold Frontmatter]] — Quote/escape descriptions with YAML-special chars in generated stubs (#jx-skill, #yaml, #safety) [raw]
 - [[Update Wiki Inventory for Six-Plugin Marketplace]] — Update stale five-plugin references in _schema.md and project page (#wiki, #plugins, #inventory) [raw]
 - [[Reject Core and Self Plugin Targets in Scaffold]] — Block --plugin jx-core and --plugin jx-skill via flag bypass (#jx-skill, #validation, #safety) [raw]
+- [[Meeting Workflow Triad in jx-pm]] — meet-pre → meet-notes → meet-email forms a complete prepare/capture/distribute lifecycle (#jx-pm, #meeting, #workflow, #pattern) [raw]
+- [[Real-Time Capture as Skill Pattern]] — Interactive capture during ongoing activity; different from batch generation or data-pull skills (#skill-design, #pattern, #interactive) [raw]
 
 ## Concepts
 
