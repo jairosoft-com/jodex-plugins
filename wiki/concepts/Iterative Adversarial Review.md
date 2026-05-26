@@ -4,7 +4,7 @@ type: concept
 tags: [pattern, quality, design, review]
 created: 2026-05-09
 updated: 2026-05-25
-source_count: 2
+source_count: 3
 aliases: [adversarial review loop, multi-pass review, design hardening]
 provenance: synthesis
 ---
@@ -162,6 +162,10 @@ In this case, no design revision can satisfy the reviewer — the tooling fundam
 2. Present the user with explicit options: (a) accept with documented risk, (b) descope the capability, (c) block until the external constraint is resolved
 3. Stop the review loop — further rounds will not converge
 
+### Severity Escalation Sub-Signal
+
+A specific indicator within external constraints: when severity *increases* across rounds but the recommendation text is *identical*, it's a platform constraint. See [[Severity Escalation Convergence Signal]] for the full pattern and FEAT-006 example.
+
 **Example (feedback skill, 2026-05-14):** Codex flagged "org-binding gap" across 3 rounds. The ADO MCP server doesn't expose its configured organization. No amount of plan revision could satisfy "add a real connected-organization check" because the check is impossible with available tools. Resolution: accept residual risk with strengthened typed confirmation gate (see [[User Confirmation Gate]]).
 
 ## Key Patterns Discovered Through This Loop
@@ -212,7 +216,9 @@ This suggests adversarial review is most effective when applied at each lifecycl
 - [[Spec-First Skill Execution]] — lesson generalized from FEAT-006 review: read the spec before executing
 - [[Naming Ripple Effect]] — stale paths in plans are a rename cascade the code-level grep misses
 - [[AC Verifiability Gap]] — sub-pattern: ACs that reference unrealizable verification mechanisms, surfaced during review
+- [[Severity Escalation Convergence Signal]] — exit criterion: severity up, recommendation unchanged = platform constraint
 
 ## Sources
 - [[Source - Plugin Split Implementation Plan]]
 - [[Source - FEAT-006 Meeting Prep Email Plan]]
+- [[Source - FEAT-006 Session Insights]]
