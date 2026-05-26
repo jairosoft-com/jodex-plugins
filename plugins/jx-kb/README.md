@@ -7,6 +7,8 @@ A personal knowledge base where the LLM incrementally builds and maintains a per
 ```
 raw source → [/jx-kb:ingest] → wiki pages (entities, concepts, ideas, code...)
                                         ↓
+conversation → [/jx-kb:insights] → session insights filed with provenance
+                                        ↓
                                   [/jx-kb:triage] → promote / backlog / archive
                                         ↓
                                   [/jx-kb:query] → synthesized answers with [[citations]]
@@ -49,6 +51,22 @@ Ingest a source document into the wiki.
 6. Updates index and log
 
 **Supported sources:** Markdown, plain text, source code files (`.py`, `.ts`, `.js`, `.sh`, etc.)
+
+### `/jx-kb:insights`
+
+Extract and file session insights to the wiki.
+
+```
+/jx-kb:insights
+/jx-kb:insights --label "meet-notes scaffolding"
+```
+
+**What it does:**
+1. Reviews the current conversation for new patterns, decisions, connections, facts, ideas
+2. Deduplicates candidates against existing wiki content (index + grep)
+3. Presents each candidate individually for user approval
+4. Files approved items with `provenance: synthesis` and cross-references
+5. Updates index and log
 
 ### `/jx-kb:triage`
 
@@ -122,6 +140,7 @@ jx-kb/
 ├── skills/                # Skill logic (multi-phase instructions)
 │   ├── init/
 │   ├── ingest/
+│   ├── insights/
 │   ├── triage/
 │   ├── query/
 │   └── lint/
