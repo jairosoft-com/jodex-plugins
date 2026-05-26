@@ -1,7 +1,7 @@
 ---
 title: Product Management Skills Plugin
 type: plugin
-tags: [plugin, product-management, prd, ado, meeting-prep, meet-email, jx-pm]
+tags: [plugin, product-management, prd, ado, meeting-prep, meet-notes, meet-email, jx-pm]
 created: 2026-05-22
 updated: 2026-05-25
 source_count: 1
@@ -11,7 +11,7 @@ provenance: synthesis
 
 # Product Management Skills Plugin
 
-Plugin name: **jx-pm**. Product management workflow plugin covering requirements generation, Azure Boards sync, pipeline orchestration, feedback capture, and daily meeting preparation.
+Plugin name: **jx-pm**. Product management workflow plugin covering requirements generation, Azure Boards sync, pipeline orchestration, feedback capture, daily meeting preparation, and real-time meeting note capture.
 
 ## Pipeline
 
@@ -34,14 +34,16 @@ Plugin name: **jx-pm**. Product management workflow plugin covering requirements
 | `/jx-pm:pipeline` | pipeline | Orchestrate full PRD → ADO pipeline in one command |
 | `/jx-pm:feedback` | feedback | Capture feedback and create an ADO Feature work item |
 | `/jx-pm:meet-pre` | meet-pre | Generate a daily meeting prep doc from live Azure Boards data |
+| `/jx-pm:meet-notes` | meet-notes | Capture real-time meeting notes during a session |
 | `/jx-pm:meet-email` | meet-email | Email meeting prep as styled HTML via Graph API |
 
 ## Skill Categories
 
-Two distinct types of skill live in jx-pm:
+Several distinct types of skill live in jx-pm:
 
 - **Generation skills** (`prd`, `pipeline`) — transform user input into structured documents using clarifying questions and templates.
 - **Operational skills** (`meet-pre`, `feedback`) — pull live data from external systems (Azure Boards) and write dated operational artifacts.
+- **Capture skills** (`meet-notes`) — real-time interactive capture during an ongoing activity. See [[Real-Time Capture as Skill Pattern]].
 - **Distribution skills** (`meet-email`) — convert operational output to email-safe HTML and send via Graph API. See [[Email-Safe HTML Rendering Pattern]].
 
 ## meet-pre Output

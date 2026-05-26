@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-25
-page_count: 258
+page_count: 260
 ---
 
 # Wiki Index
@@ -55,6 +55,8 @@ page_count: 258
 - [[Worktree Cleanup Skill as PM Workflow Capstone]] — clean-worktree as the closing step in the PM-to-delivery pipeline (#jx-pm, #worktree, #workflow) [raw]
 - [[Skill Creator Validates End-to-End Before Writing]] — Validate-all-then-confirm-then-write pattern in /jx-skill:create (#jx-skill, #validation, #design-pattern) [raw]
 - [[Scaffolded Skills Need Allowed-Tools Expansion]] — Default allowed-tools: Read too narrow for git/shell skills; consider --allowed-tools flag (#jx-skill, #scaffolding, #allowed-tools) [raw]
+- [[Meeting Workflow Triad in jx-pm]] — meet-pre → meet-notes → meet-email forms a complete prepare/capture/distribute lifecycle (#jx-pm, #meeting, #workflow, #pattern) [raw]
+- [[Real-Time Capture as Skill Pattern]] — Interactive capture during ongoing activity; different from batch generation or data-pull skills (#skill-design, #pattern, #interactive) [raw]
 
 ## Concepts
 
