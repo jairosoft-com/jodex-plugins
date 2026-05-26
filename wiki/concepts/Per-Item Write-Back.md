@@ -3,8 +3,8 @@ title: Per-Item Write-Back
 type: concept
 tags: [pattern, safety, crash-recovery, sync]
 created: 2026-05-09
-updated: 2026-05-09
-source_count: 1
+updated: 2026-05-25
+source_count: 2
 aliases: [per-item writeback, immediate writeback, atomic item sync]
 provenance: synthesis
 ---
@@ -49,6 +49,14 @@ For each item:
 
 Used by `/jx-pm:ado` — writes `azureWorkItemId` to task.json after each Azure work item creation.
 
+### Two-Step Story Creation (2026-05-25)
+
+The `jx-core/_shared/ado.md` spec applies per-item write-back to a multi-field creation flow:
+- **Step 2a**: Create story + parent-link → get work item ID → write-back to PRD frontmatter immediately
+- **Step 2b**: Update story with AC field, tags, story points
+
+Write-back happens after 2a, *before* 2b. If the session crashes between 2a and 2b, the story ID is already persisted. The next sync enters update mode and fills in the missing fields automatically. This eliminates the crash window without requiring tag-based duplicate search.
+
 ## Related
 
 - [[Idempotent Operation]] — safe re-run after crash
@@ -57,3 +65,4 @@ Used by `/jx-pm:ado` — writes `azureWorkItemId` to task.json after each Azure 
 
 ## Sources
 - [[Source - Azure Boards Sync SKILL]]
+- [[Source - FEAT-006 Session Insights]]

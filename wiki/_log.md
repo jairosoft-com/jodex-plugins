@@ -4,6 +4,19 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-25 — Ingest: FEAT-006 Session Insights
+
+- **Operation**: ingest
+- **Source**: `wiki/raw/sources/session-2026-05-25-meet-email.md`
+- **Snapshot**: `wiki/raw/sources/session-2026-05-25-meet-email.md`
+- **SHA-256**: `bed045dc89a4579a865b2b8447d2b42b0e4843bacac13d5b10954dcb2a3dbbe8`
+- **Pages created**: [[Severity Escalation Convergence Signal]] (concept), [[Background Session MCP Limitation]] (idea), [[Fixture-Based Specification Verification]] (idea), [[Source - FEAT-006 Session Insights]] (source)
+- **Pages updated**: [[Iterative Adversarial Review]] (added severity escalation sub-signal + source), [[Per-Item Write-Back]] (added two-step ADO creation example + source), [[Product Management Skills Plugin]] (added source link)
+- **Ideas extracted**: 2
+- **Conflicts flagged**: 0
+- **Cross-references added**: 5
+- **Outcome**: Success
+
 ## 2026-05-25 — Session Insights: meet-notes skill scaffolding
 
 - **Operation**: filing (session insights)

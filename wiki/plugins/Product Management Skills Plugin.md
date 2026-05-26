@@ -4,7 +4,7 @@ type: plugin
 tags: [plugin, product-management, prd, ado, meeting-prep, meet-notes, meet-email, jx-pm]
 created: 2026-05-22
 updated: 2026-05-25
-source_count: 1
+source_count: 2
 aliases: [jx-pm, jx-pm plugin]
 provenance: synthesis
 ---
@@ -67,3 +67,4 @@ Several distinct types of skill live in jx-pm:
 
 - [[Source - jx-pm Plugin README]]
 - [[Source - FEAT-006 Meeting Prep Email Plan]]
+- [[Source - FEAT-006 Session Insights]]

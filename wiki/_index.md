@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-25
-page_count: 260
+page_count: 264
 ---
 
 # Wiki Index
@@ -46,7 +46,9 @@ page_count: 260
 - [[Fix Promotion Rename Link Retargeting]] — Idea promotion renames silently retarget historical log wikilinks (#wiki, #lint, #promotion, #wikilinks) [raw]
 - [[Over-Grooming Anti-Pattern]] — Grooming failure mode where scope inflates beyond requestor's intent (#pattern, #wiki, #idea-lifecycle, #anti-pattern) [raw]
 - [[Wrong-Tenant Filing as Tenant Binding Validation]] — Feedback skill filed to wrong ADO project when feedback-target.json missing (#jx-pm, #ado, #tenant-binding, #incident) [raw]
+- [[Background Session MCP Limitation]] — MCP tools may not be available in background worktree sessions (#mcp, #background-session, #tooling) [raw]
 - [[Email-Safe HTML Rendering Pattern]] — Reusable inline-styled HTML rules for email-compatible skill output (#pattern, #email, #html, #jx-pm) [raw]
+- [[Fixture-Based Specification Verification]] — Test SKILL.md specs via edge-case fixture files (#pattern, #testing, #skill, #verification) [raw]
 - [[Per-Plugin Allowed-Tools Allowlist]] — Permission-aware scaffolding for generated command stubs (#jx-skill, #security, #permissions) [raw]
 - [[Three-Way Naming Sync Validation Gate]] — Automated 3-way naming sync check for plugin scaffolding (#jx-skill, #plugins, #validation) [raw]
 - [[Escape User Descriptions in Scaffold Frontmatter]] — Quote/escape descriptions with YAML-special chars in generated stubs (#jx-skill, #yaml, #safety) [raw]
@@ -128,6 +130,7 @@ page_count: 260
 - [[Split Verification Pattern]] — Dual-tier checks for renames with preserved concept references (#pattern, #verification, #safety)
 - [[Shared Reference Extraction]] — Extract repeated skill logic into _shared/ files, reference by path (#pattern, #DRY)
 - [[Settings Portability]] — settings.json (committed) vs settings.local.json (gitignored) split pattern (#pattern, #configuration)
+- [[Severity Escalation Convergence Signal]] — Adversarial review exit: severity up + recommendation unchanged = platform constraint (#pattern, #adversarial-review, #convergence)
 - [[SHA-256 Fingerprinting]] — Content-based dedup via hash (#security, #dedup)
 - [[Skill]] — Multi-phase instructional module powering slash commands (#plugin, #implementation)
 - [[Spec-First Skill Execution]] — Read SKILL.md before executing any skill; do not improvise (#pattern, #skill, #contract, #discipline)
@@ -301,4 +304,5 @@ page_count: 260
 - [[Source - jx-dev Schemas Stub]] — Placeholder, delegates to jx-core (#jx-dev, #stub)
 - [[Source - jx-dev Scripts Stub]] — Placeholder for jx-dev scripts (#jx-dev, #stub)
 - [[Source - FEAT-006 Meeting Prep Email Plan]] — Implementation plan for meet-email skill with 6-round adversarial review (#jx-pm, #meet-email, #plan)
+- [[Source - FEAT-006 Session Insights]] — Session insights: severity escalation signal, MCP limitation, fixture verification (#session, #jx-pm, #adversarial-review)
 - [[Source - Spec-First Feedback]] — Generalized lesson: read SKILL.md before executing any skill (#feedback, #skill, #contract)
