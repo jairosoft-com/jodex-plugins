@@ -69,7 +69,7 @@ For each candidate from Phase 2:
 1. Search `_index.md` for existing pages with similar titles or overlapping topics.
 2. For potential matches, grep wiki content for deeper verification:
    ```bash
-   grep -rl "<candidate title or key term>" wiki/ --include="*.md"
+   grep -rl "<candidate title or key term>" <wiki_path>/ --include="*.md"
    ```
 3. If a near-match exists, classify as:
    - **UPDATE** — the candidate adds genuinely new claims to an existing page
@@ -170,7 +170,7 @@ wiki-derived pages.
 For each newly created page, check if existing wiki pages mention its title in
 prose without a `[[wikilink]]`. Use grep:
 ```bash
-grep -rl "<new page title>" wiki/ --include="*.md" | grep -v "_index.md" | grep -v "_log.md"
+grep -rl "<new page title>" <wiki_path>/ --include="*.md" | grep -v "_index.md" | grep -v "_log.md"
 ```
 
 If matches are found, read those pages and add the missing `[[wikilinks]]` where
