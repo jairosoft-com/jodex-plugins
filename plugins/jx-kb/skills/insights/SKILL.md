@@ -33,7 +33,7 @@ is needed — the log entry records the session label instead.
 1. Check wiki exists — look for `_schema.md` at `wiki_path`. If not found: "Wiki not found. Run `/jx-kb:init` first."
 2. Read `_schema.md` to load taxonomy rules and custom routing.
 3. Read `_index.md` to get full page catalog (needed for dedup in Phase 3).
-4. Read the last 50 lines of `_log.md` for recent operations context (newest entries are at the top, but reading the tail ensures coverage after many runs).
+4. Read the first 50 lines of `_log.md` for recent operations context (entries are prepended newest-first, so the head contains the most recent filings).
 
 ## Phase 2: Extract Session Insights
 
@@ -66,17 +66,13 @@ If no insights found: "This session has no new insights worth filing. The conver
 
 For each candidate from Phase 2:
 
-1. Search `_index.md` for existing pages with similar titles or overlapping topics.
-2. For potential matches, grep wiki content for deeper verification:
-   ```bash
-   grep -rl "<candidate title or key term>" <wiki_path>/ --include="*.md" | grep -v "raw/"
-   ```
-3. If a near-match exists, classify as:
-   - **UPDATE** — the candidate adds genuinely new claims to an existing page
-   - **SKIP** — the existing page already covers this adequately
-4. If no match: classify as **NEW**.
-
-Drop all SKIP candidates. Proceed with NEW and UPDATE items only.
+1. Search `_index.md` for existing pages with similar titles, overlapping tags, or related summaries.
+2. For potential matches, read the matched wiki page to verify whether the candidate adds genuinely new claims or is already covered.
+3. Classify each candidate:
+   - **NEW** — no existing page covers this topic
+   - **UPDATE** — an existing page exists but the candidate adds genuinely new claims
+   - **SKIP** — an existing page already covers this adequately
+4. Drop all SKIP candidates. Proceed with NEW and UPDATE items only.
 
 If all candidates are SKIPs: "All session insights are already covered in the wiki. Nothing to file."
 
@@ -166,16 +162,12 @@ ensures compatibility with `/jx-kb:triage` which reads provenance from that sect
 
 ## Phase 5b: Cross-Reference Pass
 
-For each newly created page, check if existing wiki pages mention its title in
-prose without a `[[wikilink]]`. Use grep:
-```bash
-grep -rl "<new page title>" <wiki_path>/ --include="*.md" | grep -v "_index.md" | grep -v "_log.md" | grep -v "raw/"
-```
+For each newly created page, scan `_index.md` for existing pages whose titles
+or summaries relate to the new page's topic. Read those candidate pages and
+check if they mention the new page's title in prose without a `[[wikilink]]`.
+If so, add the missing `[[wikilinks]]` where the name appears naturally.
 
-Exclude `raw/` snapshots — these are immutable provenance files and must not be
-edited. If matches are found in maintained pages, read those pages and add the
-missing `[[wikilinks]]` where the name appears naturally. This ensures
-bidirectional linking.
+Do not modify files in `raw/` — these are immutable provenance snapshots.
 
 ## Phase 6: Update `_index.md`
 
