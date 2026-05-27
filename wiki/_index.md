@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-26
-page_count: 265
+page_count: 270
 ---
 
 # Wiki Index
@@ -42,6 +42,7 @@ page_count: 265
 - [[Dry-Run Gate Must Include Explicit Docs-Root]] — Dry-run verification must use explicit --docs-root to avoid stale env var misdirection (#jx-pm, #ado, #safety, #verification) [backlogged P2]
 - [[Fix Promotion Rename Link Retargeting]] — Idea promotion renames silently retarget historical log wikilinks (#wiki, #lint, #promotion, #wikilinks) [backlogged P2]
 - [[Over-Grooming Anti-Pattern]] — Grooming failure mode where scope inflates beyond requestor's intent (#pattern, #wiki, #idea-lifecycle, #anti-pattern) [backlogged P2]
+- [[Plan Approval as Confirmation Gate]] — Adversarially-reviewed plan approval satisfies the SKILL.md Phase 3 User Confirmation Gate (#pattern, #skill-design, #confirmation-gate, #plan) [raw]
 - [[Wrong-Tenant Filing as Tenant Binding Validation]] — Feedback skill filed to wrong ADO project when feedback-target.json missing (#jx-pm, #ado, #tenant-binding, #incident) [backlogged P2]
 - [[Skill Creator for Jodex Plugins]] — `/jx-skill:create` in new jx-skill plugin; scaffolds skills with convention enforcement and validation (#developer-experience, #plugins, #tooling, #jx-skill) [backlogged P1]
 - [[Fix Promotion Rename Link Retargeting]] — Idea promotion renames silently retarget historical log wikilinks (#wiki, #lint, #promotion, #wikilinks) [raw]
@@ -53,10 +54,12 @@ page_count: 265
 - [[Per-Plugin Allowed-Tools Allowlist]] — Permission-aware scaffolding for generated command stubs (#jx-skill, #security, #permissions) [raw]
 - [[Three-Way Naming Sync Validation Gate]] — Automated 3-way naming sync check for plugin scaffolding (#jx-skill, #plugins, #validation) [raw]
 - [[Escape User Descriptions in Scaffold Frontmatter]] — Quote/escape descriptions with YAML-special chars in generated stubs (#jx-skill, #yaml, #safety) [raw]
-- [[Update Wiki Inventory for Six-Plugin Marketplace]] — Update stale five-plugin references in _schema.md and project page (#wiki, #plugins, #inventory) [raw]
+- [[Update Wiki Inventory for Six-Plugin Marketplace]] — Update stale plugin-count references across wiki; now seven plugins: jx-qa, jx-kb, jx-pm, jx-dev, jx-core, jx-skill, jx-plugin (#wiki, #plugins, #inventory) [backlogged]
 - [[Reject Core and Self Plugin Targets in Scaffold]] — Block --plugin jx-core and --plugin jx-skill via flag bypass (#jx-skill, #validation, #safety) [raw]
 - [[Worktree Cleanup Skill as PM Workflow Capstone]] — clean-worktree as the closing step in the PM-to-delivery pipeline (#jx-pm, #worktree, #workflow) [raw]
 - [[Skill Creator Validates End-to-End Before Writing]] — Validate-all-then-confirm-then-write pattern in /jx-skill:create (#jx-skill, #validation, #design-pattern) [raw]
+- [[Skeleton-Honest Plugin Description Convention]] — Use "Plugin skeleton — X (in development)" wording until first skill ships (#plugin, #naming, #marketplace, #skeleton) [raw]
+- [[Surgical Rollback Pattern]] — Prefer targeted operation-scoped undo over broad git checkout that discards unrelated changes (#pattern, #rollback, #safety, #git) [raw]
 - [[Scaffolded Skills Need Allowed-Tools Expansion]] — Default allowed-tools: Read too narrow for git/shell skills; consider --allowed-tools flag (#jx-skill, #scaffolding, #allowed-tools) [raw]
 - [[Meeting Workflow Triad in jx-pm]] — meet-pre → meet-notes → meet-email forms a complete prepare/capture/distribute lifecycle (#jx-pm, #meeting, #workflow, #pattern) [raw]
 - [[Real-Time Capture as Skill Pattern]] — Interactive capture during ongoing activity; different from batch generation or data-pull skills (#skill-design, #pattern, #interactive) [raw]
@@ -177,6 +180,7 @@ page_count: 265
 ## Plugins
 
 - [[Core Shared Conventions Plugin|jx-core]] — Reference-only shared conventions for PM and developer plugins (#plugin, #shared-conventions)
+- [[Plugin Scaffolding Plugin|jx-plugin]] — Skeleton plugin for future Claude Code plugin scaffolding, validation, and publishing tools (#plugin, #scaffolding, #skeleton)
 - [[Developer Skills Plugin|jx-dev]] — Technical specification and task breakdown workflows (#plugin, #developer)
 - [[Knowledge Base Plugin|jx-kb]] — LLM-maintained knowledge base plugin for Claude Code (#knowledge-base, #wiki)
 - [[Product Management Skills Plugin|jx-pm]] — PRD generation, pipeline orchestration, Azure Boards sync, and daily meeting preparation (#plugin, #product-management) [active]
