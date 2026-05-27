@@ -112,9 +112,14 @@ Do NOT proceed until user confirms.
 
 ### Step 4b — Write via helper (file-based data transport)
 
-All user-controlled content is passed via files, not shell args:
+All user-controlled content is passed via files, not shell args.
 
-1. Use the **Write tool** to save metadata to `$CLAUDE_JOB_DIR/metadata.json`:
+First, create a temp directory for the payload files:
+```bash
+PROMPT_TMP=$(mktemp -d "${TMPDIR:-/tmp}/jx-create-prompt.XXXXXX")
+```
+
+1. Use the **Write tool** to save metadata to `$PROMPT_TMP/metadata.json`:
    ```json
    {
      "name": "<name>",
@@ -123,13 +128,18 @@ All user-controlled content is passed via files, not shell args:
    }
    ```
 
-2. Use the **Write tool** to save body content to `$CLAUDE_JOB_DIR/body.md`.
+2. Use the **Write tool** to save body content to `$PROMPT_TMP/body.md`.
 
 3. Invoke the helper (only file paths in shell args):
    ```bash
    python3 "${CLAUDE_PLUGIN_ROOT}/scripts/prompt-creator.py" write \
-     --metadata-file "$CLAUDE_JOB_DIR/metadata.json" \
-     --body-file "$CLAUDE_JOB_DIR/body.md"
+     --metadata-file "$PROMPT_TMP/metadata.json" \
+     --body-file "$PROMPT_TMP/body.md"
+   ```
+
+4. Clean up the temp directory after the helper returns (regardless of success/failure):
+   ```bash
+   rm -r "$PROMPT_TMP"
    ```
 
 On success (exit 0): proceed to Phase 5.
