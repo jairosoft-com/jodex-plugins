@@ -114,12 +114,14 @@ Do NOT proceed until user confirms.
 
 All user-controlled content is passed via files, not shell args. Use the `.agent/prompts/` directory itself for staging.
 
-First, ensure the prompts directory exists (required on first use):
+First, ensure the prompts directory exists and capture its absolute path (required on first use, and ensures correct paths regardless of cwd):
 ```bash
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/prompt-creator.py" ensure-dir
 ```
 
-1. Use the **Write tool** to save metadata to `.agent/prompts/.metadata.json`:
+Parse the JSON `path` field from stdout. Use this absolute path (referred to as `<prompts-dir>` below) for all staging file operations.
+
+1. Use the **Write tool** to save metadata to `<prompts-dir>/.metadata.json`:
    ```json
    {
      "name": "<name>",
@@ -128,13 +130,13 @@ python3 "${CLAUDE_PLUGIN_ROOT}/scripts/prompt-creator.py" ensure-dir
    }
    ```
 
-2. Use the **Write tool** to save body content to `.agent/prompts/.body.md`.
+2. Use the **Write tool** to save body content to `<prompts-dir>/.body.md`.
 
-3. Invoke the helper (only literal file paths in shell args — no shell variables):
+3. Invoke the helper with absolute staging paths:
    ```bash
    python3 "${CLAUDE_PLUGIN_ROOT}/scripts/prompt-creator.py" write \
-     --metadata-file ".agent/prompts/.metadata.json" \
-     --body-file ".agent/prompts/.body.md"
+     --metadata-file "<prompts-dir>/.metadata.json" \
+     --body-file "<prompts-dir>/.body.md"
    ```
 
 The helper cleans up `.metadata.json` and `.body.md` staging files after writing.

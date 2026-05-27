@@ -44,7 +44,7 @@ def yaml_quote(value):
 def yaml_tags(tags):
     if not tags:
         return '[]'
-    return '[' + ', '.join(tags) + ']'
+    return '[' + ', '.join(yaml_quote(t) for t in tags) + ']'
 
 
 def parse_frontmatter(filepath):
