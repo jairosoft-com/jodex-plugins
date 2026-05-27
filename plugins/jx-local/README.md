@@ -1,18 +1,44 @@
 # jx-local
 
-this is a plugin to create local skills and local prompts in the user's project directory.
+Plugin for creating local, project-scoped artifacts in the user's project directory.
 
-## Status
+## Skills
 
-This is a plugin skeleton. It contains package metadata, placeholder component directories, and a marketplace entry only.
+### `create-prompt`
 
-## Next Step
+Create a reusable prompt file under `.agent/prompts/` with YAML frontmatter and markdown body.
 
-Add the first real skill with:
+**Command:** `/jx-local:create-prompt`
+
+**Usage:**
 
 ```bash
-/jx-plugin:create-skill --plugin jx-local
+# Create a prompt interactively
+/jx-local:create-prompt --name code-review --description "Code review prompt"
+
+# Create with tags
+/jx-local:create-prompt --name code-review --description "Code review prompt" --tags "review, code"
+
+# Scaffold without body input
+/jx-local:create-prompt --name code-review --description "Code review prompt" --scaffold-only
+
+# List existing prompts
+/jx-local:create-prompt --list
 ```
+
+**Prompt file format:**
+
+```markdown
+---
+name: code-review
+description: 'Code review prompt for pull requests'
+tags: [review, code]
+---
+
+You are a code reviewer. Analyze the following code for...
+```
+
+**Prompts are saved to:** `.agent/prompts/<name>.md`
 
 ## Local Development
 

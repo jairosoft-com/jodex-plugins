@@ -1,9 +1,9 @@
 ---
 description: Create a reusable prompt file under .agent/prompts/
-argument-hint: "[--name <slug>] [--description "..."] [--tags "..."] [--scaffold-only] [--list]"
-allowed-tools: Read
+argument-hint: "[--name <slug>] [--description \"...\"] [--tags \"...\"] [--scaffold-only] [--list]"
+allowed-tools: Read, Write, Bash(python3 "${CLAUDE_PLUGIN_ROOT}/scripts/prompt-creator.py":*)
 ---
 
-Create a reusable prompt file under .agent/prompts/ using the `jx-local:create-prompt` skill.
+Create a reusable prompt file using the `jx-local:create-prompt` skill.
 
 $ARGUMENTS

@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-27
-page_count: 297
+page_count: 298
 ---
 
 # Wiki Index
@@ -19,12 +19,14 @@ page_count: 297
 - [[Automate Plugin Creation Like Skill Creation]] — `/jx-plugin:create-plugin` scaffolds plugin skeletons and marketplace entries with pinned-helper safety (#jx-plugin, #plugin, #scaffolding) [backlogged P1]
 - [[Conditional AC Format Selection (Promoted)]] — AC format should match story type: G/W/T for journeys, checklist for constraints, system state for backend (#acceptance-criteria, #prd, #jx-pm) [promoted]
 - [[Downstream Contract Audit for Skill Output Changes]] — Audit all downstream consumers when changing a skill's output format; PRD change cascaded to 5+ files (#skill-design, #contracts) [backlogged P2]
+- [[Ensure-Dir Bootstrap Pattern]] — Helper subcommand that creates target dir and returns absolute path; solves first-use bootstrapping and cwd ambiguity (#pattern, #skill-design, #pinned-helper) [raw]
 - [[Static Clarifying Questions in PRD Skill]] — Phase 3 questions are identical regardless of domain; no customization or conditional follow-ups (#jx-pm, #prd, #hardcoded) [backlogged]
 - [[Hardcoded Investment Scale Thresholds]] — Unified mode $50K/$250K thresholds are org-specific; no "Other" escape hatch (#jx-pm, #prd, #hardcoded) [backlogged]
 - [[QA Documentation Workflow]] — Step-by-step walkthrough of jx-qa end-to-end pipeline for users running features through QA (#jx-qa, #workflow, #documentation) [promoted]
 - [[Quality Gates Applied to Doc-Only Stories]] — PRD generator appends meaningless quality gates to documentation-only stories (#jx-pm, #prd, #quality-gates) [completed]
 - [[Quality Gates Assume JS-TS Toolchain]] — Auto-appended quality gates hardcode lint/typecheck; need polyglot support via config (#jx-pm, #prd, #quality-gates) [backlogged]
 - [[Self-Contained Documents via Metadata Persistence]] — Persist resolved config in output document metadata so downstream consumers read from the document, not the filesystem (#skill-design, #metadata, #design-pattern) [raw]
+- [[Staging File Deletion Confinement]] — Helpers must confine staging file cleanup to dot-prefixed files inside expected directory; prevents data-loss from arbitrary path deletion (#security, #pattern, #pinned-helper) [raw]
 - [[Shared Validators Over Prompt Instructions]] — Enforce format constraints via shared scripts, not prompt instructions; wire same validator into generator and consumers (#skill-design, #validation, #design-pattern) [backlogged]
 - [[Sub-Headers as Dual-Purpose Contracts (Promoted)]] — Bold sub-headers serve both visual grouping and machine-parseable format routing; content structure IS the contract (#skill-design, #design-pattern) [promoted]
 - [[Dataview Queries]] — Obsidian plugin for frontmatter queries (#tooling, #obsidian) [backlogged P3]
@@ -59,6 +61,8 @@ page_count: 297
 - [[maxTurns Floor for jx-pm ADO Skill]] — /jx-pm:ado requires minTurns: 80 due to multiple shared file reads before execution (#jx-pm, #agent-sdk, #testing) [raw]
 - [[Over-Grooming Anti-Pattern]] — Grooming failure mode where scope inflates beyond requestor's intent (#pattern, #wiki, #idea-lifecycle, #anti-pattern) [backlogged P2]
 - [[Plan Approval as Confirmation Gate]] — Adversarially-reviewed plan approval satisfies the SKILL.md Phase 3 User Confirmation Gate (#pattern, #skill-design, #confirmation-gate, #plan) [raw]
+- [[Plan vs Code Review Complementarity]] — Plan reviews catch design gaps; code reviews catch implementation gaps; zero overlap between the two (#adversarial-review, #codex, #quality) [raw]
+- [[POSIX Atomic No-Overwrite via os.link]] — os.link() fails if target exists; true atomic no-overwrite unlike os.rename() which silently overwrites (#pattern, #filesystem, #atomicity) [raw]
 - [[Wrong-Tenant Filing as Tenant Binding Validation]] — Feedback skill filed to wrong ADO project when feedback-target.json missing (#jx-pm, #ado, #tenant-binding, #incident) [backlogged P2]
 - [[Skill Creator for Jodex Plugins]] — `/jx-plugin:create-skill` in jx-plugin; scaffolds skills with convention enforcement and validation (#developer-experience, #plugins, #tooling, #jx-plugin) [backlogged P1]
 - [[Skill Integration Testing via Agent SDK]] — Pattern for testing Claude Code skills programmatically using Agent SDK with message capture (#jx-qa, #testing, #agent-sdk) [backlogged]
@@ -68,6 +72,7 @@ page_count: 297
 - [[Wrong-Tenant Filing as Tenant Binding Validation]] — Feedback skill filed to wrong ADO project when feedback-target.json missing (#jx-pm, #ado, #tenant-binding, #incident) [raw]
 - [[Background Session MCP Limitation]] — MCP tools may not be available in background worktree sessions (#mcp, #background-session, #tooling) [raw]
 - [[Email-Safe HTML Rendering Pattern]] — Reusable inline-styled HTML rules for email-compatible skill output (#pattern, #email, #html, #jx-pm) [raw]
+- [[File-Based Data Transport]] — Pass user content to CLI helpers via temp files and file paths, not shell args; eliminates shell injection (#security, #shell-injection, #skill-design, #pinned-helper) [raw]
 - [[Fixture-Based Specification Verification]] — Test SKILL.md specs via edge-case fixture files (#pattern, #testing, #skill, #verification) [raw]
 - [[Flag-Value Helper Antipattern]] — Helper returning full --flag value string causes double-flag bug when call site already includes the flag (#testing, #patterns, #dx) [backlogged]
 - [[Plugin Consolidation Pattern]] — Merging two plugins: move skills, retire source, clean up global config and bytecode cache (#plugin, #migration, #pattern, #refactoring) [raw]
