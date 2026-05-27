@@ -1,0 +1,44 @@
+[
+  {
+    "name": "scaffold-local-skill-happy-path",
+    "description": "Scaffold a local skill with all flags provided",
+    "input": "/jx-local:create-skill --name deploy-check --description \"Verify deployment health after release\" --triggers \"check deploy, verify deployment\" --allowed-tools \"Read, Bash\" --extras evals,scripts",
+    "assertions": [
+      { "type": "file_exists", "path": ".claude/skills/deploy-check/SKILL.md" },
+      { "type": "file_exists", "path": ".claude/skills/deploy-check/evals/evals.json" },
+      { "type": "file_exists", "path": ".claude/skills/deploy-check/scripts/.gitkeep" },
+      { "type": "file_contains", "path": ".claude/skills/deploy-check/SKILL.md", "contains": "name: deploy-check" },
+      { "type": "file_contains", "path": ".claude/skills/deploy-check/SKILL.md", "contains": "user-invocable: true" },
+      { "type": "file_contains", "path": ".claude/skills/deploy-check/SKILL.md", "contains": "Triggers on:" },
+      { "type": "file_contains", "path": ".claude/skills/deploy-check/SKILL.md", "contains": "allowed-tools:" },
+      { "type": "output_contains", "contains": "Local Skill Scaffolded" }
+    ]
+  },
+  {
+    "name": "reject-invalid-local-skill-name",
+    "description": "Reject a skill name that violates the naming regex",
+    "input": "/jx-local:create-skill --name ../escape --description \"test\"",
+    "assertions": [
+      { "type": "output_contains", "contains": "invalid" }
+    ]
+  },
+  {
+    "name": "reject-local-skill-collision",
+    "description": "Reject creating a skill that already exists in .claude/skills/",
+    "input": "/jx-local:create-skill --name deploy-check --description \"duplicate\"",
+    "assertions": [
+      { "type": "output_contains", "contains": "already exists" }
+    ]
+  },
+  {
+    "name": "yaml-edge-case-description",
+    "description": "Scaffold a skill with YAML-sensitive characters in description",
+    "input": "/jx-local:create-skill --name colon-test --description \"Check: this has colons, 'quotes', and [brackets]\"",
+    "assertions": [
+      { "type": "file_exists", "path": ".claude/skills/colon-test/SKILL.md" },
+      { "type": "file_contains", "path": ".claude/skills/colon-test/SKILL.md", "contains": "name: colon-test" },
+      { "type": "file_contains", "path": ".claude/skills/colon-test/SKILL.md", "contains": "user-invocable: true" },
+      { "type": "output_contains", "contains": "Local Skill Scaffolded" }
+    ]
+  }
+]
