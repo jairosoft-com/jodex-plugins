@@ -70,7 +70,7 @@ page_count: 293
 - [[Email-Safe HTML Rendering Pattern]] — Reusable inline-styled HTML rules for email-compatible skill output (#pattern, #email, #html, #jx-pm) [raw]
 - [[Fixture-Based Specification Verification]] — Test SKILL.md specs via edge-case fixture files (#pattern, #testing, #skill, #verification) [raw]
 - [[Flag-Value Helper Antipattern]] — Helper returning full --flag value string causes double-flag bug when call site already includes the flag (#testing, #patterns, #dx) [backlogged]
-- [[Plugin Consolidation Pattern]] — Merging two plugins: move skills from source to target, retire source (#plugin, #migration, #pattern, #refactoring) [raw]
+- [[Plugin Consolidation Pattern]] — Merging two plugins: move skills, retire source, clean up global config and bytecode cache (#plugin, #migration, #pattern, #refactoring) [raw]
 - [[Per-Plugin Allowed-Tools Allowlist]] — Permission-aware scaffolding for generated command stubs (#jx-plugin, #security, #permissions) [raw]
 - [[Playwright Tests for jx-pm ADO Skills]] — Build Playwright test suite exercising ADO skills end-to-end against Azure DevOps state (#jx-pm, #jx-qa, #playwright, #ado, #testing) [backlogged]
 - [[PRD Quality Gate Filtering Fails on Doc-Only Stories]] — PRD skill incorrectly applies code quality gates to documentation-only stories (#jx-pm, #prd, #quality-gates) [backlogged]
