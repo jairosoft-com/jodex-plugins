@@ -40,6 +40,6 @@ The credential must reach the MCP server (not just the SDK process). Verify in s
 
 - [[Skill Integration Testing via Agent SDK]] — broader pattern this belongs to
 - [[Playwright Tests for jx-pm ADO Skills]] — first planned application
-- [[jx-pm]] — skill under test
+- [[Product Management Skills Plugin|jx-pm]] — skill under test
 
 ## Sources

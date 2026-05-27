@@ -77,7 +77,7 @@ Without this, test deps and fixtures are bundled when users install the plugin.
 
 ## Related
 
-- [[jx-pm]] — first skill targeted by this pattern
+- [[Product Management Skills Plugin|jx-pm]] — first skill targeted by this pattern
 - [[QA Testing Plugin|jx-qa]] — likely home for this as a reusable capability
 - [[Playwright Tests for jx-pm ADO Skills]] — implementation plan using this pattern
 - [[Read-Only Credential as Dry-Run Guard]] — companion safety pattern
