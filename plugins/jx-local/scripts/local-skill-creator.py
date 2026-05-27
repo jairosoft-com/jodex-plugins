@@ -371,6 +371,7 @@ def cmd_scaffold(args):
 
     lock_path = None
     lock_acquired = False
+    skill_dir_owned = False
     staging_dir = None
     created_dirs = []
 
@@ -411,6 +412,7 @@ def cmd_scaffold(args):
                 (extra_dir / '.gitkeep').write_text('', encoding='utf-8')
 
         shutil.move(str(staged_skill), str(skill_dir))
+        skill_dir_owned = True
 
         os.unlink(str(lock_path))
         lock_path = None
@@ -453,7 +455,7 @@ def cmd_scaffold(args):
             except Exception:
                 left_in_place.append(str(staging_dir))
 
-        if skill_dir.exists():
+        if skill_dir_owned and skill_dir.exists():
             try:
                 shutil.rmtree(str(skill_dir))
                 rolled_back.append(str(skill_dir))
