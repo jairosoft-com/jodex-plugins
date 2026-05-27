@@ -43,6 +43,10 @@ A strengthened variant where the user must type the actual target value rather t
 - `jx-core/_shared/ado.md` — `--new-tenant` requires typing "rebind" before destructive re-bind
 - `jx-core/_shared/feedback.md` — typed `{org}/{project}` confirmation before ADO Feature creation
 
+## Related Patterns
+
+- [[Plan Approval as Confirmation Gate]] — plan document approval as a substitute for interactive Phase 3 gate when the plan was adversarially reviewed
+
 ## Sources
 - [[Source - JX KB README]]
 - [[Source - Azure Boards Sync SKILL]]

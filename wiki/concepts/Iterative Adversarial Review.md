@@ -3,7 +3,7 @@ title: Iterative Adversarial Review
 type: concept
 tags: [pattern, quality, design, review]
 created: 2026-05-09
-updated: 2026-05-25
+updated: 2026-05-26
 source_count: 3
 aliases: [adversarial review loop, multi-pass review, design hardening]
 provenance: synthesis
@@ -88,6 +88,19 @@ A design-hardening pattern: submit a spec to adversarial review, resolve finding
 | 5 | Implementation review | 1 P1 (name regex in scaffold), 2 P2 (YAML escaping, json.tool permission), 2 P3 (stray artifact, wiki inventory) |
 | 6 | Post-fix review | 1 P1 (cwd confinement), 2 P2 (YAML escaping repeat, core/self target), 2 P3 (stray artifact, wiki inventory repeat) |
 | 7 | Final review | 1 P1 (plugin root confinement), 2 P2 (YAML escaping repeat, core/self repeat), 0 new |
+
+## Observed Progression (jx-plugin scaffold plan — 4 rounds)
+
+| Round | Focus | Findings |
+|-------|-------|----------|
+| 1 | Structure + README spec | 14 findings — confirmation gate, README gaps (count, sections, install/uninstall), error paths, AC weaknesses |
+| 2 | Fix-induced issues | 6 findings — path format mismatch, verify output strictness, grep limitations, collision flow conflict, rollback overstatement |
+| 3 | Remaining gaps | 3 findings — same-source collision case, README rollback missing, manifest description check |
+| 4 | Final confirmation | 0 findings — explicit "IMPLEMENTATION-READY / diminishing returns" verdict |
+
+**Exit:** Round 4 returned zero new blocking findings and the reviewer explicitly declared "IMPLEMENTATION-READY. Diminishing returns has been reached." This is the cleanest convergence signal observed — an explicit reviewer declaration rather than inference from finding count.
+
+**Key insight:** Simple scaffold/mechanical plans (fixed helper, predictable artifact list) converge in 4 rounds vs 6-10 for complex skill plans with external system interactions.
 
 ## Observed Progression (FEAT-006 meet-email skill plan — 6 rounds)
 
@@ -222,3 +235,4 @@ This suggests adversarial review is most effective when applied at each lifecycl
 - [[Source - Plugin Split Implementation Plan]]
 - [[Source - FEAT-006 Meeting Prep Email Plan]]
 - [[Source - FEAT-006 Session Insights]]
+- Session: jx-plugin scaffolding (2026-05-26)
