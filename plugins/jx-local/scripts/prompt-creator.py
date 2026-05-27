@@ -226,6 +226,12 @@ def cmd_write(args):
         _write_error('io', str(e))
         return 1
 
+    for staging in (metadata_file, body_file):
+        try:
+            os.unlink(staging)
+        except OSError:
+            pass
+
     json.dump({'created': True, 'path': str(real_target)}, sys.stdout)
     print()
     return 0

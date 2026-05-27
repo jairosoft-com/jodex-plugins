@@ -112,14 +112,9 @@ Do NOT proceed until user confirms.
 
 ### Step 4b — Write via helper (file-based data transport)
 
-All user-controlled content is passed via files, not shell args.
+All user-controlled content is passed via files, not shell args. Use the `.agent/prompts/` directory itself for staging (the helper creates it if needed).
 
-First, create a temp directory for the payload files:
-```bash
-PROMPT_TMP=$(mktemp -d "${TMPDIR:-/tmp}/jx-create-prompt.XXXXXX")
-```
-
-1. Use the **Write tool** to save metadata to `$PROMPT_TMP/metadata.json`:
+1. Use the **Write tool** to save metadata to `.agent/prompts/.metadata.json`:
    ```json
    {
      "name": "<name>",
@@ -128,19 +123,16 @@ PROMPT_TMP=$(mktemp -d "${TMPDIR:-/tmp}/jx-create-prompt.XXXXXX")
    }
    ```
 
-2. Use the **Write tool** to save body content to `$PROMPT_TMP/body.md`.
+2. Use the **Write tool** to save body content to `.agent/prompts/.body.md`.
 
-3. Invoke the helper (only file paths in shell args):
+3. Invoke the helper (only literal file paths in shell args — no shell variables):
    ```bash
    python3 "${CLAUDE_PLUGIN_ROOT}/scripts/prompt-creator.py" write \
-     --metadata-file "$PROMPT_TMP/metadata.json" \
-     --body-file "$PROMPT_TMP/body.md"
+     --metadata-file ".agent/prompts/.metadata.json" \
+     --body-file ".agent/prompts/.body.md"
    ```
 
-4. Clean up the temp directory after the helper returns (regardless of success/failure):
-   ```bash
-   rm -r "$PROMPT_TMP"
-   ```
+The helper cleans up `.metadata.json` and `.body.md` staging files after writing.
 
 On success (exit 0): proceed to Phase 5.
 On failure (exit 1): display the JSON error from stderr. If field is `collision`, the file was created between pre-check and write — inform user.
