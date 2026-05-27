@@ -129,6 +129,14 @@ def cmd_list(_args):
     return 0
 
 
+def cmd_ensure_dir(_args):
+    pd = prompts_dir()
+    pd.mkdir(parents=True, exist_ok=True)
+    json.dump({'path': str(pd.resolve())}, sys.stdout)
+    print()
+    return 0
+
+
 def cmd_write(args):
     metadata_file = None
     body_file = None
@@ -245,7 +253,7 @@ def _write_error(field, error):
 def main():
     if len(sys.argv) < 2:
         print('Usage: prompt-creator.py <subcommand> [args]', file=sys.stderr)
-        print('Subcommands: validate-name, check-collision, list, write', file=sys.stderr)
+        print('Subcommands: validate-name, check-collision, list, ensure-dir, write', file=sys.stderr)
         return 1
 
     cmd = sys.argv[1]
@@ -257,6 +265,8 @@ def main():
         return cmd_check_collision(args)
     elif cmd == 'list':
         return cmd_list(args)
+    elif cmd == 'ensure-dir':
+        return cmd_ensure_dir(args)
     elif cmd == 'write':
         return cmd_write(args)
     else:

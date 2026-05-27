@@ -112,7 +112,12 @@ Do NOT proceed until user confirms.
 
 ### Step 4b — Write via helper (file-based data transport)
 
-All user-controlled content is passed via files, not shell args. Use the `.agent/prompts/` directory itself for staging (the helper creates it if needed).
+All user-controlled content is passed via files, not shell args. Use the `.agent/prompts/` directory itself for staging.
+
+First, ensure the prompts directory exists (required on first use):
+```bash
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/prompt-creator.py" ensure-dir
+```
 
 1. Use the **Write tool** to save metadata to `.agent/prompts/.metadata.json`:
    ```json
