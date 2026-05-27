@@ -370,6 +370,7 @@ def cmd_scaffold(args):
 """
 
     lock_path = None
+    lock_acquired = False
     staging_dir = None
     created_dirs = []
 
@@ -384,6 +385,7 @@ def cmd_scaffold(args):
         lock_path = skills_dir / f'{name}.lock'
         lock_fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY)
         os.close(lock_fd)
+        lock_acquired = True
 
         if skill_dir.exists():
             os.unlink(str(lock_path))
@@ -438,7 +440,7 @@ def cmd_scaffold(args):
         rolled_back = []
         left_in_place = []
 
-        if lock_path and Path(lock_path).exists():
+        if lock_acquired and lock_path and Path(lock_path).exists():
             try:
                 os.unlink(str(lock_path))
                 rolled_back.append(str(lock_path))
