@@ -30,11 +30,15 @@ Scaffold a new skill in the user's project at `<project-root>/.claude/skills/<na
 
 ## Phase 1: Parse Arguments
 
-1. **Detect project root.** If `--project-root` provided, use it. Otherwise:
+1. **Detect project root.** If `--project-root` provided, use it. Otherwise, try `git rev-parse --show-toplevel` first; if that fails (not a git repo), fall back to `pwd`. Run each as a separate command:
    ```bash
-   PROJECT_ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+   git rev-parse --show-toplevel
    ```
-   Verify the directory exists and is a directory.
+   If that exits non-zero:
+   ```bash
+   pwd
+   ```
+   Verify the resolved directory exists and is a directory.
 
 2. **Extract `--name`.** If missing, prompt: "What should this skill be called? (lowercase, hyphens ok, e.g., `deploy-check`)"
 
@@ -68,7 +72,7 @@ On failure (JSON `"valid": false`), display the error and ask for a corrected na
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/local-skill-creator.py" check-collision <skill_name> "<PROJECT_ROOT>"
 ```
 
-Checks both `.claude/skills/<name>/` and `.claude/commands/<name>.md`. On collision (JSON `"collision": true`): display the collision details and ask user to choose a different name or confirm replacement.
+Checks both `.claude/skills/<name>/` and `.claude/commands/<name>.md`. On collision (JSON `"collision": true`): display the collision details and ask the user to choose a different name. Do not offer a replacement path — the scaffold helper does not support overwriting existing skills.
 
 ### Step 2c — Trigger conflict check
 
