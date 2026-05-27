@@ -235,10 +235,12 @@ def cmd_write(args):
         return 1
 
     for staging in (metadata_file, body_file):
-        try:
-            os.unlink(staging)
-        except OSError:
-            pass
+        staging_path = Path(staging).resolve()
+        if str(staging_path).startswith(str(real_pd) + os.sep) and staging_path.name.startswith('.'):
+            try:
+                os.unlink(str(staging_path))
+            except OSError:
+                pass
 
     json.dump({'created': True, 'path': str(real_target)}, sys.stdout)
     print()
