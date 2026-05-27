@@ -130,9 +130,16 @@ def cmd_list(_args):
 
 
 def cmd_ensure_dir(_args):
-    pd = prompts_dir()
+    root = resolve_root()
+    real_root = root.resolve()
+    pd = root / PROMPTS_DIR
     pd.mkdir(parents=True, exist_ok=True)
-    json.dump({'path': str(pd.resolve())}, sys.stdout)
+    real_pd = pd.resolve()
+    if not str(real_pd).startswith(str(real_root) + os.sep):
+        json.dump({'error': f'prompts directory {real_pd} escapes project root {real_root}'}, sys.stderr)
+        print('', file=sys.stderr)
+        return 1
+    json.dump({'path': str(real_pd)}, sys.stdout)
     print()
     return 0
 
@@ -194,12 +201,17 @@ def cmd_write(args):
             return 1
 
     root = resolve_root()
+    real_root = root.resolve()
     pd = root / PROMPTS_DIR
     pd.mkdir(parents=True, exist_ok=True)
 
+    real_pd = pd.resolve()
+    if not str(real_pd).startswith(str(real_root) + os.sep):
+        _write_error('path-escape', f'prompts directory {real_pd} escapes project root {real_root}')
+        return 1
+
     target = pd / f'{name}.md'
     real_target = target.resolve()
-    real_pd = pd.resolve()
     if not str(real_target).startswith(str(real_pd) + os.sep):
         _write_error('path-escape', f'resolved path {real_target} escapes prompts directory')
         return 1
