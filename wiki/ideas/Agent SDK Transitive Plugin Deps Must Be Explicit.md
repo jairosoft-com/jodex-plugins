@@ -3,6 +3,7 @@ title: Agent SDK Transitive Plugin Deps Must Be Explicit
 type: idea
 tags: [agent-sdk, plugins, testing, jx-pm, skill-runner]
 created: 2026-05-22
+updated: 2026-05-22
 source_count: 0
 provenance: session-observation
 status: raw

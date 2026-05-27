@@ -11,7 +11,7 @@ provenance: synthesis
 
 # Plugin Scaffolding Plugin (jx-plugin)
 
-`jx-plugin` is a skeleton plugin in the [[Jodex Plugin Marketplace]] for future Claude Code plugin scaffolding, validation, and publishing tools. Scaffolded 2026-05-26 via [[jx-skill]]'s `create-plugin` skill.
+`jx-plugin` is a skeleton plugin in the [[Jodex Plugin Marketplace]] for future Claude Code plugin scaffolding, validation, and publishing tools. Scaffolded 2026-05-26 via [[Plugin Scaffolding Plugin|jx-skill]]'s `create-plugin` skill.
 
 ## Status
 
@@ -29,7 +29,7 @@ Add the first skill with `/jx-skill:create --plugin jx-plugin`.
 
 ## Related
 
-- [[jx-skill]] — used to scaffold this plugin
+- [[Plugin Scaffolding Plugin|jx-skill]] — used to scaffold this plugin
 - [[Jodex Plugin Marketplace]] — marketplace this plugin is registered in
 - [[Plugin Architecture]] — underlying format
 - [[Skeleton-Honest Plugin Description Convention]] — naming decision applied during this scaffold

@@ -4,6 +4,7 @@ type: code
 status: backlog
 tags: [testing, evals, skills, automation, dx]
 created: 2026-05-23
+updated: 2026-05-23
 ---
 
 # Eval Runner for Skill Assertions

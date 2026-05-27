@@ -4,6 +4,16 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-26 — Lint
+
+- **Operation**: lint
+- **Errors found**: 34 (5 broken links, 20 missing index entries, 9 missing frontmatter)
+- **Warnings found**: 40 (orphan pages)
+- **Info found**: 0
+- **Auto-fixes applied**: 3 (20 index entries added, 5 broken wikilinks fixed, 9 updated fields added)
+- **Health score**: 0/100 → ~60/100 (post-fix estimate)
+- **Outcome**: Report generated, auto-fixes applied
+
 ## 2026-05-26 — Session Insights: jx-plugin scaffolding
 
 - **Operation**: insights

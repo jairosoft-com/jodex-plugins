@@ -3,6 +3,7 @@ title: maxTurns Floor for jx-pm ADO Skill
 type: idea
 tags: [jx-pm, agent-sdk, testing, performance, skill-runner]
 created: 2026-05-22
+updated: 2026-05-22
 source_count: 0
 provenance: session-observation
 status: raw

@@ -3,6 +3,7 @@ title: Self-Contained Documents via Metadata Persistence
 type: idea
 tags: [skill-design, metadata, portability, design-pattern, jx-core]
 created: 2026-05-22
+updated: 2026-05-22
 status: raw
 source: Quality gates polyglot plan, Codex R2 (2026-05-20)
 ---

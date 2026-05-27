@@ -3,6 +3,7 @@ title: ADO Work Item IDs Are Not PRD Feature IDs
 type: idea
 tags: [ado, testing, fixtures, cleanup, jx-pm]
 created: 2026-05-22
+updated: 2026-05-22
 source_count: 0
 provenance: session-observation
 status: raw

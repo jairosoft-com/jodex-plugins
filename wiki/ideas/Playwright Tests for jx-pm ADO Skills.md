@@ -12,7 +12,7 @@ status: backlogged
 
 # Playwright Tests for jx-pm ADO Skills
 
-Build a Playwright test suite that exercises [[jx-pm]] ADO skills end-to-end — run the skill, then assert state in Azure DevOps.
+Build a Playwright test suite that exercises [[Product Management Skills Plugin|jx-pm]] ADO skills end-to-end — run the skill, then assert state in Azure DevOps.
 
 ## Motivation
 
@@ -36,7 +36,7 @@ Build a Playwright test suite that exercises [[jx-pm]] ADO skills end-to-end —
 
 ## Related
 
-- [[jx-pm]] — plugin under test
+- [[Product Management Skills Plugin|jx-pm]] — plugin under test
 - [[Direct PRD-to-ADO Sync Without task.json]] — refactor that changes sync contract; tests should follow
 - [[Dry-Run Gate Must Include Explicit Docs-Root]] — dry-run safety behavior to cover
 - [[QA Testing Plugin|jx-qa]] — possible home for the test suite
