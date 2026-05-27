@@ -377,10 +377,9 @@ def cmd_scaffold(args):
     try:
         skills_dir.mkdir(parents=True, exist_ok=True)
         if not skills_dir_existed:
-            created_dirs.append(str(skills_dir))
             claude_dir = root / '.claude'
-            if str(claude_dir) not in created_dirs:
-                created_dirs.append(str(claude_dir))
+            created_dirs.append(str(claude_dir))
+            created_dirs.append(str(skills_dir))
 
         lock_path = skills_dir / f'{name}.lock'
         lock_fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY)
