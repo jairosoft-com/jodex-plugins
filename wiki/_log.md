@@ -4,6 +4,16 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-27 — Session Insights: jx-local create-prompt
+
+- **Operation**: insights
+- **Label**: jx-local create-prompt plan + code review
+- **Pages created**: [[File-Based Data Transport]], [[POSIX Atomic No-Overwrite via os.link]], [[Plan vs Code Review Complementarity]], [[Staging File Deletion Confinement]], [[Ensure-Dir Bootstrap Pattern]]
+- **Pages updated**: (none)
+- **Ideas extracted**: 5
+- **Conflicts flagged**: 0
+- **Cross-references added**: 5 (inter-idea links)
+
 ## 2026-05-26 — Session Insights: doctor-fix cleanup
 
 - **Operation**: insights
