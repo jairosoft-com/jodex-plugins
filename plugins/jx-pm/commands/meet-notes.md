@@ -1,9 +1,9 @@
 ---
-description: a skill for creating a meeting notes and capturing note as it comes
-argument-hint: ""
-allowed-tools: Read
+description: Capture meeting notes incrementally — attendees, discussion, decisions, action items.
+argument-hint: "[--date YYYY-MM-DD] [--from-prep]"
+allowed-tools: Read, Glob, Write, Bash(mkdir:*), Bash(mv:*), Bash(rm:*)
 ---
 
-a skill for creating a meeting notes and capturing note as it comes using the `jx-pm:meet-notes` skill.
+Capture meeting notes using the `jx-pm:meet-notes` skill.
 
 $ARGUMENTS

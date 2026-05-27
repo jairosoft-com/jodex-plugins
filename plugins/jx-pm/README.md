@@ -14,6 +14,7 @@ Generate PRDs and sync to Azure Boards.
 | ado | `/jx-pm:ado` | Sync PRD to Azure Boards (Feature → Stories hierarchy) |
 | pipeline | `/jx-pm:pipeline` | Run PRD generation (reduced — see full workflow below) |
 | meet-pre | `/jx-pm:meet-pre` | Generate daily meeting preparation from Azure Boards |
+| meet-notes | `/jx-pm:meet-notes` | Capture meeting notes with decisions and action items |
 | meet-email | `/jx-pm:meet-email` | Email the meeting preparation as styled HTML via Graph API |
 | feedback | `/jx-pm:feedback` | Capture feedback and create ADO Feature work item |
 

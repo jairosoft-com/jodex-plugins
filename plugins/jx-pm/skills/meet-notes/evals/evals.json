@@ -1,1 +1,48 @@
-[]
+[
+  {
+    "name": "meet-notes-happy-path",
+    "description": "Invoke meet-notes with a date flag — verify draft file created with correct naming and template sections",
+    "input": "/jx-pm:meet-notes --date 2026-06-01",
+    "assertions": [
+      { "type": "file_exists", "path": "wiki/raw/meeting_notes/.draft-2026-06-01-*.md" },
+      { "type": "file_contains", "path": "wiki/raw/meeting_notes/.draft-2026-06-01-*.md", "contains": "# Meeting Notes — 2026-06-01" },
+      { "type": "file_contains", "path": "wiki/raw/meeting_notes/.draft-2026-06-01-*.md", "contains": "**Meeting Date:**" },
+      { "type": "file_contains", "path": "wiki/raw/meeting_notes/.draft-2026-06-01-*.md", "contains": "**Attendees:**" },
+      { "type": "file_contains", "path": "wiki/raw/meeting_notes/.draft-2026-06-01-*.md", "contains": "**Generated:**" },
+      { "type": "file_contains", "path": "wiki/raw/meeting_notes/.draft-2026-06-01-*.md", "contains": "## Agenda" },
+      { "type": "file_contains", "path": "wiki/raw/meeting_notes/.draft-2026-06-01-*.md", "contains": "## Discussion" },
+      { "type": "file_contains", "path": "wiki/raw/meeting_notes/.draft-2026-06-01-*.md", "contains": "## Decisions" },
+      { "type": "file_contains", "path": "wiki/raw/meeting_notes/.draft-2026-06-01-*.md", "contains": "## Action Items" },
+      { "type": "file_contains", "path": "wiki/raw/meeting_notes/.draft-2026-06-01-*.md", "contains": "## Related" },
+      { "type": "output_contains", "contains": "Meeting notes" }
+    ]
+  },
+  {
+    "name": "meet-notes-template-tables",
+    "description": "Verify the initial draft has correct table column headers for Decisions and Action Items",
+    "input": "/jx-pm:meet-notes --date 2026-06-02",
+    "assertions": [
+      { "type": "file_exists", "path": "wiki/raw/meeting_notes/.draft-2026-06-02-*.md" },
+      { "type": "file_contains", "path": "wiki/raw/meeting_notes/.draft-2026-06-02-*.md", "contains": "| # | Decision | Context |" },
+      { "type": "file_contains", "path": "wiki/raw/meeting_notes/.draft-2026-06-02-*.md", "contains": "| # | Action | Owner | Due | Status |" }
+    ]
+  },
+  {
+    "name": "meet-notes-empty-sections-placeholder",
+    "description": "Verify empty sections in the initial draft use (none) placeholder, not blank",
+    "input": "/jx-pm:meet-notes --date 2026-06-03",
+    "assertions": [
+      { "type": "file_exists", "path": "wiki/raw/meeting_notes/.draft-2026-06-03-*.md" },
+      { "type": "file_contains", "path": "wiki/raw/meeting_notes/.draft-2026-06-03-*.md", "contains": "(none)" }
+    ]
+  },
+  {
+    "name": "meet-notes-section-order",
+    "description": "Verify H2 sections appear in canonical order: Agenda, Discussion, Decisions, Action Items, Related",
+    "input": "/jx-pm:meet-notes --date 2026-06-04",
+    "assertions": [
+      { "type": "file_exists", "path": "wiki/raw/meeting_notes/.draft-2026-06-04-*.md" },
+      { "type": "file_contains_ordered", "path": "wiki/raw/meeting_notes/.draft-2026-06-04-*.md", "ordered": ["## Agenda", "## Discussion", "## Decisions", "## Action Items", "## Related"] }
+    ]
+  }
+]
