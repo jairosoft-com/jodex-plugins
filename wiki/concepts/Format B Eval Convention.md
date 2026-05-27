@@ -40,13 +40,13 @@ The repo-standard format for `evals.json` files in [[Skill]] directories. Each e
 
 ## Reference Implementations
 
-- `plugins/jx-skill/skills/create/evals/evals.json` — skill scaffolder (8 assertions per case)
-- `plugins/jx-skill/skills/create-plugin/evals/evals.json` — plugin scaffolder
+- `plugins/jx-plugin/skills/create/evals/evals.json` — skill scaffolder (8 assertions per case)
+- `plugins/jx-plugin/skills/create-plugin/evals/evals.json` — plugin scaffolder
 - `plugins/jx-pm/skills/meet-notes/evals/evals.json` — meeting notes (4 test cases)
 
 ## Discovery
 
-Identified when a Gemini cross-model handoff flagged an invented `prompt`/`assertion` string format as non-standard. The existing repo convention was already established in jx-skill evals but had not been documented as a named pattern. See [[Cross-Model Handoff Evaluation]].
+Identified when a Gemini cross-model handoff flagged an invented `prompt`/`assertion` string format as non-standard. The existing repo convention was already established in jx-plugin evals but had not been documented as a named pattern. See [[Cross-Model Handoff Evaluation]].
 
 ## Related
 

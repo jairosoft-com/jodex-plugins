@@ -1,7 +1,7 @@
 ---
 title: plugin-creator.py
 type: code
-tags: [script, python, helper, jx-skill, plugin-scaffolding]
+tags: [script, python, helper, jx-plugin, plugin-scaffolding]
 created: 2026-05-20
 updated: 2026-05-20
 source_count: 0
@@ -11,11 +11,11 @@ provenance: synthesis
 
 # plugin-creator.py
 
-[[Pinned Helper]] script for `/jx-skill:create-plugin`. It creates a new Jodex plugin skeleton and appends the corresponding root [[Marketplace]] entry without giving the slash command broad write permissions.
+[[Pinned Helper]] script for `/jx-plugin:create-plugin`. It creates a new Jodex plugin skeleton and appends the corresponding root [[Marketplace]] entry without giving the slash command broad write permissions.
 
 ## Location
 
-`plugins/jx-skill/scripts/plugin-creator.py`
+`plugins/jx-plugin/scripts/plugin-creator.py`
 
 ## Commands
 
@@ -35,7 +35,7 @@ The helper intentionally creates only package-level scaffolding:
 - `plugins/<plugin>/{commands,skills,scripts,agents,hooks,prompts,schemas}/ABOUT.md`
 - `.claude-plugin/marketplace.json` entry with `source: "./plugins/<plugin>"`
 
-It does not create command stubs, skill stubs, dependencies, or first-skill content. The generated README points the user to `/jx-skill:create --plugin <plugin>` for the first real skill.
+It does not create command stubs, skill stubs, dependencies, or first-skill content. The generated README points the user to `/jx-plugin:create-skill --plugin <plugin>` for the first real skill.
 
 ## Safety Contract
 
@@ -48,7 +48,7 @@ It does not create command stubs, skill stubs, dependencies, or first-skill cont
 
 ## Session Insight
 
-For plugin scaffolding, the safest v1 is package skeleton plus marketplace registration only. Generating a command or empty `SKILL.md` would create a discoverable user-facing surface before behavior exists. Splitting plugin creation from first-skill creation keeps `/jx-skill:create-plugin` focused on structural correctness and lets `/jx-skill:create` own trigger and command behavior.
+For plugin scaffolding, the safest v1 is package skeleton plus marketplace registration only. Generating a command or empty `SKILL.md` would create a discoverable user-facing surface before behavior exists. Splitting plugin creation from first-skill creation keeps `/jx-plugin:create-plugin` focused on structural correctness and lets `/jx-plugin:create-skill` own trigger and command behavior.
 
 ## Related
 

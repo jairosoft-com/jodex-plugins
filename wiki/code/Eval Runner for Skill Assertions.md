@@ -14,7 +14,7 @@ Build an automated runner that reads `evals/evals.json` from any skill directory
 
 ## Context
 
-Every skill scaffolded by `/jx-skill:create` gets an `evals/evals.json` file, but nothing in the project actually reads or executes them. Evals are passive documentation — contracts without enforcement.
+Every skill scaffolded by `/jx-plugin:create-skill` gets an `evals/evals.json` file, but nothing in the project actually reads or executes them. Evals are passive documentation — contracts without enforcement.
 
 ### Current State
 
@@ -30,7 +30,7 @@ Every skill scaffolded by `/jx-skill:create` gets an `evals/evals.json` file, bu
 - Assertions are prose descriptions (e.g., "Generated file uses semantic locators")
 - Not machine-checkable without LLM-as-judge
 
-**Format B** (jx-kb, jx-skill):
+**Format B** (jx-kb, jx-plugin):
 - Plain array: `[ ...evals ]`
 - Assertions have typed checks: `output_contains`, `file_exists`, `file_not_exists`, `file_contains`
 - Machine-checkable with simple string/file operations

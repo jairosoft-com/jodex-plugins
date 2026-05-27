@@ -1,7 +1,7 @@
 ---
 title: Plugin Scaffolding Plugin
 type: plugin
-tags: [plugin, scaffolding, jx-skill, skeleton]
+tags: [plugin, scaffolding, jx-plugin]
 created: 2026-05-26
 updated: 2026-05-26
 source_count: 0
@@ -11,30 +11,27 @@ provenance: synthesis
 
 # Plugin Scaffolding Plugin (jx-plugin)
 
-`jx-plugin` is a skeleton plugin in the [[Jodex Plugin Marketplace]] for future Claude Code plugin scaffolding, validation, and publishing tools. Scaffolded 2026-05-26 via [[Plugin Scaffolding Plugin|jx-skill]]'s `create-plugin` skill.
+`jx-plugin` is the skill and plugin scaffolding plugin in the [[Jodex Plugin Marketplace]]. It provides convention enforcement, trigger uniqueness checking, and marketplace registration for new skills and plugins.
 
-## Status
+## Commands
 
-Skeleton only — no commands or skills yet.
-
-## Next Step
-
-Add the first skill with `/jx-skill:create --plugin jx-plugin`.
+- `/jx-plugin:create-skill` — scaffold a new skill inside an existing plugin
+- `/jx-plugin:create-plugin` — scaffold a new plugin skeleton and register it in the marketplace
 
 ## Key Claims
 
-- Description: "Plugin skeleton — scaffolding, validation, and publishing tools (in development)"
+- Description: "Skill and plugin scaffolding: create skills inside existing Jodex plugins and new plugin skeletons with marketplace registration."
 - Category: `productivity`, Author: `Jairosoft`, Version: `1.0.0`
-- Scaffolded and merged to `main` in one session; plan hardened through 4-round [[Iterative Adversarial Review]] (14→6→3→0 findings)
+- Originally scaffolded as skeleton (2026-05-26); skills migrated from `jx-skill` plugin which was then retired
 
 ## Related
 
-- [[Plugin Scaffolding Plugin|jx-skill]] — used to scaffold this plugin
 - [[Jodex Plugin Marketplace]] — marketplace this plugin is registered in
 - [[Plugin Architecture]] — underlying format
-- [[Skeleton-Honest Plugin Description Convention]] — naming decision applied during this scaffold
-- [[Plan Approval as Confirmation Gate]] — pattern used to satisfy the SKILL.md Phase 3 confirmation gate
+- [[Skill Creator for Jodex Plugins]] — backlog item for the create-skill capability
+- [[Automate Plugin Creation Like Skill Creation]] — backlog item for the create-plugin capability
 
 ## Sources
 
 - Session: jx-plugin scaffolding (2026-05-26)
+- Session: jx-skill to jx-plugin migration (2026-05-26)

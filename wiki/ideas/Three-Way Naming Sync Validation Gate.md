@@ -1,7 +1,7 @@
 ---
 title: Three-Way Naming Sync Validation Gate
 type: idea
-tags: [jx-skill, plugins, validation, marketplace]
+tags: [jx-plugin, plugins, validation, marketplace]
 created: 2026-05-20
 updated: 2026-05-20
 source_count: 0
@@ -12,7 +12,7 @@ status: completed
 
 # Three-Way Naming Sync Validation Gate
 
-Add a post-scaffold validation step to `/jx-skill:create` (or future `/jx-skill:validate`) that verifies 3-way naming sync: directory name = plugin.json name = marketplace.json name.
+Add a post-scaffold validation step to `/jx-plugin:create-skill` (or future `/jx-plugin:validate`) that verifies 3-way naming sync: directory name = plugin.json name = marketplace.json name.
 
 ## Motivation
 
@@ -22,7 +22,7 @@ Add a post-scaffold validation step to `/jx-skill:create` (or future `/jx-skill:
 
 ## Context
 
-Surfaced during Codex adversarial review of `/jx-skill:create` plan (round 4). Not a v1 blocker — the jx-skill plugin itself is fully packaged in the plan with correct naming. This is about the *scaffolded output* for future plugins, which is deferred scope (v1 is skill-only).
+Surfaced during Codex adversarial review of `/jx-plugin:create-skill` plan (round 4). Not a v1 blocker — the jx-plugin plugin itself is fully packaged in the plan with correct naming. This is about the *scaffolded output* for future plugins, which is deferred scope (v1 is skill-only).
 
 ## Sources
 

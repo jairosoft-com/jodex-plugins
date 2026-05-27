@@ -2,4 +2,5 @@
 
 User-facing slash command wrappers for this plugin.
 
-Add the first command by creating a skill with `/jx-skill:create --plugin jx-plugin`.
+- `create-skill.md` — `/jx-plugin:create-skill`
+- `create-plugin.md` — `/jx-plugin:create-plugin`

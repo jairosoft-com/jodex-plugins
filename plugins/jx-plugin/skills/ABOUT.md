@@ -2,4 +2,5 @@
 
 Skill folders with SKILL.md instructions and optional evals.
 
-Add the first skill with `/jx-skill:create --plugin jx-plugin`.
+- `create-skill/` — scaffold a new skill inside an existing plugin
+- `create-plugin/` — scaffold a new plugin skeleton and register it in the marketplace

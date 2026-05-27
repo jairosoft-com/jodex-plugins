@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-26
-page_count: 292
+page_count: 293
 ---
 
 # Wiki Index
@@ -16,7 +16,7 @@ page_count: 292
 - [[Agent SDK query() Message Type Structure]] — Agent SDK query() yields messages with distinct types for capturing skill output and verifying plugin loads (#agent-sdk, #testing) [raw]
 - [[Algorithm Redesign Over Permission Expansion]] — Prefer narrowing algorithm tool requirements over expanding command permissions (#skill-design, #security, #permissions) [raw]
 - [[Automated Backlog Staleness Audit]] — Manual audit found 29% of backlogged ideas were already implemented, revealing phantom work (#jx-kb, #wiki, #backlog) [backlogged]
-- [[Automate Plugin Creation Like Skill Creation]] — `/jx-skill:create-plugin` scaffolds plugin skeletons and marketplace entries with pinned-helper safety (#jx-skill, #plugin, #scaffolding) [backlogged P1]
+- [[Automate Plugin Creation Like Skill Creation]] — `/jx-plugin:create-plugin` scaffolds plugin skeletons and marketplace entries with pinned-helper safety (#jx-plugin, #plugin, #scaffolding) [backlogged P1]
 - [[Conditional AC Format Selection (Promoted)]] — AC format should match story type: G/W/T for journeys, checklist for constraints, system state for backend (#acceptance-criteria, #prd, #jx-pm) [promoted]
 - [[Downstream Contract Audit for Skill Output Changes]] — Audit all downstream consumers when changing a skill's output format; PRD change cascaded to 5+ files (#skill-design, #contracts) [backlogged P2]
 - [[Static Clarifying Questions in PRD Skill]] — Phase 3 questions are identical regardless of domain; no customization or conditional follow-ups (#jx-pm, #prd, #hardcoded) [backlogged]
@@ -60,7 +60,7 @@ page_count: 292
 - [[Over-Grooming Anti-Pattern]] — Grooming failure mode where scope inflates beyond requestor's intent (#pattern, #wiki, #idea-lifecycle, #anti-pattern) [backlogged P2]
 - [[Plan Approval as Confirmation Gate]] — Adversarially-reviewed plan approval satisfies the SKILL.md Phase 3 User Confirmation Gate (#pattern, #skill-design, #confirmation-gate, #plan) [raw]
 - [[Wrong-Tenant Filing as Tenant Binding Validation]] — Feedback skill filed to wrong ADO project when feedback-target.json missing (#jx-pm, #ado, #tenant-binding, #incident) [backlogged P2]
-- [[Skill Creator for Jodex Plugins]] — `/jx-skill:create` in new jx-skill plugin; scaffolds skills with convention enforcement and validation (#developer-experience, #plugins, #tooling, #jx-skill) [backlogged P1]
+- [[Skill Creator for Jodex Plugins]] — `/jx-plugin:create-skill` in jx-plugin; scaffolds skills with convention enforcement and validation (#developer-experience, #plugins, #tooling, #jx-plugin) [backlogged P1]
 - [[Skill Integration Testing via Agent SDK]] — Pattern for testing Claude Code skills programmatically using Agent SDK with message capture (#jx-qa, #testing, #agent-sdk) [backlogged]
 - [[Structured Feature Description Template for ADO]] — ADO Feature description should be structured instead of raw Executive Summary prose (#jx-pm, #jx-core, #ado, #template) [completed]
 - [[Fix Promotion Rename Link Retargeting]] — Idea promotion renames silently retarget historical log wikilinks (#wiki, #lint, #promotion, #wikilinks) [raw]
@@ -70,19 +70,20 @@ page_count: 292
 - [[Email-Safe HTML Rendering Pattern]] — Reusable inline-styled HTML rules for email-compatible skill output (#pattern, #email, #html, #jx-pm) [raw]
 - [[Fixture-Based Specification Verification]] — Test SKILL.md specs via edge-case fixture files (#pattern, #testing, #skill, #verification) [raw]
 - [[Flag-Value Helper Antipattern]] — Helper returning full --flag value string causes double-flag bug when call site already includes the flag (#testing, #patterns, #dx) [backlogged]
-- [[Per-Plugin Allowed-Tools Allowlist]] — Permission-aware scaffolding for generated command stubs (#jx-skill, #security, #permissions) [raw]
+- [[Plugin Consolidation Pattern]] — Merging two plugins: move skills from source to target, retire source (#plugin, #migration, #pattern, #refactoring) [raw]
+- [[Per-Plugin Allowed-Tools Allowlist]] — Permission-aware scaffolding for generated command stubs (#jx-plugin, #security, #permissions) [raw]
 - [[Playwright Tests for jx-pm ADO Skills]] — Build Playwright test suite exercising ADO skills end-to-end against Azure DevOps state (#jx-pm, #jx-qa, #playwright, #ado, #testing) [backlogged]
 - [[PRD Quality Gate Filtering Fails on Doc-Only Stories]] — PRD skill incorrectly applies code quality gates to documentation-only stories (#jx-pm, #prd, #quality-gates) [backlogged]
-- [[Three-Way Naming Sync Validation Gate]] — Automated 3-way naming sync check for plugin scaffolding (#jx-skill, #plugins, #validation) [raw]
-- [[Escape User Descriptions in Scaffold Frontmatter]] — Quote/escape descriptions with YAML-special chars in generated stubs (#jx-skill, #yaml, #safety) [raw]
-- [[Update Wiki Inventory for Six-Plugin Marketplace]] — Update stale plugin-count references across wiki; now seven plugins: jx-qa, jx-kb, jx-pm, jx-dev, jx-core, jx-skill, jx-plugin (#wiki, #plugins, #inventory) [backlogged]
-- [[Reject Core and Self Plugin Targets in Scaffold]] — Block --plugin jx-core and --plugin jx-skill via flag bypass (#jx-skill, #validation, #safety) [raw]
+- [[Three-Way Naming Sync Validation Gate]] — Automated 3-way naming sync check for plugin scaffolding (#jx-plugin, #plugins, #validation) [raw]
+- [[Escape User Descriptions in Scaffold Frontmatter]] — Quote/escape descriptions with YAML-special chars in generated stubs (#jx-plugin, #yaml, #safety) [raw]
+- [[Update Wiki Inventory for Six-Plugin Marketplace]] — Update stale plugin-count references across wiki; now six plugins: jx-qa, jx-kb, jx-pm, jx-dev, jx-core, jx-plugin (#wiki, #plugins, #inventory) [backlogged]
+- [[Reject Core and Self Plugin Targets in Scaffold]] — Block --plugin jx-core and --plugin jx-plugin via flag bypass (#jx-plugin, #validation, #safety) [raw]
 - [[Worktree Cleanup Skill as PM Workflow Capstone]] — clean-worktree as the closing step in the PM-to-delivery pipeline (#jx-pm, #worktree, #workflow) [raw]
 - [[Worktree Isolation Guard Needs Initialized Worktree]] — Background session bg-isolation guard blocks edits when worktree path exists as directory but not as git worktree (#worktree, #background-session, #troubleshooting) [raw]
-- [[Skill Creator Validates End-to-End Before Writing]] — Validate-all-then-confirm-then-write pattern in /jx-skill:create (#jx-skill, #validation, #design-pattern) [raw]
+- [[Skill Creator Validates End-to-End Before Writing]] — Validate-all-then-confirm-then-write pattern in /jx-plugin:create-skill (#jx-plugin, #validation, #design-pattern) [raw]
 - [[Skeleton-Honest Plugin Description Convention]] — Use "Plugin skeleton — X (in development)" wording until first skill ships (#plugin, #naming, #marketplace, #skeleton) [raw]
 - [[Surgical Rollback Pattern]] — Prefer targeted operation-scoped undo over broad git checkout that discards unrelated changes (#pattern, #rollback, #safety, #git) [raw]
-- [[Scaffolded Skills Need Allowed-Tools Expansion]] — Default allowed-tools: Read too narrow for git/shell skills; consider --allowed-tools flag (#jx-skill, #scaffolding, #allowed-tools) [raw]
+- [[Scaffolded Skills Need Allowed-Tools Expansion]] — Default allowed-tools: Read too narrow for git/shell skills; consider --allowed-tools flag (#jx-plugin, #scaffolding, #allowed-tools) [raw]
 - [[Meeting Workflow Triad in jx-pm]] — meet-pre → meet-notes → meet-email forms a complete prepare/capture/distribute lifecycle (#jx-pm, #meeting, #workflow, #pattern) [raw]
 - [[Real-Time Capture as Skill Pattern]] — Interactive capture during ongoing activity; different from batch generation or data-pull skills (#skill-design, #pattern, #interactive) [raw]
 
@@ -134,7 +135,7 @@ page_count: 292
 - [[Memory vs Wiki Separation]] — When to use agent memory vs wiki pages (#architecture, #persistence)
 - [[Mode Flag Pattern]] — Merge N similar skills into 1 with --mode flag when 80%+ structure shared (#pattern, #plugin)
 - [[Multi-Phase Skill]] — Structural pattern: numbered phases with gates (#pattern, #architecture)
-- [[Naming Ripple Effect]] — How marketplace/plugin renames cascade through the system (#pattern, #naming)
+- [[Naming Ripple Effect]] — How marketplace/plugin renames and skill migrations cascade through the system (#pattern, #naming, #migration)
 - [[Requirement ID System]] — {TYPE}-{feature_number}-{seq} format with global AC counter (#pattern, #requirements)
 - [[NotebookLM Integration]] — Associated NotebookLM notebooks and capabilities (#notebooklm, #tooling)
 - [[NotebookLM Research Oracle]] — Querying NotebookLM as external knowledge source during wiki work (#pattern, #research)
@@ -206,7 +207,7 @@ page_count: 292
 ## Plugins
 
 - [[Core Shared Conventions Plugin|jx-core]] — Reference-only shared conventions for PM and developer plugins (#plugin, #shared-conventions)
-- [[Plugin Scaffolding Plugin|jx-plugin]] — Skeleton plugin for future Claude Code plugin scaffolding, validation, and publishing tools (#plugin, #scaffolding, #skeleton)
+- [[Plugin Scaffolding Plugin|jx-plugin]] — Skill and plugin scaffolding with convention enforcement and marketplace registration (#plugin, #scaffolding)
 - [[Developer Skills Plugin|jx-dev]] — Technical specification and task breakdown workflows (#plugin, #developer)
 - [[Knowledge Base Plugin|jx-kb]] — LLM-maintained knowledge base plugin for Claude Code (#knowledge-base, #wiki)
 - [[Product Management Skills Plugin|jx-pm]] — PRD generation, pipeline orchestration, Azure Boards sync, and daily meeting preparation (#plugin, #product-management) [active]
@@ -239,7 +240,7 @@ page_count: 292
 - [[JX QA Onboarding]] — QA user setup guide for installing jx-qa and jx-kb, initializing a project wiki, and running Playwright workflows (#jx-qa, #onboarding, #setup, #playwright)
 - [[JX QA Workflow]] — Day-to-day numbered walkthrough of the jx-qa pipeline: extract → generate → test (#jx-qa, #workflow, #process)
 - [[Eval Runner for Skill Assertions]] — Automated eval runner design: discover evals, execute via `claude -p`, check typed assertions, report pass/fail (#testing, #evals, #skills, #automation)
-- [[plugin-creator.py]] — Pinned helper script for jx-skill plugin skeleton scaffolding (#script, #python, #jx-skill)
+- [[plugin-creator.py]] — Pinned helper script for jx-plugin plugin skeleton scaffolding (#script, #python, #jx-plugin)
 - [[wiki-tools.py]] — Pinned helper script for jx-kb plugin (#script, #python)
 - [[xlsx-writer.py]] — Pinned helper script for jx-qa plugin (#script, #python)
 

@@ -4,6 +4,6 @@ argument-hint: "[--plugin <jx-name>] [--description \"...\"] [--category <produc
 allowed-tools: Bash(python3 "${CLAUDE_PLUGIN_ROOT}/scripts/plugin-creator.py":*), Bash(python3 -m json.tool:*), Bash(ls:*), Read
 ---
 
-Scaffold a new plugin skeleton using the `jx-skill:create-plugin` skill.
+Scaffold a new plugin skeleton using the `jx-plugin:create-plugin` skill.
 
 $ARGUMENTS

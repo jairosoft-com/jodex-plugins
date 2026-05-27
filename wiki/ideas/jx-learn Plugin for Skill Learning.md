@@ -28,13 +28,13 @@ New plugin `jx-learn` that teaches users how to use and build within the Geodex/
 ## Open Questions
 
 - Format: guided walkthrough vs Q&A vs example-critique?
-- Does `/jx-learn:write-skill` use `jx-skill:create` under the hood as a live exercise?
+- Does `/jx-learn:write-skill` use `jx-plugin:create-skill` under the hood as a live exercise?
 - Output artifact: does the learner produce a real skill by the end?
 - Where does `jx-learn` live in the marketplace?
 
 ## Related
 
-- [[Plugin Scaffolding Plugin|jx-skill]] — scaffolding plugin that could serve as the hands-on exercise for `write-skill`
+- [[Plugin Scaffolding Plugin|jx-plugin]] — scaffolding plugin that could serve as the hands-on exercise for `write-skill`
 - [[Skill]] — concept being taught
 - [[Automate Plugin Creation Like Skill Creation]] — related DX initiative
 - [[Claude CLI Training Course]] — adjacent onboarding idea

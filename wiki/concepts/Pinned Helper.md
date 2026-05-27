@@ -26,7 +26,7 @@ This means the LLM can only run that one script with any arguments — it cannot
 
 - [[wiki-tools.py]] — stdlib-only Python helper for the [[Knowledge Base Plugin|jx-kb]] plugin
 - `xlsx-writer.py` — openpyxl helper for the [[QA Testing Plugin|jx-qa]] plugin
-- `skill-creator.py` — stdlib-only Python helper for the jx-skill plugin
+- `skill-creator.py` — stdlib-only Python helper for the jx-plugin plugin
 
 ## Why It Matters
 

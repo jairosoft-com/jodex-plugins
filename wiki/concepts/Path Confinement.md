@@ -41,13 +41,13 @@ def confine_to_project_root(user_path):
 
 For write operations, confine output paths under the *target directory* (e.g., the plugin being scaffolded), not under cwd. Use `confine_under(plugin_path, output_path)` for the security-critical check.
 
-Discovered during [[Iterative Adversarial Review]] of the jx-skill scaffolder — Codex flagged that `check-collision` and `scaffold` subcommands would reject valid plugin paths when invoked from any directory other than the repo root.
+Discovered during [[Iterative Adversarial Review]] of the jx-plugin scaffolder — Codex flagged that `check-collision` and `scaffold` subcommands would reject valid plugin paths when invoked from any directory other than the repo root.
 
 ## Used By
 
 - [[wiki-tools.py]] — validates all paths before file operations
 - [[Knowledge Base Plugin|jx-kb]] plugin — all source paths checked during [[Ingest]]
-- jx-skill plugin — confines scaffold output under target plugin directory
+- jx-plugin plugin — confines scaffold output under target plugin directory
 
 ## Sources
 - [[Source - JX KB README]]

@@ -6,7 +6,7 @@ description: >
   Scaffold a new Jodex plugin skeleton and register it in the root marketplace.
   Creates package metadata, README, component ABOUT files, and one marketplace entry.
   Triggers on: "create plugin", "scaffold plugin", "new plugin", "add plugin to marketplace",
-  /jx-skill:create-plugin, or any request to create a new Jodex plugin skeleton.
+  /jx-plugin:create-plugin, or any request to create a new Jodex plugin skeleton.
   Do not trigger for: creating skills inside existing plugins, plugin installation, wiki operations.
 ---
 
@@ -151,5 +151,5 @@ Marketplace source: ./plugins/<plugin>
 - plugins/<plugin>/schemas/ABOUT.md
 
 ### Next Step
-Run `/jx-skill:create --plugin <plugin>` to add the first skill.
+Run `/jx-plugin:create-skill --plugin <plugin>` to add the first skill.
 ```

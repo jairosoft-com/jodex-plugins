@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-plugin-creator.py - Pinned helper for jx-skill:create-plugin operations.
+plugin-creator.py - Pinned helper for jx-plugin:create-plugin operations.
 
 Subcommands:
   validate-name <plugin>                                  Validate a plugin name
@@ -169,7 +169,7 @@ def expected_files(plugin):
 
 
 def about_text(plugin, component):
-    create_command = f'/jx-skill:create --plugin {plugin}'
+    create_command = f'/jx-plugin:create-skill --plugin {plugin}'
     texts = {
         'commands': (
             '# Commands\n\n'
@@ -219,7 +219,7 @@ This is a plugin skeleton. It contains package metadata, placeholder component d
 Add the first real skill with:
 
 ```bash
-/jx-skill:create --plugin {plugin}
+/jx-plugin:create-skill --plugin {plugin}
 ```
 
 ## Local Development
@@ -454,7 +454,7 @@ def cmd_verify(args):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Plugin creator helper for jx-skill plugin')
+    parser = argparse.ArgumentParser(description='Plugin creator helper for jx-plugin plugin')
     subparsers = parser.add_subparsers(dest='command')
 
     p_validate = subparsers.add_parser('validate-name')

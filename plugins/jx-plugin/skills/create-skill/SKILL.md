@@ -1,5 +1,5 @@
 ---
-name: create
+name: create-skill
 user-invocable: true
 argument-hint: "[--plugin <name>] [--skill <name>] [--triggers \"...\"] [--description \"...\"]"
 description: >
@@ -7,7 +7,7 @@ description: >
   command stub, and evals skeleton with convention enforcement, trigger
   uniqueness checking, and validated boilerplate.
   Triggers on: "create skill", "scaffold skill", "new skill", "add skill to plugin",
-  /jx-skill:create, or any request to scaffold or create a new skill in a Jodex plugin.
+  /jx-plugin:create-skill, or any request to scaffold or create a new skill in a Jodex plugin.
   Do not trigger for: plugin scaffolding, skill validation, skill listing, wiki operations.
 ---
 
@@ -38,7 +38,7 @@ If `--plugin` is not provided:
    ```
    ls "${CLAUDE_PLUGIN_ROOT}/.."
    ```
-2. Present as numbered list, excluding `jx-core` (no user-facing skills) and `jx-skill` (this plugin)
+2. Present as numbered list, excluding `jx-core` (no user-facing skills) and `jx-plugin` (this plugin)
 3. Ask: "Which plugin should this skill be added to?"
 
 ### Skill name

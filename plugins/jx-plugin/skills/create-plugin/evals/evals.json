@@ -2,7 +2,7 @@
   {
     "name": "scaffold-new-plugin-happy-path",
     "description": "Scaffold a new plugin with all flags provided",
-    "input": "/jx-skill:create-plugin --plugin jx-example --description \"Example automation plugin\" --category productivity --author \"Jairosoft\"",
+    "input": "/jx-plugin:create-plugin --plugin jx-example --description \"Example automation plugin\" --category productivity --author \"Jairosoft\"",
     "assertions": [
       {
         "type": "output_contains",
@@ -44,14 +44,14 @@
       {
         "type": "file_contains",
         "path": "plugins/jx-example/README.md",
-        "contains": "/jx-skill:create --plugin jx-example"
+        "contains": "/jx-plugin:create-skill --plugin jx-example"
       }
     ]
   },
   {
     "name": "reject-invalid-plugin-name",
     "description": "Reject plugin names that do not match the jx-* lowercase hyphenated convention",
-    "input": "/jx-skill:create-plugin --plugin example --description \"Invalid plugin\"",
+    "input": "/jx-plugin:create-plugin --plugin example --description \"Invalid plugin\"",
     "assertions": [
       {
         "type": "output_contains",
@@ -62,7 +62,7 @@
   {
     "name": "reject-existing-plugin-collision",
     "description": "Reject creating a plugin whose directory and marketplace name already exist",
-    "input": "/jx-skill:create-plugin --plugin jx-qa --description \"Duplicate QA plugin\"",
+    "input": "/jx-plugin:create-plugin --plugin jx-qa --description \"Duplicate QA plugin\"",
     "assertions": [
       {
         "type": "output_contains",
@@ -88,7 +88,7 @@
         "source": "./plugins/jx-shadow"
       }
     },
-    "input": "/jx-skill:create-plugin --plugin jx-shadow --description \"Shadow plugin\"",
+    "input": "/jx-plugin:create-plugin --plugin jx-shadow --description \"Shadow plugin\"",
     "assertions": [
       {
         "type": "output_contains",
@@ -99,7 +99,7 @@
   {
     "name": "requires-confirmation-before-write",
     "description": "Show planned artifacts and pause before invoking the write helper",
-    "input": "/jx-skill:create-plugin --plugin jx-later --description \"Deferred plugin\"",
+    "input": "/jx-plugin:create-plugin --plugin jx-later --description \"Deferred plugin\"",
     "assertions": [
       {
         "type": "output_contains",

@@ -1,18 +1,18 @@
 ---
 title: Skill Creator for Jodex Plugins
 type: idea
-tags: [developer-experience, plugins, tooling, scaffolding, skill-authoring, jx-skill]
+tags: [developer-experience, plugins, tooling, scaffolding, skill-authoring, jx-plugin]
 created: 2026-05-20
 updated: 2026-05-20
 source_count: 1
-aliases: [skill creator, skill scaffolder, jx-skill:create]
+aliases: [skill creator, skill scaffolder, jx-plugin:create-skill]
 provenance: synthesis
 status: completed
 ---
 
 # Skill Creator for Jodex Plugins
 
-Build a skill (`/jx-skill:create`) that scaffolds new Jodex plugin skills inside existing plugins, enforcing conventions, generating boilerplate, and validating integration with the ecosystem.
+Build a skill (`/jx-plugin:create-skill`) that scaffolds new Jodex plugin skills inside existing plugins, enforcing conventions, generating boilerplate, and validating integration with the ecosystem.
 
 ## Motivation
 
@@ -28,11 +28,11 @@ Feature #204325 in Jodex project (`dev.azure.com/jairo/Jodex`)
 
 | Decision | Choice | Rationale |
 |----------|--------|-----------|
-| Plugin home | **jx-skill** (new plugin) | Clean separation — tooling about tooling doesn't pollute role plugins |
+| Plugin home | **jx-plugin** (new plugin) | Clean separation — tooling about tooling doesn't pollute role plugins |
 | Scope | **Skill-only** (v1) | Scaffold new skills inside existing plugins; full plugin scaffolding deferred |
 | UX mode | **Hybrid** | Flags for known values, interactive prompts for gaps |
 | Validation | **Halt and report** | Fail-closed on conflicts — consistent with ecosystem pattern |
-| Command | `/jx-skill:create` | Descriptive plugin name; leaves room for future `/jx-skill:validate`, `/jx-skill:list` |
+| Command | `/jx-plugin:create-skill` | Descriptive plugin name; leaves room for future `/jx-plugin:validate`, `/jx-plugin:list` |
 
 ## Artifacts Generated (per skill)
 
@@ -85,20 +85,20 @@ Codex adversarial review surfaced 4 findings. All incorporated as design constra
 
 ### [MEDIUM] Do not ship unimplemented commands as user-invocable
 
-**Problem**: Shipping a `/jx-skill:validate` command stub with no real validation engine gives users a discoverable command that silently does nothing useful.
+**Problem**: Shipping a `/jx-plugin:validate` command stub with no real validation engine gives users a discoverable command that silently does nothing useful.
 
 **Design constraint**:
-- v1 ships only `/jx-skill:create` — one command, one skill
-- `/jx-skill:validate` and `/jx-skill:list` remain in "Future Enhancements" only
+- v1 ships only `/jx-plugin:create-skill` — one command, one skill
+- `/jx-plugin:validate` and `/jx-plugin:list` remain in "Future Enhancements" only
 - No command stubs for unimplemented features — a command `.md` file implies a working skill behind it
 
 ### [MEDIUM] Wiki provenance must not reference missing source pages
 
-**Problem**: If a wiki plugin page references a source page like `Source - jx-skill Plugin README` but that source page doesn't exist, the wiki graph has a broken provenance link.
+**Problem**: If a wiki plugin page references a source page like `Source - jx-plugin Plugin README` but that source page doesn't exist, the wiki graph has a broken provenance link.
 
 **Design constraint**:
 - When creating wiki pages for the new plugin, either:
-  - Create the corresponding source page from `plugins/jx-skill/README.md`, OR
+  - Create the corresponding source page from `plugins/jx-plugin/README.md`, OR
   - Use `provenance: synthesis` and reference only existing source pages
 - Run wiki-tools.py `broken-links` check post-filing to verify no dangling references
 
@@ -112,8 +112,8 @@ Codex adversarial review surfaced 4 findings. All incorporated as design constra
 ## Future Enhancements
 
 - Full plugin scaffolding (plugin.json, README, placeholder dirs)
-- `/jx-skill:validate` — lint existing skills against conventions
-- `/jx-skill:list` — inventory all skills across plugins
+- `/jx-plugin:validate` — lint existing skills against conventions
+- `/jx-plugin:list` — inventory all skills across plugins
 - Structured `triggers:` frontmatter field across all plugins (eliminates parser fragility)
 
 ## Risks

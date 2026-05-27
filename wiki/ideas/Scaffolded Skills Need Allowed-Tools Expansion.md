@@ -1,7 +1,7 @@
 ---
 title: Scaffolded Skills Need Allowed-Tools Expansion
 type: idea
-tags: [jx-skill, scaffolding, allowed-tools, command-stub]
+tags: [jx-plugin, scaffolding, allowed-tools, command-stub]
 created: 2026-05-25
 updated: 2026-05-25
 source_count: 0

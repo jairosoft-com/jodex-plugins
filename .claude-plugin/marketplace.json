@@ -53,17 +53,8 @@
       "source": "./plugins/jx-dev"
     },
     {
-      "name": "jx-skill",
-      "description": "Skill and plugin scaffolding: create skills inside existing Jodex plugins and new plugin skeletons with marketplace registration.",
-      "author": {
-        "name": "Jairosoft"
-      },
-      "category": "productivity",
-      "source": "./plugins/jx-skill"
-    },
-    {
       "name": "jx-plugin",
-      "description": "Plugin skeleton \u2014 scaffolding, validation, and publishing tools (in development)",
+      "description": "Skill and plugin scaffolding: create skills inside existing Jodex plugins and new plugin skeletons with marketplace registration.",
       "author": {
         "name": "Jairosoft"
       },

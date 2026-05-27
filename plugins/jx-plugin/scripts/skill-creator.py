@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-skill-creator.py — Pinned helper for jx-skill:create operations.
+skill-creator.py — Pinned helper for jx-plugin:create-skill operations.
 
 Subcommands:
   validate-name <name>                          Validate a skill name
@@ -493,7 +493,7 @@ def cmd_self_test(args):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Skill creator helper for jx-skill plugin')
+    parser = argparse.ArgumentParser(description='Skill creator helper for jx-plugin plugin')
     subparsers = parser.add_subparsers(dest='command')
 
     p_validate = subparsers.add_parser('validate-name')

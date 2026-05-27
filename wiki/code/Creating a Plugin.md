@@ -15,7 +15,7 @@ End-to-end guide for adding a new plugin to the Claude Code plugin architecture.
 
 ## Automation Shortcut
 
-Use `/jx-skill:create-plugin` for the standard Jodex plugin skeleton. It is backed by [[plugin-creator.py]], creates package metadata and component `ABOUT.md` files, appends the marketplace entry, and leaves first-skill creation to `/jx-skill:create`.
+Use `/jx-plugin:create-plugin` for the standard Jodex plugin skeleton. It is backed by [[plugin-creator.py]], creates package metadata and component `ABOUT.md` files, appends the marketplace entry, and leaves first-skill creation to `/jx-plugin:create-skill`.
 
 ## Step 1: Create Directory Structure
 

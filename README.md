@@ -1,6 +1,6 @@
 # jodex-plugins
 
-Claude Code plugin marketplace by **Jairosoft** — seven plugins spanning QA automation, knowledge management, product management, developer tooling, skill/plugin scaffolding, and shared conventions.
+Claude Code plugin marketplace by **Jairosoft** — six plugins spanning QA automation, knowledge management, product management, developer tooling, skill/plugin scaffolding, and shared conventions.
 
 ## Plugins
 
@@ -11,8 +11,7 @@ Claude Code plugin marketplace by **Jairosoft** — seven plugins spanning QA au
 | **jx-pm** | Product | Generate PRDs, sync to Azure Boards |
 | **jx-dev** | Developer | Generate technical specifications and task breakdowns from PRDs |
 | **jx-core** | Core | Shared conventions and executable skill logic (ADO sync, task conversion) consumed by role plugins. No user-facing commands |
-| **jx-skill** | Productivity | Scaffold new skills inside existing plugins and new plugin skeletons with convention enforcement |
-| **jx-plugin** | Productivity | Plugin skeleton — scaffolding, validation, and publishing tools (in development) |
+| **jx-plugin** | Productivity | Skill and plugin scaffolding: create skills inside existing plugins and new plugin skeletons with convention enforcement |
 
 ### jx-qa
 
@@ -48,19 +47,11 @@ Claude Code plugin marketplace by **Jairosoft** — seven plugins spanning QA au
 /jx-dev:task [--docs-root <path>]              Convert PRD + tech spec → task.json
 ```
 
-### jx-skill
-
-```
-/jx-skill:create [--plugin <name>] [--skill <name>]   Scaffold a new skill
-/jx-skill:create-plugin --plugin <jx-name> --description "..."   Scaffold a new plugin skeleton
-```
-
 ### jx-plugin
 
-This plugin is a skeleton with no commands yet. Add the first skill with:
-
 ```
-/jx-skill:create --plugin jx-plugin
+/jx-plugin:create-skill [--plugin <name>] [--skill <name>]   Scaffold a new skill
+/jx-plugin:create-plugin --plugin <jx-name> --description "..."   Scaffold a new plugin skeleton
 ```
 
 ### Dependencies
@@ -88,7 +79,6 @@ jx-dev → jx-core
 /plugin install jx-kb@jodex-plugins
 /plugin install jx-pm@jodex-plugins
 /plugin install jx-dev@jodex-plugins
-/plugin install jx-skill@jodex-plugins
 /plugin install jx-plugin@jodex-plugins
 
 # Reload
@@ -115,7 +105,6 @@ claude plugin install jx-qa@jodex-plugins
 /plugin uninstall jx-kb@jodex-plugins
 /plugin uninstall jx-pm@jodex-plugins
 /plugin uninstall jx-dev@jodex-plugins
-/plugin uninstall jx-skill@jodex-plugins
 /plugin uninstall jx-plugin@jodex-plugins
 /plugin marketplace remove jodex-plugins
 ```

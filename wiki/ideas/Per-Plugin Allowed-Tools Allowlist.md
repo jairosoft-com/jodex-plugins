@@ -1,7 +1,7 @@
 ---
 title: Per-Plugin Allowed-Tools Allowlist
 type: idea
-tags: [jx-skill, security, permissions, developer-experience]
+tags: [jx-plugin, security, permissions, developer-experience]
 created: 2026-05-20
 updated: 2026-05-20
 source_count: 0
@@ -12,13 +12,13 @@ status: backlogged
 
 # Per-Plugin Allowed-Tools Allowlist
 
-Add permission-aware scaffolding to `/jx-skill:create` so generated command stubs can select from audited per-plugin tool profiles rather than defaulting to minimal `Read` only.
+Add permission-aware scaffolding to `/jx-plugin:create-skill` so generated command stubs can select from audited per-plugin tool profiles rather than defaulting to minimal `Read` only.
 
 ## Motivation
 
 - Generated command stubs currently default to `allowed-tools: Read` — safe but requires manual expansion
 - No enforcement that expanded permissions stay within a plugin's intended scope
-- Could pair with future `/jx-skill:validate` to audit existing command permissions
+- Could pair with future `/jx-plugin:validate` to audit existing command permissions
 
 ## Possible Approach
 
@@ -28,7 +28,7 @@ Add permission-aware scaffolding to `/jx-skill:create` so generated command stub
 
 ## Context
 
-Surfaced during Codex adversarial review of `/jx-skill:create` plan (round 4). Not a blocker — v1 defaults to minimal permissions and authors expand manually, matching existing DX.
+Surfaced during Codex adversarial review of `/jx-plugin:create-skill` plan (round 4). Not a blocker — v1 defaults to minimal permissions and authors expand manually, matching existing DX.
 
 ## Sources
 

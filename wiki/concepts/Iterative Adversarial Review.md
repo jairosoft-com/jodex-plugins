@@ -77,7 +77,7 @@ A design-hardening pattern: submit a spec to adversarial review, resolve finding
 
 **Key insight from this session:** When a finding recurs across 3+ rounds despite fixes, check for an internal plan contradiction in a different section — not just the section cited in the finding. A single-section fix is often incomplete when the same concept appears in architecture docs, phase checklists, file-tree comments, and env tables simultaneously.
 
-## Observed Progression (jx-skill:create scaffolder — 7 rounds)
+## Observed Progression (jx-plugin:create-skill scaffolder — 7 rounds)
 
 | Round | Focus | Findings |
 |-------|-------|----------|
@@ -144,7 +144,7 @@ This is more effective than binary fix/defer — it lets low-urgency items flow 
 
 ## Diminishing Returns Curve — Quantified (2026-05-20)
 
-7-round review of `/jx-skill:create` (skill scaffolder). Largest adversarial progression recorded.
+7-round review of `/jx-plugin:create-skill` (skill scaffolder). Largest adversarial progression recorded.
 
 | Round | Finding quality | Real bugs | Repeats/theoretical |
 |-------|----------------|-----------|---------------------|

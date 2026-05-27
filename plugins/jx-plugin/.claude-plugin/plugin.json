@@ -1,7 +1,7 @@
 {
   "name": "jx-plugin",
   "version": "1.0.0",
-  "description": "Plugin skeleton \u2014 scaffolding, validation, and publishing tools (in development)",
+  "description": "Skill and plugin scaffolding: create skills inside existing Jodex plugins and new plugin skeletons with marketplace registration.",
   "author": {
     "name": "Jairosoft"
   }
