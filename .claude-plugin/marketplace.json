@@ -60,6 +60,15 @@
       },
       "category": "productivity",
       "source": "./plugins/jx-skill"
+    },
+    {
+      "name": "jx-plugin",
+      "description": "Plugin skeleton \u2014 scaffolding, validation, and publishing tools (in development)",
+      "author": {
+        "name": "Jairosoft"
+      },
+      "category": "productivity",
+      "source": "./plugins/jx-plugin"
     }
   ]
 }
