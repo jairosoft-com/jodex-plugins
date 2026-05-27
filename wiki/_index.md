@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
-updated: 2026-05-26
-page_count: 293
+updated: 2026-05-27
+page_count: 297
 ---
 
 # Wiki Index
@@ -82,6 +82,7 @@ page_count: 293
 - [[Worktree Isolation Guard Needs Initialized Worktree]] — Background session bg-isolation guard blocks edits when worktree path exists as directory but not as git worktree (#worktree, #background-session, #troubleshooting) [raw]
 - [[Skill Creator Validates End-to-End Before Writing]] — Validate-all-then-confirm-then-write pattern in /jx-plugin:create-skill (#jx-plugin, #validation, #design-pattern) [raw]
 - [[Skeleton-Honest Plugin Description Convention]] — Use "Plugin skeleton — X (in development)" wording until first skill ships (#plugin, #naming, #marketplace, #skeleton) [raw]
+- [[Stdlib-Only YAML Serialization]] — Building YAML frontmatter without PyYAML using narrow escaping rules for known field set (#pattern, #yaml, #stdlib, #frontmatter) [raw]
 - [[Surgical Rollback Pattern]] — Prefer targeted operation-scoped undo over broad git checkout that discards unrelated changes (#pattern, #rollback, #safety, #git) [raw]
 - [[Scaffolded Skills Need Allowed-Tools Expansion]] — Default allowed-tools: Read too narrow for git/shell skills; consider --allowed-tools flag (#jx-plugin, #scaffolding, #allowed-tools) [raw]
 - [[Meeting Workflow Triad in jx-pm]] — meet-pre → meet-notes → meet-email forms a complete prepare/capture/distribute lifecycle (#jx-pm, #meeting, #workflow, #pattern) [raw]
@@ -103,6 +104,7 @@ page_count: 293
 - [[Conflict Callout]] — Pattern for handling contradictions between sources (#wiki, #contradiction)
 - [[Cross-Reference Pass]] — Bidirectional wikilink pass after page creation (#wiki, #linking)
 - [[Directory-Source Marketplace]] — Local directory as marketplace source instead of GitHub (#plugin, #marketplace)
+- [[Discovery State Classification]] — Three-state classification for local skill discoverability: usable now vs restart required vs external target (#pattern, #claude-code, #skill-discovery, #local-skills)
 - [[Draft-Finalize Lifecycle]] — Incremental artifact creation with .draft-* prefix, rename on finalize, delete on cancel (#pattern, #safety, #crash-recovery)
 - [[Dynamic Worklist Generation]] — Generate file lists from grep/rg at execution time, never hardcode (#pattern, #refactoring)
 - [[Filing Workflow]] — Process for persisting conversation insights back to wiki (#wiki, #workflow)
@@ -126,6 +128,7 @@ page_count: 293
 - [[Layered Developer Onboarding]] — Install and verify developer workflow capabilities in dependency order (#onboarding, #developer-experience, #plugin)
 - [[Link Graph Traversal]] — Page discovery via wikilink graph during query (#wiki, #navigation)
 - [[Local Plugin Development]] — --plugin-dir workflow for local disk plugin dev (#plugin, #development)
+- [[Lock-File Guard for Atomic Scaffolding]] — Concurrency-safe scaffolding via O_CREAT|O_EXCL lock with ownership tracking (#pattern, #safety, #concurrency, #scaffolding)
 - [[Lint]] — Periodic health-check operation for wiki (#operation, #maintenance)
 - [[Log]] — Append-only chronological record of wiki operations (#architecture, #audit)
 - [[Marketplace]] — Plugin distribution mechanism for Claude Code CLI (#distribution, #plugin)
@@ -210,6 +213,7 @@ page_count: 293
 - [[Plugin Scaffolding Plugin|jx-plugin]] — Skill and plugin scaffolding with convention enforcement and marketplace registration (#plugin, #scaffolding)
 - [[Developer Skills Plugin|jx-dev]] — Technical specification and task breakdown workflows (#plugin, #developer)
 - [[Knowledge Base Plugin|jx-kb]] — LLM-maintained knowledge base plugin for Claude Code (#knowledge-base, #wiki)
+- [[Local Skills Plugin|jx-local]] — Local project-level skill scaffolding in .claude/skills/ (#plugin, #jx-local, #scaffolding, #local-skills)
 - [[Product Management Skills Plugin|jx-pm]] — PRD generation, pipeline orchestration, Azure Boards sync, and daily meeting preparation (#plugin, #product-management) [active]
 - [[QA Testing Plugin|jx-qa]] — QA testing pipeline: BRD → xlsx → Playwright specs (#testing, #playwright)
 
