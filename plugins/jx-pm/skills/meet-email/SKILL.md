@@ -201,9 +201,21 @@ Only emit known safe HTML tags: `<table>`, `<tr>`, `<td>`, `<th>`, `<span>`, `<d
 
 Attach the meeting prep file using the **exact resolved file path from Step 2** via the `attachments` parameter with `file_path`. Do NOT reconstruct the path — use the variable carried from Step 2.
 
-### Step 6.5 — Headless mode (deferred to v2)
+### Step 6.5 — Headless mode (scheduled invocation)
 
-Headless auto-send (env-var-gated confirmation bypass) is deferred to v2. Reason: without Bash in the allowed-tools, the skill cannot reliably read/validate environment variables. A future version can add a pinned preflight helper script. For now, all sends require interactive confirmation (Step 7).
+Skip Step 7 confirmation and proceed to Step 8 if ALL three env vars are set:
+
+1. `MEET_EMAIL_AUTO_SEND` = `true`
+2. `MEET_EMAIL_AUTHORIZED_RECIPIENTS` = non-empty comma-separated allowlist
+3. **Every** resolved recipient appears in the allowlist (case-insensitive, whitespace-trimmed)
+
+In headless mode: still **print full preview to stdout** (From / To / Subject / Body summary / Attachment) so the launchd log captures what was sent, who received it, and which file was attached.
+
+If `MEET_EMAIL_AUTO_SEND=true` but `MEET_EMAIL_AUTHORIZED_RECIPIENTS` is unset/empty, OR any resolved recipient is not on the allowlist — **fail closed**: print the offending recipient, exit without sending. No silent fallback to interactive mode. No partial sends.
+
+`MEET_EMAIL_DRY_RUN=true` overrides headless send — print full preview but **do not invoke** `mcp__mail__graph_send_message`. Use for verification runs.
+
+When all three env vars are unset (default): existing interactive flow from Step 7 is unchanged.
 
 ### Step 7 — Preview and confirm
 
