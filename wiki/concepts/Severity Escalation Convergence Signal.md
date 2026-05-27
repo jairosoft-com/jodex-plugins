@@ -3,7 +3,7 @@ title: Severity Escalation Convergence Signal
 type: concept
 tags: [pattern, adversarial-review, convergence, platform-constraint]
 created: 2026-05-25
-updated: 2026-05-25
+updated: 2026-05-26
 source_count: 1
 aliases: [severity escalation signal, escalation without recommendation change]
 provenance: source-derived
@@ -36,6 +36,14 @@ SKILL.md `--dry-run` enforcement:
 
 The SKILL.md format has no mechanism for conditional tool access per argument. All skills are LLM instruction files. No amount of plan revision could satisfy "make the tool unavailable during dry-run." Resolution: accepted risk with double-gate mitigation (instruction + confirmation).
 
+## Example (clean-worktree, 2026-05-26)
+
+`Bash(git -C:*)` permission breadth and `rm -rf` path traversal:
+- **Round 4**: P2 — "narrow `git -C:*` to pinned subcommand forms"
+- **Rounds 5–10**: same P1/P2 — "use helper script" or "narrow `git -C:*`" (identical fix)
+
+The [[Prefix-Only Permission Grammar]] has no mechanism for mid-pattern pinning. Instruction-level constraints (safe-name regex, realpath guard) were the accepted mitigation. 7 rounds of oscillation before declaring convergence.
+
 ## Distinction from Recurring Findings
 
 This is different from findings that recur because of an internal contradiction (see [[Iterative Adversarial Review]] key insight from ADO skill test plan). In that case, the recommendation changes each round as the reviewer finds the same contradiction in different sections. Here, the recommendation is frozen — the reviewer has one fix and it can't be implemented.
@@ -49,3 +57,4 @@ This is different from findings that recur because of an internal contradiction 
 ## Sources
 
 - [[Source - FEAT-006 Session Insights]]
+- Session: clean-worktree skill implementation (2026-05-26)

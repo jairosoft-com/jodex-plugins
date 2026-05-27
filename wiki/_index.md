@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-26
-page_count: 265
+page_count: 267
 ---
 
 # Wiki Index
@@ -86,6 +86,7 @@ page_count: 265
 - [[Executable Setup Documentation]] — Treat onboarding commands as verified, secret-safe executable examples (#documentation, #onboarding, #verification)
 - [[Health Score]] — 0-100 score quantifying wiki quality from lint (#wiki, #metrics)
 - [[Hook]] — Plugin lifecycle event handler (#plugin, #lifecycle)
+- [[Hook-Resilient Deletion Pattern]] — find-delete workaround when rm-rf is blocked by pre-tool-use hooks (#pattern, #safety, #workaround, #hooks)
 - [[Backlog Idea Grooming]] — Transform a backlogged idea into execution-ready spec: scope, AC, outline, priority (#wiki, #workflow, #backlog)
 - [[Idea Lifecycle]] — Progression: raw → promoted/backlogged/archived (#wiki, #workflow)
 - [[Idempotent Operation]] — Safe re-run pattern, skips existing work (#pattern, #safety)
@@ -113,6 +114,7 @@ page_count: 265
 - [[Per-Item Write-Back]] — Persist external IDs to disk after each individual operation, not batch (#pattern, #crash-recovery)
 - [[Path Confinement]] — Security pattern: path safety contract with relative_to() (#security, #validation)
 - [[Pinned Helper]] — Security pattern: restricted script execution (#security, #execution)
+- [[Prefix-Only Permission Grammar]] — Claude Code allowed-tools use pure prefix matching; mid-pattern wildcards don't work (#claude-code, #permissions, #allowed-tools, #pattern)
 - [[Plugin Architecture]] — .claude-plugin format for Claude Code CLI (#architecture, #plugin)
 - [[Plugin Dependency Declaration]] — Inter-plugin dependency convention via plugin.json dependencies field (#plugin, #convention, #dependency)
 - [[Plugin Metadata Surfaces]] — Where plugin descriptions and listing metadata live (#plugin, #metadata)
