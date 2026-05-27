@@ -169,6 +169,10 @@ def cmd_write(args):
         _write_error('body-file', f'cannot read body file: {e}')
         return 1
 
+    if not body.strip():
+        _write_error('body-file', 'body is empty or whitespace-only')
+        return 1
+
     name = metadata.get('name', '')
     description = metadata.get('description', '')
     tags = metadata.get('tags', [])

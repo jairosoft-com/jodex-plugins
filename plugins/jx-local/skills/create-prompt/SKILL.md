@@ -121,7 +121,9 @@ python3 "${CLAUDE_PLUGIN_ROOT}/scripts/prompt-creator.py" ensure-dir
 
 Parse the JSON `path` field from stdout. Use this absolute path (referred to as `<prompts-dir>` below) for all staging file operations.
 
-1. Use the **Write tool** to save metadata to `<prompts-dir>/.metadata.json`:
+Staging filenames include the prompt name for uniqueness across concurrent runs.
+
+1. Use the **Write tool** to save metadata to `<prompts-dir>/.<name>.metadata.json`:
    ```json
    {
      "name": "<name>",
@@ -130,16 +132,16 @@ Parse the JSON `path` field from stdout. Use this absolute path (referred to as 
    }
    ```
 
-2. Use the **Write tool** to save body content to `<prompts-dir>/.body.md`.
+2. Use the **Write tool** to save body content to `<prompts-dir>/.<name>.body.md`.
 
 3. Invoke the helper with absolute staging paths:
    ```bash
    python3 "${CLAUDE_PLUGIN_ROOT}/scripts/prompt-creator.py" write \
-     --metadata-file "<prompts-dir>/.metadata.json" \
-     --body-file "<prompts-dir>/.body.md"
+     --metadata-file "<prompts-dir>/.<name>.metadata.json" \
+     --body-file "<prompts-dir>/.<name>.body.md"
    ```
 
-The helper cleans up `.metadata.json` and `.body.md` staging files after writing.
+The helper cleans up staging files (dot-prefixed, inside prompts dir) after writing.
 
 On success (exit 0): proceed to Phase 5.
 On failure (exit 1): display the JSON error from stderr. If field is `collision`, the file was created between pre-check and write — inform user.
