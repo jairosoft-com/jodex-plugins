@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-26
-page_count: 287
+page_count: 292
 ---
 
 # Wiki Index
@@ -37,8 +37,10 @@ page_count: 287
 - [[Split Tech Spec Into jx-dev Plugin]] — Extract dev skills to jx-dev, shared conventions to jx-core (#plugin-architecture, #refactor) [archived: implemented]
 - [[Distilled Local Model for Test Script Generation]] — Use distilled local model to generate test scripts offline (#jx-qa, #local-llm, #distillation) [backlogged P3]
 - [[Scaffold QA Project From Skill]] — Skill to scaffold full QA project structure from one command (#jx-qa, #scaffolding, #developer-experience) [backlogged P2]
+- [[Scoped Evals for Interactive Skills]] — Scope automated evals to single-prompt portions; manual test capture loops (#testing, #evals, #interactive) [raw]
 - [[Gemma 4 for Playwright Script Generation]] — Use Gemma 4 to generate .spec.ts / Playwright scripts in jx-qa pipeline (#jx-qa, #gemma, #local-llm) [backlogged P3]
 - [[Claude CLI Training Course]] — Short training course for launching and using Claude Code CLI on Windows/Mac (#documentation, #onboarding, #claude-code, #cli) [backlogged P3]
+- [[Cross-Model Handoff Evaluation]] — Process for evaluating AI-to-AI suggestions: check existing state, adopt real gaps (#pattern, #workflow, #multi-model) [raw]
 - [[Codex Review Gate Loops on Empty Diffs]] — Codex stop-time review gate returns status 1 with empty output on no changes, causing infinite retry (#codex, #review-gate) [backlogged]
 - [[Codex Shared Runtime Auth Recovery]] — Codex browser login succeeds but shared broker runtime holds stale auth state (#codex, #auth, #workflow) [raw]
 - [[GitHub Beginner Tutorial for Non-Developers]] — Teach non-devs to use GitHub for project collaboration via web UI (#documentation, #onboarding, #github) [backlogged P3]
@@ -100,8 +102,10 @@ page_count: 287
 - [[Conflict Callout]] — Pattern for handling contradictions between sources (#wiki, #contradiction)
 - [[Cross-Reference Pass]] — Bidirectional wikilink pass after page creation (#wiki, #linking)
 - [[Directory-Source Marketplace]] — Local directory as marketplace source instead of GitHub (#plugin, #marketplace)
+- [[Draft-Finalize Lifecycle]] — Incremental artifact creation with .draft-* prefix, rename on finalize, delete on cancel (#pattern, #safety, #crash-recovery)
 - [[Dynamic Worklist Generation]] — Generate file lists from grep/rg at execution time, never hardcode (#pattern, #refactoring)
 - [[Filing Workflow]] — Process for persisting conversation insights back to wiki (#wiki, #workflow)
+- [[Format B Eval Convention]] — Repo-standard typed assertion format for evals.json: file_exists, file_contains, output_contains (#testing, #evals, #convention)
 - [[Golden Thread Traceability]] — Unbroken chain from business objective to test case via requirement IDs (#pattern, #requirements)
 - [[Fail-Closed Lookup]] — Require exactly 1 match from external system; halt on 0 or 2+ (#pattern, #safety)
 - [[E2E Test Case]] — Classification of requirements as E2E-testable or not (#testing, #classification)
@@ -332,4 +336,5 @@ page_count: 287
 - [[Source - jx-dev Scripts Stub]] — Placeholder for jx-dev scripts (#jx-dev, #stub)
 - [[Source - FEAT-006 Meeting Prep Email Plan]] — Implementation plan for meet-email skill with 6-round adversarial review (#jx-pm, #meet-email, #plan)
 - [[Source - FEAT-006 Session Insights]] — Session insights: severity escalation signal, MCP limitation, fixture verification (#session, #jx-pm, #adversarial-review)
+- [[Source - Meet-Notes Session Insights]] — Format B evals, draft-finalize lifecycle, scoped evals, cross-model handoff (#session, #jx-pm, #evals)
 - [[Source - Spec-First Feedback]] — Generalized lesson: read SKILL.md before executing any skill (#feedback, #skill, #contract)

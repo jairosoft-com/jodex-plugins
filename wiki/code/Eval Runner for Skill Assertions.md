@@ -4,7 +4,8 @@ type: code
 status: backlog
 tags: [testing, evals, skills, automation, dx]
 created: 2026-05-23
-updated: 2026-05-23
+updated: 2026-05-25
+source_count: 1
 ---
 
 # Eval Runner for Skill Assertions
@@ -82,7 +83,17 @@ Each eval that creates files needs isolation to avoid collisions:
 - `fixture` field support (pre-conditions setup before eval runs)
 - LLM-as-judge fallback for prose assertions that resist migration to typed checks
 
+## Format B as Standard (2026-05-25)
+
+[[Format B Eval Convention]] is now the named standard for all new evals. The `file_contains_ordered` assertion type was added for meet-notes section-order checks. For [[Scoped Evals for Interactive Skills]], only single-prompt-verifiable behaviors get automated evals; multi-turn capture loops stay as manual tests.
+
 ## Related
 
+- [[Format B Eval Convention]] — the named standard for typed assertions
+- [[Scoped Evals for Interactive Skills]] — scoping strategy for capture-loop skills
 - [[Creating a Skill]] — skill scaffolding convention that creates evals/evals.json
 - [[Skill Integration Testing via Agent SDK]] — complementary pattern for agent-level testing
+
+## Sources
+
+- [[Source - Meet-Notes Session Insights]]
