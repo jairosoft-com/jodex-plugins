@@ -4,6 +4,19 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-25 — Ingest: Meet-Notes Session Insights
+
+- **Operation**: ingest
+- **Source**: `wiki/raw/sources/session-2026-05-25-meet-notes-insights.md`
+- **Snapshot**: `wiki/raw/sources/session-2026-05-25-meet-notes-insights.md`
+- **SHA-256**: `73588d663c6d245d752c9abbfe1dc4cdd1d06b194086654003a1794f4e6a06e6`
+- **Pages created**: [[Format B Eval Convention]] (concept), [[Draft-Finalize Lifecycle]] (concept), [[Scoped Evals for Interactive Skills]] (idea), [[Cross-Model Handoff Evaluation]] (idea), [[Source - Meet-Notes Session Insights]] (source)
+- **Pages updated**: [[Eval Runner for Skill Assertions]] (added Format B standard section + sources)
+- **Ideas extracted**: 2
+- **Conflicts flagged**: 0
+- **Cross-references added**: 6
+- **Outcome**: Success
+
 ## 2026-05-26 — Lint
 
 - **Operation**: lint
