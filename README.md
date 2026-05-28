@@ -68,7 +68,7 @@ jx-dev → jx-core
 - **Node.js 18+** + **Playwright** (for jx-qa)
 - **Azure DevOps MCP server** (for jx-pm:ado only)
 
-## Installation
+## Installation — Claude Code CLI
 
 ```bash
 # Add marketplace (one-time)
@@ -107,6 +107,24 @@ claude plugin install jx-qa@jodex-plugins
 /plugin uninstall jx-dev@jodex-plugins
 /plugin uninstall jx-plugin@jodex-plugins
 /plugin marketplace remove jodex-plugins
+```
+
+See [plugins/qa-ai/README.md](plugins/qa-ai/README.md) for detailed CLI plugin documentation.
+
+---
+
+## Project Structure
+
+```
+jodex-qa-ai/
+├── plugins/qa-ai/            # Claude Code CLI Plugin
+│   ├── .claude-plugin/       #   Plugin manifest
+│   ├── commands/             #   Slash commands (extract, generate, browser)
+│   ├── skills/               #   AI skill instructions
+│   ├── scripts/              #   Pinned helper scripts (xlsx-writer.py)
+│   └── README.md
+├── .claude-plugin/           # Marketplace registry
+└── README.md                 # ← You are here
 ```
 
 ## License
