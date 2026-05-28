@@ -4,6 +4,13 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-28 — Idea: jx-qa spec-generator subagent
+
+- **Operation**: idea filing
+- **Pages created**: [[jx-qa Spec-Generator Subagent]]
+- **Ideas extracted**: 1
+- **Note**: Moved from an ai_docs draft into the idea inbox; folded in verified agent `tools:`/`skills:` frontmatter findings
+
 ## 2026-05-28 — Idea: meet-pre eval output path and naming
 
 - **Operation**: idea filing

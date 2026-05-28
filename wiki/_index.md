@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-28
-page_count: 299
+page_count: 300
 ---
 
 # Wiki Index
@@ -54,6 +54,7 @@ page_count: 299
 - [[Slash Feedback Skill for jx-core]] — Structured feedback capture skill in jx-core for cross-role use (#jx-core, #feedback, #cross-role) [backlogged P2]
 - [[Direct PRD-to-ADO Sync Without task.json]] — Change /jx-pm:ado to sync PRD directly to Azure Boards, removing task.json dependency (#jx-pm, #ado, #prd, #refactor) [backlogged P2]
 - [[jx-learn Plugin for Skill Learning]] — Interactive learning experiences teaching users how to use and build within Jodex ecosystem (#jx-learn, #plugin, #learning, #onboarding) [backlogged]
+- [[jx-qa Spec-Generator Subagent]] — First jx-qa agent: turns an approved xlsx plan into verified Playwright specs via the generate skill; parallelizable, idempotent (#jx-qa, #agent, #playwright, #plugin-architecture) [raw]
 - [[Jodex Plugin Installation Guide]] — End-to-end install docs: marketplace setup → jx-core/jx-kb prereqs → role-specific plugins (#documentation, #onboarding, #plugin-architecture, #marketplace) [backlogged P2]
 - [[Azure DevOps MCP Installation for Claude Code CLI (Promoted)]] — Quick-reference: ADO MCP install and verification for Claude Code CLI (#documentation, #onboarding, #mcp, #azure-devops, #claude-code) [promoted]
 - [[Dry-Run Gate Must Include Explicit Docs-Root]] — Dry-run verification must use explicit --docs-root to avoid stale env var misdirection (#jx-pm, #ado, #safety, #verification) [backlogged P2]
