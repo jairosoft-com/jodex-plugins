@@ -1,0 +1,6 @@
+{
+  "name": "jx-core",
+  "version": "1.0.0",
+  "description": "Shared plugin: conventions (ID rules, docs-root, task schema) and executable skill logic (ADO sync, task conversion) consumed by sibling role plugins.",
+  "author": { "name": "Jairosoft", "email": "ramon@jairosoft.com" }
+}

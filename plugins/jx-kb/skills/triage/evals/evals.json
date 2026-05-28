@@ -1,0 +1,24 @@
+[
+  {
+    "name": "triage-promote-idea",
+    "description": "Promoting an idea moves it to target bucket and updates frontmatter",
+    "input": "Triage ideas in the wiki. Promote 'Plugin Hot-Reload' to concepts.",
+    "assertions": [
+      { "type": "file_exists", "path": "wiki/concepts/Plugin Hot-Reload.md" },
+      { "type": "file_contains", "path": "wiki/concepts/Plugin Hot-Reload.md", "contains": "type: concept" },
+      { "type": "file_contains", "path": "wiki/ideas/Plugin Hot-Reload.md", "contains": "status: promoted" },
+      { "type": "file_contains", "path": "wiki/ideas/Plugin Hot-Reload.md", "contains": "promoted_to:" },
+      { "type": "file_contains", "path": "wiki/_index.md", "contains": "## Concepts" }
+    ]
+  },
+  {
+    "name": "triage-archive-idea",
+    "description": "Archiving an idea sets status and reason, keeps file in ideas/",
+    "input": "Triage ideas in the wiki. Archive 'Stale Idea' with reason 'not relevant'.",
+    "assertions": [
+      { "type": "file_exists", "path": "wiki/ideas/Stale Idea.md" },
+      { "type": "file_contains", "path": "wiki/ideas/Stale Idea.md", "contains": "status: archived" },
+      { "type": "file_contains", "path": "wiki/ideas/Stale Idea.md", "contains": "archive_reason:" }
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "name": "query-with-citations",
+    "description": "Query produces an answer with wiki page citations",
+    "input": "Query the wiki: What is the relationship between the main entities?",
+    "assertions": [
+      { "type": "output_contains", "contains": "[[" },
+      { "type": "output_contains", "contains": "Pages Consulted" },
+      { "type": "file_contains", "path": "wiki/_log.md", "contains": "Operation**: query" }
+    ]
+  },
+  {
+    "name": "query-empty-wiki",
+    "description": "Query on empty wiki gives helpful message",
+    "input": "Query the wiki: What do we know about testing?",
+    "assertions": [
+      { "type": "output_contains", "contains": "ingest" }
+    ]
+  }
+]

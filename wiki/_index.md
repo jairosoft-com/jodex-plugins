@@ -1,0 +1,350 @@
+---
+title: Wiki Index
+updated: 2026-05-27
+page_count: 298
+---
+
+# Wiki Index
+
+## Ideas
+
+- [[ADO Sync Writes ACs to Wrong Field]] — ADO sync writes acceptance criteria to incorrect field when syncing PRD to Azure DevOps (#jx-pm, #jx-core, #ado, #acceptance-criteria) [completed]
+- [[ADO WIQL CONTAINS Is Substring Not Exact Tag]] — WIQL CONTAINS performs substring matching on tags, matching unintended items (#ado, #wiql, #testing) [raw]
+- [[ADO Work Item IDs Are Not PRD Feature IDs]] — ADO system IDs are in 100k-200k range while PRD feature IDs are app-level identifiers (#ado, #testing, #fixtures) [raw]
+- [[Adversarial Review Catches Scaffold Drift]] — Adversarial review found scaffold drift where behavior rules updated in prose but not in templates (#adversarial-review, #codex, #workflow) [raw]
+- [[Agent SDK Transitive Plugin Deps Must Be Explicit]] — Agent SDK does not auto-resolve transitive plugin dependencies; omitting parent plugins causes silent failures (#agent-sdk, #plugins, #testing) [raw]
+- [[Agent SDK query() Message Type Structure]] — Agent SDK query() yields messages with distinct types for capturing skill output and verifying plugin loads (#agent-sdk, #testing) [raw]
+- [[Algorithm Redesign Over Permission Expansion]] — Prefer narrowing algorithm tool requirements over expanding command permissions (#skill-design, #security, #permissions) [raw]
+- [[Automated Backlog Staleness Audit]] — Manual audit found 29% of backlogged ideas were already implemented, revealing phantom work (#jx-kb, #wiki, #backlog) [backlogged]
+- [[Automate Plugin Creation Like Skill Creation]] — `/jx-plugin:create-plugin` scaffolds plugin skeletons and marketplace entries with pinned-helper safety (#jx-plugin, #plugin, #scaffolding) [backlogged P1]
+- [[Conditional AC Format Selection (Promoted)]] — AC format should match story type: G/W/T for journeys, checklist for constraints, system state for backend (#acceptance-criteria, #prd, #jx-pm) [promoted]
+- [[Downstream Contract Audit for Skill Output Changes]] — Audit all downstream consumers when changing a skill's output format; PRD change cascaded to 5+ files (#skill-design, #contracts) [backlogged P2]
+- [[Ensure-Dir Bootstrap Pattern]] — Helper subcommand that creates target dir and returns absolute path; solves first-use bootstrapping and cwd ambiguity (#pattern, #skill-design, #pinned-helper) [raw]
+- [[Static Clarifying Questions in PRD Skill]] — Phase 3 questions are identical regardless of domain; no customization or conditional follow-ups (#jx-pm, #prd, #hardcoded) [backlogged]
+- [[Hardcoded Investment Scale Thresholds]] — Unified mode $50K/$250K thresholds are org-specific; no "Other" escape hatch (#jx-pm, #prd, #hardcoded) [backlogged]
+- [[QA Documentation Workflow]] — Step-by-step walkthrough of jx-qa end-to-end pipeline for users running features through QA (#jx-qa, #workflow, #documentation) [promoted]
+- [[Quality Gates Applied to Doc-Only Stories]] — PRD generator appends meaningless quality gates to documentation-only stories (#jx-pm, #prd, #quality-gates) [completed]
+- [[Quality Gates Assume JS-TS Toolchain]] — Auto-appended quality gates hardcode lint/typecheck; need polyglot support via config (#jx-pm, #prd, #quality-gates) [backlogged]
+- [[Self-Contained Documents via Metadata Persistence]] — Persist resolved config in output document metadata so downstream consumers read from the document, not the filesystem (#skill-design, #metadata, #design-pattern) [raw]
+- [[Staging File Deletion Confinement]] — Helpers must confine staging file cleanup to dot-prefixed files inside expected directory; prevents data-loss from arbitrary path deletion (#security, #pattern, #pinned-helper) [raw]
+- [[Shared Validators Over Prompt Instructions]] — Enforce format constraints via shared scripts, not prompt instructions; wire same validator into generator and consumers (#skill-design, #validation, #design-pattern) [backlogged]
+- [[Sub-Headers as Dual-Purpose Contracts (Promoted)]] — Bold sub-headers serve both visual grouping and machine-parseable format routing; content structure IS the contract (#skill-design, #design-pattern) [promoted]
+- [[Dataview Queries]] — Obsidian plugin for frontmatter queries (#tooling, #obsidian) [backlogged P3]
+- [[Marp Integration]] — Markdown slide decks from wiki content (#tooling, #presentation) [backlogged P3]
+- [[Align jx-qa Generate Tool Contract]] — Bring generate workflow instructions into alignment with allowed tools (#jx-qa, #tooling) [backlogged P2]
+- [[Raw Sources Should Be Excluded From Wiki Graph]] — Keep raw snapshots out of page graph and lint checks (#wiki, #lint) [backlogged P2]
+- [[Read-Only Credential as Dry-Run Guard]] — Use read-only PAT when testing dry-run behavior; write attempts return 401, surfacing regressions (#testing, #safety, #ado) [backlogged]
+- [[Cross-Plugin Shared Convention Layer (Promoted)]] — Shared convention plugin pattern from jx-pm split (#plugin-architecture, #pattern) [promoted]
+- [[Rebrand Skills to jx Namespace]] — Unify all plugins under jx-* naming: jx-qa, jx-kb, jx-pm, jx-dev, jx-core (#plugin, #naming) [completed]
+- [[Split Tech Spec Into jx-dev Plugin]] — Extract dev skills to jx-dev, shared conventions to jx-core (#plugin-architecture, #refactor) [archived: implemented]
+- [[Distilled Local Model for Test Script Generation]] — Use distilled local model to generate test scripts offline (#jx-qa, #local-llm, #distillation) [backlogged P3]
+- [[Scaffold QA Project From Skill]] — Skill to scaffold full QA project structure from one command (#jx-qa, #scaffolding, #developer-experience) [backlogged P2]
+- [[Scoped Evals for Interactive Skills]] — Scope automated evals to single-prompt portions; manual test capture loops (#testing, #evals, #interactive) [raw]
+- [[Gemma 4 for Playwright Script Generation]] — Use Gemma 4 to generate .spec.ts / Playwright scripts in jx-qa pipeline (#jx-qa, #gemma, #local-llm) [backlogged P3]
+- [[Claude CLI Training Course]] — Short training course for launching and using Claude Code CLI on Windows/Mac (#documentation, #onboarding, #claude-code, #cli) [backlogged P3]
+- [[Cross-Model Handoff Evaluation]] — Process for evaluating AI-to-AI suggestions: check existing state, adopt real gaps (#pattern, #workflow, #multi-model) [raw]
+- [[Codex Review Gate Loops on Empty Diffs]] — Codex stop-time review gate returns status 1 with empty output on no changes, causing infinite retry (#codex, #review-gate) [backlogged]
+- [[Codex Shared Runtime Auth Recovery]] — Codex browser login succeeds but shared broker runtime holds stale auth state (#codex, #auth, #workflow) [raw]
+- [[GitHub Beginner Tutorial for Non-Developers]] — Teach non-devs to use GitHub for project collaboration via web UI (#documentation, #onboarding, #github) [backlogged P3]
+- [[JX Foundational Onboarding (Promoted)]] — Shared prerequisite setup steps (Claude Code, Git, GitHub CLI, uv, Node.js, jx-kb) extracted from PM/Dev/QA onboarding docs (#onboarding, #jx-kb, #setup, #shared) [promoted]
+- [[Schema Sources Rule Exception for Source Pages]] — Source pages self-referentially violate ## Sources requirement; 65 lint warnings (#wiki, #schema, #lint) [backlogged P2]
+- [[Triage Wiki Lint Editorial Warnings]] — Review remaining maintained-page lint warnings after raw-source noise is excluded (#wiki, #lint) [backlogged P3]
+- [[Wiki Search Tools]] — qmd and CLI tools for wiki search at scale (#tooling, #search) [backlogged P3]
+- [[Extract ADO Sync and Task Skills to jx-core]] — Move ado (jx-pm) and task (jx-dev) into jx-core for cross-role availability (#plugin-architecture, #jx-core, #cross-role) [archived: implemented]
+- [[Slash Feedback Skill for jx-core]] — Structured feedback capture skill in jx-core for cross-role use (#jx-core, #feedback, #cross-role) [backlogged P2]
+- [[Direct PRD-to-ADO Sync Without task.json]] — Change /jx-pm:ado to sync PRD directly to Azure Boards, removing task.json dependency (#jx-pm, #ado, #prd, #refactor) [backlogged P2]
+- [[jx-learn Plugin for Skill Learning]] — Interactive learning experiences teaching users how to use and build within Jodex ecosystem (#jx-learn, #plugin, #learning, #onboarding) [backlogged]
+- [[Jodex Plugin Installation Guide]] — End-to-end install docs: marketplace setup → jx-core/jx-kb prereqs → role-specific plugins (#documentation, #onboarding, #plugin-architecture, #marketplace) [backlogged P2]
+- [[Azure DevOps MCP Installation for Claude Code CLI (Promoted)]] — Quick-reference: ADO MCP install and verification for Claude Code CLI (#documentation, #onboarding, #mcp, #azure-devops, #claude-code) [promoted]
+- [[Dry-Run Gate Must Include Explicit Docs-Root]] — Dry-run verification must use explicit --docs-root to avoid stale env var misdirection (#jx-pm, #ado, #safety, #verification) [backlogged P2]
+- [[Fix Promotion Rename Link Retargeting]] — Idea promotion renames silently retarget historical log wikilinks (#wiki, #lint, #promotion, #wikilinks) [backlogged P2]
+- [[maxTurns Floor for jx-pm ADO Skill]] — /jx-pm:ado requires minTurns: 80 due to multiple shared file reads before execution (#jx-pm, #agent-sdk, #testing) [raw]
+- [[Over-Grooming Anti-Pattern]] — Grooming failure mode where scope inflates beyond requestor's intent (#pattern, #wiki, #idea-lifecycle, #anti-pattern) [backlogged P2]
+- [[Plan Approval as Confirmation Gate]] — Adversarially-reviewed plan approval satisfies the SKILL.md Phase 3 User Confirmation Gate (#pattern, #skill-design, #confirmation-gate, #plan) [raw]
+- [[Plan vs Code Review Complementarity]] — Plan reviews catch design gaps; code reviews catch implementation gaps; zero overlap between the two (#adversarial-review, #codex, #quality) [raw]
+- [[POSIX Atomic No-Overwrite via os.link]] — os.link() fails if target exists; true atomic no-overwrite unlike os.rename() which silently overwrites (#pattern, #filesystem, #atomicity) [raw]
+- [[Wrong-Tenant Filing as Tenant Binding Validation]] — Feedback skill filed to wrong ADO project when feedback-target.json missing (#jx-pm, #ado, #tenant-binding, #incident) [backlogged P2]
+- [[Skill Creator for Jodex Plugins]] — `/jx-plugin:create-skill` in jx-plugin; scaffolds skills with convention enforcement and validation (#developer-experience, #plugins, #tooling, #jx-plugin) [backlogged P1]
+- [[Skill Integration Testing via Agent SDK]] — Pattern for testing Claude Code skills programmatically using Agent SDK with message capture (#jx-qa, #testing, #agent-sdk) [backlogged]
+- [[Structured Feature Description Template for ADO]] — ADO Feature description should be structured instead of raw Executive Summary prose (#jx-pm, #jx-core, #ado, #template) [completed]
+- [[Fix Promotion Rename Link Retargeting]] — Idea promotion renames silently retarget historical log wikilinks (#wiki, #lint, #promotion, #wikilinks) [raw]
+- [[Over-Grooming Anti-Pattern]] — Grooming failure mode where scope inflates beyond requestor's intent (#pattern, #wiki, #idea-lifecycle, #anti-pattern) [raw]
+- [[Wrong-Tenant Filing as Tenant Binding Validation]] — Feedback skill filed to wrong ADO project when feedback-target.json missing (#jx-pm, #ado, #tenant-binding, #incident) [raw]
+- [[Background Session MCP Limitation]] — MCP tools may not be available in background worktree sessions (#mcp, #background-session, #tooling) [raw]
+- [[Email-Safe HTML Rendering Pattern]] — Reusable inline-styled HTML rules for email-compatible skill output (#pattern, #email, #html, #jx-pm) [raw]
+- [[File-Based Data Transport]] — Pass user content to CLI helpers via temp files and file paths, not shell args; eliminates shell injection (#security, #shell-injection, #skill-design, #pinned-helper) [raw]
+- [[Fixture-Based Specification Verification]] — Test SKILL.md specs via edge-case fixture files (#pattern, #testing, #skill, #verification) [raw]
+- [[Flag-Value Helper Antipattern]] — Helper returning full --flag value string causes double-flag bug when call site already includes the flag (#testing, #patterns, #dx) [backlogged]
+- [[Plugin Consolidation Pattern]] — Merging two plugins: move skills, retire source, clean up global config and bytecode cache (#plugin, #migration, #pattern, #refactoring) [raw]
+- [[Per-Plugin Allowed-Tools Allowlist]] — Permission-aware scaffolding for generated command stubs (#jx-plugin, #security, #permissions) [raw]
+- [[Playwright Tests for jx-pm ADO Skills]] — Build Playwright test suite exercising ADO skills end-to-end against Azure DevOps state (#jx-pm, #jx-qa, #playwright, #ado, #testing) [backlogged]
+- [[PRD Quality Gate Filtering Fails on Doc-Only Stories]] — PRD skill incorrectly applies code quality gates to documentation-only stories (#jx-pm, #prd, #quality-gates) [backlogged]
+- [[Three-Way Naming Sync Validation Gate]] — Automated 3-way naming sync check for plugin scaffolding (#jx-plugin, #plugins, #validation) [raw]
+- [[Escape User Descriptions in Scaffold Frontmatter]] — Quote/escape descriptions with YAML-special chars in generated stubs (#jx-plugin, #yaml, #safety) [raw]
+- [[Update Wiki Inventory for Six-Plugin Marketplace]] — Update stale plugin-count references across wiki; now six plugins: jx-qa, jx-kb, jx-pm, jx-dev, jx-core, jx-plugin (#wiki, #plugins, #inventory) [backlogged]
+- [[Reject Core and Self Plugin Targets in Scaffold]] — Block --plugin jx-core and --plugin jx-plugin via flag bypass (#jx-plugin, #validation, #safety) [raw]
+- [[Worktree Cleanup Skill as PM Workflow Capstone]] — clean-worktree as the closing step in the PM-to-delivery pipeline (#jx-pm, #worktree, #workflow) [raw]
+- [[Worktree Isolation Guard Needs Initialized Worktree]] — Background session bg-isolation guard blocks edits when worktree path exists as directory but not as git worktree (#worktree, #background-session, #troubleshooting) [raw]
+- [[Skill Creator Validates End-to-End Before Writing]] — Validate-all-then-confirm-then-write pattern in /jx-plugin:create-skill (#jx-plugin, #validation, #design-pattern) [raw]
+- [[Skeleton-Honest Plugin Description Convention]] — Use "Plugin skeleton — X (in development)" wording until first skill ships (#plugin, #naming, #marketplace, #skeleton) [raw]
+- [[Stdlib-Only YAML Serialization]] — Building YAML frontmatter without PyYAML using narrow escaping rules for known field set (#pattern, #yaml, #stdlib, #frontmatter) [raw]
+- [[Surgical Rollback Pattern]] — Prefer targeted operation-scoped undo over broad git checkout that discards unrelated changes (#pattern, #rollback, #safety, #git) [raw]
+- [[Scaffolded Skills Need Allowed-Tools Expansion]] — Default allowed-tools: Read too narrow for git/shell skills; consider --allowed-tools flag (#jx-plugin, #scaffolding, #allowed-tools) [raw]
+- [[Meeting Workflow Triad in jx-pm]] — meet-pre → meet-notes → meet-email forms a complete prepare/capture/distribute lifecycle (#jx-pm, #meeting, #workflow, #pattern) [raw]
+- [[Real-Time Capture as Skill Pattern]] — Interactive capture during ongoing activity; different from batch generation or data-pull skills (#skill-design, #pattern, #interactive) [raw]
+
+## Concepts
+
+- [[AC Verifiability Gap]] — Failure mode where PRD ACs reference verification mechanisms that don't match reality; three resolution patterns (#prd, #acceptance-criteria, #verification)
+- [[Ad-hoc vs Manifest-Driven Workflows]] — Two workflow modes: manual target selection vs manifest-tracked suggestions (#pattern, #workflow)
+- [[Agent Team Execution]] — Parallel agent orchestration with sequential foundation and tmux visibility (#pattern, #agent, #orchestration)
+- [[Atomic Rename Boundary]] — Runtime-critical rename changes must land in one commit (#pattern, #naming, #git)
+- [[Canonical Agent Instruction with Compatibility Shims]] — One canonical agent instruction file with thin discovery shims (#agent, #instructions, #compatibility)
+- [[Client-Specific MCP Boundary]] — MCP setup must be documented by exact client, transport, auth path, and verification surface (#mcp, #claude-code, #azure-devops)
+- [[Codex Plugin Compatibility]] — Claude Code vs Codex plugin format differences and conversion tools (#plugin, #codex)
+- [[Conditional AC Format Selection]] — AC format matches story type: G/W/T for journeys, checklist for constraints, system-state for backend (#acceptance-criteria, #prd, #design-pattern)
+- [[Configurable Default Chain]] — CLI flag → env var → hardcoded default resolution order (#pattern, #configuration)
+- [[Cross-Plugin Pinned Helper]] — Resolution pattern for invoking pinned helper scripts from dependency plugins (#pattern, #security, #plugin-architecture, #DRY)
+- [[Cross-Plugin Shared Convention Layer]] — Reference-only plugin pattern for shared conventions across plugins (#pattern, #plugin-architecture, #DRY)
+- [[Conflict Callout]] — Pattern for handling contradictions between sources (#wiki, #contradiction)
+- [[Cross-Reference Pass]] — Bidirectional wikilink pass after page creation (#wiki, #linking)
+- [[Directory-Source Marketplace]] — Local directory as marketplace source instead of GitHub (#plugin, #marketplace)
+- [[Discovery State Classification]] — Three-state classification for local skill discoverability: usable now vs restart required vs external target (#pattern, #claude-code, #skill-discovery, #local-skills)
+- [[Draft-Finalize Lifecycle]] — Incremental artifact creation with .draft-* prefix, rename on finalize, delete on cancel (#pattern, #safety, #crash-recovery)
+- [[Dynamic Worklist Generation]] — Generate file lists from grep/rg at execution time, never hardcode (#pattern, #refactoring)
+- [[Filing Workflow]] — Process for persisting conversation insights back to wiki (#wiki, #workflow)
+- [[Format B Eval Convention]] — Repo-standard typed assertion format for evals.json: file_exists, file_contains, output_contains (#testing, #evals, #convention)
+- [[Golden Thread Traceability]] — Unbroken chain from business objective to test case via requirement IDs (#pattern, #requirements)
+- [[Fail-Closed Lookup]] — Require exactly 1 match from external system; halt on 0 or 2+ (#pattern, #safety)
+- [[E2E Test Case]] — Classification of requirements as E2E-testable or not (#testing, #classification)
+- [[Emergent Design from Constraint]] — Best patterns emerge from hitting limits, not upfront design (#pattern, #meta, #emergence)
+- [[Executable Setup Documentation]] — Treat onboarding commands as verified, secret-safe executable examples (#documentation, #onboarding, #verification)
+- [[Health Score]] — 0-100 score quantifying wiki quality from lint (#wiki, #metrics)
+- [[Hook]] — Plugin lifecycle event handler (#plugin, #lifecycle)
+- [[Hook-Resilient Deletion Pattern]] — find-delete workaround when rm-rf is blocked by pre-tool-use hooks (#pattern, #safety, #workaround, #hooks)
+- [[Backlog Idea Grooming]] — Transform a backlogged idea into execution-ready spec: scope, AC, outline, priority (#wiki, #workflow, #backlog)
+- [[Idea Lifecycle]] — Progression: raw → promoted/backlogged/archived (#wiki, #workflow)
+- [[Idempotent Operation]] — Safe re-run pattern, skips existing work (#pattern, #safety)
+- [[Index]] — Content catalog for wiki navigation via _index.md (#architecture, #wiki)
+- [[Iterative Adversarial Review]] — Multi-pass design hardening: review, resolve, re-submit until clean (#pattern, #quality)
+- [[Identity And Access Ladder]] — Verify identity, enterprise membership, repo access, credentials, and MCP tool access before first workflow (#onboarding, #identity, #access-control)
+- [[Ingest]] — Core operation: absorb source documents into wiki pages (#operation, #wiki)
+- [[Knowledge Flywheel]] — Self-reinforcing loop: build → review → execute → capture → enrich → lint (#pattern, #workflow, #meta)
+- [[Layered Developer Onboarding]] — Install and verify developer workflow capabilities in dependency order (#onboarding, #developer-experience, #plugin)
+- [[Link Graph Traversal]] — Page discovery via wikilink graph during query (#wiki, #navigation)
+- [[Local Plugin Development]] — --plugin-dir workflow for local disk plugin dev (#plugin, #development)
+- [[Lock-File Guard for Atomic Scaffolding]] — Concurrency-safe scaffolding via O_CREAT|O_EXCL lock with ownership tracking (#pattern, #safety, #concurrency, #scaffolding)
+- [[Lint]] — Periodic health-check operation for wiki (#operation, #maintenance)
+- [[Log]] — Append-only chronological record of wiki operations (#architecture, #audit)
+- [[Marketplace]] — Plugin distribution mechanism for Claude Code CLI (#distribution, #plugin)
+- [[MCP Server]] — Model Context Protocol server for Claude Desktop extensibility (#protocol, #mcp)
+- [[MCP Tool]] — Individual capability exposed by MCP Server (#protocol, #tool)
+- [[MCP Tool Surface Alignment Gate]] — Verify connected MCP tools match command allowlists before external writes (#mcp, #tool-surface, #safety)
+- [[Memory vs Wiki Separation]] — When to use agent memory vs wiki pages (#architecture, #persistence)
+- [[Mode Flag Pattern]] — Merge N similar skills into 1 with --mode flag when 80%+ structure shared (#pattern, #plugin)
+- [[Multi-Phase Skill]] — Structural pattern: numbered phases with gates (#pattern, #architecture)
+- [[Naming Ripple Effect]] — How marketplace/plugin renames and skill migrations cascade through the system (#pattern, #naming, #migration)
+- [[Requirement ID System]] — {TYPE}-{feature_number}-{seq} format with global AC counter (#pattern, #requirements)
+- [[NotebookLM Integration]] — Associated NotebookLM notebooks and capabilities (#notebooklm, #tooling)
+- [[NotebookLM Research Oracle]] — Querying NotebookLM as external knowledge source during wiki work (#pattern, #research)
+- [[Per-Item Write-Back]] — Persist external IDs to disk after each individual operation, not batch (#pattern, #crash-recovery)
+- [[Path Confinement]] — Security pattern: path safety contract with relative_to() (#security, #validation)
+- [[Pinned Helper]] — Security pattern: restricted script execution (#security, #execution)
+- [[Prefix-Only Permission Grammar]] — Claude Code allowed-tools use pure prefix matching; mid-pattern wildcards don't work (#claude-code, #permissions, #allowed-tools, #pattern)
+- [[Plugin Architecture]] — .claude-plugin format for Claude Code CLI (#architecture, #plugin)
+- [[Plugin Dependency Declaration]] — Inter-plugin dependency convention via plugin.json dependencies field (#plugin, #convention, #dependency)
+- [[Plugin Metadata Surfaces]] — Where plugin descriptions and listing metadata live (#plugin, #metadata)
+- [[Polyglot Dependency Strategy]] — Python + TypeScript dependency management for plugin projects (#architecture, #dependencies)
+- [[Query]] — Search wiki and synthesize answers with citations (#operation, #retrieval)
+- [[Raw Sources]] — Immutable source document layer (#architecture, #provenance)
+- [[Request Mocking]] — Network interception/mocking for testing (#testing, #network)
+- [[Repository Source of Truth Precedence]] — Live repo authority order when wiki/source snapshots drift (#source-of-truth, #repository, #agent)
+- [[Scoped Replacement Pattern]] — Safe bulk rename with substring hazard avoidance and corruption checks (#pattern, #naming, #safety)
+- [[Schema]] — Wiki configuration document _schema.md (#architecture, #configuration)
+- [[Session Memory Model]] — Agent knowledge retention: in-session vs cross-session persistence (#persistence, #memory)
+- [[Semantic Locator]] — Stable element locators via live browser discovery (#testing, #locator)
+- [[Plugin Pipeline Sequence]] — Full system sequence diagrams: dependency graph, PM→Dev, QA, KB pipelines (#architecture, #sequence-diagram, #plugin)
+- [[Skill Chaining]] — Inter-skill output→input pipeline via --chain flag (#pattern, #plugin)
+- [[Skill Generalization]] — Process of porting project-specific skills to generic reusable plugins (#pattern, #porting)
+- [[Split Verification Pattern]] — Dual-tier checks for renames with preserved concept references (#pattern, #verification, #safety)
+- [[Shared Reference Extraction]] — Extract repeated skill logic into _shared/ files, reference by path (#pattern, #DRY)
+- [[Settings Portability]] — settings.json (committed) vs settings.local.json (gitignored) split pattern (#pattern, #configuration)
+- [[Severity Escalation Convergence Signal]] — Adversarial review exit: severity up + recommendation unchanged = platform constraint (#pattern, #adversarial-review, #convergence)
+- [[SHA-256 Fingerprinting]] — Content-based dedup via hash (#security, #dedup)
+- [[Skill]] — Multi-phase instructional module powering slash commands (#plugin, #implementation)
+- [[Spec-First Skill Execution]] — Read SKILL.md before executing any skill; do not improvise (#pattern, #skill, #contract, #discipline)
+- [[Slash Command]] — User-facing command wrapper /plugin:command (#plugin, #user-facing)
+- [[Storage State]]
+- [[Sub-Headers as Dual-Purpose Contracts]] — Bold sub-headers as both visual grouping and machine-parseable format routing for ADO sync (#skill-design, #prd, #design-pattern) — Browser state persistence for auth reuse (#testing, #persistence)
+- [[Stub-Delegation Pattern]] — SKILL.md with zero logic delegates to shared executable file via fail-closed guard (#pattern, #plugin-architecture, #security, #DRY)
+- [[Tombstone Pattern]] — Mark synced items as removed instead of deleting; preserve external bindings (#pattern, #sync)
+- [[Template-as-Reference Pattern]] — Store templates in references/ subdir, keep SKILL.md behavior-only (#pattern, #organization)
+- [[Taxonomy Routing]] — Classification rules for routing knowledge to buckets (#classification, #wiki)
+- [[Three-Surface Plugin Ecosystem]] — CLI + Code Desktop + Codex Desktop shared plugin registry (#architecture, #plugin)
+- [[Test Code Generation]] — Auto-generating TypeScript from CLI interactions (#testing, #codegen)
+- [[Tracing]] — Execution trace capture for debugging (#debugging, #observability)
+- [[Triage]] — Classify raw ideas: promote, backlog, or archive (#operation, #classification)
+- [[User Confirmation Gate]] — Security pattern: no writes before explicit approval (#security, #ux)
+- [[Watchlist Pattern]] — Manifest-driven tracking list for scan-based operations (#pattern, #workflow)
+- [[Wiki Signal Quality]] — Separate maintained knowledge from provenance snapshots so lint scores remain meaningful (#wiki, #lint, #provenance)
+- [[Wiki Query Patterns]] — Query types: retrieval, exploratory, generative (#wiki, #query)
+- [[ADO State Sync Model]] — Bottom-up state transition model for Azure Boards sync (#jx-pm, #ado, #state-machine)
+- [[Agent Definition]] — Custom AI subagent definition format for plugins (#plugin, #subagent, #orchestration)
+- [[Measurability Mandate]] — Every requirement must be testable with concrete metrics (#pattern, #requirements)
+- [[Mermaid Diagram Patterns]] — Reference library of 7 diagram types for architecture visualization (#jx-pm, #techspec, #mermaid)
+- [[Mermaid Obsidian Rendering Gotchas]] — Characters and patterns that silently break Mermaid in Obsidian (#mermaid, #obsidian, #troubleshooting)
+- [[Socratic Interview]] — 3-7 architectural questions tied to specific design decisions (#pattern, #architecture)
+- [[Tenant Binding]] — File-authoritative binding to external system tenant (#pattern, #safety)
+
+## Entities
+
+- [[Anthropic]] — AI safety company behind Claude (#company, #ai)
+- [[Obsidian]] — Markdown knowledge management app, wiki viewer/IDE (#tool, #editor)
+- [[Playwright]] — Browser automation framework by Microsoft (#tool, #testing)
+- [[Ramon Aseniero]] — Jairosoft primary developer, plugin architecture creator (#person, #contributor)
+- [[Vannevar Bush]] — Memex originator (1945), personal knowledge store vision (#person, #history)
+- [[Vicsante Aseniero]] — Jairosoft contributor, MCP server and Claude Desktop integration (#person, #contributor)
+
+## Topics
+
+- [[Browser Automation]] — Programmatic browser control for testing and automation (#testing, #playwright)
+- [[Knowledge Management]] — Capturing, organizing, maintaining, and retrieving knowledge (#knowledge-base, #wiki)
+- [[Plugin Dogfooding Workflow]] — Feedback loop between plugin source, wiki, and discussion (#plugin, #workflow)
+- [[QA Test Automation]] — Automated test generation from requirements documents (#testing, #qa)
+
+## Plugins
+
+- [[Core Shared Conventions Plugin|jx-core]] — Reference-only shared conventions for PM and developer plugins (#plugin, #shared-conventions)
+- [[Plugin Scaffolding Plugin|jx-plugin]] — Skill and plugin scaffolding with convention enforcement and marketplace registration (#plugin, #scaffolding)
+- [[Developer Skills Plugin|jx-dev]] — Technical specification and task breakdown workflows (#plugin, #developer)
+- [[Knowledge Base Plugin|jx-kb]] — LLM-maintained knowledge base plugin for Claude Code (#knowledge-base, #wiki)
+- [[Local Skills Plugin|jx-local]] — Local project-level skill scaffolding in .claude/skills/ (#plugin, #jx-local, #scaffolding, #local-skills)
+- [[Product Management Skills Plugin|jx-pm]] — PRD generation, pipeline orchestration, Azure Boards sync, and daily meeting preparation (#plugin, #product-management) [active]
+- [[QA Testing Plugin|jx-qa]] — QA testing pipeline: BRD → xlsx → Playwright specs (#testing, #playwright)
+
+## Platforms
+
+- [[Claude Code CLI]] — CLI with proprietary plugin architecture (#claude, #cli)
+- [[Claude Code Desktop]] — Desktop app sharing plugin registry with CLI (#claude, #desktop)
+- [[Codex Desktop]] — Codex desktop app sharing plugin registry with CLI (#codex, #desktop)
+- [[Claude Desktop]] — Desktop app with MCP-only extensibility (#claude, #desktop)
+- [[WSL]] — Windows Subsystem for Linux, bridge for CLI-to-Desktop integration (#windows, #linux)
+
+## Projects
+
+- [[Jodex Plugin Marketplace]] — Five-plugin marketplace dogfooding its own wiki workflow (#plugin, #marketplace)
+
+## Decisions
+
+- [[ADR-001 Treat Marketplace Metadata As Listing Source]] — Marketplace manifest owns listing text (#plugin, #metadata)
+
+## Code
+
+- [[Creating a Plugin]] — End-to-end guide for adding a new plugin to the plugin architecture (#plugin, #how-to, #onboarding)
+- [[Creating a Skill]] — Step-by-step guide for adding a new skill to a Claude Code plugin (#skill, #how-to)
+- [[Azure DevOps MCP Installation for Claude Code CLI]] — Quick-reference install and 4-step verification for the Azure DevOps MCP server in Claude Code CLI (#documentation, #onboarding, #mcp, #azure-devops, #claude-code, #cli)
+- [[JX Dev Onboarding]] — Developer setup guide for installing Claude Code CLI/Desktop, jx-dev, jx-kb, the project wiki, and Azure DevOps MCP (#jx-dev, #jx-kb, #claude-code, #azure-devops, #onboarding)
+- [[JX PM Onboarding]] — Product owner setup guide for installing Claude Code CLI/Desktop, GitHub tooling, Obsidian, jx-pm, jx-kb, and optional Azure DevOps MCP (#jx-pm, #product-owner, #onboarding)
+- [[JX Foundational Onboarding]] — Shared prerequisite setup for all Jodex project roles: Claude Code, Git, GitHub CLI, uv, Python 3, Node.js 20+, jx-kb (#onboarding, #setup, #shared, #jx-kb)
+- [[JX QA Onboarding]] — QA user setup guide for installing jx-qa and jx-kb, initializing a project wiki, and running Playwright workflows (#jx-qa, #onboarding, #setup, #playwright)
+- [[JX QA Workflow]] — Day-to-day numbered walkthrough of the jx-qa pipeline: extract → generate → test (#jx-qa, #workflow, #process)
+- [[Eval Runner for Skill Assertions]] — Automated eval runner design: discover evals, execute via `claude -p`, check typed assertions, report pass/fail (#testing, #evals, #skills, #automation)
+- [[plugin-creator.py]] — Pinned helper script for jx-plugin plugin skeleton scaffolding (#script, #python, #jx-plugin)
+- [[wiki-tools.py]] — Pinned helper script for jx-kb plugin (#script, #python)
+- [[xlsx-writer.py]] — Pinned helper script for jx-qa plugin (#script, #python)
+
+## Sources
+
+- [[Source - Agent Instructions]] — Root canonical agent instruction file (#agent, #instructions)
+- [[Source - Claude CLI vs Desktop MCP Guide]] — CLI vs Desktop architecture comparison (#architecture)
+- [[Source - Cross-Plugin Convention Layer]] — Shared convention layer insight from jx-pm split (#plugin-architecture, #pattern)
+- [[Source - Plugin Split Dream]] — Post-session reflection: emergent design, accidental elegance, what the wiki learned (#meta, #reflection)
+- [[Source - Plugin Split Session Correlation]] — End-of-session synthesis: flywheel pattern, resolution-induced regression (#meta-pattern, #session-learning)
+- [[Source - Plugin Split Implementation Plan]] — 4-track implementation plan for jx-pm split with tmux execution (#plugin-architecture, #implementation)
+- [[Source - Claude Desktop WSL Integration]] — WSL integration guide (#wsl)
+- [[Source - Element Attributes Reference]] — DOM attribute inspection via eval (#playwright)
+- [[Source - Extract SKILL]] — BRD → xlsx test plan (#skill)
+- [[Source - Extract SKILL Sequence]] — Mermaid sequence diagram for extract 6-phase flow (#skill, #sequence-diagram)
+- [[Source - Generate SKILL]] — xlsx → Playwright specs via live browser (#skill)
+- [[Source - Init SKILL]] — Wiki initialization (#skill)
+- [[Source - Ingest SKILL]] — Core ingest operation (#skill)
+- [[Source - Lint SKILL]] — Wiki health-checking (#skill)
+- [[Source - LLM Wiki]] — LLM Wiki pattern by Karpathy (#pattern)
+- [[Source - JX KB README]] — LLM Wiki plugin docs (#plugin)
+- [[Source - Marketplace Config]] — marketplace.json manifest (#config)
+- [[Source - Playwright CLI SKILL]] — Browser automation skill (#skill)
+- [[Source - Playwright Tests Reference]] — Running/debugging tests (#playwright)
+- [[Source - JX QA README]] — QA AI plugin docs (#plugin)
+- [[Source - Query SKILL]] — Wiki query with citations (#skill)
+- [[Source - Request Mocking Reference]] — Network interception/mocking (#playwright)
+- [[Source - Running Code Reference]] — run-code for arbitrary Playwright (#playwright)
+- [[Source - Session Management Reference]] — Named browser sessions (#playwright)
+- [[Source - Storage State Reference]] — Cookies, localStorage management (#playwright)
+- [[Source - Test Command]] — /jx-qa:test slash command definition (#jx-qa, #command, #playwright)
+- [[Source - Test Generation Reference]] — Auto-generating test code (#playwright)
+- [[Source - Test SKILL]] — Playwright test runner skill with headless, UI, and headed modes (#skill, #jx-qa, #playwright)
+- [[Source - Tracing Reference]] — Execution trace capture (#playwright)
+- [[Source - Triage SKILL]] — Idea classification (#skill)
+- [[Source - Video Recording Reference]] — WebM capture with overlays (#playwright)
+- [[Source - ADO Command]] — /jx-pm:ado command definition and tool permissions (#jx-pm, #command)
+- [[Source - ADO Sync States Reference]] — Azure Boards state transition rules for sync (#jx-pm, #ado)
+- [[Source - Azure Boards Sync SKILL]] — task.json to Azure Boards hierarchy with state sync (#skill, #jx-pm, #ado)
+- [[Source - Browser Command]] — /jx-qa:browser slash command definition (#jx-qa, #command, #playwright)
+- [[Source - Docs Root Config]] — Shared docs-root resolution: flag → env → default (#skill, #jx-pm, #config)
+- [[Source - Extract Command]] — /jx-qa:extract slash command definition (#jx-qa, #command)
+- [[Source - Generate Command]] — /jx-qa:generate slash command definition (#jx-qa, #command)
+- [[Source - ID Rules]] — Shared folder validation and requirement ID generation rules (#skill, #jx-pm, #id-system)
+- [[Source - jx-pm Agents Stub]] — Placeholder for future jx-pm agent configurations (#jx-pm, #stub)
+- [[Source - jx-pm Hooks Stub]] — Placeholder for future jx-pm lifecycle hooks (#jx-pm, #stub)
+- [[Source - jx-pm Plugin README]] — Plugin overview: 5 skills, pipeline chain, output structure (#jx-pm, #plugin)
+- [[Source - jx-pm PRD Command]] — jx-pm PRD generation command with mode flags and skill chaining (#jx-pm, #command)
+- [[Source - jx-pm Prompts Stub]] — Placeholder for future jx-pm prompt fragments (#jx-pm, #stub)
+- [[Source - jx-pm Task Command]] — jx-pm task.json generation command from PRD + TECH_SPEC (#jx-pm, #command)
+- [[Source - jx-pm Techspec Command]] — jx-pm tech spec generation command from PRD (#jx-pm, #command)
+- [[Source - JX KB Prompts Directory]] — Prompt fragment directory for jx-kb plugin (#jx-kb, #prompts)
+- [[Source - JX KB Schemas Directory]] — JSON Schema directory for jx-kb plugin (#jx-kb, #schemas)
+- [[Source - jx-kb Agents Guide]] — llm-wiki agent definition format and use cases (#jx-kb, #agents)
+- [[Source - jx-kb Hooks Guide]] — llm-wiki hooks format and lifecycle events (#jx-kb, #hooks)
+- [[Source - jx-kb Ingest Command]] — llm-wiki ingest slash command definition (#jx-kb, #command)
+- [[Source - jx-kb Init Command]] — llm-wiki init slash command definition (#jx-kb, #command)
+- [[Source - jx-kb Lint Command]] — llm-wiki lint/health-check slash command definition (#jx-kb, #command)
+- [[Source - jx-kb Query Command]] — llm-wiki query slash command definition (#jx-kb, #command)
+- [[Source - jx-kb Triage Command]] — llm-wiki triage slash command definition (#jx-kb, #command)
+- [[Source - Mermaid Diagram Patterns]] — 7 Mermaid diagram types for tech spec generation (#jx-pm, #techspec)
+- [[Source - Pipeline Command]] — /jx-pm:pipeline command definition and flags (#jx-pm, #command)
+- [[Source - Pipeline SKILL]] — Convenience wrapper running full PM pipeline (#skill, #jx-pm, #pipeline)
+- [[Source - PRD Example Lite]] — Complete lite-mode PRD example (one-click checkout) (#jx-pm, #prd)
+- [[Source - PRD Generator SKILL]] — PRD generation skill with 3 modes, golden thread, INVEST stories (#skill, #jx-pm, #prd)
+- [[Source - PRD Lite Template]] — Minimal viable PRD template with placeholders (#jx-pm, #prd)
+- [[Source - PRD Standard Template]] — Mid-weight PRD template with design/tech sections (#jx-pm, #prd)
+- [[Source - JX QA Agents Directory]] — Agent definition directory for jx-qa plugin (#jx-qa, #agents)
+- [[Source - JX QA Hooks Directory]] — Hooks lifecycle directory for jx-qa plugin (#jx-qa, #hooks)
+- [[Source - JX QA Prompts Directory]] — Prompt fragment directory for jx-qa plugin (#jx-qa, #prompts)
+- [[Source - JX QA Schemas Directory]] — JSON Schema directory for jx-qa plugin (#jx-qa, #schemas)
+- [[Source - Root README]] — Root project README with installation and usage docs (#marketplace, #readme)
+- [[Source - Split Tech Spec Idea]] — Completed idea for splitting jx-pm into jx-dev + jx-core (#plugin-architecture, #refactor)
+- [[Source - Task JSON Converter SKILL]] — PRD/tech spec to canonical task.json with estimates (#skill, #jx-pm, #task)
+- [[Source - Task JSON Schema]] — Canonical JSON schema for task.json structure (#skill, #jx-pm, #schema)
+- [[Source - Tech Spec Generator SKILL]] — Tech spec from PRD with Mermaid, JSON Schema, OpenAPI, ADRs (#skill, #jx-pm, #techspec)
+- [[Source - Tech Spec Template]] — 8-section TECH_SPEC.md template with EARS syntax (#jx-pm, #techspec)
+- [[Source - Unified BRD-PRD Template]] — Combined BRD+PRD template with strategic + tactical sections (#jx-pm, #prd)
+- [[Source - jx-core Plugin README]] — Reference-only shared convention plugin overview (#jx-core, #plugin)
+- [[Source - jx-core Docs Root Config]] — Canonical docs-root resolution with plugin-neutral env var (#jx-core, #config)
+- [[Source - jx-core ID Rules]] — Canonical ID generation and folder validation rules (#jx-core, #id-system)
+- [[Source - jx-core Task JSON Schema]] — Canonical task.json schema post-split (#jx-core, #schema)
+- [[Source - jx-dev Plugin README]] — Dev plugin overview: spec + task skills (#jx-dev, #plugin)
+- [[Source - jx-dev Spec Command]] — /jx-dev:spec slash command definition (#jx-dev, #command)
+- [[Source - jx-dev Task Command]] — /jx-dev:task slash command definition (#jx-dev, #command)
+- [[Source - jx-dev Spec SKILL]] — Tech spec generation skill, 5-phase with Socratic interview (#jx-dev, #skill)
+- [[Source - jx-dev Task SKILL]] — Task conversion skill, 5-phase merge-aware with tombstone (#jx-dev, #skill)
+- [[Source - jx-dev Diagram Patterns]] — Mermaid diagram types, canonical post-split copy (#jx-dev, #mermaid)
+- [[Source - jx-dev Tech Spec Template]] — TECH_SPEC.md template, canonical post-split copy (#jx-dev, #techspec)
+- [[Source - jx-dev Agents Guide]] — Agent definition format and use cases for jx-dev (#jx-dev, #agents)
+- [[Source - jx-dev Hooks Stub]] — Placeholder for jx-dev lifecycle hooks (#jx-dev, #stub)
+- [[Source - jx-dev Prompts Stub]] — Placeholder for jx-dev prompt fragments (#jx-dev, #stub)
+- [[Source - jx-dev Schemas Stub]] — Placeholder, delegates to jx-core (#jx-dev, #stub)
+- [[Source - jx-dev Scripts Stub]] — Placeholder for jx-dev scripts (#jx-dev, #stub)
+- [[Source - FEAT-006 Meeting Prep Email Plan]] — Implementation plan for meet-email skill with 6-round adversarial review (#jx-pm, #meet-email, #plan)
+- [[Source - FEAT-006 Session Insights]] — Session insights: severity escalation signal, MCP limitation, fixture verification (#session, #jx-pm, #adversarial-review)
+- [[Source - Meet-Notes Session Insights]] — Format B evals, draft-finalize lifecycle, scoped evals, cross-model handoff (#session, #jx-pm, #evals)
+- [[Source - Spec-First Feedback]] — Generalized lesson: read SKILL.md before executing any skill (#feedback, #skill, #contract)

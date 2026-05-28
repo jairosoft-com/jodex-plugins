@@ -1,0 +1,141 @@
+{
+  "skill_name": "test",
+  "evals": [
+    {
+      "id": 0,
+      "name": "run-playwright-test-default",
+      "prompt": "run playwright test",
+      "expected_output": "Agent runs Playwright tests headless by executing npx playwright test.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "runs-npx-playwright-test",
+          "description": "Terminal or tool invocation includes: npx playwright test"
+        },
+        {
+          "name": "no-ui-or-headed-flag",
+          "description": "Does not add --headed or --ui unless user explicitly requested a mode"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "run-e2e-test-default",
+      "prompt": "run e2e test",
+      "expected_output": "Agent runs Playwright tests headless by executing npx playwright test (default mode, no args).",
+      "files": [],
+      "assertions": [
+        {
+          "name": "runs-npx-playwright-test",
+          "description": "Invokes npx playwright test (headless default)"
+        },
+        {
+          "name": "no-ui-or-headed-flag",
+          "description": "Does not add --headed or --ui unless user explicitly requested a mode"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "run-playwright-test-ui",
+      "prompt": "run playwright test ui",
+      "expected_output": "Agent runs Playwright in interactive UI mode by executing npx playwright test --ui.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "runs-npx-playwright-ui",
+          "description": "Terminal or tool invocation includes: npx playwright test --ui"
+        },
+        {
+          "name": "not-headless-or-headed",
+          "description": "Does not run npx playwright test without --ui or npx playwright test --headed"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "run-playwright-test-headed",
+      "prompt": "run e2e test headed",
+      "expected_output": "Agent runs Playwright with visible browser by executing npx playwright test --headed.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "runs-headed",
+          "description": "Terminal or tool invocation includes: npx playwright test --headed"
+        },
+        {
+          "name": "not-ui-mode",
+          "description": "Does not run npx playwright test --ui"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "negative-test-plan-review",
+      "prompt": "review the test plan in the spreadsheet and tell me what's missing",
+      "expected_output": "Agent does not invoke the test skill. It reviews or discusses the plan instead.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "no-playwright-run",
+          "description": "Does not run npx playwright test in any mode"
+        },
+        {
+          "name": "addresses-review",
+          "description": "Focuses on test plan coverage, gaps, or spreadsheet content"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "negative-generate-playwright-specs",
+      "prompt": "generate playwright tests from the xlsx test plan",
+      "expected_output": "Agent routes to extraction/generation skills (extract, generate, playwright-cli) — not the test skill runner.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "no-test-command",
+          "description": "Does not satisfy the request solely by running npx playwright test"
+        },
+        {
+          "name": "uses-generation-path",
+          "description": "Proceeds with reading the plan and/or generating specs per the generate skill"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "negative-coverage-analysis",
+      "prompt": "check test coverage for the spreadsheet",
+      "expected_output": "Agent does not invoke the test skill. It analyzes coverage gaps in the test plan instead.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "no-playwright-run",
+          "description": "Does not run npx playwright test in any mode"
+        },
+        {
+          "name": "addresses-coverage",
+          "description": "Discusses test plan coverage or gaps rather than executing tests"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "negative-unit-test",
+      "prompt": "run unit tests",
+      "expected_output": "Agent does not invoke the test skill. It clarifies distinction or looks for unit test runner instead.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "no-playwright-run",
+          "description": "Does not run npx playwright test as a Playwright E2E run"
+        },
+        {
+          "name": "acknowledges-unit-scope",
+          "description": "Recognizes user asked for unit tests, not E2E Playwright tests"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+# Unified BRD-PRD Template
+
+## Document Metadata
+- **Feature ID**: {feature_number}
+- **Feature Name**: {feature_name}
+- **Document Type**: BRD_PRD
+- **Generated Date**: {YYYY-MM-DD}
+- **Quality Profile**: default
+- **Quality Gates**:
+  - Lint passes [code-only]
+  - Typecheck passes [code-only]
+  - Unit tests pass [code-only]
+  - E2E tests pass [ui-only]
+
+## Document Control
+
+| Attribute | Details |
+|-----------|---------|
+| **Status** | [Draft / In Review / Approved] |
+| **Project Sponsor** | [Name] |
+| **Product Owner** | [Name] |
+| **Target Release** | [Date] |
+
+---
+
+## Part I: Strategic Foundation (BRD)
+
+### 1. Executive Summary
+
+*(Write last. 1-2 paragraphs: problem, solution, objectives, timeline, ROI)*
+
+### 2. Business Problem & Opportunity
+
+#### Current State
+[Describe existing situation with data]
+
+**Quantitative Evidence:**
+- [Data point 1]
+- [Data point 2]
+
+**Qualitative Evidence:**
+- [User feedback / research]
+
+#### Root Cause Analysis
+[Underlying causes, not symptoms]
+
+### 3. Business Objectives & Success Metrics
+
+| Objective ID | SMART Objective | KPI | Current | Target |
+|---|---|---|---|---|
+| OBJ-{feature_number}-01 | [Specific, measurable goal] | [Metric] | [Baseline] | [Goal] |
+| OBJ-{feature_number}-02 | [Another goal] | [Metric] | [Baseline] | [Goal] |
+
+### 4. Project Scope
+
+#### In Scope
+- [Deliverable 1]
+- [Deliverable 2]
+
+#### Out of Scope
+- [Excluded item 1 — reason]
+- [Excluded item 2 — reason]
+
+### 5. Stakeholder Analysis (RACI)
+
+| Stakeholder | Role | R/A/C/I |
+|---|---|---|
+| [Name] | Sponsor | A |
+| [Name] | Product Owner | R |
+
+### 6. Assumptions, Constraints & Dependencies
+
+**Assumptions:** [List]
+**Constraints:** [Budget, timeline, tech]
+**Dependencies:** [External systems, teams]
+
+### 7. Risk Assessment
+
+| Risk ID | Risk | Likelihood (1-5) | Impact (1-5) | Mitigation |
+|---|---|---|---|---|
+| RISK-{feature_number}-01 | [Description] | [N] | [N] | [Strategy] |
+
+---
+
+## Part II: Tactical Execution (PRD)
+
+### 8. Target Users & Personas
+
+**Primary Persona:** [Name/Role]
+- Goals: [What they want]
+- Pain Points: [Current frustrations]
+
+### 9. User Stories
+
+#### GOAL-{feature_number}-01: [Goal Name]
+
+### US-{feature_number}-01: [Title]
+**As a** [persona]
+**I want** [action]
+**So that** [benefit]
+
+*Format: Scenario-Based — [rationale]*
+
+**Acceptance Criteria:**
+
+**Scenarios:**
+- AC-{feature_number}-01: Given [context], When [action], Then [result — happy path]
+- AC-{feature_number}-02: Given [context], When [error condition], Then [error handling — unhappy path]
+
+**Quality Gates:**
+- AC-{feature_number}-03: {quality_gate_1}
+- AC-{feature_number}-04: {quality_gate_2}
+- AC-{feature_number}-05: {quality_gate_3}
+<!-- Gates resolved from quality-gates.md -->
+
+**Validates:** OBJ-{feature_number}-01
+
+### US-{feature_number}-02: [Title]
+**As a** [persona]
+**I want** [action]
+**So that** [benefit]
+
+*Format: Rule-Based — [rationale]*
+
+**Acceptance Criteria:**
+
+**Rules:**
+- AC-{feature_number}-06: [Constraint — happy path. Global counter continues]
+- AC-{feature_number}-07: [Another constraint]
+- AC-{feature_number}-08: [Error/edge case — unhappy path]
+
+**Quality Gates:**
+- AC-{feature_number}-09: {quality_gate_1}
+- AC-{feature_number}-10: {quality_gate_2}
+- AC-{feature_number}-11: {quality_gate_3}
+<!-- Gates resolved from quality-gates.md -->
+
+**Validates:** OBJ-{feature_number}-01
+
+### 10. Non-Functional Requirements
+
+| NFR ID | Category | Requirement | Links to | Test Method |
+|---|---|---|---|---|
+| NFR-{feature_number}-01 | Performance | [Specific metric] | OBJ-{feature_number}-01 | [Method] |
+| NFR-{feature_number}-02 | Security | [Specific standard] | Compliance | [Method] |
+
+### 11. Technical Considerations
+
+- Architecture approach
+- Integration points
+- Data model implications
+
+### 12. Open Questions & Decision Log
+
+| Question | Date | Decision | Rationale |
+|---|---|---|---|
+| [Question] | [Date] | [Decision] | [Why] |
+
+### 13. Release Plan
+
+| Milestone | Target Date | Status |
+|---|---|---|
+| Requirements Approved | [Date] | [Status] |
+| Design Complete | [Date] | [Status] |
+| Development Kickoff | [Date] | [Status] |
+| Launch | [Date] | [Status] |
+
+---
+
+## Approval
+
+| Role | Name | Date |
+|---|---|---|
+| Sponsor | | |
+| Product Owner | | |

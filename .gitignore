@@ -1,0 +1,71 @@
+# --- OS & editors ---
+.DS_Store
+Thumbs.db
+Desktop.ini
+.obsidian/
+
+# --- Claude / Cursor local state (not plugin source) ---
+logs/
+**/.claude/data/
+.claude/worktrees/
+
+# --- Node / TypeScript (Playwright, tooling, generated projects) ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+dist/
+build/
+out/
+.cache/
+*.tsbuildinfo
+coverage/
+.nyc_output/
+*.log
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Playwright
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+env/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.tox/
+.hypothesis/
+*.egg-info/
+.eggs/
+dist/
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.pyre/
+
+# --- Wiki raw source snapshots (originals already in repo) ---
+wiki/raw/
+
+# --- Temporary / scratch files ---
+tmp/
+*.tmp
+*.temp
+
+# Antigravity
+.antigravitycli/

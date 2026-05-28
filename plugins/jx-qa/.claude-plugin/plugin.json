@@ -1,0 +1,7 @@
+{
+  "name": "jx-qa",
+  "version": "1.0.0",
+  "description": "QA Harness: extract E2E test cases from BRDs, generate Playwright specs, automate browser interactions.",
+  "author": { "name": "Jairosoft", "email": "ramon@jairosoft.com" },
+  "dependencies": ["jx-core"]
+}

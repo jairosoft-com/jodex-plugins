@@ -1,0 +1,55 @@
+{
+  "skill_name": "extract",
+  "evals": [
+    {
+      "id": 0,
+      "name": "fork-and-extract",
+      "prompt": "extract E2E test cases from raw/articles/BRD_PRD.md",
+      "expected_output": "Discovers xlsx in test-plans/. Presents classification table of ACs/FRs as E2E or NOT-E2E. After user confirmation, forks xlsx with version suffix (-2, -3, etc.), appends header+step rows for each E2E test case, prints coverage report showing covered and skipped requirements.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "classification-table-shown",
+          "description": "Output contains a markdown table with columns Req ID, Summary, Classification, Reason, Proposed Test Title"
+        },
+        {
+          "name": "user-confirmation-gate",
+          "description": "Skill pauses and asks user to confirm classifications before proceeding"
+        },
+        {
+          "name": "versioned-file-created",
+          "description": "A new xlsx file with version suffix (e.g., -2.xlsx or -3.xlsx) was created in test-plans/"
+        },
+        {
+          "name": "original-untouched",
+          "description": "The original xlsx file was not modified (byte-preserving fork via shutil.copy2)"
+        },
+        {
+          "name": "header-step-structure",
+          "description": "New xlsx contains Test Case header rows (Work Item Type = Test Case, Title filled) followed by numbered step rows (sequential Test Step integers)"
+        },
+        {
+          "name": "coverage-report-present",
+          "description": "Output contains Covered and Skipped sections with requirement IDs mapped to test case titles or skip reasons, plus a Total summary line"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "dedup-skip",
+      "prompt": "extract E2E test cases from raw/articles/BRD_PRD.md",
+      "expected_output": "Discovers xlsx that already contains the extracted test cases. Detects duplicate titles in existing header rows. Skips all duplicates and reports zero new test cases added.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "duplicates-reported",
+          "description": "Output mentions skipped duplicates by title, indicating test cases already exist in the xlsx"
+        },
+        {
+          "name": "no-new-version-created",
+          "description": "No new versioned xlsx file was created since all test cases were duplicates"
+        }
+      ]
+    }
+  ]
+}

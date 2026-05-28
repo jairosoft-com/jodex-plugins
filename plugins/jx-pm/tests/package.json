@@ -1,0 +1,19 @@
+{
+  "name": "jx-pm-tests",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test:unit": "npx playwright test --project=unit",
+    "test:dry-run": "npx playwright test --project=dry-run",
+    "test:e2e": "npx playwright test --project=e2e",
+    "test": "npx playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^22.19.19",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "^0.3.149"
+  }
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "name": "scaffold-new-plugin-happy-path",
+    "description": "Scaffold a new plugin with all flags provided",
+    "input": "/jx-plugin:create-plugin --plugin jx-example --description \"Example automation plugin\" --category productivity --author \"Jairosoft\"",
+    "assertions": [
+      {
+        "type": "output_contains",
+        "contains": "Planned Plugin Scaffold"
+      },
+      {
+        "type": "output_contains",
+        "contains": "Proceed? (yes/no)"
+      },
+      {
+        "type": "file_exists",
+        "path": "plugins/jx-example/.claude-plugin/plugin.json"
+      },
+      {
+        "type": "file_exists",
+        "path": "plugins/jx-example/README.md"
+      },
+      {
+        "type": "file_exists",
+        "path": "plugins/jx-example/commands/ABOUT.md"
+      },
+      {
+        "type": "file_exists",
+        "path": "plugins/jx-example/skills/ABOUT.md"
+      },
+      {
+        "type": "file_not_exists",
+        "path": "plugins/jx-example/commands/example.md"
+      },
+      {
+        "type": "file_not_exists",
+        "path": "plugins/jx-example/skills/example/SKILL.md"
+      },
+      {
+        "type": "file_contains",
+        "path": ".claude-plugin/marketplace.json",
+        "contains": "\"source\": \"./plugins/jx-example\""
+      },
+      {
+        "type": "file_contains",
+        "path": "plugins/jx-example/README.md",
+        "contains": "/jx-plugin:create-skill --plugin jx-example"
+      }
+    ]
+  },
+  {
+    "name": "reject-invalid-plugin-name",
+    "description": "Reject plugin names that do not match the jx-* lowercase hyphenated convention",
+    "input": "/jx-plugin:create-plugin --plugin example --description \"Invalid plugin\"",
+    "assertions": [
+      {
+        "type": "output_contains",
+        "contains": "plugin name must match"
+      }
+    ]
+  },
+  {
+    "name": "reject-existing-plugin-collision",
+    "description": "Reject creating a plugin whose directory and marketplace name already exist",
+    "input": "/jx-plugin:create-plugin --plugin jx-qa --description \"Duplicate QA plugin\"",
+    "assertions": [
+      {
+        "type": "output_contains",
+        "contains": "collision"
+      },
+      {
+        "type": "output_contains",
+        "contains": "plugin_directory"
+      }
+    ]
+  },
+  {
+    "name": "reject-marketplace-source-duplicate",
+    "description": "Reject when the marketplace already has a source that resolves to the requested plugin path",
+    "fixture": {
+      "marketplace_entry": {
+        "name": "jx-shadow-existing",
+        "description": "Existing entry with conflicting source",
+        "author": {
+          "name": "Jairosoft"
+        },
+        "category": "productivity",
+        "source": "./plugins/jx-shadow"
+      }
+    },
+    "input": "/jx-plugin:create-plugin --plugin jx-shadow --description \"Shadow plugin\"",
+    "assertions": [
+      {
+        "type": "output_contains",
+        "contains": "marketplace_source"
+      }
+    ]
+  },
+  {
+    "name": "requires-confirmation-before-write",
+    "description": "Show planned artifacts and pause before invoking the write helper",
+    "input": "/jx-plugin:create-plugin --plugin jx-later --description \"Deferred plugin\"",
+    "assertions": [
+      {
+        "type": "output_contains",
+        "contains": "Planned Plugin Scaffold"
+      },
+      {
+        "type": "output_contains",
+        "contains": "No command stubs, skill stubs, dependencies, or first-skill content will be generated."
+      },
+      {
+        "type": "output_contains",
+        "contains": "Proceed? (yes/no)"
+      },
+      {
+        "type": "file_not_exists",
+        "path": "plugins/jx-later/.claude-plugin/plugin.json"
+      }
+    ]
+  }
+]

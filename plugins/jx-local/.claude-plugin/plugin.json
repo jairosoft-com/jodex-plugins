@@ -1,0 +1,8 @@
+{
+  "name": "jx-local",
+  "version": "1.0.0",
+  "description": "this is a plugin to create local skills and local prompts in the user's project directory.",
+  "author": {
+    "name": "ramon"
+  }
+}
