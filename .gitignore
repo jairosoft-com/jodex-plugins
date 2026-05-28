@@ -8,6 +8,7 @@ Desktop.ini
 logs/
 **/.claude/data/
 .claude/worktrees/
+.claude/settings.local.json
 
 # --- Node / TypeScript (Playwright, tooling, generated projects) ---
 node_modules/
