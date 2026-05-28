@@ -1,8 +1,4 @@
-<<<<<<< HEAD:plugins/qa-ai/README.md
-      # qa-ai — QA Testing Plugin for Claude Code
-=======
 # jx-qa — QA Testing Plugin for Claude Code
->>>>>>> main:plugins/jx-qa/README.md
 
 A QA testing pipeline that extracts E2E test cases from BRD/PRD documents, generates Playwright specs, provides browser automation, and runs Playwright tests.
 
