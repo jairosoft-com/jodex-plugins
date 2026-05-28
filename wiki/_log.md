@@ -4,6 +4,12 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-28 — Idea: meet-pre eval output path and naming
+
+- **Operation**: idea filing
+- **Pages created**: [[Meet-Pre Eval Output Path and Naming Convention]]
+- **Ideas extracted**: 1
+
 ## 2026-05-27 — Session Insights: jx-local create-prompt
 
 - **Operation**: insights

@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
-updated: 2026-05-27
-page_count: 298
+updated: 2026-05-28
+page_count: 299
 ---
 
 # Wiki Index
@@ -90,6 +90,7 @@ page_count: 298
 - [[Stdlib-Only YAML Serialization]] — Building YAML frontmatter without PyYAML using narrow escaping rules for known field set (#pattern, #yaml, #stdlib, #frontmatter) [raw]
 - [[Surgical Rollback Pattern]] — Prefer targeted operation-scoped undo over broad git checkout that discards unrelated changes (#pattern, #rollback, #safety, #git) [raw]
 - [[Scaffolded Skills Need Allowed-Tools Expansion]] — Default allowed-tools: Read too narrow for git/shell skills; consider --allowed-tools flag (#jx-plugin, #scaffolding, #allowed-tools) [raw]
+- [[Meet-Pre Eval Output Path and Naming Convention]] — Add evals for meet-pre output folder and date/timestamp file naming (#jx-pm, #meet-pre, #evals, #testing) [raw]
 - [[Meeting Workflow Triad in jx-pm]] — meet-pre → meet-notes → meet-email forms a complete prepare/capture/distribute lifecycle (#jx-pm, #meeting, #workflow, #pattern) [raw]
 - [[Real-Time Capture as Skill Pattern]] — Interactive capture during ongoing activity; different from batch generation or data-pull skills (#skill-design, #pattern, #interactive) [raw]
 
