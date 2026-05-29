@@ -36,18 +36,25 @@ Source idea: `wiki/ideas/jx-qa Test-Plan Reviewer Subagent.md` (P1).
      `tools:` field is **inherit ALL session tools**, so an empty value MUST NOT be parsed as "omitted"
      (which would silently re-grant Bash/Write/Read and invert this whole posture). Confirm the exact
      no-tool syntax (e.g. `tools: []`, an empty string, or whatever sentinel the runtime treats as
-     "none") against the runtime/`agents/ABOUT.md` before implementation. **Fallback if no empty-=-none
-     sentinel exists:** grant the **single least-capable read tool** the runtime requires and rely on the
-     command inlining everything (so the agent never needs it), OR run the review **inline in the
-     command** instead of delegating to a tool-inheriting subagent. Do **not** ship an agent whose
-     `tools:` resolves to inherit-all.
+     "none") against the runtime/`agents/ABOUT.md` before implementation. **Zero-tool support is a HARD
+     prerequisite — no read tool may be granted as a fallback.** Granting any read tool reopens the
+     exfiltration channel this decision closes by construction: prompt-injected plan/BRD text could then
+     drive off-scope reads regardless of the "advisory" label. **Fallback if no empty-=-none sentinel
+     exists:** run the review **inline in the command** (which already holds the inlined text) instead of
+     delegating to a subagent, OR defer the subagent until the runtime can represent zero tools. Do
+     **not** ship an agent whose `tools:` resolves to inherit-all, and do **not** grant any Read/Grep/Glob
+     as a workaround. Before the agent ships, **validate that Bash, Write, Read, Grep, and Glob are ALL
+     unavailable** to it (Validation).
 2. **xlsx parsing AND BRD reading happen in the command, not the agent.** Parsing an xlsx requires the
    pinned `xlsx-writer.py read` helper (Bash). To keep the agent tool-free, the **command** parses the
    xlsx via its pinned-helper allowlist, **reads the BRD itself (via the command's `Read`)**, and inlines
    **both** the already-parsed plan content (JSON/text) and the exact BRD text into the agent prompt. The
    agent does pure analysis on the inlined text only — it has no file tool of its own (Decision 1).
 3. **Advisory only — never edits the plan.** Output is a review report; the human (or a later step)
-   decides what to change. No write path exists.
+   decides what to change. No write path exists **in the command's allowlist**: the pinned helper
+   `xlsx-writer.py` also exposes mutating subcommands (`fork` byte-copies, `append` writes rows), so the
+   command MUST pin the **`xlsx-writer.py read` subcommand prefix only**, never the bare binary — and an
+   eval must assert `fork`/`append` invocations are denied from review-plan (Validation).
 4. **Scope = plan QUALITY + testability + AC traceability.** Breadth ("did we cover the whole BRD?") is
    the separate future `coverage-analyst`; this agent judges the quality of what's in the plan, and
    checks traceability only when a BRD path is provided.
@@ -91,8 +98,9 @@ Source idea: `wiki/ideas/jx-qa Test-Plan Reviewer Subagent.md` (P1).
 - **NEW** `plugins/jx-qa/commands/review-plan.md` — thin command: validate + pre-reject shell
   metacharacters in the xlsx/BRD paths (Decision 8), parse the xlsx via the pinned `xlsx-writer.py read`,
   **`Read` the BRD itself**, then delegate the **inlined** parsed plan + exact BRD text to the
-  `test-plan-reviewer` agent via the Agent/Task tool. `allowed-tools:` the pinned helper, `Read`, `ls`,
-  Agent/Task — **no broad Bash/Write.**
+  `test-plan-reviewer` agent via the Agent/Task tool. `allowed-tools:` pin the **`xlsx-writer.py read`
+  subcommand prefix ONLY** (NOT the bare binary, which would admit the helper's mutating `fork`/`append`
+  subcommands — see Decision 3), plus `Read`, `ls`, Agent/Task — **no broad Bash/Write.**
 - **NEW** agent eval skeleton — location TBD pending Decision 7's runner confirmation.
 - **EDIT** `plugins/jx-qa/README.md` — add the reviewer to an "Agents" section + a safety note: the
   agent has **no tools** (no mutation, no exfiltration channel); the command's prefix-chaining residual is
@@ -139,6 +147,9 @@ System prompt:
   file and echo it; confirm the agent performs no off-scope read (it has no read tool) and does not leak.
 - **Command path-safety check:** pass an xlsx/BRD path containing a shell metacharacter; confirm the
   command rejects it **before** any Bash call (Decision 8), not only via the helper's post-shell guard.
+- **Allowlist denial check (no-write):** confirm `xlsx-writer.py fork ...` and `xlsx-writer.py append ...`
+  invocations are DENIED from review-plan — only the `xlsx-writer.py read` subcommand prefix is allowed
+  (Decisions 3 & Files), so no mutation/copy path exists.
 - Security check: confirm the agent has no tools and produced no file changes.
 
 ## Risks
@@ -163,7 +174,7 @@ System prompt:
 ## Steps (once approved)
 
 1. Confirm (a) the no-tool `tools:` syntax actually yields a zero-tool agent (Decision 1 DEPENDENCY —
-   gating; else use the inline/least-tool fallback) and (b) eval-runner support for agents (Decision 7)
+   gating; else use the inline-or-defer fallback — NO read tool granted) and (b) eval-runner support for agents (Decision 7)
    → skeleton-runnable vs. manual checklist.
 2. Write `plugins/jx-qa/agents/test-plan-reviewer.md` (`tools:` **empty** — no tools).
 3. Write `plugins/jx-qa/commands/review-plan.md` (pre-validate/reject metachar paths → parse via pinned
