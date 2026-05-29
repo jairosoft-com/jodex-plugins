@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
-updated: 2026-05-27
-page_count: 298
+updated: 2026-05-29
+page_count: 299
 ---
 
 # Wiki Index
@@ -12,6 +12,7 @@ page_count: 298
 - [[ADO WIQL CONTAINS Is Substring Not Exact Tag]] — WIQL CONTAINS performs substring matching on tags, matching unintended items (#ado, #wiql, #testing) [raw]
 - [[ADO Work Item IDs Are Not PRD Feature IDs]] — ADO system IDs are in 100k-200k range while PRD feature IDs are app-level identifiers (#ado, #testing, #fixtures) [raw]
 - [[Adversarial Review Catches Scaffold Drift]] — Adversarial review found scaffold drift where behavior rules updated in prose but not in templates (#adversarial-review, #codex, #workflow) [raw]
+- [[Agent Persona Customization via Local Memory]] — Pattern for customizing the agent's identity and project context using local memory files to enforce a workspace-specific persona (#agent-identity, #memory, #workspace-persona) [raw]
 - [[Agent SDK Transitive Plugin Deps Must Be Explicit]] — Agent SDK does not auto-resolve transitive plugin dependencies; omitting parent plugins causes silent failures (#agent-sdk, #plugins, #testing) [raw]
 - [[Agent SDK query() Message Type Structure]] — Agent SDK query() yields messages with distinct types for capturing skill output and verifying plugin loads (#agent-sdk, #testing) [raw]
 - [[Algorithm Redesign Over Permission Expansion]] — Prefer narrowing algorithm tool requirements over expanding command permissions (#skill-design, #security, #permissions) [raw]

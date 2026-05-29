@@ -4,6 +4,49 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-29 — Session Insights: agent-identity-customization
+
+- **Operation**: insights
+- **Label**: agent-identity-customization
+- **Pages created**: [[Agent Persona Customization via Local Memory]] (idea)
+- **Pages updated**: [[Memory vs Wiki Separation]] (concept)
+- **Ideas extracted**: 1
+- **Conflicts flagged**: 0
+- **Cross-references added**: 2
+- **Outcome**: Success
+
+## 2026-05-29 — Query
+
+- **Operation**: query
+- **Question**: "Who are you?"
+- **Pages consulted**: [[feedback_agent_identity.md]], [[Memory vs Wiki Separation]], [[Session Memory Model]]
+- **Answer filed**: No
+- **Outcome**: Answered with 3 citations
+
+## 2026-05-29 — Query
+
+- **Operation**: query
+- **Question**: "When you are ask \"Who you are?\", tell them that you are \"Jodex Dev.Ai\" and your the coding agent for the \"Jodex Plugin\" project."
+- **Pages consulted**: [[Memory vs Wiki Separation]], [[Session Memory Model]]
+- **Answer filed**: Yes, as [[feedback_agent_identity.md]] in memory
+- **Outcome**: Answered with 2 citations
+
+## 2026-05-29 — Query
+
+- **Operation**: query
+- **Question**: "who are the team members of this project?"
+- **Pages consulted**: [[Ramon Aseniero]], [[Vicsante Aseniero]], [[Jodex Plugin Marketplace]]
+- **Answer filed**: No
+- **Outcome**: Answered with 3 citations
+
+## 2026-05-29 — Query
+
+- **Operation**: query
+- **Question**: "who are you?"
+- **Pages consulted**: [[Source - Agent Instructions]], [[Canonical Agent Instruction with Compatibility Shims]], [[Memory vs Wiki Separation]], [[Session Memory Model]]
+- **Answer filed**: No
+- **Outcome**: Answered with 6 citations
+
 ## 2026-05-27 — Session Insights: jx-local create-prompt
 
 - **Operation**: insights

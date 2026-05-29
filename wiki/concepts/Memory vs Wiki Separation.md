@@ -3,7 +3,7 @@ title: Memory vs Wiki Separation
 type: concept
 tags: [architecture, persistence, memory, wiki]
 created: 2026-05-08
-updated: 2026-05-11
+updated: 2026-05-29
 source_count: 1
 aliases: [persistence separation, memory wiki boundary]
 provenance: synthesis
@@ -18,6 +18,7 @@ Clear boundary between agent memory files and wiki pages — two persistence mec
 | Use | Mechanism | Location |
 |-----|-----------|----------|
 | User preferences, corrections | **Memory** (feedback) | `/memory/` |
+| Agent persona/identity overrides | **Memory** (feedback) | `/memory/` |
 | User role, background | **Memory** (user) | `/memory/` |
 | External system pointers | **Memory** (reference) | `/memory/` |
 | Project status, deadlines | **Memory** (project) | `/memory/` |
@@ -39,6 +40,7 @@ Clear boundary between agent memory files and wiki pages — two persistence mec
 |------|----------|-----|
 | "Use `gh` for PRs" | Memory (feedback) | Agent behavior preference |
 | "Code changes need a plan first" | Memory (feedback) | Workflow rule |
+| "Jodex Dev.Ai persona override" | Memory (feedback) | Agent identity override |
 | NotebookLM notebook IDs | Memory (reference) | External system pointer |
 | Codex plugin format differences | Wiki (concept) | Domain knowledge |
 | Polyglot dependency strategy | Wiki (concept) | Architecture pattern |
@@ -57,3 +59,4 @@ Memory can point to wiki pages, but wiki should not reference memory files. Memo
 ## Sources
 
 - [[Source - Agent Instructions]]
+- Session: agent-identity-customization (2026-05-29)
