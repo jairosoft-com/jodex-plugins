@@ -4,6 +4,14 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-29 — Idea: jx-qa test-plan reviewer subagent
+
+- **Operation**: idea filing
+- **Pages created**: [[jx-qa Test-Plan Reviewer Subagent]]
+- **Ideas extracted**: 1
+- **Priority**: P1
+- **Note**: Read-only sub-agent candidate (post-extract plan-quality review); safe-by-construction (no Bash/Write). Implementation plan drafted at `.agent/plans/test-plan-reviewer-agent.md`.
+
 ## 2026-05-29 — Idea: harden interactive jx-qa generate path
 
 - **Operation**: idea filing
