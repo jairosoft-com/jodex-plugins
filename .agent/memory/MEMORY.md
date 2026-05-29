@@ -16,6 +16,7 @@
 - [Plan vs execute boundary](feedback_plan_vs_execute.md) — Plan approval is not implementation approval; stop after planning unless explicitly told to implement
 - [Read skill spec first](feedback_read_skill_spec_first.md) — Before executing ANY jx-* skill, read its SKILL.md completely; don't improvise
 - [ADO sync format](feedback_ado_sync_format.md) — Specific instance: follow jx-core/_shared/ado.md for ADO work item formats
+- [Workflow save location](feedback_workflow_save_location.md) — Always copy the workflow.js into .claude/workflows/ (tracked, invocable by name), not just the auto-saved session copy
 
 ## NotebookLM
 - [Associated notebooks](reference_notebooklm.md) — Plugin Marketplace Architecture + Mastering Skill.MD + Building Product Management Skills
