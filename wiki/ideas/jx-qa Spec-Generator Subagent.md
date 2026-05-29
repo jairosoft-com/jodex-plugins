@@ -39,15 +39,21 @@ skills: [generate, playwright-cli, test]
 ---
 ```
 
-## Verified constraints
+## Verified constraints (Claude Code docs)
 
-- **Agent `tools:` takes bare tool names**, not the scoped `Bash(playwright-cli:*)`
-  permission syntax used in command/skill `allowed-tools`. Confirmed across all
-  official agents + the `plugin-dev/agent-creator` schema. Fine-grained Bash scoping
-  stays at the command/skill layer, so a bare `Bash` grant is coarser than
-  `commands/generate.md` — flag this in any security review.
-- **`skills:` frontmatter binding is real** (e.g. `codex-rescue` binds and then
-  references its skills the same way).
+- **Agent `tools:` takes only bare tool names** (`Bash`, `Read`, `Write`…), not the
+  scoped `Bash(playwright-cli:*)` syntax used in command/skill `allowed-tools`.
+- **A subagent inherits the parent session's `permissions` (allow/deny)** and cannot
+  re-scope Bash itself — fine-grained Bash scoping lives at the **session permissions**
+  layer, not in the agent file.
+- **A skill's `allowed-tools` does NOT clamp a subagent** — it is additive pre-approval
+  only. Running the pinned `generate` skill from inside the agent does *not* narrow the
+  agent's Bash reach. (A skill's `disallowed-tools` can remove tools while it is active.)
+- **Consequence:** the agent needs a bare `Bash` grant to drive playwright-cli / npx /
+  the python helper, and that grant is governed by session permissions — it cannot
+  reproduce `commands/generate.md`'s pin. Treat the broadened Bash surface as a decision,
+  not a footnote.
+- **`skills:` frontmatter binding is real** (e.g. `codex-rescue` binds + references skills).
 
 ## Caveat
 
