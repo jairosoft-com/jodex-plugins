@@ -2,11 +2,26 @@
 
 ## Status
 
-Design decisions **locked 2026-05-28**, then **hardened 2026-05-29** after a blocking Codex
-adversarial review (`/codex:adversarial-review`) — 3 findings addressed: an enforceable permission
-preflight (Decisions 1, 9), rollback-safe spec writes (Decision 3), and required-explicit-path
-provenance for the agent (Decision 4). **Implementation not started** — this remains plan-only until
-explicit go-ahead (repo rule: plan approval ≠ implementation approval).
+Design decisions first drafted 2026-05-28, hardened 2026-05-29, then **re-opened 2026-05-29 after a
+second blocking adversarial review (round 1)** that found the prior "hardening" unsound. Three
+follow-on corrections are now folded in:
+- **Decision 1 + 9 narrowed:** the prefix-scoped preflight is NOT a soundness proof (the repo's
+  prefix-only grammar matches the raw command string *before* shell interpretation, so an allowed
+  prefix can be command-chained — see `wiki/concepts/Prefix-Only Permission Grammar.md`).
+  **Background automation is therefore BLOCKED until argv-scoped command enforcement exists**; the
+  preflight is downgraded to a best-effort tripwire (now including a command-chaining probe), not a
+  containment guarantee.
+- **Decision 3 reconciled with Decision 1:** the atomic temp→rename / sweep / delete-on-fail lifecycle
+  needs `mkdir`/`mv`/`rm`, which the locked allowlist forbids. Resolved by routing the entire spec-file
+  lifecycle through **one pinned, path-confined helper** (`spec-fs.py`) added to the allowlist.
+- **Decision 4 made fail-closed:** a human-named path is not approval, currentness, or tenant
+  provenance. The agent now **requires a verifiable provenance sidecar** (checksum + approval marker +
+  timestamp + target tenant/baseURL) emitted by `extract`, and **fails closed when it is absent or
+  mismatched**. This creates a hard dependency on an `extract`-side stamp that does not exist yet.
+
+**Implementation not started** — this remains plan-only until explicit go-ahead, AND the two new
+prerequisites above (argv-scoped enforcement for Decision 1; `extract` provenance stamp for Decision 4)
+are not yet satisfied (repo rule: plan approval ≠ implementation approval).
 
 ## Summary
 
@@ -18,39 +33,73 @@ it to confirm it passes.
 
 Source idea: `wiki/ideas/jx-qa Spec-Generator Subagent.md`.
 
-## Decisions (locked 2026-05-28)
+## Decisions (drafted 2026-05-28; Decisions 1, 3, 4, 9 re-opened 2026-05-29 — see Status)
 
-1. **Security (gating) — Option A, signed off.** Ship the agent with bare
-   `tools: Bash, Read, Write`. A subagent's `tools:` accepts only bare names (no
-   `Bash(playwright-cli:*)` scoping), a skill's `allowed-tools` does **not** clamp a
-   subagent, and a subagent inherits the session's `permissions`. So the broadened Bash
-   surface is **governed by the consuming session's `permissions`**, not the agent/skill
-   files, and must be **documented** (README + security note). Consuming projects **MUST** deny bare Bash and allow only `playwright-cli` /
-   `npx playwright test` / the pinned `xlsx-writer.py` helper / `ls`; the agent **enforces this at
-   runtime via the Decision 9 fail-closed permission preflight** and refuses to run otherwise.
-   **Residual (honest):** plugin-level Bash scoping is provably impossible (a subagent's `tools:`
-   takes only bare names; the bound skill's `allowed-tools` does not clamp it), so correct
-   session-permission config remains a **required external control** — the preflight detects and
-   refuses, it cannot itself scope Bash. **No auto-install** anywhere (see Decision 9).
+1. **Security (gating) — Option A, NOT yet sound; background automation BLOCKED pending
+   argv-scoped enforcement.** Ship the agent with bare `tools: Bash, Read, Write`. A subagent's
+   `tools:` accepts only bare names (no `Bash(playwright-cli:*)` scoping), a skill's `allowed-tools`
+   does **not** clamp a subagent, and a subagent inherits the session's `permissions`. So the
+   broadened Bash surface is **governed by the consuming session's `permissions`**, not the
+   agent/skill files, and must be **documented** (README + security note). Consuming projects **MUST**
+   deny bare Bash and allow only `playwright-cli` / `npx playwright test` / the pinned `xlsx-writer.py`
+   reader / the pinned `spec-fs.py` lifecycle helper (Decision 3) / `ls`.
+   **Why this is not yet a sound control (the reopened finding):** under the repo's prefix-only
+   permission grammar the allowlist matches the **raw command string before shell interpretation**,
+   so a command beginning with an allowed prefix can append shell syntax and chain an arbitrary
+   command (e.g. `npx playwright test tests/a.spec.ts; <injected>`, or `python3 .../spec-fs.py …;
+   <injected>`). For a background agent ingesting attacker-influenceable xlsx/browser-derived text,
+   prefix-allow is therefore **not** a containment proof. **Consequence: background (non-interactive)
+   automation is BLOCKED** until the consuming runtime enforces **argv-scoped** command permission
+   (each compound segment checked, not a raw-string prefix) OR shell is replaced by a hard execution
+   boundary (a path-confined runner receiving structured argv/data, no shell metacharacters). Reducing
+   to the two pinned helpers (`xlsx-writer.py`, `spec-fs.py`) shrinks the surface but does **not** make
+   prefix-allow sound — see Decision 9's chaining probe and the Risks/Residual notes. **No
+   auto-install** anywhere (see Decision 9).
 2. **Concurrency — sequential v1.** One test case at a time within a single agent
    invocation. Parent-orchestrated fan-out (one agent per case) is **deferred to v2**.
 3. **Failure policy — omit + report, bound = 2 repair attempts.** On a failing spec, repair
    locators/assertions and re-run up to 2 attempts. If still failing, **omit the spec and
    report it as a gap** — never write a non-passing `// Test Case TBD` spec (protects the
    ADO-linking contract). An idempotent re-run retries omitted cases (may self-heal).
-   **Rollback-safe write (overrides the `generate` skill's in-place write):** write each candidate to
-   a temp path (`tests/.<slug>.spec.ts.tmp`), run `npx playwright test` against it, and **atomically
-   rename to `tests/<slug>.spec.ts` only after it passes**. On exhausted repairs / timeout / crash,
-   **delete the temp candidate** and record the gap — never leave a partial or unverified file at the
-   final path. On startup, sweep and delete orphaned `tests/.*.spec.ts.tmp`. This makes the slug-skip
-   idempotency mean *skip only verified specs*, and delete-on-fail is what lets re-runs retry gaps.
-4. **xlsx discovery — explicit path REQUIRED for the agent.** In the agent's
-   background/non-interactive mode an **explicit xlsx path is required**, and **sole-match
-   auto-discovery is disabled**: if no path is supplied, **stop and report** "specify the test plan
-   path" rather than auto-selecting a sole file. A human naming the file IS the enforceable,
-   non-interactive **provenance signal** (auto-driving live browser navigation + spec writes from an
-   unproven sole xlsx in background mode is disallowed). The `generate` skill keeps its
-   explicit-preferred → single-match → fail-closed discovery for the **interactive inline path only**.
+   **Rollback-safe write via a pinned, path-confined lifecycle helper (overrides the `generate`
+   skill's in-place Write).** The bare `Write` tool cannot rename, delete, or `mkdir`, and the
+   Decision 1 allowlist forbids raw `mv`/`rm`/`mkdir` — so the temp→rename / sweep / delete-on-fail
+   lifecycle is routed through **one new pinned helper `plugins/jx-qa/scripts/spec-fs.py`** that is
+   the *only* component allowed to touch the `tests/` tree. It exposes exactly these path-confined
+   subcommands, all of which validate that every path resolves under the project `tests/` dir and that
+   the slug matches a safe `[a-z0-9-]+` regex before any filesystem op:
+   - `ensure-dir` — create `tests/` if absent (Decision 9e);
+   - `sweep` — delete orphaned `tests/.*.spec.ts.tmp` on startup;
+   - `stage <slug> <content-file>` — write the candidate to `tests/.<slug>.spec.ts.tmp`;
+   - `commit <slug>` — **atomically rename** `tests/.<slug>.spec.ts.tmp` → `tests/<slug>.spec.ts`
+     (only called after `npx playwright test` passes);
+   - `discard <slug>` — delete the temp candidate on exhausted repairs / timeout / crash.
+
+   Flow per case: `stage` → `npx playwright test` the temp file → `commit` on pass, else `discard` +
+   record the gap — never leave a partial/unverified file at the final path. This makes the slug-skip
+   idempotency mean *skip only verified specs*, and `discard`-on-fail is what lets re-runs retry gaps.
+   The helper is added to the Decision 1 allowlist as `Bash(python3 …/spec-fs.py:*)`; **crash/retry
+   (orphan-sweep) and failure-cleanup behavior must be verified before rollback safety is declared
+   locked.** (Caveat: per Decision 1 the prefix allow for this helper is still raw-string-matched and
+   chainable; path-confinement lives inside the helper, not in the permission grammar.)
+4. **xlsx provenance — explicit path REQUIRED *and* a verifiable provenance sidecar REQUIRED
+   (fail-closed).** A human-named path is necessary but **NOT sufficient**: naming a file proves
+   nothing about its approval state, freshness, or intended tenant/site, so a stale, wrong-tenant, or
+   unapproved spreadsheet would otherwise satisfy the only gate. The agent therefore requires, in
+   addition to the explicit path:
+   - a **provenance sidecar/stamp** (e.g. `<plan>.xlsx.provenance.json` or an embedded sheet) emitted
+     by `extract`, carrying at minimum: source-document checksum, workbook (xlsx) checksum, approval
+     marker, generated-at timestamp, and target tenant + `baseURL`.
+   The agent **verifies fail-closed**: it recomputes the workbook checksum and compares it to the
+   stamp; it confirms the stamp's target tenant/`baseURL` matches the `playwright.config` `baseURL` it
+   will navigate; and it **STOPS and reports** if the sidecar is **absent, malformed, checksum-mismatched
+   (stale/edited workbook), or tenant/baseURL-mismatched**. Background/non-interactive mode also keeps
+   **sole-match auto-discovery disabled**: with no explicit path, **stop and report** "specify the test
+   plan path." (auto-driving live browser navigation + spec writes from an unproven xlsx is disallowed.)
+   **Dependency:** `extract` does not yet emit this stamp (see Out of scope), so this gate is a hard
+   prerequisite — the agent cannot run in background mode until `extract` stamps provenance. The
+   `generate` skill keeps its explicit-preferred → single-match → fail-closed discovery for the
+   **interactive inline path only**.
 5. **Evals — ship an eval skeleton.** Mirror `skills/*/evals/evals.json` (activation ±,
    idempotency, line-3 TBD contract, omit-on-failure). **DEPENDENCY:** confirm the repo's
    eval runner actually executes *agent* evals; if it is skill-only, the skeleton ships as a
@@ -66,30 +115,48 @@ Source idea: `wiki/ideas/jx-qa Spec-Generator Subagent.md`.
 8. **Return — plain human-readable report.** Generated / skipped / failures-with-reason. No
    machine-aggregation contract in v1 (follows from sequential v1).
 9. **Preconditions — report-and-stop pre-flight.**
-   **(a) Permission preflight (mandatory, fail-closed) — runs FIRST, before any plan parse or browser
-   work.** Probe that broad shell is NOT granted: run a sentinel command that must be *denied* in a
-   correctly-scoped session (e.g. `bash -c 'echo unscoped-shell-reachable'`). If the sentinel
-   **succeeds**, the broad-Bash boundary is absent → **STOP** and report the required remediation
-   (deny bare Bash; allow only `Bash(playwright-cli:*)`, `Bash(npx playwright test:*)`, the pinned
-   `xlsx-writer.py` helper, `Bash(ls:*)`). Proceed only if the sentinel is **blocked AND** the required
-   commands run.
+   **(a) Permission preflight (best-effort tripwire, NOT a containment proof) — runs FIRST, before any
+   plan parse or browser work.** Probe that broad shell is NOT granted with TWO sentinels, both of
+   which must be *denied* in a correctly-scoped session:
+   - a **bare-shell sentinel** — `bash -c 'echo unscoped-shell-reachable'` (catches a missing
+     bare-Bash deny);
+   - an **allowed-prefix chaining sentinel** — append shell syntax after an allowed prefix, e.g.
+     `npx playwright test --version; echo chained-shell-reachable` (and similarly
+     `python3 …/spec-fs.py --probe; echo chained`). This specifically probes the reopened finding:
+     if the chained `echo` executes, the prefix allow is being raw-string-matched and command-chaining
+     is reachable.
+   If **either** sentinel succeeds, the shell boundary is unsound → **STOP** and report the required
+   remediation (deny bare Bash; allow only `Bash(playwright-cli:*)`, `Bash(npx playwright test:*)`, the
+   pinned `xlsx-writer.py` reader, the pinned `spec-fs.py` helper, `Bash(ls:*)`). Proceed only if
+   **both** sentinels are blocked AND the required commands run. **Honest limitation (Decision 1):**
+   passing this preflight is **not** proof of containment — a runtime that prefix-matches raw strings
+   can block these specific sentinels yet still permit other allowed-prefix chains; sound containment
+   requires argv-scoped enforcement, which is the blocking prerequisite for background mode.
    **(b)** Verify playwright-cli (`npx --no-install playwright-cli --version`) — doubles as the
    allowlisted-command confirmation for (a); if missing, **stop and report** the install command
    (`npm install -g @playwright/cli@latest`) — **do NOT auto-install**.
-   **(c)** Plan-parse check falls out of the `xlsx-writer.py read` step.
+   **(c)** Plan-parse check falls out of the `xlsx-writer.py read` step. **Provenance gate (Decision 4)**
+   runs here too: verify the sidecar checksum + tenant/baseURL match, else **stop and report**.
    **(d)** Site reachability — lazy: first `playwright-cli goto` failure = fail-fast "site unreachable" stop.
-   **(e)** Ensure `tests/` exists (create if absent).
+   **(e)** Ensure `tests/` exists — via `spec-fs.py ensure-dir` (Decision 3 helper), **not** raw
+   `mkdir` (which the allowlist forbids). The same step runs `spec-fs.py sweep` to clear orphaned
+   `*.tmp` candidates.
 
 ## Files
 
 - **NEW** `plugins/jx-qa/agents/spec-generator.md` — agent definition (frontmatter + system prompt).
+- **NEW** `plugins/jx-qa/scripts/spec-fs.py` — pinned, path-confined spec-file lifecycle helper
+  (`ensure-dir` / `sweep` / `stage` / `commit` / `discard`) per Decision 3. The only component
+  permitted to mutate the `tests/` tree; validates path-under-`tests/` and safe-slug regex on every op.
 - **NEW** agent eval skeleton — location TBD pending Decision 5's runner confirmation.
 - **EDIT** `plugins/jx-qa/commands/generate.md` — add the `--background` flag: update
   `argument-hint`, add conditional logic ("if `--background` → delegate to the
   `spec-generator` subagent via the Agent/Task tool; else run the `generate` skill inline"),
   and add the Agent/Task tool to `allowed-tools`.
-- **EDIT** `plugins/jx-qa/README.md` — add an "Agents" section documenting `spec-generator`
-  and the **session-permissions security note** (Decision 1).
+- **EDIT** `plugins/jx-qa/README.md` — add an "Agents" section documenting `spec-generator`,
+  the **session-permissions security note** (Decision 1, including the prefix-grammar chaining caveat
+  and the argv-scoped-enforcement prerequisite for background mode), the `spec-fs.py` lifecycle helper,
+  and the Decision 4 provenance-sidecar requirement.
 - **No** `plugin.json` / `marketplace.json` change — agents are auto-discovered from `agents/`.
 - Wiki follow-up (separate from the code change): triage the idea (`/jx-kb:triage`) →
   promoted / implemented after shipping.
@@ -102,7 +169,10 @@ Frontmatter:
   (Decision 6); explicitly states "for normal inline generation use the `generate` skill,"
   and "Do not use to extract from a BRD (→ `extract`) or to run an existing suite (→ `test`)."
 - `model: sonnet`
-- `tools: Bash, Read, Write`  (bare names — Decision 1)
+- `tools: Bash, Read, Write`  (bare names — Decision 1; the consuming session's `permissions` must
+  deny bare Bash and allow only `playwright-cli` / `npx playwright test` / `xlsx-writer.py` /
+  `spec-fs.py` / `ls`, with the standing caveat that this is not sound against command-chaining —
+  Decision 1 / Decision 9a)
 - `skills: [generate, playwright-cli, test]`
 
 System prompt:
@@ -112,8 +182,10 @@ System prompt:
   semantic locators via `generate-locator`; self-verify each spec with `npx playwright test`;
   stay in scope (no BRD, no plan generation, no classification gate, no xlsx mutation).
 - Bake in Decisions 2 (sequential), 3 (omit+report, 2 attempts, **+ rollback-safe temp→rename-on-pass /
-  delete-on-fail**), 4 (**explicit path required; no auto-discovery**), 7 (URL resolution),
-  9 (**mandatory fail-closed permission preflight, first**).
+  discard-on-fail via the pinned `spec-fs.py` helper — no raw `mv`/`rm`/`mkdir`**), 4 (**explicit path
+  required AND fail-closed provenance-sidecar verification: checksum + tenant/baseURL match, else
+  STOP**), 7 (URL resolution), 9 (**best-effort permission preflight with bare-shell AND
+  allowed-prefix-chaining sentinels, first — explicitly not a containment proof**).
 - Call out the rollback-safe write and the no-auto-discovery rule as **explicit overrides** of the
   `generate` skill — not silent deviations.
 - Output: report per Decision 8.
@@ -125,14 +197,21 @@ System prompt:
 - **Manual checklist** (the de facto validation until/unless the runner supports agents):
   load (agent appears + frontmatter parses); positive routing (`--background` → agent);
   negative routing ("extract from BRD" → `extract`; "run e2e" → `test`); end-to-end on a
-  sample approved xlsx (passing specs, idempotent re-run skips); **security reach** (agent's
-  Bash is bounded by the project's `permissions` as agreed).
+  sample **provenance-stamped** xlsx (passing specs, idempotent re-run skips); **security reach** —
+  run **both** preflight sentinels (bare-shell + allowed-prefix-chaining) and the injection eval, and
+  treat the project `permissions` as a necessary-but-insufficient control (sound containment needs
+  argv-scoped enforcement — Decision 1 / 9a), not a clean pass.
 
 ## Risks
 
-- **Broadened Bash surface** — the Decision-9 preflight **detects and refuses** when broad shell is
-  granted but **cannot itself scope Bash**; correct session-`permissions` config remains a **required
-  external control** (state honestly in the README security note — not plugin-enforced). Central, accepted.
+- **Broadened Bash surface — UNSOUND under prefix-only grammar; central, BLOCKING for background mode.**
+  The Decision-9 preflight is a best-effort tripwire (bare-shell + allowed-prefix-chaining sentinels);
+  it can detect some misconfigurations but **cannot make prefix-allow sound** because the grammar
+  raw-string-matches before shell interpretation, leaving command-chaining via an allowed prefix
+  reachable. Correct session-`permissions` config is a required external control but is **insufficient
+  on its own**. **Mitigation/exit:** block background automation until the runtime provides argv-scoped
+  command enforcement (or a no-shell path-confined runner); reducing to the two pinned helpers shrinks
+  but does not close the surface. State honestly in the README security note (not plugin-enforced).
 - **Eval runner may not support agents** — Decision 5 dependency; fallback is manual checklist
   + runner-extension follow-up.
 - **Flag routing** — verify `/jx-qa:generate --background` reliably delegates and the bare
@@ -146,19 +225,33 @@ System prompt:
 - Full BRD→specs orchestrator (blocked by `extract`'s human gate).
 - A full agent eval *runner* (a skeleton is in scope; extending the runner may be a follow-up).
 - Changing the project's session `permissions` (separate task under Option A if desired).
-- **Extract-side approval fingerprint/metadata** (follow-up): `extract` emits no approval/checksum/metadata
-  today (only the xlsx), so the agent can't validate provenance beyond the human-named path. File a
-  follow-up for `extract` to stamp an approval fingerprint the agent could later verify; until then the
-  required-explicit-path rule (Decision 4) is the provenance signal. Verifying the xlsx is **current** or
-  targets the intended **tenant/site** also depends on this not-yet-existing extract metadata.
+- **Extract-side provenance stamp — now a PREREQUISITE, not an optional follow-up (Decision 4).**
+  `extract` emits no approval/checksum/metadata today (only the xlsx). Decision 4 now **requires** a
+  provenance sidecar (source + workbook checksums, approval marker, generated-at timestamp, target
+  tenant/`baseURL`) and **fails closed without it**, so the agent **cannot run in background mode**
+  until `extract` is extended to emit this stamp. Extending `extract` is out of scope for *this* plan
+  (separate work item), but it is a hard dependency gating implementation here — tracked in the Status
+  prerequisites and the residual list. (A human-named path alone is explicitly **not** accepted as
+  provenance, the prior plan's weakness.)
 
 ## Steps (once approved)
 
+0. **Prerequisites (BLOCKING — must clear before steps below):** (a) confirm the consuming runtime
+   provides **argv-scoped** command enforcement (or a no-shell path-confined runner) so Decision 1 is
+   sound — otherwise background mode stays blocked; (b) extend `extract` to emit the Decision 4
+   provenance stamp (separate work item) — otherwise the Decision 4 gate fails closed and the agent
+   cannot run in background mode.
 1. **Confirm eval-runner support for agents** (Decision 5 dependency) → decide skeleton-runnable
    vs. manual-checklist + follow-up.
-2. Write `plugins/jx-qa/agents/spec-generator.md` (frontmatter + system prompt with Decisions baked in).
-3. Edit `plugins/jx-qa/commands/generate.md` — add `--background` flag + Agent/Task tool.
-4. Edit `plugins/jx-qa/README.md` — Agents section + security note.
-5. Add the eval skeleton.
-6. Validate: load + positive/negative routing + manual e2e on a sample xlsx + security reach.
-7. Wiki follow-up: triage the idea → promoted / implemented.
+2. Write `plugins/jx-qa/scripts/spec-fs.py` (path-confined lifecycle helper — Decision 3) and verify
+   path-confinement + crash/retry orphan-sweep + failure-cleanup before relying on rollback safety.
+3. Write `plugins/jx-qa/agents/spec-generator.md` (frontmatter + system prompt with Decisions baked in).
+4. Edit `plugins/jx-qa/commands/generate.md` — add `--background` flag + Agent/Task tool.
+5. Edit `plugins/jx-qa/README.md` — Agents section + security note (prefix-grammar caveat + helper +
+   provenance).
+6. Add the eval skeleton, **including an injection eval** that specifically probes allowed-prefix
+   command-chaining (e.g. an xlsx field / locator text carrying `; echo pwned`) and asserts no chained
+   command executes — this is the empirical gate for Decision 1 / Decision 9a.
+7. Validate: load + positive/negative routing + manual e2e on a sample *provenance-stamped* xlsx +
+   security reach (both preflight sentinels + the injection eval).
+8. Wiki follow-up: triage the idea → promoted / implemented.
