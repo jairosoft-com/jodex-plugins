@@ -4,6 +4,13 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-29 — Idea: harden interactive jx-qa generate path
+
+- **Operation**: idea filing
+- **Pages created**: [[Harden Interactive jx-qa Generate Path]]
+- **Ideas extracted**: 1
+- **Note**: Surfaced by an adversarial review of the spec-generator Option-C decision; tracks residual risks accepted for the interactive /jx-qa:generate path.
+
 ## 2026-05-28 — Idea: jx-qa spec-generator subagent
 
 - **Operation**: idea filing

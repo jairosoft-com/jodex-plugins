@@ -17,12 +17,24 @@ plan/permission level:
 - A bare `Write` grant bypasses any pinned file-lifecycle helper; rollback-safe staging needs fs ops
   the allowlist forbids; and an `extract` approval sidecar would be **self-asserted / forgeable**
   without an authenticated issuer — `extract` emits no such stamp today.
-- The entire injection + provenance surface stems from **"background + ingests untrusted input + no
-  human in the loop."** Interactive generation collapses it.
+- The *unattended/autonomous* amplifier comes from **"background + ingests untrusted input + no human
+  in the loop."** Interactive, human-driven generation **removes that amplifier** (a person vets the
+  workbook and watches each run) but does **NOT** eliminate the underlying surface — see the
+  residual-risk note below.
 
-**What Option C means.** The existing interactive `generate` path (scoped allowlist, human-driven)
-remains the supported way to produce specs. The agent's hoped-for benefits (context isolation,
-background/batch, parallel fan-out) are **deferred**, not delivered.
+**What Option C means.** The autonomous background agent is **DEFERRED — not that the risk is
+collapsed.** The existing interactive `generate` path (human-driven) remains the supported way to
+produce specs; the agent's hoped-for benefits (context isolation, background/batch, parallel fan-out)
+are deferred, not delivered.
+
+**Residual risk (accepted for interactive use).** The inline `/jx-qa:generate` path still grants
+`Bash(playwright-cli:*)`, `Bash(npx playwright test:*)`, `Read`, and **bare `Write`**, and the
+`generate` skill auto-selects a sole xlsx without provenance, feeds xlsx-derived step actions into
+`playwright-cli goto`, writes specs, and runs `npx playwright test`. Under the repo's raw prefix
+matching, human-driven mode **reduces unattended execution** but does **not** eliminate
+stale/wrong-tenant workbook risk, bare-`Write` lifecycle risk, or command-chaining via the allowed
+prefixes. These are **accepted for interactive, human-supervised use**; optional hardening is tracked
+as [[Harden Interactive jx-qa Generate Path]].
 
 **Revisit only if BOTH prerequisites land:** (1) the runtime provides argv-scoped / no-shell command
 enforcement, and (2) `extract` emits an authenticated provenance record (checksums + approver identity +

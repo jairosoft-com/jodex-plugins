@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
-updated: 2026-05-28
-page_count: 300
+updated: 2026-05-29
+page_count: 301
 ---
 
 # Wiki Index
@@ -22,6 +22,7 @@ page_count: 300
 - [[Ensure-Dir Bootstrap Pattern]] — Helper subcommand that creates target dir and returns absolute path; solves first-use bootstrapping and cwd ambiguity (#pattern, #skill-design, #pinned-helper) [completed]
 - [[Static Clarifying Questions in PRD Skill]] — Phase 3 questions are identical regardless of domain; no customization or conditional follow-ups (#jx-pm, #prd, #hardcoded) [backlogged]
 - [[Hardcoded Investment Scale Thresholds]] — Unified mode $50K/$250K thresholds are org-specific; no "Other" escape hatch (#jx-pm, #prd, #hardcoded) [backlogged]
+- [[Harden Interactive jx-qa Generate Path]] — Residual risks accepted for human-driven /jx-qa:generate (bare Write, no-provenance xlsx, prefix command-chaining); optional hardening backlog (#jx-qa, #security, #hardening) [raw]
 - [[QA Documentation Workflow]] — Step-by-step walkthrough of jx-qa end-to-end pipeline for users running features through QA (#jx-qa, #workflow, #documentation) [promoted]
 - [[Quality Gates Applied to Doc-Only Stories]] — PRD generator appends meaningless quality gates to documentation-only stories (#jx-pm, #prd, #quality-gates) [completed]
 - [[Quality Gates Assume JS-TS Toolchain]] — Auto-appended quality gates hardcode lint/typecheck; need polyglot support via config (#jx-pm, #prd, #quality-gates) [backlogged]
