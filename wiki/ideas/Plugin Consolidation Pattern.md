@@ -2,9 +2,9 @@
 title: Plugin Consolidation Pattern
 type: idea
 tags: [plugin, migration, pattern, refactoring]
-status: raw
+status: completed
 created: 2026-05-26
-updated: 2026-05-26
+updated: 2026-05-28
 source_count: 0
 aliases: [plugin merge, skill migration]
 provenance: synthesis

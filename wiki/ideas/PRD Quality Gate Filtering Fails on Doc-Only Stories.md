@@ -1,10 +1,10 @@
 ---
 title: PRD Quality Gate Filtering Fails on Doc-Only Stories
 type: idea
-status: backlogged
+status: completed
 tags: [jx-pm, prd, quality-gates, bug, filtering]
 created: 2026-05-22
-updated: 2026-05-22
+updated: 2026-05-28
 source_count: 0
 aliases: [doc-only quality gate bug, false positive quality gates]
 provenance: user

@@ -3,11 +3,11 @@ title: Real-Time Capture as Skill Pattern
 type: idea
 tags: [skill-design, pattern, interactive, jx-pm]
 created: 2026-05-25
-updated: 2026-05-25
+updated: 2026-05-28
 source_count: 0
 aliases: []
 provenance: synthesis
-status: raw
+status: completed
 ---
 
 # Real-Time Capture as Skill Pattern

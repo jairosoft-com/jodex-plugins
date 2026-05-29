@@ -3,11 +3,11 @@ title: Email-Safe HTML Rendering Pattern
 type: idea
 tags: [pattern, email, html, jx-pm, reusable]
 created: 2026-05-25
-updated: 2026-05-25
+updated: 2026-05-28
 source_count: 1
 aliases: [inline-styled email HTML]
 provenance: source-derived
-status: raw
+status: completed
 ---
 
 # Email-Safe HTML Rendering Pattern

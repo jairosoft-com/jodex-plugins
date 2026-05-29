@@ -1,6 +1,6 @@
 ---
 title: Backlog
-updated: 2026-05-23 # Added eval runner backlog item
+updated: 2026-05-28 # Completed stale idea audit
 ---
 
 # Backlog
@@ -19,11 +19,9 @@ updated: 2026-05-23 # Added eval runner backlog item
 - [[jx-pm ADO Test — Partial and Update Fixtures Need Pre-Seeded IDs]] — Tests 911 (partial) and 912 (update) always enter Normal/create-all mode because temp fixture has no pre-seeded `ado_sync` IDs; partial-mode and update-mode code paths are not exercised (#jx-pm, #jx-qa, #testing, #playwright)
 - [[jx-pm ADO Test — getChildIds Reads Wrong ADO Field]] — Orphan cleanup uses `item.fields["System.Relations"]` but `$expand=relations` returns hierarchy links at `item.relations`; `getChildIds` always returns empty, disabling crash-window orphan detection (#jx-pm, #jx-qa, #testing, #cleanup)
 - [[jx-pm ADO Test — Orphan Filter Compares Real ADO IDs to Fixture Range]] — Crash-window cleanup filters child IDs against fixture range 901–999 but real ADO IDs are 100k+; every orphan is silently dropped even if F3 is fixed (#jx-pm, #jx-qa, #testing, #cleanup)
-- [[Playwright Tests for jx-pm ADO Skills]] — End-to-end Playwright suite for `/jx-pm:ado` sync flows; assert work items created/updated correctly in ADO (#jx-pm, #jx-qa, #playwright, #integration-test)
 - [[Skill Integration Testing via Agent SDK]] — Pattern for testing Claude Code skills via `query()` with pinned plugins, read-only PAT, temp fixtures, pre/post frontmatter diff (#jx-qa, #agent-sdk, #testing, #pattern)
 - [[Read-Only Credential as Dry-Run Guard]]
 - [[Flag-Value Helper Antipattern]] — Helpers returning `--flag value` cause double-flag bugs; return value only, flag name belongs at call site (#patterns, #dx, #testing) — Use read-only PAT for dry-run tests so any write call fails with 401 rather than relying on post-hoc tag scans (#testing, #safety, #dry-run)
-- [[PRD Quality Gate Filtering Fails on Doc-Only Stories]] — Doc-only stories get false-positive quality gates; keyword detection is fragile and metadata drops `[code-only]` tags (#jx-pm, #prd, #quality-gates, #bug)
 - [[Align jx-qa Generate Tool Contract]] — Fix xlsx parsing tool mismatch in generate skill (#jx-qa, #security)
 - [[Direct PRD-to-ADO Sync Without task.json]] — Change `/jx-pm:ado` to sync PRD directly to Azure Boards, removing `task.json` dependency (#jx-pm, #ado, #prd, #refactor)
 - [[Downstream Contract Audit for Skill Output Changes]] — Build contract audit step into skill change workflow; grep output patterns across all plugins before planning (#skill-design, #contracts)

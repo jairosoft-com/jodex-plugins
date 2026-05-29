@@ -3,8 +3,8 @@ title: Staging File Deletion Confinement
 type: idea
 tags: [security, pattern, pinned-helper, filesystem]
 created: 2026-05-27
-updated: 2026-05-27
-status: raw
+updated: 2026-05-28
+status: completed
 priority: P2
 effort: small
 source: Session — jx-local create-prompt code review R4 (2026-05-27)

@@ -3,11 +3,11 @@ title: Stdlib-Only YAML Serialization
 type: idea
 tags: [pattern, yaml, stdlib, frontmatter]
 created: 2026-05-27
-updated: 2026-05-27
+updated: 2026-05-28
 source_count: 0
 aliases: []
 provenance: synthesis
-status: raw
+status: completed
 ---
 
 # Stdlib-Only YAML Serialization

@@ -3,11 +3,11 @@ title: Meeting Workflow Triad in jx-pm
 type: idea
 tags: [jx-pm, meeting, workflow, pattern]
 created: 2026-05-25
-updated: 2026-05-25
+updated: 2026-05-28
 source_count: 0
 aliases: []
 provenance: synthesis
-status: raw
+status: completed
 ---
 
 # Meeting Workflow Triad in jx-pm

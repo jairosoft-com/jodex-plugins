@@ -3,11 +3,11 @@ title: Playwright Tests for jx-pm ADO Skills
 type: idea
 tags: [jx-pm, jx-qa, playwright, ado, integration-test, testing]
 created: 2026-05-22
-updated: 2026-05-22
+updated: 2026-05-28
 source_count: 0
 aliases: [ado skill playwright tests, playwright ado integration tests]
 provenance: synthesis
-status: backlogged
+status: completed
 ---
 
 # Playwright Tests for jx-pm ADO Skills

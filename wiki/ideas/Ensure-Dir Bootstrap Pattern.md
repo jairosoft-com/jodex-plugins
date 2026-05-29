@@ -3,8 +3,8 @@ title: Ensure-Dir Bootstrap Pattern
 type: idea
 tags: [pattern, skill-design, pinned-helper, filesystem]
 created: 2026-05-27
-updated: 2026-05-27
-status: raw
+updated: 2026-05-28
+status: completed
 priority: P3
 effort: small
 source: Session — jx-local create-prompt code review R3 (2026-05-27)

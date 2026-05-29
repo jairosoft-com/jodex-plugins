@@ -1074,3 +1074,29 @@ title: Wiki Log
 - **Pages consulted**: `wiki/_schema.md`, `wiki/_index.md`, `wiki/_backlog.md`, `wiki/ideas/*.md`
 - **Answer filed**: No
 - **Outcome**: Listed 45 live idea files grouped by status
+
+## 2026-05-28 19:27 PDT — Query
+
+- **Operation**: query
+- **Question**: "list all ideas in the idea box"
+- **Pages consulted**: `wiki/_schema.md`, `wiki/_index.md`, `wiki/_backlog.md`, `wiki/ideas/*.md`
+- **Answer filed**: No
+- **Outcome**: Listed 83 live idea files grouped by frontmatter status
+
+## 2026-05-28 19:31 PDT — Query
+
+- **Operation**: query
+- **Question**: "list the titles of all ideas in the idea box"
+- **Pages consulted**: `wiki/ideas/*.md`
+- **Answer filed**: No
+- **Outcome**: Listed 83 live idea titles from frontmatter
+
+## 2026-05-28 21:06 PDT — Idea Completion Audit
+
+- **Operation**: stale idea audit
+- **Ideas reviewed**: 62 active idea pages (`raw` or `backlogged`)
+- **Evidence checked**: local git history, merged GitHub PR metadata, and live repo files
+- **Marked completed**: 20 ([[ADO WIQL CONTAINS Is Substring Not Exact Tag]], [[Agent SDK query() Message Type Structure]], [[Agent SDK Transitive Plugin Deps Must Be Explicit]], [[Algorithm Redesign Over Permission Expansion]], [[Email-Safe HTML Rendering Pattern]], [[Ensure-Dir Bootstrap Pattern]], [[File-Based Data Transport]], [[Meeting Workflow Triad in jx-pm]], [[POSIX Atomic No-Overwrite via os.link]], [[PRD Quality Gate Filtering Fails on Doc-Only Stories]], [[Playwright Tests for jx-pm ADO Skills]], [[Plugin Consolidation Pattern]], [[Real-Time Capture as Skill Pattern]], [[Scoped Evals for Interactive Skills]], [[Self-Contained Documents via Metadata Persistence]], [[Skill Creator Validates End-to-End Before Writing]], [[Staging File Deletion Confinement]], [[Stdlib-Only YAML Serialization]], [[Worktree Cleanup Skill as PM Workflow Capstone]], [[maxTurns Floor for jx-pm ADO Skill]])
+- **Backlog removals**: [[Playwright Tests for jx-pm ADO Skills]], [[PRD Quality Gate Filtering Fails on Doc-Only Stories]]
+- **Skipped**: 42 ideas left active due to no implementation evidence, partial completion, or contradicting live-code evidence
+- **Outcome**: Completed ideas promoted to `status: completed`; index/backlog updated

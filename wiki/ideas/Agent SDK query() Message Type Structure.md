@@ -3,10 +3,10 @@ title: Agent SDK query() Message Type Structure
 type: idea
 tags: [agent-sdk, testing, skill-runner, output-capture]
 created: 2026-05-22
-updated: 2026-05-22
+updated: 2026-05-28
 source_count: 0
 provenance: session-observation
-status: raw
+status: completed
 ---
 
 # Agent SDK query() Message Type Structure

@@ -3,11 +3,11 @@ title: Skill Creator Validates End-to-End Before Writing
 type: idea
 tags: [jx-plugin, validation, scaffolding, design-pattern]
 created: 2026-05-25
-updated: 2026-05-25
+updated: 2026-05-28
 source_count: 0
 aliases: []
 provenance: synthesis
-status: raw
+status: completed
 ---
 
 # Skill Creator Validates End-to-End Before Writing

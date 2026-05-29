@@ -3,8 +3,8 @@ title: File-Based Data Transport
 type: idea
 tags: [security, shell-injection, skill-design, pattern, pinned-helper]
 created: 2026-05-27
-updated: 2026-05-27
-status: raw
+updated: 2026-05-28
+status: completed
 priority: P2
 effort: small
 source: Session — jx-local create-prompt adversarial review (2026-05-27)

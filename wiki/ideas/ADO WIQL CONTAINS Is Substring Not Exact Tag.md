@@ -3,10 +3,10 @@ title: ADO WIQL CONTAINS Is Substring Not Exact Tag
 type: idea
 tags: [ado, wiql, testing, cleanup, query]
 created: 2026-05-22
-updated: 2026-05-22
+updated: 2026-05-28
 source_count: 0
 provenance: session-observation
-status: raw
+status: completed
 ---
 
 # ADO WIQL CONTAINS Is Substring Not Exact Tag

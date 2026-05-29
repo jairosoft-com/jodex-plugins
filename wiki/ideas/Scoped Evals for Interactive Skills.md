@@ -3,11 +3,11 @@ title: Scoped Evals for Interactive Skills
 type: idea
 tags: [testing, evals, interactive, skill, strategy]
 created: 2026-05-25
-updated: 2026-05-25
+updated: 2026-05-28
 source_count: 1
 aliases: [single-prompt eval scoping]
 provenance: source-derived
-status: raw
+status: completed
 ---
 
 # Scoped Evals for Interactive Skills

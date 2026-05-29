@@ -3,11 +3,11 @@ title: Algorithm Redesign Over Permission Expansion
 type: idea
 tags: [skill-design, security, permissions, design-pattern]
 created: 2026-05-26
-updated: 2026-05-26
+updated: 2026-05-28
 source_count: 0
 aliases: [permission minimization by redesign]
 provenance: synthesis
-status: raw
+status: completed
 ---
 
 # Algorithm Redesign Over Permission Expansion

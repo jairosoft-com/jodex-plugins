@@ -3,8 +3,8 @@ title: POSIX Atomic No-Overwrite via os.link
 type: idea
 tags: [pattern, filesystem, atomicity, python, pinned-helper]
 created: 2026-05-27
-updated: 2026-05-27
-status: raw
+updated: 2026-05-28
+status: completed
 priority: P2
 effort: small
 source: Session — jx-local create-prompt adversarial review (2026-05-27)
