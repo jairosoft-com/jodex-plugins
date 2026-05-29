@@ -47,7 +47,6 @@ $ErrorActionPreference = 'Stop'
 # Resolve paths using the Windows user-profile directory.
 $SourcePluginsDir = Join-Path $env:USERPROFILE 'projects\jairosoft\ai-tools\jodex-plugins\plugins'
 $AgyPluginsDir    = Join-Path $env:USERPROFILE '.gemini\config\plugins'
-$PublisherGroup   = 'Jairosoft.jodex'
 
 # ─── Helper Functions ─────────────────────────────────────────────────────────
 
@@ -163,9 +162,9 @@ $InstalledCount = 0
 
 foreach ($pluginPath in $PluginPaths) {
     $pluginName   = Split-Path $pluginPath -Leaf
-    $agyPluginDir = Join-Path $AgyPluginsDir "$PublisherGroup.$pluginName"
+    $agyPluginDir = Join-Path $AgyPluginsDir "$pluginName"
 
-    Write-Host "Installing: $PublisherGroup.$pluginName" -ForegroundColor White
+    Write-Host "Installing: $pluginName" -ForegroundColor White
 
     # ── 1. Create the namespaced plugin directory ─────────────────────────────
     Invoke-OrDryRun -Description "Directory: $agyPluginDir" -Action {

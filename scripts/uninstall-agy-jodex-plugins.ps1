@@ -105,18 +105,18 @@ Write-Host ''
 if ($Plugins -and $Plugins.Count -gt 0) {
     # User specified one or more plugin names
     foreach ($pluginName in $Plugins) {
-        $pluginDir = Join-Path $AgyPluginsDir "$PublisherGroup.$pluginName"
+        $pluginDir = Join-Path $AgyPluginsDir "$pluginName"
         if (Test-Path $pluginDir -PathType Container) {
             $Targets.Add($pluginDir)
         }
         else {
-            Write-Warn "Plugin not found, skipping: $PublisherGroup.$pluginName"
+            Write-Warn "Plugin not found, skipping: $pluginName"
         }
     }
 }
 else {
-    # No specific plugins given — discover all Jairosoft.jodex.* directories
-    Get-ChildItem -Path $AgyPluginsDir -Directory -Filter "$PublisherGroup.*" | ForEach-Object {
+    # No specific plugins given — discover all Jodex (jx-*) directories
+    Get-ChildItem -Path $AgyPluginsDir -Directory -Filter "jx-*" | ForEach-Object {
         $Targets.Add($_.FullName)
     }
 }

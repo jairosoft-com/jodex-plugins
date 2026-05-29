@@ -88,18 +88,18 @@ declare -a TARGETS=()
 if [[ ${#SPECIFIC_PLUGINS[@]} -gt 0 ]]; then
   # User specified one or more plugin names (e.g., jx-qa jx-kb)
   for plugin_name in "${SPECIFIC_PLUGINS[@]}"; do
-    plugin_dir="$AGY_PLUGINS_DIR/$PUBLISHER_GROUP.$plugin_name"
+    plugin_dir="$AGY_PLUGINS_DIR/$plugin_name"
     if [[ -d "$plugin_dir" ]]; then
       TARGETS+=("$plugin_dir")
     else
-      log_warn "Plugin not found, skipping: $PUBLISHER_GROUP.$plugin_name"
+      log_warn "Plugin not found, skipping: $plugin_name"
     fi
   done
 else
-  # No specific plugins given — discover all Jairosoft.jodex.* dirs
+  # No specific plugins given — discover all Jodex (jx-*) dirs
   while IFS= read -r -d '' dir; do
     TARGETS+=("$dir")
-  done < <(find "$AGY_PLUGINS_DIR" -maxdepth 1 -type d -name "${PUBLISHER_GROUP}.*" -print0)
+  done < <(find "$AGY_PLUGINS_DIR" -maxdepth 1 -type d -name "jx-*" -print0)
 fi
 
 # ─── Nothing to do? ───────────────────────────────────────────────────────────

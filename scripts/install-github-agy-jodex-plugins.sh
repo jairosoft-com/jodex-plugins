@@ -22,7 +22,6 @@ set -euo pipefail
 AGY_CONFIG_DIR="$HOME/.gemini/config"
 AGY_PLUGINS_DIR="$AGY_CONFIG_DIR/plugins"
 CACHE_DIR="$AGY_CONFIG_DIR/plugin-cache"
-PUBLISHER_GROUP="Jairosoft.jodex" # Default publisher, could be derived from org
 
 REPO=""
 SPECIFIC_PLUGINS=()
@@ -83,9 +82,6 @@ fi
 CLEAN_REPO=$(echo "$REPO" | sed -e 's|https://github.com/||' -e 's|\.git||')
 ORG_NAME=$(echo "$CLEAN_REPO" | cut -d'/' -f1)
 REPO_NAME=$(echo "$CLEAN_REPO" | cut -d'/' -f2)
-
-# Override publisher group dynamically based on GitHub Org
-PUBLISHER_GROUP=$(echo "$ORG_NAME" | tr '[:upper:]' '[:lower:]' | tr '-' '.')
 
 REPO_CACHE_DIR="$CACHE_DIR/$ORG_NAME/$REPO_NAME"
 
@@ -152,9 +148,9 @@ INSTALLED_COUNT=0
 
 for plugin_path in "${PLUGIN_PATHS[@]}"; do
   plugin_name=$(basename "$plugin_path")
-  agy_plugin_dir="$AGY_PLUGINS_DIR/$PUBLISHER_GROUP.$plugin_name"
+  agy_plugin_dir="$AGY_PLUGINS_DIR/$plugin_name"
 
-  echo -e "${BOLD}Installing: $PUBLISHER_GROUP.$plugin_name${RESET}"
+  echo -e "${BOLD}Installing: $plugin_name${RESET}"
   mkdir -p "$agy_plugin_dir"
 
   # Symlink skills
