@@ -1,27 +1,40 @@
-# Plan: Add jx-qa `spec-generator` Subagent
+# Plan (CLOSED): jx-qa `spec-generator` Subagent — superseded by Option C (keep generation interactive)
 
-## Status
+## Status — CLOSED: Option C adopted 2026-05-29
 
-Design decisions first drafted 2026-05-28, hardened 2026-05-29, then **re-opened 2026-05-29 after a
-second blocking adversarial review (round 1)** that found the prior "hardening" unsound. Three
-follow-on corrections are now folded in:
-- **Decision 1 + 9 narrowed:** the prefix-scoped preflight is NOT a soundness proof (the repo's
-  prefix-only grammar matches the raw command string *before* shell interpretation, so an allowed
-  prefix can be command-chained — see `wiki/concepts/Prefix-Only Permission Grammar.md`).
-  **Background automation is therefore BLOCKED until argv-scoped command enforcement exists**; the
-  preflight is downgraded to a best-effort tripwire (now including a command-chaining probe), not a
-  containment guarantee.
-- **Decision 3 reconciled with Decision 1:** the atomic temp→rename / sweep / delete-on-fail lifecycle
-  needs `mkdir`/`mv`/`rm`, which the locked allowlist forbids. Resolved by routing the entire spec-file
-  lifecycle through **one pinned, path-confined helper** (`spec-fs.py`) added to the allowlist.
-- **Decision 4 made fail-closed:** a human-named path is not approval, currentness, or tenant
-  provenance. The agent now **requires a verifiable provenance sidecar** (checksum + approval marker +
-  timestamp + target tenant/baseURL) emitted by `extract`, and **fails closed when it is absent or
-  mismatched**. This creates a hard dependency on an `extract`-side stamp that does not exist yet.
+**Decision (2026-05-29): do NOT build the autonomous background `spec-generator` agent.** Generation
+stays **interactive**, via the existing scoped `/jx-qa:generate` command + `generate` skill with a
+human in the loop. No new agent, no new Bash/Write tool surface. This plan is retained below as the
+**evaluation record**.
 
-**Implementation not started** — this remains plan-only until explicit go-ahead, AND the two new
-prerequisites above (argv-scoped enforcement for Decision 1; `extract` provenance stamp for Decision 4)
-are not yet satisfied (repo rule: plan approval ≠ implementation approval).
+**Why.** Two rounds of adversarial Codex review (via the `review-and-fix-plan` workflow) showed the
+autonomous/background design has an **uncloseable command-injection + provenance surface** at the
+plan/permission level:
+- Under the repo's prefix-only permission grammar, an allowed prefix (e.g. `Bash(npx playwright test:*)`)
+  matches the raw command string *before* the shell — so attacker-influenceable xlsx/browser-derived
+  text can be command-chained. No prefix allowlist contains this; closing it needs **runtime
+  argv-scoped (no-shell) enforcement that does not exist today** (`wiki/concepts/Prefix-Only Permission Grammar.md`).
+- A bare `Write` grant bypasses any pinned file-lifecycle helper; rollback-safe staging needs fs ops
+  the allowlist forbids; and an `extract` approval sidecar would be **self-asserted / forgeable**
+  without an authenticated issuer — `extract` emits no such stamp today.
+- The entire injection + provenance surface stems from **"background + ingests untrusted input + no
+  human in the loop."** Interactive generation collapses it.
+
+**What Option C means.** The existing interactive `generate` path (scoped allowlist, human-driven)
+remains the supported way to produce specs. The agent's hoped-for benefits (context isolation,
+background/batch, parallel fan-out) are **deferred**, not delivered.
+
+**Revisit only if BOTH prerequisites land:** (1) the runtime provides argv-scoped / no-shell command
+enforcement, and (2) `extract` emits an authenticated provenance record (checksums + approver identity +
+timestamp + tenant/baseURL). At that point, reopen as the Option-B no-shell, path-confined redesign.
+
+**Implementation: none.** Closed decision record (plan-only; nothing to build).
+
+---
+
+> The sections below are retained as the **evaluation record** — the design we considered and the
+> adversarial findings that led to Option C. They are **superseded by the decision above** and are
+> **NOT to be implemented as written.**
 
 ## Summary
 
