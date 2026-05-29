@@ -1,124 +1,131 @@
 # Plan: Add jx-qa `spec-generator` Subagent
 
+## Status
+
+Design decisions **locked 2026-05-28** (see Decisions). **Implementation not started** —
+this remains plan-only until explicit go-ahead (repo rule: plan approval ≠ implementation
+approval).
+
 ## Summary
 
 Add the first agent to the jx-qa plugin — `plugins/jx-qa/agents/spec-generator.md` —
 an autonomous subagent that turns an **already-approved xlsx test plan** into verified
-Playwright `.spec.ts` files by deferring to the existing `generate` skill. It is the
-agent form of the `generate` skill: parse the plan, skip existing specs, live-explore
-the site for semantic locators, write the spec, and run it to confirm it passes.
+Playwright `.spec.ts` files by deferring to the existing `generate` skill: parse the plan,
+skip existing specs, live-explore the site for semantic locators, write the spec, and run
+it to confirm it passes.
 
-Source idea: `wiki/ideas/jx-qa Spec-Generator Subagent.md` (status: raw).
+Source idea: `wiki/ideas/jx-qa Spec-Generator Subagent.md`.
 
-**This is a plan only. Do not implement until approved** (repo rule: plan approval ≠
-implementation approval).
+## Decisions (locked 2026-05-28)
 
-## Decision required before building — security sign-off
-
-Per AGENTS.md ("Keep tool permissions narrow… Do not broaden command allowlists, MCP
-surfaces, or filesystem write scope casually"). Claude Code docs (sub-agents, skills,
-permissions) establish:
-
-- A subagent's `tools:` field accepts **only bare tool names** — no `Bash(playwright-cli:*)`
-  scoping.
-- A subagent **inherits the parent session's `permissions` (allow/deny)** and cannot
-  re-scope Bash from inside the agent file.
-- A skill's `allowed-tools` is **additive pre-approval — it does NOT clamp** a subagent.
-  Running the pinned `generate` skill from inside this agent does *not* narrow its Bash reach.
-
-**Consequence:** the agent must carry a bare `Bash` grant to drive `playwright-cli`,
-`npx playwright test`, and the pinned `xlsx-writer.py`. That grant is governed by the
-**consuming session's permissions**, not by the agent file or the `generate` skill. It
-**cannot reproduce** `commands/generate.md`'s pinned `Bash(playwright-cli:*)` posture.
-This is a genuine surface broadening relative to the command path — the plugin README
-explicitly advertises *not* having broad `python3:*`/`npx:*`/`node:*` grants.
-
-Options (choose one — **this is the gating decision**):
-
-- **A (recommended).** Ship the agent with `tools: Bash, Read, Write` and make its safety
-  an explicit session-permissions responsibility: document that the agent's Bash reach ==
-  the project's `permissions.allow`/`deny`, recommend the consuming project pin Bash
-  (allow `playwright-cli`, `npx playwright test`, the pinned helper; deny broad shells),
-  and call out the broadened surface in the plugin README + security section. Requires
-  explicit user sign-off on the broadened Bash grant.
-- **B.** Don't ship a standalone agent. Keep generation in the pinned `generate` command
-  and obtain parallelism by having the main thread spawn Task subagents that run it.
-  (Caveat: those subagents *also* inherit session permissions — same exposure; this mainly
-  preserves the per-command pin for interactive use.)
-- **C.** Defer the agent until session-level permission fencing for QA runs is defined.
-
-Recommendation: **A**, contingent on explicit sign-off.
-
-Drop from any "mitigations" list: "limit the agent's Bash via prompt instruction" — a
-prompt is not an enforcement boundary and must not be presented as a security control.
+1. **Security (gating) — Option A, signed off.** Ship the agent with bare
+   `tools: Bash, Read, Write`. A subagent's `tools:` accepts only bare names (no
+   `Bash(playwright-cli:*)` scoping), a skill's `allowed-tools` does **not** clamp a
+   subagent, and a subagent inherits the session's `permissions`. So the broadened Bash
+   surface is **governed by the consuming session's `permissions`**, not the agent/skill
+   files, and must be **documented** (README + security note). Recommend consuming projects
+   allow only `playwright-cli` / `npx playwright test` / the pinned helper and deny broad
+   shells. **No auto-install** anywhere (see Decision 9).
+2. **Concurrency — sequential v1.** One test case at a time within a single agent
+   invocation. Parent-orchestrated fan-out (one agent per case) is **deferred to v2**.
+3. **Failure policy — omit + report, bound = 2 repair attempts.** On a failing spec, repair
+   locators/assertions and re-run up to 2 attempts. If still failing, **omit the spec and
+   report it as a gap** — never write a non-passing `// Test Case TBD` spec (protects the
+   ADO-linking contract). An idempotent re-run retries omitted cases (may self-heal).
+4. **xlsx discovery — explicit-preferred, fail-closed.** Use an explicit path if provided;
+   else single-match auto-discovery (`ls test-plans/*.xlsx`, use only if exactly one); on
+   0 or 2+ matches, **stop and report** "specify the test plan path" (no interactive ask).
+5. **Evals — ship an eval skeleton.** Mirror `skills/*/evals/evals.json` (activation ±,
+   idempotency, line-3 TBD contract, omit-on-failure). **DEPENDENCY:** confirm the repo's
+   eval runner actually executes *agent* evals; if it is skill-only, the skeleton ships as a
+   documented manual checklist plus a runner-extension follow-up. (Agent eval file location
+   is TBD pending this — agents are single `.md` files, unlike skill directories.)
+6. **Invocation — explicit-delegation via a `--background` flag on `/jx-qa:generate`.** The
+   agent does NOT auto-compete with the `generate` skill's everyday triggers. Inline
+   requests run the skill; `/jx-qa:generate --background` delegates to the agent. (Flag name
+   `--background`; overridable.)
+7. **URL resolution — step-1 → baseURL → skip+report.** Navigation target comes from the
+   test case's step-1 action; if absent, fall back to `playwright.config` `baseURL`; if
+   still none, skip the case and report (consistent with Decision 3).
+8. **Return — plain human-readable report.** Generated / skipped / failures-with-reason. No
+   machine-aggregation contract in v1 (follows from sequential v1).
+9. **Preconditions — report-and-stop pre-flight.** Verify playwright-cli
+   (`npx --no-install playwright-cli --version`); if missing, **stop and report** the install
+   command (`npm install -g @playwright/cli@latest`) — **do NOT auto-install** (preserves the
+   narrow-permissions posture). Plan-parse check falls out of the `xlsx-writer.py read` step.
+   Site reachability handled lazily: treat the first `playwright-cli goto` failure as a
+   fail-fast "site unreachable" stop. Ensure `tests/` exists (create if absent).
 
 ## Files
 
 - **NEW** `plugins/jx-qa/agents/spec-generator.md` — agent definition (frontmatter + system prompt).
+- **NEW** agent eval skeleton — location TBD pending Decision 5's runner confirmation.
+- **EDIT** `plugins/jx-qa/commands/generate.md` — add the `--background` flag: update
+  `argument-hint`, add conditional logic ("if `--background` → delegate to the
+  `spec-generator` subagent via the Agent/Task tool; else run the `generate` skill inline"),
+  and add the Agent/Task tool to `allowed-tools`.
 - **EDIT** `plugins/jx-qa/README.md` — add an "Agents" section documenting `spec-generator`
-  and the session-permissions security note.
+  and the **session-permissions security note** (Decision 1).
 - **No** `plugin.json` / `marketplace.json` change — agents are auto-discovered from `agents/`.
-- Wiki follow-up (separate, not part of the code change): once implemented, triage the
-  idea (`/jx-kb:triage`) → promoted / implemented.
+- Wiki follow-up (separate from the code change): triage the idea (`/jx-kb:triage`) →
+  promoted / implemented after shipping.
 
 ## Agent definition spec
 
 Frontmatter:
 - `name: spec-generator`
-- `description:` when-to-use (after extract approval; "generate/write specs from the
-  approved plan"; batch/background runs) **and** when-NOT (extract from a BRD → `extract`;
-  run an existing suite → `test`) — must disambiguate from the `generate` skill's triggers.
+- `description:` scoped to **explicit delegation / background / batch / isolated** runs
+  (Decision 6); explicitly states "for normal inline generation use the `generate` skill,"
+  and "Do not use to extract from a BRD (→ `extract`) or to run an existing suite (→ `test`)."
 - `model: sonnet`
-- `tools: Bash, Read, Write`  (bare names — see security decision)
+- `tools: Bash, Read, Write`  (bare names — Decision 1)
 - `skills: [generate, playwright-cli, test]`
 
 System prompt:
-- Role: autonomous Playwright spec author. Input = an **approved** xlsx (post-extract gate).
-- **Defer to the `generate` skill as the single source of truth** — do not duplicate its workflow.
-- Operating rules (non-negotiable):
-  - Idempotent slug-skip (`tests/<slug>.spec.ts`; skip if exists; never overwrite).
-  - Line-3 contract: exactly `// Test Case TBD - <Title>` (ADO linking depends on `TBD`).
-  - Semantic locators via `playwright-cli generate-locator` (no raw CSS/XPath/positional refs).
-  - Self-verify: run `npx playwright test <spec>` and repair until green before reporting.
-  - Stay in scope: no BRD reading, no plan generation, no classification gate, no xlsx mutation.
-- Resolved defaults (open questions from the idea):
-  - **Concurrency:** sequential by default; opt-in fan-out with isolated `playwright-cli -s=<tc>`
-    sessions, capped ~3–4.
-  - **Failure policy:** after 2 repair attempts, **omit** the spec and report the gap — do not
-    write a broken or `test.fixme` spec that pollutes the suite.
-  - **xlsx discovery:** inherit `generate`'s two-stage discovery (`ls test-plans/*.xlsx` → parse
-    user message); accept an explicit path when delegated.
-- Output: single report — generated / skipped / failures-with-reason.
+- Role: autonomous Playwright spec author; input = an **approved** xlsx (post-extract gate).
+- **Defer to the `generate` skill as the single source of truth** — do not duplicate it.
+- Operating rules: idempotent slug-skip; line-3 `// Test Case TBD - <Title>` contract;
+  semantic locators via `generate-locator`; self-verify each spec with `npx playwright test`;
+  stay in scope (no BRD, no plan generation, no classification gate, no xlsx mutation).
+- Bake in Decisions 2 (sequential), 3 (omit+report, 2 attempts), 4 (xlsx discovery),
+  7 (URL resolution), 9 (pre-flight).
+- Output: report per Decision 8.
 
-## Validation (manual — no agent eval harness exists in this repo)
+## Validation (Decision 5)
 
-- **Load:** agent appears in the subagent registry; frontmatter parses.
-- **Routing (positive):** "generate specs from the approved plan" → activates `spec-generator`.
-- **Routing (negative):** "extract test cases from the BRD" → `extract`, not this; "run the
-  e2e tests" → `test`, not this.
-- **End-to-end (manual; needs a sample approved xlsx + a live site):** produces `tests/*.spec.ts`
-  that pass; re-run is idempotent (skips existing).
-- **Security:** confirm the agent's actual Bash reach under the project's `permissions` matches
-  what was agreed; verify it cannot run out-of-scope shell commands.
+- **Eval skeleton** mirroring the skills' format (activation ±, idempotency, TBD contract,
+  omit-on-failure) — runnability pending the runner-support check.
+- **Manual checklist** (the de facto validation until/unless the runner supports agents):
+  load (agent appears + frontmatter parses); positive routing (`--background` → agent);
+  negative routing ("extract from BRD" → `extract`; "run e2e" → `test`); end-to-end on a
+  sample approved xlsx (passing specs, idempotent re-run skips); **security reach** (agent's
+  Bash is bounded by the project's `permissions` as agreed).
 
 ## Risks
 
-- **Broadened Bash surface** (the gating decision) — mitigated only by session `permissions`,
-  not by the agent or skill files.
-- **Trigger overlap** with the `generate` skill — disambiguate via the `description`.
-- **Concurrent-browser resource use** if fanning out — mitigated by sequential default + cap.
+- **Broadened Bash surface** — mitigated only by session `permissions`, not the agent/skill
+  files (Decision 1). Central, accepted, must be documented.
+- **Eval runner may not support agents** — Decision 5 dependency; fallback is manual checklist
+  + runner-extension follow-up.
+- **Flag routing** — verify `/jx-qa:generate --background` reliably delegates and the bare
+  command still runs inline (Decision 6).
+- Concurrent-browser cost — N/A in v1 (sequential).
 
 ## Out of scope
 
-- Implementing the agent (plan-only; stop after approval).
+- Implementing the agent (plan-only; stop until go-ahead).
+- Parent-orchestrated fan-out (v2 — Decision 2).
 - Full BRD→specs orchestrator (blocked by `extract`'s human gate).
-- An agent eval harness (none exists; optional follow-up).
-- Changing the project's session `permissions` (separate task if Option A is chosen).
+- A full agent eval *runner* (a skeleton is in scope; extending the runner may be a follow-up).
+- Changing the project's session `permissions` (separate task under Option A if desired).
 
 ## Steps (once approved)
 
-1. Write `plugins/jx-qa/agents/spec-generator.md`.
-2. Update `plugins/jx-qa/README.md` (Agents section + security note).
-3. Validate load + positive/negative routing.
-4. Manual end-to-end on a sample approved xlsx.
-5. Wiki follow-up: triage the idea → promoted / implemented.
+1. **Confirm eval-runner support for agents** (Decision 5 dependency) → decide skeleton-runnable
+   vs. manual-checklist + follow-up.
+2. Write `plugins/jx-qa/agents/spec-generator.md` (frontmatter + system prompt with Decisions baked in).
+3. Edit `plugins/jx-qa/commands/generate.md` — add `--background` flag + Agent/Task tool.
+4. Edit `plugins/jx-qa/README.md` — Agents section + security note.
+5. Add the eval skeleton.
+6. Validate: load + positive/negative routing + manual e2e on a sample xlsx + security reach.
+7. Wiki follow-up: triage the idea → promoted / implemented.
