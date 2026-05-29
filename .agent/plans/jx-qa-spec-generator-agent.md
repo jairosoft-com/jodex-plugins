@@ -2,9 +2,11 @@
 
 ## Status
 
-Design decisions **locked 2026-05-28** (see Decisions). **Implementation not started** —
-this remains plan-only until explicit go-ahead (repo rule: plan approval ≠ implementation
-approval).
+Design decisions **locked 2026-05-28**, then **hardened 2026-05-29** after a blocking Codex
+adversarial review (`/codex:adversarial-review`) — 3 findings addressed: an enforceable permission
+preflight (Decisions 1, 9), rollback-safe spec writes (Decision 3), and required-explicit-path
+provenance for the agent (Decision 4). **Implementation not started** — this remains plan-only until
+explicit go-ahead (repo rule: plan approval ≠ implementation approval).
 
 ## Summary
 
@@ -23,18 +25,32 @@ Source idea: `wiki/ideas/jx-qa Spec-Generator Subagent.md`.
    `Bash(playwright-cli:*)` scoping), a skill's `allowed-tools` does **not** clamp a
    subagent, and a subagent inherits the session's `permissions`. So the broadened Bash
    surface is **governed by the consuming session's `permissions`**, not the agent/skill
-   files, and must be **documented** (README + security note). Recommend consuming projects
-   allow only `playwright-cli` / `npx playwright test` / the pinned helper and deny broad
-   shells. **No auto-install** anywhere (see Decision 9).
+   files, and must be **documented** (README + security note). Consuming projects **MUST** deny bare Bash and allow only `playwright-cli` /
+   `npx playwright test` / the pinned `xlsx-writer.py` helper / `ls`; the agent **enforces this at
+   runtime via the Decision 9 fail-closed permission preflight** and refuses to run otherwise.
+   **Residual (honest):** plugin-level Bash scoping is provably impossible (a subagent's `tools:`
+   takes only bare names; the bound skill's `allowed-tools` does not clamp it), so correct
+   session-permission config remains a **required external control** — the preflight detects and
+   refuses, it cannot itself scope Bash. **No auto-install** anywhere (see Decision 9).
 2. **Concurrency — sequential v1.** One test case at a time within a single agent
    invocation. Parent-orchestrated fan-out (one agent per case) is **deferred to v2**.
 3. **Failure policy — omit + report, bound = 2 repair attempts.** On a failing spec, repair
    locators/assertions and re-run up to 2 attempts. If still failing, **omit the spec and
    report it as a gap** — never write a non-passing `// Test Case TBD` spec (protects the
    ADO-linking contract). An idempotent re-run retries omitted cases (may self-heal).
-4. **xlsx discovery — explicit-preferred, fail-closed.** Use an explicit path if provided;
-   else single-match auto-discovery (`ls test-plans/*.xlsx`, use only if exactly one); on
-   0 or 2+ matches, **stop and report** "specify the test plan path" (no interactive ask).
+   **Rollback-safe write (overrides the `generate` skill's in-place write):** write each candidate to
+   a temp path (`tests/.<slug>.spec.ts.tmp`), run `npx playwright test` against it, and **atomically
+   rename to `tests/<slug>.spec.ts` only after it passes**. On exhausted repairs / timeout / crash,
+   **delete the temp candidate** and record the gap — never leave a partial or unverified file at the
+   final path. On startup, sweep and delete orphaned `tests/.*.spec.ts.tmp`. This makes the slug-skip
+   idempotency mean *skip only verified specs*, and delete-on-fail is what lets re-runs retry gaps.
+4. **xlsx discovery — explicit path REQUIRED for the agent.** In the agent's
+   background/non-interactive mode an **explicit xlsx path is required**, and **sole-match
+   auto-discovery is disabled**: if no path is supplied, **stop and report** "specify the test plan
+   path" rather than auto-selecting a sole file. A human naming the file IS the enforceable,
+   non-interactive **provenance signal** (auto-driving live browser navigation + spec writes from an
+   unproven sole xlsx in background mode is disallowed). The `generate` skill keeps its
+   explicit-preferred → single-match → fail-closed discovery for the **interactive inline path only**.
 5. **Evals — ship an eval skeleton.** Mirror `skills/*/evals/evals.json` (activation ±,
    idempotency, line-3 TBD contract, omit-on-failure). **DEPENDENCY:** confirm the repo's
    eval runner actually executes *agent* evals; if it is skill-only, the skeleton ships as a
@@ -49,12 +65,20 @@ Source idea: `wiki/ideas/jx-qa Spec-Generator Subagent.md`.
    still none, skip the case and report (consistent with Decision 3).
 8. **Return — plain human-readable report.** Generated / skipped / failures-with-reason. No
    machine-aggregation contract in v1 (follows from sequential v1).
-9. **Preconditions — report-and-stop pre-flight.** Verify playwright-cli
-   (`npx --no-install playwright-cli --version`); if missing, **stop and report** the install
-   command (`npm install -g @playwright/cli@latest`) — **do NOT auto-install** (preserves the
-   narrow-permissions posture). Plan-parse check falls out of the `xlsx-writer.py read` step.
-   Site reachability handled lazily: treat the first `playwright-cli goto` failure as a
-   fail-fast "site unreachable" stop. Ensure `tests/` exists (create if absent).
+9. **Preconditions — report-and-stop pre-flight.**
+   **(a) Permission preflight (mandatory, fail-closed) — runs FIRST, before any plan parse or browser
+   work.** Probe that broad shell is NOT granted: run a sentinel command that must be *denied* in a
+   correctly-scoped session (e.g. `bash -c 'echo unscoped-shell-reachable'`). If the sentinel
+   **succeeds**, the broad-Bash boundary is absent → **STOP** and report the required remediation
+   (deny bare Bash; allow only `Bash(playwright-cli:*)`, `Bash(npx playwright test:*)`, the pinned
+   `xlsx-writer.py` helper, `Bash(ls:*)`). Proceed only if the sentinel is **blocked AND** the required
+   commands run.
+   **(b)** Verify playwright-cli (`npx --no-install playwright-cli --version`) — doubles as the
+   allowlisted-command confirmation for (a); if missing, **stop and report** the install command
+   (`npm install -g @playwright/cli@latest`) — **do NOT auto-install**.
+   **(c)** Plan-parse check falls out of the `xlsx-writer.py read` step.
+   **(d)** Site reachability — lazy: first `playwright-cli goto` failure = fail-fast "site unreachable" stop.
+   **(e)** Ensure `tests/` exists (create if absent).
 
 ## Files
 
@@ -82,13 +106,16 @@ Frontmatter:
 - `skills: [generate, playwright-cli, test]`
 
 System prompt:
-- Role: autonomous Playwright spec author; input = an **approved** xlsx (post-extract gate).
+- Role: autonomous Playwright spec author; input = an **explicitly-provided, approved** xlsx path (post-extract gate; no auto-discovery in agent mode — Decision 4).
 - **Defer to the `generate` skill as the single source of truth** — do not duplicate it.
-- Operating rules: idempotent slug-skip; line-3 `// Test Case TBD - <Title>` contract;
+- Operating rules: idempotent slug-skip (**skip only verified specs** — Decision 3); line-3 `// Test Case TBD - <Title>` contract;
   semantic locators via `generate-locator`; self-verify each spec with `npx playwright test`;
   stay in scope (no BRD, no plan generation, no classification gate, no xlsx mutation).
-- Bake in Decisions 2 (sequential), 3 (omit+report, 2 attempts), 4 (xlsx discovery),
-  7 (URL resolution), 9 (pre-flight).
+- Bake in Decisions 2 (sequential), 3 (omit+report, 2 attempts, **+ rollback-safe temp→rename-on-pass /
+  delete-on-fail**), 4 (**explicit path required; no auto-discovery**), 7 (URL resolution),
+  9 (**mandatory fail-closed permission preflight, first**).
+- Call out the rollback-safe write and the no-auto-discovery rule as **explicit overrides** of the
+  `generate` skill — not silent deviations.
 - Output: report per Decision 8.
 
 ## Validation (Decision 5)
@@ -103,8 +130,9 @@ System prompt:
 
 ## Risks
 
-- **Broadened Bash surface** — mitigated only by session `permissions`, not the agent/skill
-  files (Decision 1). Central, accepted, must be documented.
+- **Broadened Bash surface** — the Decision-9 preflight **detects and refuses** when broad shell is
+  granted but **cannot itself scope Bash**; correct session-`permissions` config remains a **required
+  external control** (state honestly in the README security note — not plugin-enforced). Central, accepted.
 - **Eval runner may not support agents** — Decision 5 dependency; fallback is manual checklist
   + runner-extension follow-up.
 - **Flag routing** — verify `/jx-qa:generate --background` reliably delegates and the bare
@@ -118,6 +146,11 @@ System prompt:
 - Full BRD→specs orchestrator (blocked by `extract`'s human gate).
 - A full agent eval *runner* (a skeleton is in scope; extending the runner may be a follow-up).
 - Changing the project's session `permissions` (separate task under Option A if desired).
+- **Extract-side approval fingerprint/metadata** (follow-up): `extract` emits no approval/checksum/metadata
+  today (only the xlsx), so the agent can't validate provenance beyond the human-named path. File a
+  follow-up for `extract` to stamp an approval fingerprint the agent could later verify; until then the
+  required-explicit-path rule (Decision 4) is the provenance signal. Verifying the xlsx is **current** or
+  targets the intended **tenant/site** also depends on this not-yet-existing extract metadata.
 
 ## Steps (once approved)
 
