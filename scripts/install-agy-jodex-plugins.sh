@@ -26,7 +26,6 @@ set -euo pipefail
 # ─── Configuration ────────────────────────────────────────────────────────────
 SOURCE_PLUGINS_DIR="$HOME/projects/jairosoft/ai-tools/jodex-plugins/plugins"
 AGY_PLUGINS_DIR="$HOME/.gemini/config/plugins"
-PUBLISHER_GROUP="Jairosoft.jodex"
 
 # ─── Argument Parsing ─────────────────────────────────────────────────────────
 DRY_RUN=false
@@ -124,9 +123,9 @@ INSTALLED_COUNT=0
 
 for plugin_path in "${PLUGIN_PATHS[@]}"; do
   plugin_name=$(basename "$plugin_path")
-  agy_plugin_dir="$AGY_PLUGINS_DIR/$PUBLISHER_GROUP.$plugin_name"
+  agy_plugin_dir="$AGY_PLUGINS_DIR/$plugin_name"
 
-  echo -e "${BOLD}Installing: $PUBLISHER_GROUP.$plugin_name${RESET}"
+  echo -e "${BOLD}Installing: $plugin_name${RESET}"
 
   # ── 1. Create the namespaced plugin directory ─────────────────────────────
   dry_run_exec "Directory: $agy_plugin_dir" mkdir -p "$agy_plugin_dir"

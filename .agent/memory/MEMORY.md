@@ -20,6 +20,7 @@
 - [Plan vs execute boundary](feedback_plan_vs_execute.md) — Plan approval is not implementation approval; stop after planning unless explicitly told to implement
 - [Read skill spec first](feedback_read_skill_spec_first.md) — Before executing ANY jx-* skill, read its SKILL.md completely; don't improvise
 - [ADO sync format](feedback_ado_sync_format.md) — Specific instance: follow jx-core/_shared/ado.md for ADO work item formats
+- [Plugin naming convention](feedback_plugin_naming_convention.md) — Use short plugin names (e.g. jx-kb) instead of full publisher names (e.g. Jairosoft.jodex.jx-kb) for agy slash commands.
 
 ## NotebookLM
 - [Associated notebooks](reference_notebooklm.md) — Plugin Marketplace Architecture + Mastering Skill.MD + Building Product Management Skills

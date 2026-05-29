@@ -68,6 +68,10 @@ jx-dev → jx-core
 - **Node.js 18+** + **Playwright** (for jx-qa)
 - **Azure DevOps MCP server** (for jx-pm:ado only)
 
+## Installation — Antigravity CLI (`agy`)
+
+For deploying `jodex-plugins` using the Antigravity CLI (`agy`), please refer to the detailed [INSTALLATION-GUIDE-ANTIGRAVITY-CLI.md](INSTALLATION-GUIDE-ANTIGRAVITY-CLI.md).
+
 ## Installation — Claude Code CLI
 
 ```bash

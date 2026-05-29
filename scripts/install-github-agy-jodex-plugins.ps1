@@ -94,9 +94,6 @@ if ($parts.Count -ne 2) {
 $OrgName  = $parts[0]
 $RepoName = $parts[1]
 
-# Publisher namespace defaults to the org name (lowercase, dots instead of dashes)
-$PublisherGroup = $OrgName.ToLower() -replace '-', '.'
-
 $RepoCacheDir = Join-Path $CacheDir "$OrgName\$RepoName"
 
 # ─── Step 2: Clone or Pull Repository ─────────────────────────────────────────
@@ -177,9 +174,9 @@ $InstalledCount = 0
 
 foreach ($pluginPath in $PluginPaths) {
     $pluginName   = Split-Path $pluginPath -Leaf
-    $agyPluginDir = Join-Path $AgyPluginsDir "$PublisherGroup.$pluginName"
+    $agyPluginDir = Join-Path $AgyPluginsDir "$pluginName"
 
-    Write-Host "Installing: $PublisherGroup.$pluginName" -ForegroundColor White
+    Write-Host "Installing: $pluginName" -ForegroundColor White
 
     if (-not (Test-Path $agyPluginDir)) { New-Item -ItemType Directory -Path $agyPluginDir -Force | Out-Null }
 
