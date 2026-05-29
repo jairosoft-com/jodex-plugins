@@ -197,24 +197,23 @@ foreach ($pluginPath in $PluginPaths) {
         }
     }
 
-    # Generate manifest
+    # Copy or Generate manifest
     $claudeManifest = Join-Path $pluginPath '.claude-plugin\plugin.json'
     $agyManifest    = Join-Path $agyPluginDir 'plugin.json'
 
     if (Test-Path $claudeManifest -PathType Leaf) {
-        $manifestJson = Get-Content $claudeManifest -Raw | ConvertFrom-Json
-        $desc = if ($manifestJson.description) { $manifestJson.description } else { 'No description provided' }
+        # Copy the original plugin manifest directly so that agy can see all defined properties
+        Copy-Item -Path $claudeManifest -Destination $agyManifest -Force
+        Write-Ok 'Copied: plugin.json'
     } else {
         $desc = "$OrgName plugin: $pluginName"
+        [ordered]@{
+            name        = $pluginName
+            description = $desc
+            disabled    = $false
+        } | ConvertTo-Json -Depth 2 | Set-Content -Path $agyManifest -Encoding UTF8
+        Write-Ok 'Generated: plugin.json'
     }
-
-    [ordered]@{
-        name        = $pluginName
-        description = $desc
-        disabled    = $false
-    } | ConvertTo-Json -Depth 2 | Set-Content -Path $agyManifest -Encoding UTF8
-
-    Write-Ok 'Generated: plugin.json'
 
     $InstalledCount++
     Write-Host ''
