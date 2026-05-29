@@ -1,10 +1,14 @@
 # Agent Memory
 
 ## GitHub / Git Workflow
-- **PR Creation (User Preferred Workflow):** Always use `gh` (GitHub CLI) to create and push PRs. Do NOT use the browser or MCP GitHub tools. It is the explicit preference of the user to use `gh pr create` with `--title` and `--body` flags.
+- **PR Creation (User Preferred Workflow):** Always use `gh` (GitHub CLI) to create and push PRs. Do NOT use the browser or MCP GitHub tools. It is the explicit preference of the user to use `gh pr create` with `--title` and `--body` flags. Always use the current branch.
 - **PR Formatting:**
   - Provide a clear `--title` (e.g., `feat: ...`, `chore: ...`).
   - Provide a `--body` that includes at minimum a `## Description` and `## Summary`.
+- **Git Commit & Push Preferences:**
+  - Always stage all tracked and untracked relevant files before committing.
+  - Ensure the git config email account used is `vaseniero@jairosoft.com` and the GitHub repo URL is `https://github.com/jairosoft-com/jodex-plugins`.
+  - Always pull latest from the branch before pushing.
 
 ## Workflow Rules
 - [Wiki vs code changes](feedback_wiki_vs_code.md) — Wiki filings proceed immediately; code changes require a plan first
