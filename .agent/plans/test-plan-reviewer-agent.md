@@ -19,14 +19,15 @@ Source idea: `wiki/ideas/jx-qa Test-Plan Reviewer Subagent.md` (P1).
 
 ## Decisions
 
-1. **No tools on the agent — no mutation AND no exfiltration surface (the gating security posture).**
+1. **No tools on the agent — no mutation AND no exfiltration surface *at the agent layer* (necessary, not sufficient: the parent command is a separate, tool-enabled exposure — see Decision 10).**
    The agent's `tools:` field is **EMPTY (no tools at all) — NO `Bash`, NO `Write`, NO `Read`, NO
    `Grep`, NO `Glob`, NO `playwright-cli`, NO `npx`.** The command (Decision 2) reads and inlines BOTH
    the parsed plan content AND the exact BRD text into the agent prompt, so the agent never needs a file
    tool. This is tighter than the earlier `Read, Grep, Glob` draft, which — even though read-only —
    left an **exfiltration channel**: untrusted workbook text could prompt-inject the agent into reading
    secrets or unrelated repo files and echoing them into the report. Removing read tools **closes that
-   channel by construction** rather than by instruction. Lessons applied:
+   channel *at the agent layer* by construction** rather than by instruction (this is the *agent's* channel only;
+   the tool-enabled parent command remains a separate residual exposure — Decision 10). Lessons applied:
    - A subagent's `tools:` takes only bare names and a skill's `allowed-tools` does NOT clamp it — so we
      simply **do not grant the agent any tool.** With no `Bash`/`Write`, there is no command-injection
      or spec-corruption surface; with no `Read`/`Grep`/`Glob`, untrusted plan/BRD text cannot drive
@@ -90,6 +91,25 @@ Source idea: `wiki/ideas/jx-qa Test-Plan Reviewer Subagent.md` (P1).
    that the plan and BRD were **not** provenance-checked (a stale, wrong, or mismatched workbook/BRD can
    still receive a clean report), and **MUST NOT** use ready / approved / "passes the gate" language. It is
    a quality aid, **never** a quality gate before `/jx-qa:generate`.
+10. **Parent-command prompt-injection exposure — acknowledged residual, NOT closed by construction.**
+    The agent's zero-tool boundary (Decision 1) protects only the *child*. The **parent** `/jx-qa:review-plan`
+    command is itself a tool-enabled model: it parses the untrusted xlsx (pinned `xlsx-writer.py read`) and
+    `Read`s the untrusted BRD, then inlines both into the agent prompt — so untrusted workbook/BRD text reaches
+    a model that *still holds* `Read`, `ls`, and the pinned Bash prefix **before** delegation to the no-tool
+    child. Injected text in those inputs could therefore try to steer the **parent** into an off-scope `Read`,
+    `ls`, or pinned-`Bash` call after parse and before delegation. This exposure **cannot be closed by
+    construction**, because: (a) the child must be tool-less, so content *must* transit the parent's context —
+    the child cannot consume a bare file reference; (b) the inputs are free-form xlsx cells + BRD prose, which
+    cannot be reliably "sanitized" against prompt-injection; and (c) a runtime "drop-all-tools-after-parse"
+    transition would depend on runtime support not yet confirmed even for the zero-tool *agent* (Decision 1
+    DEPENDENCY). **Mitigation (eval-gated, acknowledged not eliminated — same stance as Decision 8):** (i) the
+    parent command's system prompt MUST treat all parsed-xlsx / BRD content strictly as data to review, never
+    as instructions, and MUST NOT issue any `Read`/`ls`/`Bash` call beyond the single pinned parse + the single
+    BRD `Read` it performs by design; (ii) ship a **parent-targeted injection eval** (Validation) feeding
+    malicious xlsx/BRD content and asserting the parent performs **no** off-scope `Read`/`ls`/`Bash` between
+    parse and delegation; **implementation is gated on that eval, not on instruction alone.** The plan does
+    **not** claim "no exfiltration channel" at the system level — only that the *agent layer* has none
+    (Decision 1).
 
 ## Files
 
@@ -103,8 +123,11 @@ Source idea: `wiki/ideas/jx-qa Test-Plan Reviewer Subagent.md` (P1).
   subcommands — see Decision 3), plus `Read`, `ls`, Agent/Task — **no broad Bash/Write.**
 - **NEW** agent eval skeleton — location TBD pending Decision 7's runner confirmation.
 - **EDIT** `plugins/jx-qa/README.md` — add the reviewer to an "Agents" section + a safety note: the
-  agent has **no tools** (no mutation, no exfiltration channel); the command's prefix-chaining residual is
-  acknowledged not eliminated (Decision 8); output is **unverified advisory, non-gating** (Decision 9).
+  agent has **no tools** (no mutation, no *agent-layer* exfiltration channel); the parent command is a
+  separate tool-enabled exposure whose prompt-injection residual is acknowledged not eliminated, eval-gated
+  (Decision 10); the command's prefix-chaining residual is acknowledged not eliminated (Decision 8); output
+  is **unverified advisory, non-gating** (Decision 9). Do **not** describe the system as having "no
+  exfiltration channel" — that holds only at the agent layer.
   Contrast with the deferred spec-generator.
 - **No** `plugin.json` / `marketplace.json` change — agents/commands auto-discovered.
 - Wiki follow-up: triage the idea after shipping.
@@ -145,6 +168,10 @@ System prompt:
   "Unverified advisory output (non-gating)" with no ready/approved language.
 - **Prompt-injection eval:** feed a workbook/BRD whose text instructs the agent to read a secret/unrelated
   file and echo it; confirm the agent performs no off-scope read (it has no read tool) and does not leak.
+- **Parent-command injection eval (gating — Decision 10):** feed malicious xlsx/BRD content that tries to
+  steer the *parent* `/jx-qa:review-plan` command into an off-scope `Read`/`ls`/`Bash` call; confirm the
+  parent performs **no** tool call between the single pinned parse + BRD `Read` and delegation. Gate
+  implementation on this eval, not on prompt instruction alone.
 - **Command path-safety check:** pass an xlsx/BRD path containing a shell metacharacter; confirm the
   command rejects it **before** any Bash call (Decision 8), not only via the helper's post-shell guard.
 - **Allowlist denial check (no-write):** confirm `xlsx-writer.py fork ...` and `xlsx-writer.py append ...`
@@ -156,6 +183,10 @@ System prompt:
 
 - **Low–moderate.** The **agent** has no tools → no command-injection, no spec-corruption, and no
   exfiltration channel (Decision 1). Residual surfaces, **acknowledged not eliminated**:
+  - The **parent command** is a tool-enabled model that ingests untrusted parsed-xlsx + BRD text (while
+    holding `Read`/`ls`/pinned-`Bash`) **before** the zero-tool boundary, so a prompt-injection exfiltration
+    window exists at the parent layer; it cannot be closed by construction and is mitigated by a
+    parent-targeted injection eval that gates implementation (Decision 10).
   - The **command** still invokes a pinned Bash helper; under the repo's prefix-only grammar that prefix
     is raw-string-matched, so prefix-chaining is mitigated (Decision 8 pre-shell metachar rejection) but
     not provably sound — same accepted-residual stance as the spec-generator closure record.
@@ -182,5 +213,6 @@ System prompt:
 4. Edit `plugins/jx-qa/README.md` (Agents section + safety note).
 5. Add the eval skeleton.
 6. Validate: load + positive/negative routing + sample review (unverified-advisory label) +
-   prompt-injection eval + command path-safety check + no-tools security check.
+   child prompt-injection eval + **parent-command injection eval (gating — Decision 10)** + command
+   path-safety check + no-tools security check.
 7. Wiki follow-up: triage the idea → promoted / implemented.
