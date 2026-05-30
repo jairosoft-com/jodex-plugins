@@ -4,6 +4,17 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-29 — Session Insights: jx-qa reviewer build + tool-scoping security
+
+- **Operation**: insights
+- **Label**: jx-qa reviewer build + tool-scoping security
+- **Pages created**: [[Read-Only Is Not Injection-Safe]] (concept), [[Command + Skill Over Sub-Agent for Untrusted-Input Tools]] (concept), [[Adversarial Review Converges to a Narrowed Residual]] (concept), [[Saved Workflow By-Name Invocation Drops Args]] (idea), [[Codex Adversarial Review Fails on Stale config.toml Skill Paths]] (idea)
+- **Pages updated**: none
+- **Ideas extracted**: 2
+- **Conflicts flagged**: 0
+- **Cross-references added**: 0
+- **Outcome**: Success
+
 ## 2026-05-29 — Concept: plugin tool grants are additive not restrictive
 
 - **Operation**: concept filing

@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-29
-page_count: 303
+page_count: 308
 ---
 
 # Wiki Index
@@ -46,6 +46,8 @@ page_count: 303
 - [[Cross-Model Handoff Evaluation]] — Process for evaluating AI-to-AI suggestions: check existing state, adopt real gaps (#pattern, #workflow, #multi-model) [raw]
 - [[Codex Review Gate Loops on Empty Diffs]] — Codex stop-time review gate returns status 1 with empty output on no changes, causing infinite retry (#codex, #review-gate) [backlogged]
 - [[Codex Shared Runtime Auth Recovery]] — Codex browser login succeeds but shared broker runtime holds stale auth state (#codex, #auth, #workflow) [raw]
+- [[Codex Adversarial Review Fails on Stale config.toml Skill Paths]] — adversarial-review aborts when config.toml references deleted skill SKILL.md files; setup says ready:true; fix = remove dead [[skills.config]] blocks (#codex, #config, #troubleshooting) [raw]
+- [[Saved Workflow By-Name Invocation Drops Args]] — Workflow({name,args}) didn't forward args (used script defaults); use scriptPath+args or hardcode (#claude-code, #workflow, #gotcha) [raw]
 - [[GitHub Beginner Tutorial for Non-Developers]] — Teach non-devs to use GitHub for project collaboration via web UI (#documentation, #onboarding, #github) [backlogged P3]
 - [[JX Foundational Onboarding (Promoted)]] — Shared prerequisite setup steps (Claude Code, Git, GitHub CLI, uv, Node.js, jx-kb) extracted from PM/Dev/QA onboarding docs (#onboarding, #jx-kb, #setup, #shared) [promoted]
 - [[Schema Sources Rule Exception for Source Pages]] — Source pages self-referentially violate ## Sources requirement; 65 lint warnings (#wiki, #schema, #lint) [backlogged P2]
@@ -156,6 +158,9 @@ page_count: 303
 - [[Pinned Helper]] — Security pattern: restricted script execution (#security, #execution)
 - [[Prefix-Only Permission Grammar]] — Claude Code allowed-tools use pure prefix matching; mid-pattern wildcards don't work (#claude-code, #permissions, #allowed-tools, #pattern)
 - [[Plugin Tool Grants Are Additive Not Restrictive]] — Agent tools:/command/skill allowed-tools pre-approve but don't restrict; only session permissions / disallowed-tools clamp (#claude-code, #permissions, #allowed-tools, #security, #plugins)
+- [[Read-Only Is Not Injection-Safe]] — Read-only stops mutation not disclosure; injected content can exfiltrate via read tools / pinned-helper reuse on off-scope paths (#security, #prompt-injection, #agent-design, #claude-code)
+- [[Command + Skill Over Sub-Agent for Untrusted-Input Tools]] — For advisory tools ingesting untrusted content, command+skill beats a sub-agent (human-in-loop, convention-fit); security is a wash (#claude-code, #plugins, #agent-design, #decision)
+- [[Adversarial Review Converges to a Narrowed Residual]] — Iterative adversarial review catches overclaims and converges on "narrowed + accepted residual + gated", not a clean pass (#adversarial-review, #security, #design-pattern, #codex)
 - [[Plugin Architecture]] — .claude-plugin format for Claude Code CLI (#architecture, #plugin)
 - [[Plugin Dependency Declaration]] — Inter-plugin dependency convention via plugin.json dependencies field (#plugin, #convention, #dependency)
 - [[Plugin Metadata Surfaces]] — Where plugin descriptions and listing metadata live (#plugin, #metadata)
