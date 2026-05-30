@@ -4,6 +4,12 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-29 — Concept: plugin tool grants are additive not restrictive
+
+- **Operation**: concept filing
+- **Pages created**: [[Plugin Tool Grants Are Additive Not Restrictive]]
+- **Note**: Claude Code plugin-level tool grants (agent `tools:`, command/skill `allowed-tools`) are additive; only session `permissions` / `disallowed-tools` restrict. Verified twice vs docs; also captured in repo memory (`reference-claude-code-tool-scoping`).
+
 ## 2026-05-29 — Idea: jx-qa test-plan reviewer subagent
 
 - **Operation**: idea filing

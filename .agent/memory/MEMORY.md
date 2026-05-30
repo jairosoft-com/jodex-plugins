@@ -37,3 +37,4 @@
 ## References
 - [ADO project binding](reference_ado_project.md) — Org: jairo, Project: Jodex (dev.azure.com/jairo/Jodex)
 - [CasaColina source skills](reference_casacolina_source_skills.md) — Original cc-gen-* skills that jx-pm was ported from
+- [Claude Code tool scoping](reference_claude_code_tool_scoping.md) — Plugin tool grants (agent tools:, command/skill allowed-tools) are additive; only session permissions / disallowed-tools restrict

@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-29
-page_count: 302
+page_count: 303
 ---
 
 # Wiki Index
@@ -155,6 +155,7 @@ page_count: 302
 - [[Path Confinement]] — Security pattern: path safety contract with relative_to() (#security, #validation)
 - [[Pinned Helper]] — Security pattern: restricted script execution (#security, #execution)
 - [[Prefix-Only Permission Grammar]] — Claude Code allowed-tools use pure prefix matching; mid-pattern wildcards don't work (#claude-code, #permissions, #allowed-tools, #pattern)
+- [[Plugin Tool Grants Are Additive Not Restrictive]] — Agent tools:/command/skill allowed-tools pre-approve but don't restrict; only session permissions / disallowed-tools clamp (#claude-code, #permissions, #allowed-tools, #security, #plugins)
 - [[Plugin Architecture]] — .claude-plugin format for Claude Code CLI (#architecture, #plugin)
 - [[Plugin Dependency Declaration]] — Inter-plugin dependency convention via plugin.json dependencies field (#plugin, #convention, #dependency)
 - [[Plugin Metadata Surfaces]] — Where plugin descriptions and listing metadata live (#plugin, #metadata)
