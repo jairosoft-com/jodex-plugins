@@ -9,10 +9,16 @@ avoid the security failure mode that closed the `spec-generator` agent
 
 **Option A adopted 2026-05-29** (resolving the loop's final open finding): the command ingests the xlsx
 **and** BRD via deterministic, path-validated, read-only **pinned helpers** and therefore **drops its
-broad `Read`/`ls`** — closing the off-scope arbitrary-read exfiltration channel and narrowing the
-Decision-10 parent-command residual to the acknowledged Decision-8 prefix-chaining, **accepted for
-trusted/internal plans**. See **Option A — pinned-helper ingestion** below. The design is settled; ready
-to implement on go-ahead.
+broad `Read`/`ls`** — **narrowing (not closing)** the Decision-10 parent-command residual: arbitrary
+off-scope reads are gone, but injected content could still try to **reuse a pinned read-only helper on an
+off-scope `.md`/`.xlsx` path**. The narrowed residual is **accepted for trusted/internal plans**. See
+**Option A — pinned-helper ingestion** below.
+
+**NOT yet ready to implement** — two gating prerequisites must be verified and recorded first: (1) the
+exact **zero-tool frontmatter syntax** against the live runtime (Decision 1 dependency — empty ≠ omitted),
+and (2) a **strict parent injection eval** asserting each pinned helper is called **once, on the original
+normalized args, with no reuse** after untrusted content enters context. Do not create the agent/command
+files until both pass.
 
 ## Summary
 
@@ -131,12 +137,14 @@ use broad `Read`/`ls`.** It ingests BOTH inputs via deterministic, path-validate
 helpers** — `xlsx-writer.py read` (plan) and a new `read-doc.py read` (BRD `.md`) — then inlines the
 exact parsed content into the tool-less agent.
 
-- **Effect:** prompt-injected workbook/BRD text can no longer steer the parent into an arbitrary `Read`
+- **Effect:** prompt-injected workbook/BRD text can no longer steer the parent into an **arbitrary** `Read`
   or `ls`; the parent's only file access is two read-only, single-token, extension+metacharacter-validated
-  helper calls. The off-scope arbitrary-read **exfiltration channel is closed**; the residual narrows to
-  the pinned-helper prefix-chaining already acknowledged in Decision 8 (accepted) plus the inherent fact
-  that the parent model still *sees* the content — mitigated by the data-not-instructions system prompt
-  **and** the parent-targeted injection eval (Decision 10).
+  helper calls. The **arbitrary-read** exfiltration channel is closed, but the surface is **narrowed, NOT
+  fully closed**: injected content could still try to **reuse a pinned helper on an off-scope `.md`/`.xlsx`
+  path**. The parent injection eval (Decision 10) MUST therefore assert each helper is called **once, on
+  the original normalized args, with no reuse** after untrusted content enters context — not merely "no
+  tool beyond the two pinned reads." Remaining residuals: the Decision-8 prefix-chaining (accepted) and the
+  parent still *seeing* the content — **accepted for trusted/internal plans.**
 - **Threat model:** the test plan is normally the team's own internal artifact (`extract` output), not
   attacker-controlled — so the narrowed residual is **accepted for trusted/internal use.** Full closure
   (fully-untrusted input) still needs the runtime no-shell/argv-scoped prerequisite shared with
