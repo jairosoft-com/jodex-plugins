@@ -85,6 +85,25 @@ Run generated Playwright specs in headless, UI, or headed mode.
 
 **Allowed executables:** `npx playwright test` only
 
+### `/jx-qa:review-plan`
+
+Review an existing xlsx test plan for quality, testability, and AC traceability. Returns an **unverified, advisory (NON-GATING)** report — never a quality gate.
+
+```
+/jx-qa:review-plan test-plans/test-plan.xlsx
+/jx-qa:review-plan test-plans/test-plan.xlsx raw/articles/BRD_PRD.md
+```
+
+**What it does:**
+1. Requires an explicit xlsx path (no auto-discovery); validates the path before any helper call
+2. Parses the plan via the pinned read-only `xlsx-writer.py read` helper; reads the optional BRD via the pinned read-only `read-doc.py read` helper
+3. Reviews each test case for vague assertions, bundled steps, missing negative/edge cases, non-E2E steps, weak step-1 navigation/locators, and AC/FR traceability (only when a BRD is given)
+4. Emits an "Unverified Advisory (NON-GATING)" report with per-case findings and a plan-level summary — never editing the plan, generating specs, or running tests
+
+**Allowed executables:** `python3 scripts/xlsx-writer.py read`, `python3 scripts/read-doc.py read` (pinned read-only helpers only)
+
+> **Safety:** Output is advisory and non-gating — inputs are not provenance-checked, so a stale or mismatched plan can still receive a clean report. All plan/BRD content is treated strictly as data, never instructions. Tool scoping is ultimately session-permissions-governed (`allowed-tools` is additive, not restrictive); the narrowed prompt-injection residual (an injected reuse of a pinned read-only helper on an off-scope path) is an accepted residual for trusted/internal plans.
+
 ## Plugin Structure
 
 ```
