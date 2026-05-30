@@ -2,9 +2,17 @@
 
 ## Status
 
-Drafted 2026-05-29. **Implementation not started** — plan-only until explicit go-ahead (repo rule:
-plan approval ≠ implementation approval). Designed deliberately to avoid the security failure mode that
-closed the `spec-generator` agent (see `.agent/plans/jx-qa-spec-generator-agent.md`).
+Drafted 2026-05-29; hardened over a 4-round adversarial loop. **Implementation not started** — plan-only
+until explicit go-ahead (repo rule: plan approval ≠ implementation approval). Designed deliberately to
+avoid the security failure mode that closed the `spec-generator` agent
+(see `.agent/plans/jx-qa-spec-generator-agent.md`).
+
+**Option A adopted 2026-05-29** (resolving the loop's final open finding): the command ingests the xlsx
+**and** BRD via deterministic, path-validated, read-only **pinned helpers** and therefore **drops its
+broad `Read`/`ls`** — closing the off-scope arbitrary-read exfiltration channel and narrowing the
+Decision-10 parent-command residual to the acknowledged Decision-8 prefix-chaining, **accepted for
+trusted/internal plans**. See **Option A — pinned-helper ingestion** below. The design is settled; ready
+to implement on go-ahead.
 
 ## Summary
 
@@ -110,6 +118,31 @@ Source idea: `wiki/ideas/jx-qa Test-Plan Reviewer Subagent.md` (P1).
     parse and delegation; **implementation is gated on that eval, not on instruction alone.** The plan does
     **not** claim "no exfiltration channel" at the system level — only that the *agent layer* has none
     (Decision 1).
+
+### Option A — pinned-helper ingestion (adopted 2026-05-29)
+
+Resolves the round-4 finding on Decision 10 by taking its first recommendation: **the command does NOT
+use broad `Read`/`ls`.** It ingests BOTH inputs via deterministic, path-validated, **read-only pinned
+helpers** — `xlsx-writer.py read` (plan) and a new `read-doc.py read` (BRD `.md`) — then inlines the
+exact parsed content into the tool-less agent.
+
+- **Effect:** prompt-injected workbook/BRD text can no longer steer the parent into an arbitrary `Read`
+  or `ls`; the parent's only file access is two read-only, single-token, extension+metacharacter-validated
+  helper calls. The off-scope arbitrary-read **exfiltration channel is closed**; the residual narrows to
+  the pinned-helper prefix-chaining already acknowledged in Decision 8 (accepted) plus the inherent fact
+  that the parent model still *sees* the content — mitigated by the data-not-instructions system prompt
+  **and** the parent-targeted injection eval (Decision 10).
+- **Threat model:** the test plan is normally the team's own internal artifact (`extract` output), not
+  attacker-controlled — so the narrowed residual is **accepted for trusted/internal use.** Full closure
+  (fully-untrusted input) still needs the runtime no-shell/argv-scoped prerequisite shared with
+  spec-generator.
+- **Supersedes at implementation:** the "command `Read`s the BRD" wording (Decision 2) and the broad
+  `Read`/`ls` in Decision 10 / Files. The command's `allowed-tools` becomes
+  `python3 xlsx-writer.py read` + `python3 read-doc.py read` + Agent/Task **only** — no `Read`, no `ls`,
+  no broad Bash.
+- **New file:** `plugins/jx-qa/scripts/read-doc.py` — pinned, read-only doc reader: validates the path
+  (`.md`, single token, pre-rejects shell metacharacters, confined to the supplied location) and prints
+  its content; no write/mutating subcommands.
 
 ## Files
 
