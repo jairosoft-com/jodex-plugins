@@ -42,5 +42,7 @@ responsibility, accepted as a residual for trusted/internal inputs. Related: [[P
 (allowed-tools prefixes match the raw command string before the shell). Verified twice against the Claude
 Code docs (sub-agents, skills/custom-skills, permissions).
 
+**Related:** [[Read-Only Is Not Injection-Safe]], [[Command + Skill Over Sub-Agent for Untrusted-Input Tools]], [[Adversarial Review Converges to a Narrowed Residual]].
+
 ## Sources
 - Session — jx-qa sub-agent / command-skill security analysis (2026-05-29)

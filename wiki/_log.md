@@ -4,6 +4,16 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-30 — Lint
+
+- **Operation**: lint
+- **Errors found**: 2 (broken-link false-wikilink skills.config; page_count drift 308 vs 320)
+- **Warnings found**: 45 (orphans; mostly chronic raw ideas)
+- **Info found**: 2
+- **Auto-fixes applied**: 3 (fixed broken link; page_count 308->320; de-orphaned 4 new insight pages)
+- **Health score**: 0/100 (orphan-floored; not a regression)
+- **Outcome**: Report generated; fixes applied
+
 ## 2026-05-29 — Session Insights: jx-qa reviewer build + tool-scoping security
 
 - **Operation**: insights

@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-29
-page_count: 308
+page_count: 320
 ---
 
 # Wiki Index
@@ -46,7 +46,7 @@ page_count: 308
 - [[Cross-Model Handoff Evaluation]] — Process for evaluating AI-to-AI suggestions: check existing state, adopt real gaps (#pattern, #workflow, #multi-model) [raw]
 - [[Codex Review Gate Loops on Empty Diffs]] — Codex stop-time review gate returns status 1 with empty output on no changes, causing infinite retry (#codex, #review-gate) [backlogged]
 - [[Codex Shared Runtime Auth Recovery]] — Codex browser login succeeds but shared broker runtime holds stale auth state (#codex, #auth, #workflow) [raw]
-- [[Codex Adversarial Review Fails on Stale config.toml Skill Paths]] — adversarial-review aborts when config.toml references deleted skill SKILL.md files; setup says ready:true; fix = remove dead [[skills.config]] blocks (#codex, #config, #troubleshooting) [raw]
+- [[Codex Adversarial Review Fails on Stale config.toml Skill Paths]] — adversarial-review aborts when config.toml references deleted skill SKILL.md files; setup says ready:true; fix = remove dead skills.config blocks (#codex, #config, #troubleshooting) [raw]
 - [[Saved Workflow By-Name Invocation Drops Args]] — Workflow({name,args}) didn't forward args (used script defaults); use scriptPath+args or hardcode (#claude-code, #workflow, #gotcha) [raw]
 - [[GitHub Beginner Tutorial for Non-Developers]] — Teach non-devs to use GitHub for project collaboration via web UI (#documentation, #onboarding, #github) [backlogged P3]
 - [[JX Foundational Onboarding (Promoted)]] — Shared prerequisite setup steps (Claude Code, Git, GitHub CLI, uv, Node.js, jx-kb) extracted from PM/Dev/QA onboarding docs (#onboarding, #jx-kb, #setup, #shared) [promoted]

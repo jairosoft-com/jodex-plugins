@@ -30,3 +30,5 @@ The next Codex task command starts a fresh broker with the new credentials.
 ## Why Not Just `codex logout && codex login`
 
 `codex logout` clears local credentials but does not kill the running broker. The broker continues using its cached (now-invalid) token until killed.
+
+**Related:** [[Codex Adversarial Review Fails on Stale config.toml Skill Paths]] — a distinct config-load failure mode.
