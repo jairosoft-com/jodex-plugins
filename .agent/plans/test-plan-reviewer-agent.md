@@ -1,4 +1,4 @@
-# Plan: Add jx-qa `test-plan-reviewer` Subagent
+# Plan: Add jx-qa `test-plan-reviewer` (command + skill, no subagent)
 
 ## Status
 
@@ -14,15 +14,23 @@ off-scope reads are gone, but injected content could still try to **reuse a pinn
 off-scope `.md`/`.xlsx` path**. The narrowed residual is **accepted for trusted/internal plans**. See
 **Option A — pinned-helper ingestion** below.
 
-**NOT yet ready to implement** — two gating prerequisites must be verified and recorded first: (1) the
-exact **zero-tool frontmatter syntax** against the live runtime (Decision 1 dependency — empty ≠ omitted),
-and (2) a **strict parent injection eval** asserting each pinned helper is called **once, on the original
-normalized args, with no reuse** after untrusted content enters context. Do not create the agent/command
-files until both pass.
+**Prerequisite #1 checked 2026-05-29 → FAILED → design pivoted to a COMMAND + SKILL (no subagent).**
+Claude Code has **no documented zero-tool agent**: omitting `tools:` inherits ALL tools, `tools: []` is
+undocumented (may silently mean inherit-all), and a `disallowedTools` denylist is fragile (inherit-all
+minus an enumerated list). So the tool-less subagent (old Decision 1) **cannot be built safely** — see
+**Decision: Command + Skill** below. The reviewer is now a `/jx-qa:review-plan` **command** (carrying the
+scoped `allowed-tools`) backed by a **skill** (the review logic) — jx-qa's standard pattern, no subagent.
+
+**Still NOT ready to implement** — gating prerequisites: (1) **verify the command's `allowed-tools`
+actually CLAMPS execution** to the two pinned read helpers — a SKILL's `allowed-tools` is additive and
+does **not** clamp, so the scoping must hold at the **command** layer; this replaces the old zero-tool
+dependency — and (2) a **strict injection check** asserting each pinned helper is called **once, on the
+original normalized args, with no reuse** after untrusted content enters context.
 
 ## Summary
 
-Add a **tool-less** subagent — `plugins/jx-qa/agents/test-plan-reviewer.md` — that reviews an xlsx
+Add a **command + skill** — `/jx-qa:review-plan` (a scoped command backed by
+`skills/review-plan/SKILL.md`, **no subagent**; see *Decision: Command + Skill*) — that reviews an xlsx
 test plan (positioned after `/jx-qa:extract`, before `/jx-qa:generate`) for **quality / testability and
 AC traceability**, and returns an **unverified, advisory, NON-GATING report**. It never edits the plan,
 drives a browser, runs tests, writes specs, reads files on its own, or verifies provenance — so it is a
@@ -157,6 +165,33 @@ exact parsed content into the tool-less agent.
 - **New file:** `plugins/jx-qa/scripts/read-doc.py` — pinned, read-only doc reader: validates the path
   (`.md`, single token, pre-rejects shell metacharacters, confined to the supplied location) and prints
   its content; no write/mutating subcommands.
+
+## Decision: Command + Skill (no subagent) — adopted 2026-05-29
+
+Prerequisite #1 (a true zero-tool agent — old Decision 1) is **not achievable**: Claude Code has no
+documented zero-tool syntax (omitting `tools:` inherits all; `tools: []` is undocumented/risky; a
+`disallowedTools` denylist is fragile). So the reviewer ships **without a subagent**, as jx-qa's standard
+**command + skill** pair:
+
+- **`plugins/jx-qa/commands/review-plan.md`** — thin command that carries the **scoped `allowed-tools`**:
+  `python3 xlsx-writer.py read` + `python3 read-doc.py read` **only** — **no `Read`, no `ls`, no broad
+  Bash, and NO `Agent`/`Task`** (no delegation). This command layer is what enforces the pinned-helper
+  ingestion surface.
+- **`plugins/jx-qa/skills/review-plan/SKILL.md`** — the review logic: ingest the plan + BRD via the two
+  pinned read helpers, then produce the **unverified, advisory, NON-GATING** report inline. Decisions 8,
+  9, 10 carry over unchanged — they describe the command / ingestion surface, not the (now removed) agent.
+
+**Load-bearing dependency (replaces the zero-tool check):** the narrowing holds only if the **command's
+`allowed-tools` actually CLAMPS execution** to those two helpers. A **skill's `allowed-tools` is additive
+and does NOT clamp**, so the review logic must run under the command's scope, and that clamp **must be
+verified** before relying on it. If the command clamps → the narrowed-residual posture (Option A) holds;
+if command `allowed-tools` is also additive → effective tool scope falls back to session `permissions` —
+**accepted residual for trusted/internal plans** (same stance as everywhere else here).
+
+**Supersedes the sections below:** the `## Agent definition spec` section, the
+`agents/test-plan-reviewer.md` file, the `tools:` EMPTY agent frontmatter, and every `Agent`/`Task`
+mention. **No `agents/` file is created.** In the Files list, read `agents/test-plan-reviewer.md` as
+**replaced by** `skills/review-plan/SKILL.md`, and drop `Agent`/`Task` from the command's `allowed-tools`.
 
 ## Files
 
