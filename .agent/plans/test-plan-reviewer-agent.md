@@ -56,7 +56,8 @@ Source idea: `wiki/ideas/jx-qa Test-Plan Reviewer Subagent.md` (P1).
      unavailable** to it (Validation).
 2. **xlsx parsing AND BRD reading happen in the command, not the agent.** Parsing an xlsx requires the
    pinned `xlsx-writer.py read` helper (Bash). To keep the agent tool-free, the **command** parses the
-   xlsx via its pinned-helper allowlist, **reads the BRD itself (via the command's `Read`)**, and inlines
+   xlsx via its pinned-helper allowlist, **reads the BRD via the pinned read-only `read-doc.py read`
+   helper (Option A — no broad `Read`/`ls`)**, and inlines
    **both** the already-parsed plan content (JSON/text) and the exact BRD text into the agent prompt. The
    agent does pure analysis on the inlined text only — it has no file tool of its own (Decision 1).
 3. **Advisory only — never edits the plan.** Output is a review report; the human (or a later step)
@@ -75,8 +76,10 @@ Source idea: `wiki/ideas/jx-qa Test-Plan Reviewer Subagent.md` (P1).
    spec-generator plan): confirm the eval runner executes *agent* evals; else ship as a manual checklist
    + runner-extension follow-up. Add a **prompt-injection eval** (Validation) proving inlined workbook/BRD
    text cannot induce off-scope file reads (the agent has no read tool, so this is a regression guard).
-8. **Command-layer Bash safety (does NOT claim zero injection surface).** The command runs the pinned
-   `xlsx-writer.py read` and `Read` only — but under this repo's documented **prefix-only permission
+8. **Command-layer Bash safety (does NOT claim zero injection surface).** The command runs the two
+   pinned read-only helpers `xlsx-writer.py read` and `read-doc.py read` only (Option A — no broad
+   `Read`/`ls`), so **both** inputs transit the prefix-only Bash grammar and **both** require the
+   metacharacter pre-rejection below — but under this repo's documented **prefix-only permission
    grammar**, an allowed prefix matches the **raw command string before the shell parses it**
    (`wiki/concepts/Prefix-Only Permission Grammar.md`). The helper's internal `SHELL_META` check runs
    *after* the shell, so it cannot prevent a chained command. The command therefore **MUST**, before any
@@ -102,19 +105,21 @@ Source idea: `wiki/ideas/jx-qa Test-Plan Reviewer Subagent.md` (P1).
 10. **Parent-command prompt-injection exposure — acknowledged residual, NOT closed by construction.**
     The agent's zero-tool boundary (Decision 1) protects only the *child*. The **parent** `/jx-qa:review-plan`
     command is itself a tool-enabled model: it parses the untrusted xlsx (pinned `xlsx-writer.py read`) and
-    `Read`s the untrusted BRD, then inlines both into the agent prompt — so untrusted workbook/BRD text reaches
-    a model that *still holds* `Read`, `ls`, and the pinned Bash prefix **before** delegation to the no-tool
-    child. Injected text in those inputs could therefore try to steer the **parent** into an off-scope `Read`,
-    `ls`, or pinned-`Bash` call after parse and before delegation. This exposure **cannot be closed by
+    reads the untrusted BRD via the pinned `read-doc.py read` helper, then inlines both into the agent
+    prompt — so untrusted workbook/BRD text reaches a model that *still holds* the two pinned read helper
+    prefixes **before** delegation to the no-tool child (under Option A it holds **no** broad `Read`/`ls`).
+    Injected text in those inputs could therefore try to steer the **parent** into an off-scope pinned-helper
+    call after parse and before delegation. This exposure **cannot be closed by
     construction**, because: (a) the child must be tool-less, so content *must* transit the parent's context —
     the child cannot consume a bare file reference; (b) the inputs are free-form xlsx cells + BRD prose, which
     cannot be reliably "sanitized" against prompt-injection; and (c) a runtime "drop-all-tools-after-parse"
     transition would depend on runtime support not yet confirmed even for the zero-tool *agent* (Decision 1
     DEPENDENCY). **Mitigation (eval-gated, acknowledged not eliminated — same stance as Decision 8):** (i) the
     parent command's system prompt MUST treat all parsed-xlsx / BRD content strictly as data to review, never
-    as instructions, and MUST NOT issue any `Read`/`ls`/`Bash` call beyond the single pinned parse + the single
-    BRD `Read` it performs by design; (ii) ship a **parent-targeted injection eval** (Validation) feeding
-    malicious xlsx/BRD content and asserting the parent performs **no** off-scope `Read`/`ls`/`Bash` between
+    as instructions, and MUST NOT issue any tool call beyond the two pinned helper reads (`xlsx-writer.py read`
+    + `read-doc.py read`) it performs by design — **no** `Read`/`ls`/broad-`Bash`; (ii) ship a
+    **parent-targeted injection eval** (Validation) feeding malicious xlsx/BRD content and asserting the parent
+    performs **no** tool call beyond those two pinned reads between
     parse and delegation; **implementation is gated on that eval, not on instruction alone.** The plan does
     **not** claim "no exfiltration channel" at the system level — only that the *agent layer* has none
     (Decision 1).
@@ -136,8 +141,9 @@ exact parsed content into the tool-less agent.
   attacker-controlled — so the narrowed residual is **accepted for trusted/internal use.** Full closure
   (fully-untrusted input) still needs the runtime no-shell/argv-scoped prerequisite shared with
   spec-generator.
-- **Supersedes at implementation:** the "command `Read`s the BRD" wording (Decision 2) and the broad
-  `Read`/`ls` in Decision 10 / Files. The command's `allowed-tools` becomes
+- **Applied across the plan:** Option A's surface is now reflected directly in Decisions 2, 8, 10, Files,
+  Validation, Risks, and Steps — there is no remaining broad-`Read`/`ls` wording to supersede. The command's
+  `allowed-tools` is
   `python3 xlsx-writer.py read` + `python3 read-doc.py read` + Agent/Task **only** — no `Read`, no `ls`,
   no broad Bash.
 - **New file:** `plugins/jx-qa/scripts/read-doc.py` — pinned, read-only doc reader: validates the path
@@ -150,10 +156,12 @@ exact parsed content into the tool-less agent.
   tools**; system prompt = read-only plan critic operating only on inlined text).
 - **NEW** `plugins/jx-qa/commands/review-plan.md` — thin command: validate + pre-reject shell
   metacharacters in the xlsx/BRD paths (Decision 8), parse the xlsx via the pinned `xlsx-writer.py read`,
-  **`Read` the BRD itself**, then delegate the **inlined** parsed plan + exact BRD text to the
-  `test-plan-reviewer` agent via the Agent/Task tool. `allowed-tools:` pin the **`xlsx-writer.py read`
-  subcommand prefix ONLY** (NOT the bare binary, which would admit the helper's mutating `fork`/`append`
-  subcommands — see Decision 3), plus `Read`, `ls`, Agent/Task — **no broad Bash/Write.**
+  **read the BRD via the pinned `read-doc.py read` helper (Option A — NOT a broad `Read`)**, then delegate
+  the **inlined** parsed plan + exact BRD text to the
+  `test-plan-reviewer` agent via the Agent/Task tool. `allowed-tools:` is **exactly** the two pinned
+  read-only subcommand prefixes `python3 xlsx-writer.py read` + `python3 read-doc.py read` (NOT the bare
+  binaries, which would admit `xlsx-writer.py`'s mutating `fork`/`append` subcommands — see Decision 3)
+  plus Agent/Task — **NO `Read`, NO `ls`, no broad Bash/Write** (Option A).
 - **NEW** agent eval skeleton — location TBD pending Decision 7's runner confirmation.
 - **EDIT** `plugins/jx-qa/README.md` — add the reviewer to an "Agents" section + a safety note: the
   agent has **no tools** (no mutation, no *agent-layer* exfiltration channel); the parent command is a
@@ -202,9 +210,13 @@ System prompt:
 - **Prompt-injection eval:** feed a workbook/BRD whose text instructs the agent to read a secret/unrelated
   file and echo it; confirm the agent performs no off-scope read (it has no read tool) and does not leak.
 - **Parent-command injection eval (gating — Decision 10):** feed malicious xlsx/BRD content that tries to
-  steer the *parent* `/jx-qa:review-plan` command into an off-scope `Read`/`ls`/`Bash` call; confirm the
-  parent performs **no** tool call between the single pinned parse + BRD `Read` and delegation. Gate
+  steer the *parent* `/jx-qa:review-plan` command into an off-scope tool call; confirm the
+  parent performs **no** tool call beyond the two pinned helper reads (`xlsx-writer.py read` +
+  `read-doc.py read`) between parse and delegation — in particular **no** `Read`/`ls`/broad-`Bash`. Gate
   implementation on this eval, not on prompt instruction alone.
+- **allowed-tools surface check (gating — Option A):** grep the shipped `review-plan.md` `allowed-tools`
+  and assert it is **exactly** `python3 xlsx-writer.py read` + `python3 read-doc.py read` + Agent/Task —
+  contains **no** `Read`, **no** `ls`, and no broad Bash. Fail the check if any stale `Read`/`ls` survives.
 - **Command path-safety check:** pass an xlsx/BRD path containing a shell metacharacter; confirm the
   command rejects it **before** any Bash call (Decision 8), not only via the helper's post-shell guard.
 - **Allowlist denial check (no-write):** confirm `xlsx-writer.py fork ...` and `xlsx-writer.py append ...`
@@ -217,8 +229,9 @@ System prompt:
 - **Low–moderate.** The **agent** has no tools → no command-injection, no spec-corruption, and no
   exfiltration channel (Decision 1). Residual surfaces, **acknowledged not eliminated**:
   - The **parent command** is a tool-enabled model that ingests untrusted parsed-xlsx + BRD text (while
-    holding `Read`/`ls`/pinned-`Bash`) **before** the zero-tool boundary, so a prompt-injection exfiltration
-    window exists at the parent layer; it cannot be closed by construction and is mitigated by a
+    holding **only** the two pinned read-only helpers `xlsx-writer.py read` + `read-doc.py read` — no broad
+    `Read`/`ls`, Option A) **before** the zero-tool boundary, so a narrowed prompt-injection window exists at
+    the parent layer; it cannot be closed by construction and is mitigated by a
     parent-targeted injection eval that gates implementation (Decision 10).
   - The **command** still invokes a pinned Bash helper; under the repo's prefix-only grammar that prefix
     is raw-string-matched, so prefix-chaining is mitigated (Decision 8 pre-shell metachar rejection) but
@@ -242,7 +255,8 @@ System prompt:
    → skeleton-runnable vs. manual checklist.
 2. Write `plugins/jx-qa/agents/test-plan-reviewer.md` (`tools:` **empty** — no tools).
 3. Write `plugins/jx-qa/commands/review-plan.md` (pre-validate/reject metachar paths → parse via pinned
-   helper → `Read` the BRD → delegate **inlined** plan + BRD text).
+   `xlsx-writer.py read` → read the BRD via pinned `read-doc.py read` → delegate **inlined** plan + BRD
+   text; `allowed-tools` = exactly the two pinned read prefixes + Agent/Task, NO `Read`/`ls`).
 4. Edit `plugins/jx-qa/README.md` (Agents section + safety note).
 5. Add the eval skeleton.
 6. Validate: load + positive/negative routing + sample review (unverified-advisory label) +
