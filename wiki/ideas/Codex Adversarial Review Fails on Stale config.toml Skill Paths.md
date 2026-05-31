@@ -21,7 +21,8 @@ directory" when `~/.codex/config.toml` has `skills.config` entries whose `path` 
 - Fix: remove the dead `skills.config` blocks (often `enabled = false` already); back up the file first.
 
 Distinct from [[Codex Shared Runtime Auth Recovery]] (stale broker auth) — this is a config-load failure on
-missing skill paths.
+missing skill paths. A different same-symptom cause is
+[[Codex Adversarial Review Fails From Inside a Git Worktree]] (worktree cwd, config is fine).
 
 ## Sources
 - Session: jx-qa reviewer build + tool-scoping security (2026-05-29)

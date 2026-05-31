@@ -4,6 +4,17 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-30 — Session Insights: jx-qa coverage build + Codex-worktree & plugin-loading gotchas
+
+- **Operation**: insights
+- **Label**: jx-qa coverage build + Codex-worktree & plugin-loading gotchas
+- **Pages created**: [[Codex Adversarial Review Fails From Inside a Git Worktree]] (idea), [[Plugin Skill Dir Name Collides With gitignore Coverage Rule]] (idea), [[Claude Code Hot-Loads New Plugin Skills Mid-Session]] (idea), [[Runtime Smoke Must Validate Output Content Not Just Discovery]] (concept)
+- **Pages updated**: [[Codex Adversarial Review Fails on Stale config.toml Skill Paths]] (added same-symptom cross-link)
+- **Ideas extracted**: 3
+- **Conflicts flagged**: 0
+- **Cross-references added**: 1
+- **Outcome**: Success
+
 ## 2026-05-30 — Idea filed: extract requirement-ID traceability column
 
 - **Operation**: idea filing

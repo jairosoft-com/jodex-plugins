@@ -1,7 +1,7 @@
 ---
 title: Wiki Index
 updated: 2026-05-30
-page_count: 321
+page_count: 325
 ---
 
 # Wiki Index
@@ -44,9 +44,11 @@ page_count: 321
 - [[Scoped Evals for Interactive Skills]] — Scope automated evals to single-prompt portions; manual test capture loops (#testing, #evals, #interactive) [completed]
 - [[Gemma 4 for Playwright Script Generation]] — Use Gemma 4 to generate .spec.ts / Playwright scripts in jx-qa pipeline (#jx-qa, #gemma, #local-llm) [backlogged P3]
 - [[Claude CLI Training Course]] — Short training course for launching and using Claude Code CLI on Windows/Mac (#documentation, #onboarding, #claude-code, #cli) [backlogged P3]
+- [[Claude Code Hot-Loads New Plugin Skills Mid-Session]] — A newly authored plugin command/skill became available in the same session (no restart, v2.1.158); refresh is not instantaneous (#claude-code, #plugins, #skills, #troubleshooting) [raw]
 - [[Cross-Model Handoff Evaluation]] — Process for evaluating AI-to-AI suggestions: check existing state, adopt real gaps (#pattern, #workflow, #multi-model) [raw]
 - [[Codex Review Gate Loops on Empty Diffs]] — Codex stop-time review gate returns status 1 with empty output on no changes, causing infinite retry (#codex, #review-gate) [backlogged]
 - [[Codex Shared Runtime Auth Recovery]] — Codex browser login succeeds but shared broker runtime holds stale auth state (#codex, #auth, #workflow) [raw]
+- [[Codex Adversarial Review Fails From Inside a Git Worktree]] — adversarial-review aborts with "failed to load configuration" when cwd is inside a worktree; config.toml is fine (reviews from repo root); run reviews from the repo root (#codex, #worktree, #troubleshooting, #adversarial-review) [raw]
 - [[Codex Adversarial Review Fails on Stale config.toml Skill Paths]] — adversarial-review aborts when config.toml references deleted skill SKILL.md files; setup says ready:true; fix = remove dead skills.config blocks (#codex, #config, #troubleshooting) [raw]
 - [[Saved Workflow By-Name Invocation Drops Args]] — Workflow({name,args}) didn't forward args (used script defaults); use scriptPath+args or hardcode (#claude-code, #workflow, #gotcha) [raw]
 - [[GitHub Beginner Tutorial for Non-Developers]] — Teach non-devs to use GitHub for project collaboration via web UI (#documentation, #onboarding, #github) [backlogged P3]
@@ -82,6 +84,7 @@ page_count: 321
 - [[Fixture-Based Specification Verification]] — Test SKILL.md specs via edge-case fixture files (#pattern, #testing, #skill, #verification) [raw]
 - [[Flag-Value Helper Antipattern]] — Helper returning full --flag value string causes double-flag bug when call site already includes the flag (#testing, #patterns, #dx) [backlogged]
 - [[Plugin Consolidation Pattern]] — Merging two plugins: move skills, retire source, clean up global config and bytecode cache (#plugin, #migration, #pattern, #refactoring) [completed]
+- [[Plugin Skill Dir Name Collides With gitignore Coverage Rule]] — A skill dir named 'coverage' (or build/dist/out) is silently untracked by the conventional gitignore rule; commit gives no error; fix = targeted negation (#gitignore, #plugins, #troubleshooting, #claude-code) [raw]
 - [[Per-Plugin Allowed-Tools Allowlist]] — Permission-aware scaffolding for generated command stubs (#jx-plugin, #security, #permissions) [raw]
 - [[Playwright Tests for jx-pm ADO Skills]] — Build Playwright test suite exercising ADO skills end-to-end against Azure DevOps state (#jx-pm, #jx-qa, #playwright, #ado, #testing) [completed]
 - [[PRD Quality Gate Filtering Fails on Doc-Only Stories]] — PRD skill incorrectly applies code quality gates to documentation-only stories (#jx-pm, #prd, #quality-gates) [completed]
@@ -160,6 +163,7 @@ page_count: 321
 - [[Prefix-Only Permission Grammar]] — Claude Code allowed-tools use pure prefix matching; mid-pattern wildcards don't work (#claude-code, #permissions, #allowed-tools, #pattern)
 - [[Plugin Tool Grants Are Additive Not Restrictive]] — Agent tools:/command/skill allowed-tools pre-approve but don't restrict; only session permissions / disallowed-tools clamp (#claude-code, #permissions, #allowed-tools, #security, #plugins)
 - [[Read-Only Is Not Injection-Safe]] — Read-only stops mutation not disclosure; injected content can exfiltrate via read tools / pinned-helper reuse on off-scope paths (#security, #prompt-injection, #agent-design, #claude-code)
+- [[Runtime Smoke Must Validate Output Content Not Just Discovery]] — A discovery/fail-closed smoke passes while a tool emits a wrong result; add a content-aware smoke with a known-answer fixture asserting the exact output (#testing, #quality, #evals, #pattern)
 - [[Command + Skill Over Sub-Agent for Untrusted-Input Tools]] — For advisory tools ingesting untrusted content, command+skill beats a sub-agent (human-in-loop, convention-fit); security is a wash (#claude-code, #plugins, #agent-design, #decision)
 - [[Adversarial Review Converges to a Narrowed Residual]] — Iterative adversarial review catches overclaims and converges on "narrowed + accepted residual + gated", not a clean pass (#adversarial-review, #security, #design-pattern, #codex)
 - [[Plugin Architecture]] — .claude-plugin format for Claude Code CLI (#architecture, #plugin)
