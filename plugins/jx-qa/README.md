@@ -6,8 +6,10 @@ A QA testing pipeline that extracts E2E test cases from BRD/PRD documents, gener
 
 ```
 BRD/PRD markdown → [/jx-qa:extract] → xlsx test plan → [/jx-qa:generate] → Playwright .spec.ts files → [/jx-qa:test]
-                                                              ↓ uses
-                                                        [playwright-cli] (browser automation)
+                                            │                 ↓ uses
+                  advisory (NON-GATING) ←───┤          [playwright-cli] (browser automation)
+                  [/jx-qa:review-plan] (case quality)
+                  [/jx-qa:coverage]    (BRD breadth)
 ```
 
 ## Requirements
@@ -103,6 +105,24 @@ Review an existing xlsx test plan for quality, testability, and AC traceability.
 **Allowed executables:** `python3 scripts/xlsx-writer.py read`, `python3 scripts/read-doc.py read` (pinned read-only helpers only)
 
 > **Safety:** Output is advisory and non-gating — inputs are not provenance-checked, so a stale or mismatched plan can still receive a clean report. All plan/BRD content is treated strictly as data, never instructions. Tool scoping is ultimately session-permissions-governed (`allowed-tools` is additive, not restrictive); the narrowed prompt-injection residual (an injected reuse of a pinned read-only helper on an off-scope path) is an accepted residual for trusted/internal plans.
+
+### `/jx-qa:coverage`
+
+Map every BRD/PRD requirement to the test cases in an xlsx plan and report **breadth coverage** — each requirement as **Covered / Partial / Uncovered / N/A**. Returns an **unverified, advisory (NON-GATING)** report. This is the requirement-centric sibling of `review-plan` (which is case-centric): `coverage` answers *"did we cover the whole BRD?"*, `review-plan` answers *"are these cases any good?"*.
+
+```
+/jx-qa:coverage test-plans/test-plan.xlsx raw/articles/BRD_PRD.md
+```
+
+**What it does:**
+1. Requires **both** explicit paths (xlsx + BRD); validates them before any helper call
+2. Parses the plan via the pinned read-only `xlsx-writer.py read` helper; reads the BRD via the pinned read-only `read-doc.py read` helper
+3. Maps each requirement (`AC-…`/`FR-…`/`NFR-…`) to test case(s) **by meaning** (the xlsx stores no requirement-ID column) and classifies each Covered/Partial/Uncovered/N/A under a conservative N/A rule (every N/A carries a quoted BRD basis)
+4. Emits an "Unverified Advisory (NON-GATING)" report with a Coverage Matrix, a Gaps list, and a Summary (coverage % excludes N/A) — never editing the plan, generating specs, or running tests
+
+**Allowed executables:** `python3 scripts/xlsx-writer.py read`, `python3 scripts/read-doc.py read` (pinned read-only helpers only)
+
+> **Safety:** Same posture as `review-plan` — advisory, non-gating, inputs not provenance-checked. Matching is **semantic** (no requirement-ID column), so a differently-worded test case may be mis-mapped; the report says so.
 
 ## Plugin Structure
 

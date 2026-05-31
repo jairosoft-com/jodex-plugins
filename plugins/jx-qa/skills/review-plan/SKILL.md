@@ -24,10 +24,10 @@ generates specs, runs tests, opens a browser, or verifies provenance.
 
 - **In scope:** judge the quality of the test cases that are already in the
   plan, plus AC/FR traceability **only when a BRD path is provided**.
-- **Out of scope:** breadth coverage ("did we cover the whole BRD?"), any plan
-  edit, spec generation, test execution, or browser driving. If asked for any
-  of these, stop and route the user to the right skill (`extract`, `generate`,
-  `test`).
+- **Out of scope:** breadth coverage ("did we cover the whole BRD?" → use
+  `/jx-qa:coverage`), any plan edit, spec generation, test execution, or browser
+  driving. If asked for any of these, stop and route the user to the right skill
+  (`coverage`, `extract`, `generate`, `test`).
 
 ## Inputs
 
