@@ -22,6 +22,7 @@
 - [ADO sync format](feedback_ado_sync_format.md) — Specific instance: follow jx-core/_shared/ado.md for ADO work item formats
 - [Workflow save location](feedback_workflow_save_location.md) — Always copy the workflow.js into .claude/workflows/ (tracked, invocable by name), not just the auto-saved session copy
 - [Plugin naming convention](feedback_plugin_naming_convention.md) — Use short plugin names (e.g. jx-kb) instead of full publisher names (e.g. Jairosoft.jodex.jx-kb) for agy slash commands.
+- [EnterWorktree stale base](feedback_enterworktree_stale_base.md) — EnterWorktree branches from origin/main; unpushed local commits → stale worktree; reset --hard to local HEAD before editing
 
 ## NotebookLM
 - [Associated notebooks](reference_notebooklm.md) — Plugin Marketplace Architecture + Mastering Skill.MD + Building Product Management Skills
