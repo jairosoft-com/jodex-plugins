@@ -42,17 +42,20 @@ We have provided dedicated scripts for both Windows (PowerShell) and Linux/WSL (
 
 ### Windows (PowerShell)
 
-**Important:** You must run these commands in a **PowerShell terminal running as Administrator**.
+**Important:** You must open and run these commands in a **PowerShell terminal** in **Administrator mode**.
 
 1. Download the installation script:
    ```powershell
    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/jairosoft-com/jodex-plugins/main/scripts/install-github-agy-jodex-plugins.ps1" -OutFile "install-github-agy-jodex-plugins.ps1"
    ```
 
-2. Execute the script to install the plugins:
+2. Use `Set-Location` to navigate to the directory where the downloaded `install-github-agy-jodex-plugins.ps1` file is located.
+
+3. Execute the script to install the plugins. Before running the command below, be sure to copy and change the `C:\Path\To\Your\Script` portion to the actual path where the downloaded PowerShell script resides:
    ```powershell
-   .\install-github-agy-jodex-plugins.ps1
+   powershell -ExecutionPolicy Bypass -File "C:\Path\To\Your\Script\install-github-agy-jodex-plugins.ps1"
    ```
+   
    *Note: If you encounter an execution policy error, you may need to run `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` first.*
 
 ### Linux / WSL (Bash)
