@@ -1,6 +1,6 @@
 ---
 title: Wiki Index
-updated: 2026-05-29
+updated: 2026-05-30
 page_count: 320
 ---
 
@@ -58,7 +58,7 @@ page_count: 320
 - [[Direct PRD-to-ADO Sync Without task.json]] — Change /jx-pm:ado to sync PRD directly to Azure Boards, removing task.json dependency (#jx-pm, #ado, #prd, #refactor) [backlogged P2]
 - [[jx-learn Plugin for Skill Learning]] — Interactive learning experiences teaching users how to use and build within Jodex ecosystem (#jx-learn, #plugin, #learning, #onboarding) [backlogged]
 - [[jx-qa Spec-Generator Subagent]] — First jx-qa agent: turns an approved xlsx plan into verified Playwright specs via the generate skill; parallelizable, idempotent (#jx-qa, #agent, #playwright, #plugin-architecture) [raw]
-- [[jx-qa Test-Plan Reviewer Subagent]] — Tool-less agent: reviews an xlsx test plan for quality/testability + AC traceability (post-extract, pre-generate); advisory/non-gating, deterministic pinned-helper ingestion; parent-command injection residual accepted for trusted plans (#jx-qa, #agent, #test-plan, #quality) [raw P1]
+- [[jx-qa Test-Plan Reviewer Subagent]] — Reviews an xlsx test plan for quality/testability + AC traceability (post-extract, pre-generate); advisory/non-gating, deterministic pinned-helper ingestion. Shipped as the `/jx-qa:review-plan` command+skill (not a subagent) (#jx-qa, #test-plan, #quality) [completed]
 - [[Jodex Plugin Installation Guide]] — End-to-end install docs: marketplace setup → jx-core/jx-kb prereqs → role-specific plugins (#documentation, #onboarding, #plugin-architecture, #marketplace) [backlogged P2]
 - [[Azure DevOps MCP Installation for Claude Code CLI (Promoted)]] — Quick-reference: ADO MCP install and verification for Claude Code CLI (#documentation, #onboarding, #mcp, #azure-devops, #claude-code) [promoted]
 - [[Dry-Run Gate Must Include Explicit Docs-Root]] — Dry-run verification must use explicit --docs-root to avoid stale env var misdirection (#jx-pm, #ado, #safety, #verification) [backlogged P2]

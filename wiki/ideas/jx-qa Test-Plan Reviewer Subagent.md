@@ -3,14 +3,16 @@ title: jx-qa Test-Plan Reviewer Subagent
 type: idea
 tags: [jx-qa, agent, test-plan, quality, tool-less]
 created: 2026-05-29
-updated: 2026-05-29
+updated: 2026-05-30
 source_count: 0
 provenance: session-observation
-status: raw
+status: completed
 priority: P1
 ---
 
 # jx-qa Test-Plan Reviewer Subagent
+
+> **Completed (2026-05-30).** Shipped as the `/jx-qa:review-plan` command + skill (commit `57b09cb`), with a pinned read-only `read-doc.py` ingest helper. Built as a **command + skill, not a subagent** — the zero-tool agent shape was unsupported, so the design pivoted (commit `51aac32`). Same security goal (no Write/browser/exec; deterministic, path-validated ingestion) achieved by the command+skill form.
 
 A **tool-less** subagent that reviews an xlsx test plan (post-`extract`, pre-`generate`) for
 quality / testability and AC traceability, producing an **unverified, advisory, NON-GATING** report —

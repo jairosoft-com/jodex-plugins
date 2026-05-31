@@ -4,6 +4,15 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-30 — Idea closed: jx-qa test-plan reviewer (implemented)
+
+- **Operation**: idea status update
+- **Page updated**: [[jx-qa Test-Plan Reviewer Subagent]]
+- **Status change**: `raw` -> `completed`
+- **Evidence**: Shipped as the `/jx-qa:review-plan` command + skill (commit `57b09cb`); design pivoted from sub-agent to command+skill (commit `51aac32`).
+- **Index updated**: marker `[raw P1]` -> `[completed]`; summary corrected to "command+skill, not subagent".
+- **Outcome**: Success
+
 ## 2026-05-30 — Lint
 
 - **Operation**: lint
