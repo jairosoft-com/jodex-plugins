@@ -34,7 +34,7 @@ opens a browser.
 |---|----------|------------|
 | Q1 | Requirement→test-case matching | **Semantic** (the xlsx stores no requirement-ID column, so matching is by meaning — fuzzy, fits the advisory posture). Root cause tracked as a follow-up to add a traceability column to `extract` (see *Known limitation*). |
 | Q2 | BRD required? | **Yes — both args required**, fail-closed. No degraded intra-plan mode. |
-| Q3 | Non-E2E / NFR requirements | Add a 4th status **`N/A (not E2E-testable)`**; mirror `extract`'s E2E judgment so out-of-scope NFRs are not reported as false gaps. |
+| Q3 | Non-E2E / NFR requirements | Add a 4th status **`N/A (not E2E-testable)`** under a **conservative rule** (below). Caveat: `extract`'s E2E/NOT-E2E call is an interactive human judgment that is **not persisted** in the xlsx, so coverage must re-derive N/A from prose — a wrong N/A would hide a real gap. Hence: N/A is **fail-safe-toward-testable** and every N/A needs a rationale. |
 | Q4 | Covered/Partial rule | Crisp ladder (below). |
 | Q5 | Argument order | Match `review-plan`: **`<xlsx_path> <brd_path>`** (both required) for consistent sibling UX. |
 | Q6 | `review-plan` pointer | **Yes** — add a 1-line pointer in `review-plan` steering breadth questions to `/jx-qa:coverage`. |
@@ -45,7 +45,13 @@ opens a browser.
   branch where the requirement implies one.
 - **Partial** — happy-path only, or some sub-criteria of the requirement untested.
 - **Uncovered** — no test case maps to it.
-- **N/A** — not E2E-testable (per Q3); excluded from the coverage percentage.
+- **N/A** — not E2E-testable; excluded from the coverage percentage. **Conservative
+  rule (Q3):** mark N/A **only** when the BRD *explicitly or unambiguously* makes the
+  requirement non-E2E (e.g. an enumerated build/lint/CLI/perf-load criterion).
+  **Ambiguous AC/FR/NFR items stay testable → Partial/Uncovered, never N/A.** Each
+  N/A line **must carry a one-line rationale** quoting the BRD basis. When unsure,
+  it is NOT N/A. This is fail-safe-toward-testable: better a false gap (visible)
+  than a hidden one.
 
 ## Differentiation from `review-plan` (critical — avoid overlap)
 
@@ -84,12 +90,15 @@ questions at `/jx-qa:coverage`, keeping `coverage` the authoritative breadth too
 2. **`plugins/jx-qa/skills/coverage/SKILL.md`** — *new*. Mirrors `review-plan`'s
    structure with the coverage lens (procedure below).
 
-3. **`plugins/jx-qa/skills/coverage/evals/evals.json`** — *new*. ~6–8 cases.
+3. **`plugins/jx-qa/skills/coverage/evals/evals.json`** — *new*. ~7–9 cases.
    - Positive: "what's missing vs the BRD", "coverage gaps", "which requirements
      aren't tested", "coverage matrix", "are all ACs covered".
    - Negative (route away): "review the plan quality" → `review-plan`;
      "extract test cases" → `extract`; "generate specs" → `generate`;
      "run tests" → `test`.
+   - **Conservative-N/A guard (R2-HIGH):** an **E2E-testable NFR** (e.g. a
+     user-visible perf/accessibility behavior) that the skill must **NOT** mark
+     `N/A` — it must remain Partial/Uncovered. Prevents N/A from hiding real gaps.
 
 4. **`plugins/jx-qa/README.md`** — *edit*. Add a `/jx-qa:coverage` section and
    show it post-`extract`, alongside `review-plan`, in the pipeline diagram.
@@ -129,12 +138,12 @@ Reuse `review-plan`'s header + disclaimer, then coverage sections:
 > mis-mapped. This is a coverage aid, NOT a quality gate before /jx-qa:generate.
 
 ## Coverage Matrix
-| Requirement | Mapped Test Case(s) | Status |
-|-------------|---------------------|--------|
-| FR-12       | TC-04, TC-05        | Covered |
-| AC-03       | TC-09 (happy only)  | Partial |
-| NFR-02      | —                   | Uncovered |
-| NFR-07      | —                   | N/A (not E2E-testable) |
+| Requirement | Mapped Test Case(s) | Status | Basis (REQUIRED for N/A) |
+|-------------|---------------------|--------|--------------------------|
+| FR-12       | TC-04, TC-05        | Covered | — |
+| AC-03       | TC-09 (happy only)  | Partial | — |
+| NFR-02      | —                   | Uncovered | — |
+| NFR-07      | —                   | N/A | "AC-010-04: lint passes" — build/CLI check, not browser-E2E |
 
 ## Gaps
 - **FR-12** — Uncovered: no negative-path test case.
@@ -142,7 +151,7 @@ Reuse `review-plan`'s header + disclaimer, then coverage sections:
 
 ## Summary
 - Coverage: <covered>/<E2E-testable total> requirements (<pct>%)   # N/A excluded
-- N/A (not E2E-testable): <list>
+- N/A (not E2E-testable): <list, each with its one-line BRD basis>   # an N/A without a basis is a bug
 - Systemic gap themes: <patterns>
 - Over-coverage / orphans: <test cases mapping to no requirement>
 ```
@@ -181,15 +190,21 @@ ID (10th column or `AC-…:` title prefix) would upgrade BOTH `coverage` and
 2. Mirror `review-plan` for command + skill; adapt lens, semantic match, 4-status
    ladder, report, evals.
 3. Validate evals JSON; sanity-check command/skill frontmatter parity with `review-plan`.
-4. **Config-load smoke (BLOCKING — do not land until this passes).** File shape
-   ≠ runtime registration; a malformed command file, load-order/dependency issue,
-   or stale installed plugin can pass step 3 yet still yield `Unknown command`.
-   Pin Claude / the Agent SDK to **this checkout** with `jx-core` + `jx-qa` and assert:
-   - the init/`system` message lists the local `jx-qa` plugin **and** `/jx-qa:coverage`;
-   - invoking `/jx-qa:coverage` with **missing args** activates the coverage skill and
-     **fails closed** (does not run a helper on an unvalidated path).
-   (Addresses Codex adversarial-review finding, 2026-05-30 — runtime command
-   discovery was unvalidated.)
+4. **Runtime smoke — TWO blocking checks (do not land until BOTH pass).** File
+   shape ≠ runtime registration ≠ usable execution. Pin Claude / the Agent SDK to
+   **this checkout** with `jx-core` + `jx-qa`, then:
+   - **(a) Discovery + fail-closed (R1):** assert the init/`system` message lists
+     the local `jx-qa` plugin **and** `/jx-qa:coverage`; invoke with **missing
+     args** → it activates the coverage skill and **fails closed** (no helper on an
+     unvalidated path). Catches `Unknown command`.
+   - **(b) Positive valid-input path (R2):** with a **tiny local `.xlsx` + `.md`
+     BRD fixture**, invoke `/jx-qa:coverage <xlsx> <brd>` and assert: **both pinned
+     helpers run exactly once**, **no other tool runs**, and the output **starts
+     with the NON-GATING advisory header + a Coverage Matrix**. Catches a bad
+     `allowed-tools` prefix, broken `CLAUDE_PLUGIN_ROOT` expansion, missing helper
+     dep, or a skill that loads but can't call its helpers — none of which (a) sees.
+   (Addresses Codex adversarial-review findings R1+R2, 2026-05-30 — discovery alone
+   is insufficient.)
 5. Land on `main` (commit; push only if asked).
 6. Wiki: follow-up idea already filed (*Add Requirement-ID Traceability Column to
    Extract*); optionally file the coverage idea + index/log entry for provenance.
