@@ -22,6 +22,9 @@ out/
 .cache/
 *.tsbuildinfo
 coverage/
+# jx-qa "coverage" SKILL dir is a real plugin skill, not a coverage-report dir — keep it tracked
+!plugins/jx-qa/skills/coverage/
+!plugins/jx-qa/skills/coverage/**
 .nyc_output/
 *.log
 .env
