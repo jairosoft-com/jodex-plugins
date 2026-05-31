@@ -4,6 +4,16 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-30 — Lint
+
+- **Operation**: lint
+- **Errors found**: 0 (no broken links; no frontmatter issues)
+- **Warnings found**: 42 orphans (chronic — mostly pre-existing raw ideas)
+- **Info found**: not enumerated (content-quality phase sampled)
+- **Auto-fixes applied**: 3 (de-orphaned this session's 3 new pages via inbound links from [[Agent SDK query() Message Type Structure]], [[Settings Portability]], [[Adversarial Review Converges to a Narrowed Residual]])
+- **Health score**: 0/100 (orphan-floored; not a regression — pre-existing chronic orphans)
+- **Outcome**: Report generated; fixes applied
+
 ## 2026-05-30 — Session Insights: jx-qa coverage build + Codex-worktree & plugin-loading gotchas
 
 - **Operation**: insights

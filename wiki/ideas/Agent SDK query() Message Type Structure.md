@@ -20,3 +20,5 @@ The `query()` iterator from `@anthropic-ai/claude-agent-sdk` yields messages wit
 | `system` (subtype `init`) | `msg.slash_commands`, `msg.plugins` | Loaded commands and plugins — useful for verifying plugin load |
 
 `"content" in msg` at the top level does not work — content is nested under `msg.message.content`.
+
+Related: [[Claude Code Hot-Loads New Plugin Skills Mid-Session]] — the loaded commands/plugins this `init` message exposes can also appear mid-session.

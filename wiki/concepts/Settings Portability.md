@@ -40,6 +40,7 @@ Committing absolute paths (e.g., `/Users/jairo/projects/...`) breaks for anyone 
 - [[Three-Surface Plugin Ecosystem]] — settings shared across CLI/Desktop/Codex
 - [[Directory-Source Marketplace]] — common source of absolute paths in settings
 - [[Local Plugin Development]] — another approach that avoids committed paths
+- [[Plugin Skill Dir Name Collides With gitignore Coverage Rule]] — a gitignore gotcha that silently untracks plugin skill files
 
 ## Sources
 - (synthesis — discovered when preparing repo for commit, 2026-05-08)

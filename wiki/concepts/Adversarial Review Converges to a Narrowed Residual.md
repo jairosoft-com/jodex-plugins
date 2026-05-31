@@ -22,7 +22,7 @@ clean "no findings" pass — it keeps catching **overclaims** and converges on a
   loop** and record the residual truthfully. Related: [[Plan vs Code Review Complementarity]],
   [[Adversarial Review Catches Scaffold Drift]].
 
-The loop is typically run as a saved workflow — see [[Saved Workflow By-Name Invocation Drops Args]] for an invocation caveat.
+The loop is typically run as a saved workflow — see [[Saved Workflow By-Name Invocation Drops Args]] for an invocation caveat. The gate it tightens can also harden a runtime smoke across rounds — see [[Runtime Smoke Must Validate Output Content Not Just Discovery]].
 
 ## Sources
 - Session: jx-qa reviewer build + tool-scoping security (2026-05-29)
