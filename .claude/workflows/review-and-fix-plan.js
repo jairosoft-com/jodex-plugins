@@ -1,27 +1,29 @@
 export const meta = {
   name: 'review-and-fix-plan',
-  description: 'Loop: adversarially review a plan via Codex, auto-fix blocking findings in an isolated worktree, re-review until approved or diminishing returns, then return for human approval',
+  description: 'Loop: adversarially review a plan via Codex FROM THE REPO ROOT (Codex cannot load config when run inside a git worktree on this setup), apply blocking fixes in a per-round worktree and ff-merge each to main so the next repo-root review sees it, re-review until approved / diminishing returns / max, then return for human review of the landed commits',
   phases: [
-    { title: 'Setup', detail: 'Create an isolated git worktree from HEAD to hold the review/fix loop' },
-    { title: 'Review', detail: 'Run /codex:adversarial-review over the plan diff' },
-    { title: 'Fix', detail: 'Address blocking findings in the worktree and commit' },
+    { title: 'Setup', detail: 'Verify the plan exists at the repo root (no review worktree — reviews run from the main checkout)' },
+    { title: 'Review', detail: 'Run /codex:adversarial-review from the REPO ROOT over the plan diff' },
+    { title: 'Fix', detail: 'Apply blocking findings in a per-round worktree, then ff-merge to main' },
   ],
 }
 
 // --- Parameters (override via Workflow args) ---
+// NOTE: reviews run from the repo root, NOT a worktree. On this machine codex
+// adversarial-review aborts with "failed to load configuration: No such file or
+// directory" when its cwd is inside .claude/worktrees/*. config.toml is fine —
+// the same config reviews successfully from the main checkout. So: review at REPO,
+// fix in a throwaway worktree, ff-merge each fix to main so re-reviews see it.
 const REPO = '/Users/jairo/Projects/jodex-qa-ai'
-const COMPANION = '/Users/jairo/.claude/plugins/marketplaces/openai-codex/plugins/codex/scripts/codex-companion.mjs'
-const planPath = (args && args.planPath) || '.agent/plans/jx-qa-spec-generator-agent.md'
-const base = (args && args.base) || '6fe218d'
+const COMPANION = '/Users/jairo/.claude/plugins/cache/openai-codex/codex/1.0.4/scripts/codex-companion.mjs'
+const planPath = (args && args.planPath) || '.agent/plans/jx-qa-coverage-analyzer.md'
+const base = (args && args.base) || '9cdcc1b'
 const maxRounds = (args && args.maxRounds) || 4
-const wtBranch = (args && args.worktreeBranch) || 'wf-review-loop'
-const wtPath = (args && args.worktreePath) || '.claude/worktrees/wf-review-loop'
-const WT_ABS = `${REPO}/${wtPath}`
 const CONF_THRESHOLD = 0.5 // findings at/above this confidence count as blockers
 
 const SETUP_SCHEMA = {
   type: 'object', additionalProperties: false,
-  properties: { ok: { type: 'boolean' }, worktree: { type: 'string' }, head: { type: 'string' }, error: { type: 'string' } },
+  properties: { ok: { type: 'boolean' }, head: { type: 'string' }, error: { type: 'string' } },
   required: ['ok'],
 }
 
@@ -68,24 +70,23 @@ const FIX_SCHEMA = {
   required: ['addressed', 'summary'],
 }
 
-// --- Setup: isolated worktree from HEAD ---
+// --- Setup: confirm the plan is present at the repo root (reviews run here) ---
 phase('Setup')
 const setup = await agent(
-  `Create an isolated git worktree for an iterative plan review/fix loop.
-Run these from ${REPO} (use absolute paths; this is plain git, no Edit tool needed):
-1. Remove any stale worktree/branch (ignore errors): cd ${REPO} && git worktree remove --force ${wtPath} 2>/dev/null; git branch -D ${wtBranch} 2>/dev/null
-2. Create fresh from HEAD: cd ${REPO} && git worktree add -b ${wtBranch} ${wtPath} HEAD
-3. Confirm the plan exists: test -f ${WT_ABS}/${planPath}
-Return ok=true with worktree=${WT_ABS} and the head short-sha, or ok=false with error.`,
-  { schema: SETUP_SCHEMA, phase: 'Setup', label: 'setup-worktree' }
+  `Confirm an implementation plan exists at the repo root for an iterative review/fix loop.
+Run from ${REPO} (plain git/sh, absolute paths):
+1. test -f ${REPO}/${planPath}
+2. Print the current HEAD short-sha: cd ${REPO} && git rev-parse --short HEAD
+Return ok=true with the head short-sha, or ok=false with error if the plan is missing.`,
+  { schema: SETUP_SCHEMA, phase: 'Setup', label: 'setup-check' }
 )
 
 if (!setup || !setup.ok) {
   return { outcome: 'setup_failed', detail: setup ? setup.error : 'setup agent returned null' }
 }
-log(`Worktree ready at ${WT_ABS} (head ${setup.head || '?'})`)
+log(`Plan present at ${REPO}/${planPath} (head ${setup.head || '?'})`)
 
-// --- Loop: review -> (fix) -> re-review until approved / diminishing returns / max ---
+// --- Loop: review (repo root) -> (fix in throwaway worktree, ff-merge to main) -> re-review ---
 const rounds = []
 let stopReason = 'max_rounds'
 let finalStatus = 'unknown'
@@ -94,10 +95,10 @@ let prevBlocking = Infinity
 for (let r = 1; r <= maxRounds; r++) {
   phase('Review')
   const review = await agent(
-    `Adversarial Codex review of an implementation PLAN — round ${r}. Operate in the worktree ${WT_ABS}.
+    `Adversarial Codex review of an implementation PLAN — round ${r}. Run from the REPO ROOT ${REPO} (NOT a worktree — codex cannot load its config from inside .claude/worktrees on this setup).
 
 STEP 1 — Run (may take several minutes; do not abort early):
-cd ${WT_ABS} && node "${COMPANION}" adversarial-review "--wait --base ${base} Focus on the implementation plan at ${planPath}. It is the design/implementation plan for a new jx-qa 'spec-generator' subagent. Adversarially challenge whether its locked decisions, security posture, rollback safety, and approval-provenance are sound enough to BEGIN IMPLEMENTATION. Treat unresolved risks that make implementation premature as blocking."
+cd ${REPO} && node "${COMPANION}" adversarial-review "--wait --base ${base} Focus on the implementation plan at ${planPath}. It is the design/implementation plan for a new jx-qa '/jx-qa:coverage' command+skill — a coverage-gap analyzer that maps BRD/PRD requirements to xlsx test cases and reports breadth coverage (Covered/Partial/Uncovered/N/A) as an UNVERIFIED, ADVISORY, NON-GATING report. It is deliberately a command+skill, NOT a subagent, and reuses two existing pinned read-only helpers (xlsx-writer.py read, read-doc.py read) — no new scripts, no Write/exec/browser. Adversarially challenge whether its locked decisions (SEMANTIC requirement-to-test-case matching since the xlsx has no requirement-ID column, BRD strictly required, an N/A 'not E2E-testable' status, the Covered/Partial/Uncovered/N/A ladder, arg order matching review-plan), its prompt-injection / path-validation posture (inputs treated as data, fail-closed path checks, each pinned helper called once), its runtime-load/discoverability validation, and its scope/overlap with review-plan are sound enough to BEGIN IMPLEMENTATION. Treat unresolved risks that make implementation premature as blocking."
 
 STEP 2 — Classify and return:
 - If the command failed / Codex not authenticated / runtime not ready / no usable review -> status='error', set 'error', blocking=false, findings=[].
@@ -128,18 +129,25 @@ Do NOT fix anything. Return ONLY the object.`,
   if (r === maxRounds) { stopReason = 'max_rounds'; break }
 
   phase('Fix')
+  const fixWt = `.claude/worktrees/wf-fix-r${r}`
+  const fixBranch = `wf-fix-r${r}`
   const fix = await agent(
-    `The adversarial review BLOCKED implementation (round ${r}). Update the plan to address the blocking findings, working ONLY in the worktree ${WT_ABS}.
+    `The adversarial review BLOCKED implementation (round ${r}). Apply MINIMAL edits to the plan that address the blocking findings, then land them on main so the next repo-root review sees them.
 
-1. Read ${WT_ABS}/${planPath} in full.
-2. For each blocking finding, apply a concrete, MINIMAL edit that addresses it (add a mitigation, tighten a decision, add a step/risk, narrow scope). Prefer the Edit tool on ${WT_ABS}/${planPath}. If a write is refused by a worktree-isolation guard, fall back to a Bash python3 read-modify-write (read the file, do exact verified string replacements, write it back).
-3. Verify the edits landed (re-read or grep).
-4. Commit in the worktree: cd ${WT_ABS} && git add ${planPath} && git commit -m "docs(plan): address adversarial review round ${r} findings"
+Reviews run from the repo root, so fixes MUST end up on main. Work in a throwaway worktree, then fast-forward merge:
+1. From ${REPO}, make a fresh fix worktree from HEAD (ignore stale-removal errors):
+   cd ${REPO} && git worktree remove --force ${fixWt} 2>/dev/null; git branch -D ${fixBranch} 2>/dev/null; git worktree add -b ${fixBranch} ${fixWt} HEAD
+2. Read ${REPO}/${fixWt}/${planPath} in full.
+3. For each blocking finding, apply a concrete, MINIMAL edit (add a mitigation/validation step, tighten a decision, narrow scope). Prefer the Edit tool on ${REPO}/${fixWt}/${planPath}. If a write is refused by a worktree-isolation guard, fall back to a Bash python3 read-modify-write with exact verified string replacements.
+4. Commit in the worktree: cd ${REPO}/${fixWt} && git add ${planPath} && git commit -m "docs(plan): address adversarial review round ${r} findings"
+5. Fast-forward merge to main and clean up:
+   cd ${REPO} && git merge --ff-only ${fixBranch} && git worktree remove --force ${fixWt} && git branch -D ${fixBranch}
+6. Verify main advanced: cd ${REPO} && git log --oneline -1
 
-Blocking findings:
+Touch ONLY ${planPath}. Blocking findings:
 ${JSON.stringify(blockers, null, 2)}
 
-Do not touch any other file or the main checkout. Return addressed[] (finding + change), residual[] (anything you could not responsibly fix, with reason), summary, and commit (short sha). If you could not commit, set error.`,
+Return addressed[] (finding + change), residual[] (anything you could not responsibly fix, with reason), summary, and commit (the short sha now on main). If you could not commit or ff-merge, set error.`,
     { schema: FIX_SCHEMA, phase: 'Fix', label: `fix-r${r}` }
   )
   rounds[rounds.length - 1].fix = fix
@@ -158,4 +166,4 @@ const outcome =
   : stopReason === 'fix_failed' ? 'fix_failed'
   : 'stopped'
 
-return { outcome, stopReason, finalStatus, rounds, worktreeBranch: wtBranch, worktreePath: WT_ABS, planPath, base, maxRounds }
+return { outcome, stopReason, finalStatus, rounds, planPath, base, maxRounds, note: 'Reviews ran from the repo root; any fixes were ff-merged to main — review the landed commits.' }

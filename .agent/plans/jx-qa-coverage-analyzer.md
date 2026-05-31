@@ -181,6 +181,15 @@ ID (10th column or `AC-…:` title prefix) would upgrade BOTH `coverage` and
 2. Mirror `review-plan` for command + skill; adapt lens, semantic match, 4-status
    ladder, report, evals.
 3. Validate evals JSON; sanity-check command/skill frontmatter parity with `review-plan`.
-4. Land on `main` (commit; push only if asked).
-5. Wiki: follow-up idea already filed (*Add Requirement-ID Traceability Column to
+4. **Config-load smoke (BLOCKING — do not land until this passes).** File shape
+   ≠ runtime registration; a malformed command file, load-order/dependency issue,
+   or stale installed plugin can pass step 3 yet still yield `Unknown command`.
+   Pin Claude / the Agent SDK to **this checkout** with `jx-core` + `jx-qa` and assert:
+   - the init/`system` message lists the local `jx-qa` plugin **and** `/jx-qa:coverage`;
+   - invoking `/jx-qa:coverage` with **missing args** activates the coverage skill and
+     **fails closed** (does not run a helper on an unvalidated path).
+   (Addresses Codex adversarial-review finding, 2026-05-30 — runtime command
+   discovery was unvalidated.)
+5. Land on `main` (commit; push only if asked).
+6. Wiki: follow-up idea already filed (*Add Requirement-ID Traceability Column to
    Extract*); optionally file the coverage idea + index/log entry for provenance.
