@@ -197,14 +197,26 @@ ID (10th column or `AC-…:` title prefix) would upgrade BOTH `coverage` and
      the local `jx-qa` plugin **and** `/jx-qa:coverage`; invoke with **missing
      args** → it activates the coverage skill and **fails closed** (no helper on an
      unvalidated path). Catches `Unknown command`.
-   - **(b) Positive valid-input path (R2):** with a **tiny local `.xlsx` + `.md`
-     BRD fixture**, invoke `/jx-qa:coverage <xlsx> <brd>` and assert: **both pinned
-     helpers run exactly once**, **no other tool runs**, and the output **starts
-     with the NON-GATING advisory header + a Coverage Matrix**. Catches a bad
-     `allowed-tools` prefix, broken `CLAUDE_PLUGIN_ROOT` expansion, missing helper
-     dep, or a skill that loads but can't call its helpers — none of which (a) sees.
-   (Addresses Codex adversarial-review findings R1+R2, 2026-05-30 — discovery alone
-   is insufficient.)
+   - **(b) Positive valid-input path — CONTENT-AWARE (R2/R3):** structure alone is
+     not enough (an impl could read both files once and emit a placeholder matrix
+     and still pass). Use a **purpose-built fixture** whose BRD has exactly: **≥1
+     fully-covered requirement, 1 partial-or-uncovered requirement, 1 genuinely
+     non-E2E requirement** (e.g. "lint passes" — legitimately `N/A`), and **1
+     E2E-testable NFR** (e.g. a user-visible perf/accessibility behavior). Invoke
+     `/jx-qa:coverage <xlsx> <brd>` and assert:
+     - **both pinned helpers run exactly once; no other tool runs**;
+     - output **starts with the NON-GATING advisory header + Coverage Matrix**;
+     - **every BRD requirement ID appears exactly once** in the matrix;
+     - the **exact expected status per requirement** (Covered / Partial-or-Uncovered
+       / N/A) — including the non-E2E one marked `N/A` **with a quoted BRD basis**,
+       and the **E2E-testable NFR NOT marked `N/A`** (stays Partial/Uncovered);
+     - the coverage **denominator excludes only the N/A** item.
+     Catches a bad `allowed-tools` prefix, broken `CLAUDE_PLUGIN_ROOT` expansion,
+     missing helper dep, a skill that loads but can't call its helpers, AND a
+     nonfunctional analyzer that emits a plausible-but-wrong matrix — none of which
+     (a) or a structure-only check sees.
+   (Addresses Codex adversarial-review findings R1+R2+R3, 2026-05-30 — discovery
+   and structure alone are insufficient; the smoke must validate the actual result.)
 5. Land on `main` (commit; push only if asked).
 6. Wiki: follow-up idea already filed (*Add Requirement-ID Traceability Column to
    Extract*); optionally file the coverage idea + index/log entry for provenance.
