@@ -4,6 +4,14 @@ title: Wiki Log
 
 # Wiki Log
 
+## 2026-05-30 — Idea filed: extract requirement-ID traceability column
+
+- **Operation**: idea filing
+- **Pages created**: [[Add Requirement-ID Traceability Column to Extract]]
+- **Ideas extracted**: 1
+- **Note**: Follow-up surfaced while planning the coverage-gap analyzer — xlsx has no requirement-ID column, so coverage/review-plan traceability is semantic/fuzzy; persisting the ID in extract would make it deterministic. Plan: `.agent/plans/jx-qa-coverage-analyzer.md`.
+- **Outcome**: Success
+
 ## 2026-05-30 — Idea closed: jx-qa test-plan reviewer (implemented)
 
 - **Operation**: idea status update

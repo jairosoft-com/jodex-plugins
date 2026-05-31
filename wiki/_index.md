@@ -1,13 +1,14 @@
 ---
 title: Wiki Index
 updated: 2026-05-30
-page_count: 320
+page_count: 321
 ---
 
 # Wiki Index
 
 ## Ideas
 
+- [[Add Requirement-ID Traceability Column to Extract]] — xlsx test plan stores no requirement-ID per test case, forcing fuzzy semantic traceability; persist the ID in extract to make coverage + review-plan deterministic (#jx-qa, #extract, #traceability, #coverage, #test-plan) [raw]
 - [[ADO Sync Writes ACs to Wrong Field]] — ADO sync writes acceptance criteria to incorrect field when syncing PRD to Azure DevOps (#jx-pm, #jx-core, #ado, #acceptance-criteria) [completed]
 - [[ADO WIQL CONTAINS Is Substring Not Exact Tag]] — WIQL CONTAINS performs substring matching on tags, matching unintended items (#ado, #wiql, #testing) [completed]
 - [[ADO Work Item IDs Are Not PRD Feature IDs]] — ADO system IDs are in 100k-200k range while PRD feature IDs are app-level identifiers (#ado, #testing, #fixtures) [raw]
