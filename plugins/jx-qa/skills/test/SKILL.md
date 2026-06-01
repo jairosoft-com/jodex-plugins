@@ -3,11 +3,12 @@ name: test
 user-invocable: true
 argument-hint: "[ui] [headed]"
 description: >
-  Run Playwright E2E tests.
+  Run Playwright E2E tests. This skill is Playwright E2E ONLY.
   Trigger on: "run playwright test", "run e2e test", "run e2e".
-  Do not trigger for: test plan reviews, coverage
-  analysis, Playwright script generation, unit/integration test generation,
-  or unit/integration test execution.
+  Do NOT trigger for unit or integration tests — e.g. "run unit tests",
+  "run the unit suite", "npm test", "jest", "pytest" are NOT this skill.
+  Also do not trigger for: test plan reviews, coverage analysis, or
+  Playwright script generation.
 ---
 
 # Run Playwright Test
